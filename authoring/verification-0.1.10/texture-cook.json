@@ -1,0 +1,66 @@
+{
+  "schema": "garrison.essence-run/v1",
+  "status": "succeeded",
+  "started_at_utc": "2026-11-08T22:05:38.501423Z",
+  "editor": {
+    "path": "C:\\Users\\RS\\AppData\\Local\\Garrison\\Kit\\tools\\essence-object-editor\\EssenceEditor.exe",
+    "sha256": "2a7c31140c50fcb411644a03efaf1237cc46305c8e5249f5ea299e115dd89de5",
+    "size_bytes": 10242880,
+    "profile": null,
+    "accepted_by": "capability-probe"
+  },
+  "mod": {
+    "path": "F:\\aoe_4_temp\\New_custom_civilization\\aoe4-Chagatai-Khanate\\authoring\\building-colors-0.1.10\\chagatai.aoe4mod",
+    "namespace": "http://schemas.datacontract.org/2004/07/Essence.Editor.Modding",
+    "mod_id": "ac8da4d1-12bf-433c-8884-33228510b447",
+    "mod_type": "Extension",
+    "data_generic_path": "source\\",
+    "data_intermediate_path": "cache",
+    "locdb_path": "locdb\\chagatai.locdb",
+    "burn_project_path": "F:\\aoe_4_temp\\New_custom_civilization\\aoe4-Chagatai-Khanate\\authoring\\building-colors-0.1.10\\source\\_default.burnproj"
+  },
+  "run_root": "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1",
+  "command": [
+    "C:\\Users\\RS\\AppData\\Local\\Garrison\\Kit\\tools\\essence-object-editor\\EssenceEditor.exe",
+    "-rtm",
+    "--safe_settings",
+    "--do_not_restore",
+    "--quiet_crash_report",
+    "--no_source_control",
+    "--log_path",
+    "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\logs",
+    "--build_mod",
+    "F:\\aoe_4_temp\\New_custom_civilization\\aoe4-Chagatai-Khanate\\authoring\\building-colors-0.1.10\\chagatai.aoe4mod",
+    "--no_burn_window",
+    "--burn_verbose_log_level",
+    "--burn_cache_type",
+    "Local",
+    "--burn_max_threads",
+    "1",
+    "--burn_log_path",
+    "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\logs\\burn.log",
+    "--build_path",
+    "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\output",
+    "--intermediate_path",
+    "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\intermediate"
+  ],
+  "working_directory": "C:\\Users\\RS\\AppData\\Local\\Garrison\\Kit\\tools\\essence-object-editor",
+  "timeout_seconds": 600.0,
+  "intermediate_mode": "isolated-run",
+  "generated_write_scope": [
+    "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\intermediate",
+    "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\output"
+  ],
+  "finished_at_utc": "2026-11-08T22:06:13.317277Z",
+  "duration_seconds": 34.785,
+  "raw_exit_code": 0,
+  "exit_code": 0,
+  "timed_out": false,
+  "diagnostics": [],
+  "logs": {
+    "application_directory": "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\logs",
+    "burn": "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\logs\\burn.log",
+    "stdout": "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\logs\\stdout.log",
+    "stderr": "F:\\aoe_4_temp\\Temp_aoe4\\ck020-native-bc1\\logs\\stderr.log"
+  }
+}

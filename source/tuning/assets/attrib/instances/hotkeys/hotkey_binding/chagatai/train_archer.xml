@@ -1,0 +1,17 @@
+<instance version="4" description="" template="hotkeys\hotkey_binding">
+	<uniqueid name="pbgid" value="1073765442" />
+	<group name="hotkey_binding">
+		<string name="combo_primary" value="A" />
+		<locstring name="ui_name" value="5120" mod="ac8da4d112bf433c888433228510b447" />
+		<bool name="allow_repeats" value="False" />
+		<string name="combo_secondary" value="" />
+		<bool name="essential" value="False" />
+		<bool name="ignore_alt" value="False" />
+		<bool name="ignore_shift" value="True" />
+		<bool name="significant" value="False" />
+		<bool name="user_remappable" value="True" />
+		<locstring name="ui_prefix" value="0" />
+		<int name="ui_sort_priority" value="0" />
+		<string name="xbox_combo_primary" value="" />
+	</group>
+</instance>

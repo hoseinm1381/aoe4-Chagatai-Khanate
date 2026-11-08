@@ -1,0 +1,102 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073741848" />
+	<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_manatarms_4_mon" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="1336235242" List.ParentItemID="1336235242">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="1233639378" List.ParentItemID="1233639378">
+					<instance_reference name="type" value="ebps\races\chagatai\units\ck_nokor_foot_4" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="1397640044" List.ParentItemID="1397640044">
+			<list name="requirement_table" overrideParent="True">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-2069366952">
+					<enum name="reason" value="usage_and_display" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="True" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_nokor_4" mod="ac8da4d112bf433c888433228510b447" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+			</list>
+			<state_tree_node name="requirement_statetree" value="" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="905650936" List.ParentItemID="905650936">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="1979727231" List.ParentItemID="1979727231">
+					<group name="info">
+						<locstring name="screen_name" value="7010" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<locstring name="help_text" value="2210" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<locstring name="extra_text" value="7102" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<locstring name="brief_text" value="0" overrideParent="True" />
+						<file name="icon_name" value="chagatai\units\stock_based\nokor_foot" overrideParent="True" />
+						<file name="portrait_name" value="chagatai\units\stock_based\nokor_foot" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="True" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="-2009835917" List.ParentItemID="-2009835917">
+			<list name="abilities" removedIds="-1110505885" />
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="1336235242" List.ParentItemID="1336235242">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="1233639378" List.ParentItemID="1233639378">
+						<instance_reference name="type" value="ebps\races\chagatai\units\ck_nokor_foot_4" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="1397640044" List.ParentItemID="1397640044">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-303690382">
+						<enum name="reason" value="usage_and_display" />
+						<locstring name="ui_name" value="0" />
+						<bool name="is_present" value="True" />
+						<int name="max_completed" value="100" />
+						<int name="min_completed" value="1" />
+						<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_nokor_4" mod="ac8da4d112bf433c888433228510b447" />
+						<bool name="include_queued" value="False" />
+						<group name="include_pbg_parenting">
+							<bool name="include_child_pbgs" value="False" />
+							<bool name="include_parent_pbgs" value="False" />
+						</group>
+						<bool name="include_completed" value="True" />
+					</template_reference>
+				</list>
+				<state_tree_node name="requirement_statetree" value="" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="905650936" List.ParentItemID="905650936">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="1979727231" List.ParentItemID="1979727231">
+						<group name="info">
+							<locstring name="screen_name" value="7010" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<locstring name="help_text" value="2210" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<locstring name="extra_text" value="7102" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<locstring name="brief_text" value="0" overrideParent="True" />
+							<file name="icon_name" value="chagatai\units\stock_based\nokor_foot" overrideParent="True" />
+							<file name="portrait_name" value="chagatai\units\stock_based\nokor_foot" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="True" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="-2009835917" List.ParentItemID="-2009835917">
+				<list name="abilities" removedIds="-1110505885" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741848" />
+		<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_manatarms_4_mon" />
+	</variant>
+</instance>

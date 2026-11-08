@@ -1,0 +1,290 @@
+[
+  {
+    "resource": "art/scenario/chagatai/archer_foot_2_1/archer_foot_2_1.rgm",
+    "meshes": [
+      "archer_foot_2_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_foot_2_2/archer_foot_2_2.rgm",
+    "meshes": [
+      "archer_foot_2_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_foot_3_1/archer_foot_3_1.rgm",
+    "meshes": [
+      "archer_foot_3_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_foot_3_2/archer_foot_3_2.rgm",
+    "meshes": [
+      "archer_foot_3_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_foot_4_1/archer_foot_4_1.rgm",
+    "meshes": [
+      "archer_foot_4_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_foot_4_2/archer_foot_4_2.rgm",
+    "meshes": [
+      "archer_foot_4_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_mounted_2_1/archer_mounted_2_1.rgm",
+    "meshes": [
+      "archer_mounted_2_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_mounted_2_2/archer_mounted_2_2.rgm",
+    "meshes": [
+      "archer_mounted_2_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_mounted_3_1/archer_mounted_3_1.rgm",
+    "meshes": [
+      "archer_mounted_3_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_mounted_3_2/archer_mounted_3_2.rgm",
+    "meshes": [
+      "archer_mounted_3_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_mounted_4_1/archer_mounted_4_1.rgm",
+    "meshes": [
+      "archer_mounted_4_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/archer_mounted_4_2/archer_mounted_4_2.rgm",
+    "meshes": [
+      "archer_mounted_4_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/corpse_1/corpse_1.rgm",
+    "meshes": [
+      "corpse_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/crossbow_mounted_3_1/crossbow_mounted_3_1.rgm",
+    "meshes": [
+      "crossbow_mounted_3_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/crossbow_mounted_3_2/crossbow_mounted_3_2.rgm",
+    "meshes": [
+      "crossbow_mounted_3_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/crossbow_mounted_4_1/crossbow_mounted_4_1.rgm",
+    "meshes": [
+      "crossbow_mounted_4_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/crossbow_mounted_4_2/crossbow_mounted_4_2.rgm",
+    "meshes": [
+      "crossbow_mounted_4_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/handcannon_mounted_4_1/handcannon_mounted_4_1.rgm",
+    "meshes": [
+      "handcannon_mounted_4_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/handcannon_mounted_4_2/handcannon_mounted_4_2.rgm",
+    "meshes": [
+      "handcannon_mounted_4_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_foot_2_1/nokor_foot_2_1.rgm",
+    "meshes": [
+      "nokor_foot_2_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_foot_3_1/nokor_foot_3_1.rgm",
+    "meshes": [
+      "nokor_foot_3_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_foot_3_2/nokor_foot_3_2.rgm",
+    "meshes": [
+      "nokor_foot_3_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_foot_4_1/nokor_foot_4_1.rgm",
+    "meshes": [
+      "nokor_foot_4_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_foot_4_2/nokor_foot_4_2.rgm",
+    "meshes": [
+      "nokor_foot_4_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_mounted_2_1/nokor_mounted_2_1.rgm",
+    "meshes": [
+      "nokor_mounted_2_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_mounted_2_2/nokor_mounted_2_2.rgm",
+    "meshes": [
+      "nokor_mounted_2_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_mounted_3_1/nokor_mounted_3_1.rgm",
+    "meshes": [
+      "nokor_mounted_3_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_mounted_3_2/nokor_mounted_3_2.rgm",
+    "meshes": [
+      "nokor_mounted_3_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_mounted_4_1/nokor_mounted_4_1.rgm",
+    "meshes": [
+      "nokor_mounted_4_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/nokor_mounted_4_2/nokor_mounted_4_2.rgm",
+    "meshes": [
+      "nokor_mounted_4_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/religious_foot_3_1/religious_foot_3_1.rgm",
+    "meshes": [
+      "religious_foot_3_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/religious_foot_3_2/religious_foot_3_2.rgm",
+    "meshes": [
+      "religious_foot_3_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/religious_mounted_3_1/religious_mounted_3_1.rgm",
+    "meshes": [
+      "religious_mounted_3_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/religious_mounted_3_2/religious_mounted_3_2.rgm",
+    "meshes": [
+      "religious_mounted_3_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/scout_foot_1_1/scout_foot_1_1.rgm",
+    "meshes": [
+      "scout_foot_1_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/spearman_mounted_1_1/spearman_mounted_1_1.rgm",
+    "meshes": [
+      "spearman_mounted_1_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/spearman_mounted_1_2/spearman_mounted_1_2.rgm",
+    "meshes": [
+      "spearman_mounted_1_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/spearman_mounted_2_1/spearman_mounted_2_1.rgm",
+    "meshes": [
+      "spearman_mounted_2_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/spearman_mounted_2_2/spearman_mounted_2_2.rgm",
+    "meshes": [
+      "spearman_mounted_2_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/spearman_mounted_3_1/spearman_mounted_3_1.rgm",
+    "meshes": [
+      "spearman_mounted_3_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/spearman_mounted_3_2/spearman_mounted_3_2.rgm",
+    "meshes": [
+      "spearman_mounted_3_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/spearman_mounted_4_1/spearman_mounted_4_1.rgm",
+    "meshes": [
+      "spearman_mounted_4_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/spearman_mounted_4_2/spearman_mounted_4_2.rgm",
+    "meshes": [
+      "spearman_mounted_4_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/trader_foot_2_1/trader_foot_2_1.rgm",
+    "meshes": [
+      "trader_foot_2_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/trader_foot_2_2/trader_foot_2_2.rgm",
+    "meshes": [
+      "trader_foot_2_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/villager_mounted_1_1/villager_mounted_1_1.rgm",
+    "meshes": [
+      "villager_mounted_1_1_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/villager_mounted_1_2/villager_mounted_1_2.rgm",
+    "meshes": [
+      "villager_mounted_1_2_body"
+    ]
+  },
+  {
+    "resource": "art/scenario/chagatai/horse_1/horse_1.rgm",
+    "meshes": [
+      "horse_1_body"
+    ]
+  }
+]

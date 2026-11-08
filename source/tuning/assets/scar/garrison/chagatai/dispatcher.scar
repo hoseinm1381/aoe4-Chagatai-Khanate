@@ -1,0 +1,88 @@
+import("cardinal.scar")
+Core_RegisterModule("ChagataiIndependent")
+import("chagatai/config.scar")
+import("chagatai/horse_core.scar")
+import("chagatai/economy_core.scar")
+import("chagatai/production_core.scar")
+import("chagatai/effects_core.scar")
+import("chagatai/catalog.scar")
+import("chagatai/native_world.scar")
+import("chagatai/building_visuals.scar")
+import("chagatai/native_units.scar")
+import("chagatai/native_economy.scar")
+import("chagatai/native_effects.scar")
+import("chagatai/native_runtime.scar")
+import("chagatai/horse_hud.scar")
+
+local chagataiRace="ac8da4d112bf433c888433228510b447:chagatai"
+
+local sharedSquads = {} -- Filled by tools/build.py.
+local sharedSquadsRequested = false
+
+function ChagataiIndependent_OnGameSetup()
+    sharedSquadsRequested = false
+end
+
+function ChagataiIndependent_PrecacheSharedSquads()
+    if sharedSquadsRequested then return end
+    if type(PLAYERS) == "table" and #PLAYERS > 0 then
+        local hasChagatai = false
+        for _, player in ipairs(PLAYERS) do
+            if Player_GetRaceName(player.id) == chagataiRace then
+                hasChagatai = true
+                break
+            end
+        end
+        if not hasChagatai then return end
+    end
+
+    local blueprints = {}
+    for _, name in ipairs(sharedSquads) do
+        assert(SBP_Exists(name), "Missing Chagatai shared SBP: " .. name)
+        local blueprint = BP_GetSquadBlueprint(name)
+        assert(blueprint ~= nil, "Unresolved Chagatai shared SBP: " .. name)
+        blueprints[#blueprints + 1] = blueprint
+    end
+    for _, blueprint in ipairs(blueprints) do
+        Scar_PrecachePrematchResource(blueprint)
+    end
+    sharedSquadsRequested = true
+    print("CHAGATAI_SHARED_PREMATCH_REQUESTED squads=" .. tostring(#blueprints))
+end
+
+Scar_AddInit(ChagataiIndependent_PrecacheSharedSquads)
+
+function ChagataiIndependent_OnInit()
+    -- Standard owns creation of the starting army before Start.
+end
+
+function ChagataiIndependent_Start()
+    for _,player in ipairs(PLAYERS) do
+        if player.isHuman and Player_IsAlive(player.id) and Player_GetRaceName(player.id)==chagataiRace then
+            local ok,failure=pcall(ChagataiNative_Initialize,player)
+            if not ok then
+                local message="Chagatai initialization failed: "..tostring(failure)
+                print(message)
+                ChagataiNative.LocalWarning(player.id,message)
+            end
+        end
+    end
+end
+
+function ChagataiIndependent_OnGameRestore()
+    local native=ChagataiNative
+    if native.running and not native.ended then
+        if not Rule_Exists(ChagataiNative_Tick) then
+            Rule_AddInterval(ChagataiNative_Tick,0.25)
+        end
+        pcall(native.RestoreHorseHUD)
+    end
+end
+
+function ChagataiIndependent_PreGameOver(reason)
+    if ChagataiNative.running then ChagataiNative_Stop() end
+end
+
+function ChagataiIndependent_OnGameOver()
+    if ChagataiNative.running then ChagataiNative_Stop() end
+end

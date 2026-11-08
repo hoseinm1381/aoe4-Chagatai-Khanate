@@ -1,0 +1,38 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073765356" />
+	<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_ranged_archer_silkstring" />
+	<group name="upgrade_bag">
+		<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_silkstring_mon" overrideParent="True" />
+		<group name="ui_position">
+			<int name="ui_position_row" value="3" overrideParent="True" />
+			<int name="ui_position_column" value="1" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1179982473" List.ParentItemID="1179982473">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_ranged_archer_silkstring" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</template_reference>
+		</list>
+		<group name="ui_info">
+			<locstring name="help_text" value="7484" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_silkstring_mon" overrideParent="True" />
+			<group name="ui_position">
+				<int name="ui_position_row" value="3" overrideParent="True" />
+				<int name="ui_position_column" value="1" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1179982473" List.ParentItemID="1179982473">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_ranged_archer_silkstring" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				</template_reference>
+			</list>
+			<group name="ui_info">
+				<locstring name="help_text" value="7484" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073765356" />
+		<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_ranged_archer_silkstring" />
+	</variant>
+</instance>

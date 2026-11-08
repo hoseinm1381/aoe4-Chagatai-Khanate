@@ -1,0 +1,624 @@
+local N=ChagataiNative
+
+-- Cost is native ability data, so the command card and affordability check use
+-- the same price. Only this private ability is modified for this player.
+function N.SyncImportPrice(p)
+    if p.auxiliary then return end
+    local quote=ChagataiEconomy.Quote(p.economy)
+    if p.importQuote==quote and p.importCost then return end
+    if p.importCost then Modifier_Remove(p.importCost) end
+    local mod=Modifier_Create(MAT_Ability,'ability_cost_gold_modifier',MUT_Set,true,quote,N.Ability('import_horse'))
+    p.importCost=Modifier_ApplyToPlayer(mod,p.id,0);p.importQuote=quote
+end
+
+function N.QueueImport(p,b,entity,now)
+    -- GE_AbilityExecuted follows native payment. Never debit the price again.
+    local paid=p.importQuote or ChagataiEconomy.Quote(p.economy)
+    if not N.Functioning(entity) or (b.role~='market' and b.role~='almaliq')
+        or not Entity_HasProductionQueue(entity) then N.Gold(p.id,paid);return false end
+    N.PollQueue(p,b,entity,now)
+    local bp=N.Get('sbps/races/chagatai/animals/ck_horse_import').bp
+    b.preparing=true
+    local ok,accepted=pcall(Entity_QueueProductionItemByPBG,entity,PITEM_Spawn,bp)
+    b.preparing=false
+    if not ok or not accepted then N.Gold(p.id,paid);return false end
+    N.serial=N.serial+1;local tx='import:'..N.serial
+    local receipt=ChagataiEconomy.StartImport(p.economy,tx,now,N.Profile(p,true),true,paid)
+    assert(receipt,'Import transaction was reused')
+    -- Native queue completion determines birth; waiting behind a Trader does
+    -- not manufacture a Horse after fifteen seconds of wall-clock waiting.
+    receipt.completeAt=nil
+    b.queue[#b.queue+1]={bp=bp,importID=tx,sequence=N.serial}
+    N.SyncImportPrice(p)
+    return true
+end
+
+-- Read-only, bounded native event evidence. Do not infer cancellation indices
+-- or enable mounted cancellation until the owner verifies the actual payload.
+function N.ProbeQueueCancellation(context,data)
+    if N.ended or not ChagataiConfig.queueCancellationProbe then return end
+    local function describe(value,depth)
+        if scartype and ST_PBG and scartype(value)==ST_PBG then return 'pbg:'..BP_GetName(value) end
+        if type(value)~='table' then return string.sub(tostring(value),1,160) end
+        if depth>=2 then return '<table>' end
+        local fields={}
+        for key,v in pairs(value) do
+            fields[#fields+1]=tostring(key)..'='..describe(v,depth+1)
+        end
+        table.sort(fields)
+        while #fields>20 do table.remove(fields) end
+        return '{'..table.concat(fields,',')..'}'
+    end
+    if data and data.scope=='startup' then
+        if N.queueProbeStarted then return end
+        N.queueProbeStarted=true
+        print('CHAGATAI_QUEUE_CANCEL_PROBE ACTIVE '..describe(data,0))
+        return
+    end
+    N.queueProbeCount=(N.queueProbeCount or 0)+1
+    if N.queueProbeCount>8 then return end
+    -- Native print is the proven warnings.log sink used by official modules.
+    -- LogPrintTo produced no evidence in the owner's completed native test.
+    print('CHAGATAI_QUEUE_CANCEL_PROBE '..N.queueProbeCount..' registration='..describe(data,0)..' context='..describe(context,0))
+    local producers=0
+    for _,index in ipairs(N.Keys(N.players)) do
+        local p=N.players[index]
+        for _,id in ipairs(N.Keys(p.buildings)) do
+            local b=p.buildings[id];local e=N.Entity(id)
+            if e and Entity_IsAlive(e) and Entity_HasProductionQueue(e) then
+                local items={}
+                for i=0,Entity_GetProductionQueueSize(e)-1 do
+                    if #items>=32 then break end
+                    items[#items+1]=i..':'..BP_GetName(Entity_GetProductionQueueItem(e,i))
+                end
+                if #items>0 or #b.queue>0 then
+                    producers=producers+1
+                    print('CHAGATAI_QUEUE_CANCEL_PROBE producer='..id..' native=['..table.concat(items,',')..'] previous='..describe(b.queue,0))
+                    if producers>=8 then return end
+                end
+            end
+        end
+    end
+end
+
+function ChagataiNative_OnQueueCancellationProbe(context,data)
+    N.ProbeQueueCancellation(context,data)
+end
+
+function N.CreditTrainingFood(player,amount)
+    if amount and amount>0 then
+        Player_SetResource(player,RT_Food,Player_GetResource(player,RT_Food)+amount)
+    end
+end
+
+function N.TryHorseSpawn(p,key,position,profile,hp,logicalID,snap)
+    if not position or Player_GetCurrentPopulation(p.id,CT_Vehicle)>=Player_GetCurrentPopulationCap(p.id,CT_Vehicle) then return end
+    local staged={}
+    local h=logicalID and p.horses.horses[logicalID]
+    local ok,entity=pcall(function()
+        local e=N.Spawn(key,p.id,position,staged)
+        if snap then N.SnapPassable(e,position) end
+        N.NewHorse(p,e,profile,hp,logicalID)
+        return e
+    end)
+    if ok then return entity end
+    local tracked=staged.id and N.entities[staged.id]
+    if tracked then
+        local failedHorse=p.horses.horses[tracked.horseID]
+        N.ReleaseHorseAttachments(p,failedHorse,staged.id,true)
+        if failedHorse and failedHorse~=h then p.horses.horses[failedHorse.id]=nil end
+        N.entities[staged.id]=nil
+    end
+    if h then h.nativeID=nil;h.status='returning' end
+    N.DiscardSpawn(staged)
+    N.Notice(p,'Horse spawn deferred: '..tostring(entity))
+end
+
+function N.RestoreHorse(p,h,position)
+    h.status='returning';h.reservation=nil;h.restorePosition=position
+    local ok,safe=pcall(N.Passable,p.id,position)
+    if not ok or not safe then return end
+    local entity=N.TryHorseSpawn(p,'sbps/races/chagatai/animals/ck_horse',safe,h.profile,h.hp,h.id)
+    if entity then h.status='loose';h.restorePosition=nil end
+end
+
+function N.TrainMounted(p,b,entity,pair,now,foodPaid)
+
+    if N.ended or not ChagataiConfig.pairs[pair] or not entity or N.Owner(entity)~=p.id
+        or not Entity_HasProductionQueue(entity) then return false end
+    local tier=p.tiers[pair] or ({spearman=1,nokor=2,archer=2,crossbow=3,handcannon=4,scout=1,religious=3,trader=2})[pair]
+    tier=math.max(tier,ChagataiConfig.pairs[pair].mountedAge)
+    if Player_GetCurrentAge(p.id)<ChagataiConfig.pairs[pair].mountedAge then return false end
+    N.PollQueue(p,b,entity,now)
+    local horse=ChagataiHorse.NearestFree(p.horses,Entity_GetPosition(entity),32)
+    local restorePosition
+    if horse then
+        local he=N.Entity(horse.nativeID)
+        if not he then N.LostHorse(p,horse,now);return false end
+        if Entity_IsOfType(he,'animal_corpse') then N.HorseCarcass(p,horse,he,now);return false end
+        if not Entity_IsAlive(he) or N.Owner(he)~=p.id or Entity_IsInHold(he) then return false end
+        local hs=Entity_GetSquad(he)
+        if not N.HorseSettled(hs) then return false end
+        restorePosition=N.Passable(p.id,Entity_GetPosition(he),he)
+        if not restorePosition then return false end
+    end
+    if not horse and Player_GetResource(p.id,RT_Gold)<80 then return false end
+    local population=Player_GetCurrentPopulation(p.id,CT_Vehicle)
+    if not horse and population>=Player_GetCurrentPopulationCap(p.id,CT_Vehicle) then return false end
+    -- Exchange one physical native livestock slot for one native queue slot.
+    -- The logical profile stays loose until the engine accepts the transaction.
+    if horse then
+        local he=N.Entity(horse.nativeID)
+        horse.hp=Entity_GetHealth(he);horse.position=Entity_GetPosition(he)
+        if not N.RetireHorse(horse) then return false end
+    end
+    b.preparing=true
+    local squad=N.Unit(pair,'mounted',tier,'sbps')
+    local index=Entity_GetProductionQueueSize(entity)
+    -- Return the ability's debit immediately before the native queue charges
+    -- its rider cost. The queue now owns the Food payment and cancellation.
+    N.CreditTrainingFood(p.id,foodPaid)
+    local queued,accepted=pcall(Entity_QueueProductionItemByPBG,entity,PITEM_Spawn,squad.bp)
+    if not queued or not accepted then
+        b.preparing=false
+        if horse then N.RestoreHorse(p,horse,restorePosition) end
+        return false,true
+    end
+    local entry={bp=squad.bp}
+    if not N.Admit(p,b,entity,entry,now,horse) then
+        N.VerifyQueueCancellation(entity,index,entry.bp)
+        b.preparing=false
+        if horse then N.RestoreHorse(p,horse,restorePosition) end
+        return false,true
+    end
+    b.queue[#b.queue+1]=entry;b.preparing=false
+    N.SyncImportPrice(p);return true,true
+end
+
+-- Sequence alignment preserves reservations when ordinary research or foot
+-- entries are cancelled. Mounted/import entries use the explicit cancel button
+-- so two otherwise identical native queue entries retain distinct receipts.
+function N.AlignQueue(old,current)
+
+    if #old==#current then
+        local same=true
+        for i,bp in ipairs(current) do
+            if not N.SameBP(old[i].bp,bp) then same=false;break end
+        end
+        if same then return old end
+    end
+    local dp={};for i=1,#old+1 do dp[i]={[#current+1]=0} end
+    for j=1,#current do dp[#old+1][j]=0 end
+    for i=#old,1,-1 do for j=#current,1,-1 do
+        if N.SameBP(old[i].bp,current[j]) then dp[i][j]=dp[i+1][j+1]+1 else dp[i][j]=math.max(dp[i+1][j],dp[i][j+1]) end
+    end end
+    local matches={};local i,j=1,1
+    while i<=#old and j<=#current do
+        if N.SameBP(old[i].bp,current[j]) then matches[j]=old[i];i=i+1;j=j+1
+        elseif dp[i+1][j]>=dp[i][j+1] then i=i+1 else j=j+1 end
+    end
+    return matches
+end
+
+function N.VerifyQueueCancellation(entity,index,bp)
+    if not Entity_HasProductionQueue(entity) then return false end
+    local size=Entity_GetProductionQueueSize(entity)
+    if index<0 or index>=size or not N.SameBP(Entity_GetProductionQueueItem(entity,index),bp) then return false end
+    local expected={}
+    for i=0,size-1 do
+        if i~=index then expected[#expected+1]=Entity_GetProductionQueueItem(entity,i) end
+    end
+    pcall(Entity_CancelProductionQueueItem,entity,index)
+    if not Entity_HasProductionQueue(entity) or Entity_GetProductionQueueSize(entity)~=size-1 then return false end
+    for i,item in ipairs(expected) do
+        if not N.SameBP(item,Entity_GetProductionQueueItem(entity,i-1)) then return false end
+    end
+    return true
+end
+
+function N.CancelQueueEntry(p,b,entity,index,now)
+    local entry=b.queue[index]
+    if not entry then return false end
+    for _,pending in ipairs(p.completed) do
+        if pending.producer==b.id and N.SameBP(pending.bp,entry.bp) then return false end
+    end
+    local preparing,polling=b.preparing,b.polling
+    b.preparing,b.polling=true,true
+    b.cancelling=entry.bp;b.completionDuringCancel=false
+    local cancelled=N.VerifyQueueCancellation(entity,index-1,entry.bp)
+    b.preparing,b.polling=preparing,polling;b.cancelling=nil
+    if not cancelled or b.completionDuringCancel then return false end
+    table.remove(b.queue,index)
+    N.Refund(p,entry,now)
+    return true
+end
+function N.Refund(p,entry,now,producerDead)
+
+    if entry.refunded or entry.complete then return end;entry.refunded=true
+    if entry.id and p.production.entries[entry.id] then
+        local receipt=ChagataiProduction.Cancel(p.production,p.horses,p.economy,entry.id,now)
+        if receipt then
+            local production=p.production.entries[entry.id]
+            if production.kind=='fallback' then N.Gold(p.id,80) end
+            if receipt.horse then
+                N.RestoreHorse(p,p.horses.horses[receipt.horse.id],receipt.horse.position)
+            end
+            p.economy.transactions[entry.id]=nil
+            p.production.entries[entry.id]=nil
+        end
+    elseif entry.importID then
+        local gold=ChagataiEconomy.Cancel(p.economy,entry.importID,now)
+        if gold then N.Gold(p.id,gold);p.economy.transactions[entry.importID]=nil end
+    end
+    -- Native queue cancellation owns the original rider-payment refund. The
+    -- adapter refunds only its own Horse surcharge and physical reservation.
+    N.SyncImportPrice(p)
+end
+function N.Admit(p,b,entity,entry,now,consumedHorse)
+
+    local meta=N.Lookup(entry.bp,'sbps')
+    if not meta or not meta.pair or meta.form~='mounted' then return true end
+    N.serial=N.serial+1;local tx='mounted:'..N.serial
+    local horse=ChagataiHorse.NearestFree(p.horses,Entity_GetPosition(entity),32)
+    if horse and horse~=consumedHorse then
+        local he=N.Entity(horse.nativeID)
+        if not he then N.LostHorse(p,horse,now);return false end
+        if Entity_IsOfType(he,'animal_corpse') then N.HorseCarcass(p,horse,he,now);return false end
+        if not Entity_IsAlive(he) or N.Owner(he)~=p.id or Entity_IsInHold(he) then return false end
+        local hs=Entity_GetSquad(he)
+        if not N.HorseSettled(hs) then return false end
+    end
+    if not horse and Player_GetResource(p.id,RT_Gold)<80 then return false end
+    local cost=Player_GetSquadBPCost(p.id,meta.bp)
+    if type(cost)~='table' then return false end
+    local payment={};for k,v in pairs(cost) do payment[k]=v*(b.role=='ordu' and 0.9 or 1) end
+    if not horse and not N.Pay(p.id,80) then return false end
+    local receipt=ChagataiProduction.Admit(p.production,p.horses,p.economy,tx,b.id,Entity_GetPosition(entity),now,payment,N.Profile(p,true),true)
+    if not receipt then if not horse then N.Gold(p.id,80) end;return false end
+    entry.id=tx;entry.sequence=N.serial
+    if receipt.kind=='physical' then
+        local h=p.horses.horses[receipt.horseID]
+        if h~=consumedHorse then
+            local he=N.Entity(h.nativeID)
+            if not he then
+                ChagataiProduction.Cancel(p.production,p.horses,p.economy,tx,now)
+                N.LostHorse(p,h,now);entry.id=nil;return false
+            end
+            h.hp=Entity_GetHealth(he);h.position=Entity_GetPosition(he)
+            if not N.RetireHorse(h) then
+                ChagataiProduction.Cancel(p.production,p.horses,p.economy,tx,now)
+                entry.id=nil;return false
+            end
+        end
+    end
+    return true
+end
+function N.ImportStart(p,b,entity,now)
+    -- Imports are paid and receipted by their native command at admission.
+    Entity_EnableProductionQueue(entity,true)
+end
+function N.ReconcileQueue(p,b,entity,now)
+
+    if ChagataiConfig.queueCancellationProbe and not b.queueProbeRegistered then
+        Rule_AddEntityEvent(ChagataiNative_OnQueueCancellationProbe,entity,GE_BuildItemCancelled,{scope='entity',producer=b.id})
+        b.queueProbeRegistered=true
+    end
+    local current={}
+    for i=0,Entity_GetProductionQueueSize(entity)-1 do current[#current+1]=Entity_GetProductionQueueItem(entity,i) end
+    local matched=N.AlignQueue(b.queue,current);local retained={}
+    for _,entry in pairs(matched) do retained[entry]=true end
+    for _,entry in ipairs(b.queue) do
+        if not retained[entry] and not entry.complete then
+            -- A vanished queue slot is only a candidate. A matching born
+            -- actor must claim it before we commit a Horse or import receipt.
+            if entry.id or entry.importID or entry.pastureBirth then
+                entry.producer=b.id;entry.position=Entity_GetPosition(entity)
+                entry.expiresAt=now+5
+                p.completed[#p.completed+1]=entry
+            end
+        end
+    end
+    local nextQueue={}
+    for index,bp in ipairs(current) do
+        local entry=matched[index] or {bp=bp}
+        if (not matched[index] or entry.unmatched) and not N.Admit(p,b,entity,entry,now) then
+            if N.VerifyQueueCancellation(entity,index-1,bp) then
+                for remaining=index+1,#current do
+                    nextQueue[#nextQueue+1]=matched[remaining] or {bp=current[remaining],unmatched=true}
+                end
+            else
+                for remaining=index,#current do
+                    nextQueue[#nextQueue+1]=matched[remaining] or {bp=current[remaining],unmatched=true}
+                end
+            end
+            b.queue=nextQueue
+            N.Notice(p,'mounted order rejected: no free Horse within 32m and insufficient Gold')
+            return -- Resnapshot after the native cancellation; indices changed.
+        end
+        entry.unmatched=nil
+        nextQueue[#nextQueue+1]=entry
+    end
+    b.queue=nextQueue;N.ImportStart(p,b,entity,now)
+end
+function N.PollQueue(p,b,entity,now)
+
+    -- A cancellation/enable can synchronously advance another queue item.
+    -- Preserve the current reconciliation until its snapshot is committed.
+    if b.polling or not Entity_HasProductionQueue(entity) then return end
+    b.polling=true
+    local ok,reason=pcall(N.ReconcileQueue,p,b,entity,now)
+    b.polling=false
+    if not ok then error(reason) end
+end
+function ChagataiNative_OnProductionComplete(context)
+
+    if N.ended or not context then return end
+    -- GE_BuildItemComplete is a global/player event, not an entity event.
+    -- Official CombatMode/Score establish context.player. Producer identity
+    -- comes from each native queue snapshot, without guessing payload fields.
+    local info=context.player and Core_GetPlayersTableEntry(context.player)
+    local p=info and N.players[info.index]
+    if not N.IsPlaying(p) or p.auxiliary then return end
+    for _,id in ipairs(N.Keys(p.buildings)) do
+        local b=p.buildings[id];local e=N.Entity(id)
+        if b.cancelling and N.SameBP(b.cancelling,context.pbg) then b.completionDuringCancel=true end
+        if e and N.Owner(e)==p.id and Entity_IsAlive(e) and not b.preparing then
+            N.PollQueue(p,b,e,N.Now())
+            if b.role=='pasture' or b.role=='ili' then N.Pasture(p,b,e,0,N.Now()) end
+        end
+    end
+end
+function N.TakeCompletion(p,meta,position)
+
+    local best,distance
+    for i,entry in ipairs(p.completed) do
+        if N.SameBP(entry.bp,meta.bp) then
+            local d=position and entry.position and N.Distance(position,entry.position) or 0
+            local previous=best and p.completed[best]
+            if not best or d<distance or d==distance and entry.producer==previous.producer
+                and entry.sequence and previous.sequence and entry.sequence<previous.sequence then best,distance=i,d end
+        end
+    end
+    if not best then return end
+    local entry=table.remove(p.completed,best)
+    local producer=entry.producer and p.buildings[entry.producer]
+    -- Keep the oldest identical order in the visible queue while a removal
+    -- is ambiguous. A real birth proves a FIFO completion, so exchange the
+    -- parked receipt with that oldest order before binding the actor.
+    if producer and entry.sequence then
+        for index,queued in ipairs(producer.queue) do
+            if queued.sequence and queued.sequence<entry.sequence and N.SameBP(queued.bp,entry.bp) then
+                producer.queue[index]=entry
+                entry.producer,entry.position,entry.expiresAt=nil,nil,nil
+                entry=queued
+                entry.producer=producer.id
+                break
+            end
+        end
+    end
+    entry.complete=true
+    return entry
+end
+function N.RallyHorse(entity,producer)
+    local positions=Entity_GetRallyPointPositions(producer)
+    if not positions or not positions.position1 then return end
+    local group=N.SquadGroup(entity)
+    local index=1
+    while positions['position'..index] do
+        Cmd_Move(group,positions['position'..index],index>1)
+        index=index+1
+    end
+    SGroup_Destroy(group)
+end
+function N.Pasture(p,b,entity,dt,now)
+
+    if not N.Functioning(entity) or not Entity_HasProductionQueue(entity) then return end
+    if not b.firstHorse then
+        if Player_GetCurrentPopulation(p.id,CT_Vehicle)>=Player_GetCurrentPopulationCap(p.id,CT_Vehicle) then return end
+        local desired=N.Passable(p.id,N.Around(b.position,0,8))
+        local key=b.role=='ili' and 'sbps/races/chagatai/animals/ck_horse_ili' or 'sbps/races/chagatai/animals/ck_horse'
+        local e=N.TryHorseSpawn(p,key,desired,N.Profile(p,false),nil,nil,true)
+        if not e then return end
+        b.firstHorse=true
+        N.RallyHorse(e,entity)
+    end
+    local interval=ChagataiEconomy.BirthInterval(p.research.production or 0,p.qarshi,b.role=='ili')
+    N.ReplaceMod(b,'horseRate',entity,'spawn_production_speed_modifier',(b.role=='ili' and 45 or 120)/interval)
+    local bp=N.Get(b.role=='ili' and 'sbps/races/chagatai/animals/ck_horse_ili' or 'sbps/races/chagatai/animals/ck_horse').bp
+    for index=0,Entity_GetProductionQueueSize(entity)-1 do
+        if N.SameBP(Entity_GetProductionQueueItem(entity,index),bp) then return end
+    end
+    -- One real, non-cancellable native production order; its icon and progress
+    -- remain in the queue while the manual training command is removed.
+    b.preparing=true
+    local ok,accepted=pcall(Entity_QueueProductionItemByPBG,entity,PITEM_Spawn,bp)
+    b.preparing=false
+    if ok and accepted then
+        N.serial=N.serial+1
+        b.queue[#b.queue+1]={bp=bp,pastureBirth=true,sequence=N.serial}
+    end
+end
+function N.StopAutoMint(p,b)
+    b.autoMint=false
+    for _,id in ipairs(N.Keys(p.horses.horses)) do
+        local h=p.horses.horses[id]
+        if h.autoMint and h.mintID==b.id and h.alive then
+            local e=N.Entity(h.nativeID)
+            h.autoMint=nil
+            if e and N.Owner(e)==p.id and Entity_IsAlive(e)
+                and not Entity_IsOfType(e,'animal_corpse') and not Entity_IsInHold(e) then
+                N.ReleaseMintTrip(p,h)
+                local squad=Entity_GetSquad(e)
+                if squad and squad~=0 then N.StopMove(e) end
+            end
+        end
+    end
+end
+
+local function recruitMintHorses(p,b,heldCount,now)
+    if not b.autoMint or now<(b.autoMintNext or 0) then return end
+    b.autoMintNext=now+1
+    local range=ChagataiConfig.horse.mintAutoRange
+    local slots=ChagataiConfig.horse.mintCapacity-heldCount
+    local candidates={}
+    for _,id in ipairs(N.Keys(p.horses.horses)) do
+        local h=p.horses.horses[id]
+        if h.alive and h.status=='mint' and h.mintID==b.id and not h.wasInHold then slots=slots-1 end
+        if h.alive and h.status=='loose' and h.nativeID and not h.deathPending and not h.returnAt
+            and now>=(h.autoMintRetryAt or 0) then
+            local distance=N.Distance(h.position,b.position)
+            if distance>range and h.autoMintBlocked==b.id then h.autoMintBlocked=nil end
+            if distance<=range and h.autoMintBlocked~=b.id then
+                local e=N.Entity(h.nativeID)
+                if e and N.Owner(e)==p.id and Entity_IsAlive(e) and not Entity_IsInHold(e)
+                    and N.HorseSettled(Entity_GetSquad(e)) then
+                    candidates[#candidates+1]={horse=h,distance=distance}
+                end
+            end
+        end
+    end
+    table.sort(candidates,function(a,b)
+        return a.distance<b.distance or (a.distance==b.distance and a.horse.id<b.horse.id)
+    end)
+    for i=1,math.min(slots,#candidates) do
+        local h=candidates[i].horse
+        if ChagataiHorse.Reserve(p.horses,h.id,'mint',b.id) then
+            h.mintID=b.id;h.wasInHold=false;h.autoMint=true
+            h.autoMintRetryAt=nil
+            N.ResetMintTravel(h)
+        end
+    end
+end
+
+function N.Mint(p,b,entity,now)
+
+    if not N.Functioning(entity) then
+        if b.mintWasActive then Entity_UnloadAllFromHold(entity) end
+        b.mintWasActive=false
+        if b.mintNext and now>=b.mintNext then b.mintNext=b.mintNext+(math.floor((now-b.mintNext)/6)+1)*6 end
+        return
+    end
+    if b.mintWasActive==false and b.mintNext and now>=b.mintNext then b.mintNext=b.mintNext+(math.floor((now-b.mintNext)/6)+1)*6 end
+    b.mintWasActive=true
+    b.mintNext=b.mintNext or now+6
+    local due=now>=b.mintNext
+    if due then b.mintNext=b.mintNext+(math.floor((now-b.mintNext)/6)+1)*6 end
+    local g=SGroup_Create('ChagataiMintOrder');Entity_GetSquadsHeld(entity,g)
+    local count=SGroup_Count(g)
+    for index=1,count do
+        local squad=SGroup_GetSquadAt(g,index)
+        local he=squad and squad~=0 and Squad_GetFirstEntity(squad)
+        local tracked=N.Tracked(he)
+        -- A produced Horse can enter the hold before the ordinary world scan.
+        -- Adopt only private Horse blueprints, through the shared birth path.
+        if not tracked and N.RegisterHorseBirth then
+            N.RegisterHorseBirth(p,he);tracked=N.Tracked(he)
+        end
+        if tracked and tracked.player==p and tracked.horseID and N.Owner(he)==p.id then
+            local h=p.horses.horses[tracked.horseID]
+            if h and h.alive then h.status='mint';h.reservation=b.id;h.mintID=b.id;h.wasInHold=true;h.autoMint=nil end
+        end
+    end
+    if due and count>0 then
+        local squad=SGroup_GetSquadAt(g,1)
+        local e=squad and squad~=0 and Squad_GetFirstEntity(squad)
+        local t=N.Tracked(e)
+        if t and t.player==p and t.horseID and N.Owner(e)==p.id then
+            local h=p.horses.horses[t.horseID]
+            if h and h.alive and N.RetireHorse(h,entity) then
+                h.alive=false;h.status='consumed';N.Gold(p.id,50,RES_Resourcing)
+                count=count-1
+            end
+        end
+    end
+    SGroup_Destroy(g)
+    recruitMintHorses(p,b,count,now)
+end
+
+local function syncLivestockGatherRate(p)
+    local tier=p.research.livestock or 0
+    if tier<=(p.livestockGatherTier or 0) then return end
+    local modifiers={}
+    local ok,reason=pcall(function()
+        for _,form in ipairs({'foot','mounted'}) do
+            local body=N.Unit('villager',form,1,'ebps')
+            local modifier=Modifier_Create(MAT_EntityType,'resource_entity_harvest_rate_food',
+                MUT_Multiplication,false,1+0.15*tier,body.bp)
+            modifiers[#modifiers+1]=assert(Modifier_ApplyToPlayer(modifier,p.id,0))
+        end
+    end)
+    if not ok then
+        N.RemoveMods(modifiers)
+        N.Notice(p,'Livestock Management modifier deferred: '..tostring(reason))
+        return
+    end
+    N.RemoveMods(p.livestockGatherMods)
+    p.livestockGatherMods=modifiers
+    p.livestockGatherTier=tier
+end
+
+function N.Research(p)
+
+    for _,key in ipairs(N.Keys(ChagataiCatalog)) do
+        local r=ChagataiCatalog[key]
+        if r.category=='upgrade' and Player_HasUpgrade(p.id,r.bp) then
+            if r.pair then p.tiers[r.pair]=math.max(p.tiers[r.pair] or 0,r.tier)
+            elseif r.line and (p.research[r.line] or 0)<r.tier then
+                p.research[r.line]=r.tier
+                if r.line=='care' then Player_SetStateModelFloat(p.id,'monk_heal_rate',12.6)
+                elseif r.line=='lamellar' then
+                    for _,id in ipairs(N.Keys(p.horses.riders)) do
+                        local rider=p.horses.riders[id]
+                        if rider.alive and ChagataiConfig.pairs[rider.pair].lamellar and not rider.lamellarApplied then
+                            rider.lamellarApplied=true
+                            ChagataiHorse.SetRiderMaximum(p.horses,id,rider.riderMaximum*1.2)
+                            local e=N.Entity(id)
+                            if e and Entity_IsAlive(e) and N.Owner(e)==p.id then N.Health(rider,e,rider.maximum,rider.hp) end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    syncLivestockGatherRate(p)
+    for _,id in ipairs(N.Keys(p.workers)) do
+        local e=N.Entity(id)
+        if e and Entity_IsAlive(e) and N.Owner(e)==p.id then N.EnsureWorker(p,e)
+        else
+            p.workers[id]=nil
+            if p.workerHealth then p.workerHealth[id]=nil end
+        end
+    end
+
+    local horseTier=p.research.horse_hp
+    if not horseTier or horseTier<=p.horses.horseTier then return end
+    -- Reconcile native worker health before adding the Horse's new HP.
+    -- Read mounted caps while they still include the previous Horse tier.
+    local mounted={}
+    for _,id in ipairs(N.Keys(p.horses.riders)) do
+        local r=p.horses.riders[id]
+        if r.alive and r.form=='mounted' then
+            local e=N.Entity(id)
+            if e and Entity_IsAlive(e) and N.Owner(e)==p.id then
+                local horse=p.horses.horses[r.horseID]
+                local maximum=Entity_GetHealthMax(e)
+                if maximum>horse.maximum then
+                    r.maximum=maximum
+                    r.riderMaximum=maximum-horse.maximum
+                end
+                r.hp=r.maximum*Entity_GetHealthPercentage(e)
+                mounted[#mounted+1]={rider=r,entity=e}
+            end
+        end
+    end
+    ChagataiHorse.SetHorseTier(p.horses,horseTier)
+    for _,id in ipairs(N.Keys(p.horses.horses)) do
+        local h=p.horses.horses[id];local e=N.Entity(h.nativeID)
+        if e and h.alive and Entity_IsAlive(e) and N.Owner(e)==p.id then N.Health(h,e,h.maximum,h.hp) end
+    end
+    for _,entry in ipairs(mounted) do
+        local r,e=entry.rider,entry.entity
+        N.Health(r,e,r.maximum,r.hp)
+        if r.pair=='villager' then N.RecordWorkerHealth(p,e) end
+    end
+end

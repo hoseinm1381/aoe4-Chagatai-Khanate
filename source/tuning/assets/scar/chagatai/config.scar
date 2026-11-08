@@ -1,0 +1,43 @@
+-- Owner-approved values. Pure Lua 5.1; no engine state or blueprint identities.
+ChagataiConfig = {
+    revision = "2026-11-06-playtest-42-single-horse-drop", selectionSeconds = 30,
+    -- Cancellation trial rolled back after the owner's activation failure.
+    -- Keep all unverified cancellation listeners out of civilization startup.
+    queueCancellationProbe = false,
+    -- Retained isolation control; ordinary Villager Mount/Dismount is active.
+    workerMountProbe = false,
+    horse = {baseHP = 60, baseFood = 400, nativeCap = 200,
+        mountRange = 4, trainingRange = 32, approachSeconds = 30,
+        executionSeconds = 0, conversionCooldown = 30, failedReturnDelay = 10,
+        fallbackGold = 80, importSeconds = 15, minimumPrice = 80,
+        recoverySeconds = 30, almaliqRecoverySeconds = 22.5,
+        mintRange = 8, mintAutoRange = 32, mintCapacity = 40, mintSeconds = 6, mintGold = 50, mintStallSeconds = 12},
+    start = {villagers = 6, footScouts = 1, horses = 5,
+        food = 200, wood = 150, gold = 100, stone = 0},
+    research = {
+        production = {{wood=50,gold=100}, {wood=100,gold=200}, {wood=200,gold=300}},
+        horseHP = {{food=100,wood=100}, {food=200,wood=200}, {food=300,wood=300}},
+        livestock = {{food=50,gold=125}, {food=100,gold=250}, {food=200,gold=500}},
+        economicSeconds = 45,
+        yam = {age=2,wood=100,gold=250,seconds=60,speed=1.05},
+        care = {age=3,gold=350,seconds=30,healing=1.80},
+        lamellar = {age=4,food=300,gold=700,seconds=90,riderHP=1.20}
+    },
+    pairs = {
+        spearman = {footAge=1,mountedAge=1,lamellar=true},
+        nokor = {footAge=2,mountedAge=2,lamellar=true},
+        archer = {footAge=2,mountedAge=2,lamellar=true},
+        crossbow = {footAge=3,mountedAge=3,lamellar=true},
+        handcannon = {footAge=4,mountedAge=4,lamellar=true},
+        scout = {footAge=1,mountedAge=1},
+        religious = {footAge=3,mountedAge=3},
+        trader = {footAge=2,mountedAge=2},
+        villager = {footAge=1,mountedAge=1}
+    },
+    pasture = {seconds=120,iliSeconds=45,qarshiFactor=1.25},
+    ability = {duration=15,cooldown=60,nokorDamage=1.5,nokorSpeed=1.15,
+        nokorArmorPenalty=2,archerArmor=2,archerSpeed=0.8},
+    court = {range=40,duration=60,cooldown=180,healMissing=0.5,damage=1.5,speed=1.2},
+    ili = {initialMode="fattened",cooldown=60},
+    formation = {range=8,threshold=10,maximum=3}
+}

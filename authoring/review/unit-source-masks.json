@@ -1,0 +1,476 @@
+{
+  "archer_foot_2_1": {
+    "bones": 48,
+    "masks": {
+      "archer_foot_2_1_rider_lod1": 0.2786,
+      "archer_foot_2_1_rider_lod2": 0.283,
+      "archer_foot_2_1_rider_lod3": 0.2706
+    }
+  },
+  "archer_foot_2_2": {
+    "bones": 48,
+    "masks": {
+      "archer_foot_2_2_rider_lod1": 0.2914,
+      "archer_foot_2_2_rider_lod2": 0.2954,
+      "archer_foot_2_2_rider_lod3": 0.287
+    }
+  },
+  "archer_foot_3_1": {
+    "bones": 48,
+    "masks": {
+      "archer_foot_3_1_rider_lod1": 0.3083,
+      "archer_foot_3_1_rider_lod2": 0.3091,
+      "archer_foot_3_1_rider_lod3": 0.3269
+    }
+  },
+  "archer_foot_3_2": {
+    "bones": 48,
+    "masks": {
+      "archer_foot_3_2_rider_lod1": 0.3194,
+      "archer_foot_3_2_rider_lod2": 0.321,
+      "archer_foot_3_2_rider_lod3": 0.3349
+    }
+  },
+  "archer_foot_4_1": {
+    "bones": 48,
+    "masks": {
+      "archer_foot_4_1_rider_lod1": 0.3083,
+      "archer_foot_4_1_rider_lod2": 0.3091,
+      "archer_foot_4_1_rider_lod3": 0.3269
+    }
+  },
+  "archer_foot_4_2": {
+    "bones": 48,
+    "masks": {
+      "archer_foot_4_2_rider_lod1": 0.3194,
+      "archer_foot_4_2_rider_lod2": 0.32,
+      "archer_foot_4_2_rider_lod3": 0.342
+    }
+  },
+  "archer_mounted_2_1": {
+    "bones": 127,
+    "masks": {
+      "archer_mounted_2_1_mount_lod1": 0.2627,
+      "archer_mounted_2_1_mount_lod2": 0.2894,
+      "archer_mounted_2_1_mount_lod3": 0.2916,
+      "archer_mounted_2_1_rider_lod1": 0.3188,
+      "archer_mounted_2_1_rider_lod2": 0.3492,
+      "archer_mounted_2_1_rider_lod3": 0.3239
+    }
+  },
+  "archer_mounted_2_2": {
+    "bones": 127,
+    "masks": {
+      "archer_mounted_2_2_mount_lod1": 0.2613,
+      "archer_mounted_2_2_mount_lod2": 0.2967,
+      "archer_mounted_2_2_mount_lod3": 0.212,
+      "archer_mounted_2_2_rider_lod1": 0.357,
+      "archer_mounted_2_2_rider_lod2": 0.3881,
+      "archer_mounted_2_2_rider_lod3": 0.3642
+    }
+  },
+  "archer_mounted_3_1": {
+    "bones": 127,
+    "masks": {
+      "archer_mounted_3_1_mount_lod1": 0.2613,
+      "archer_mounted_3_1_mount_lod2": 0.2967,
+      "archer_mounted_3_1_mount_lod3": 0.212,
+      "archer_mounted_3_1_rider_lod1": 0.3444,
+      "archer_mounted_3_1_rider_lod2": 0.3741,
+      "archer_mounted_3_1_rider_lod3": 0.3545
+    }
+  },
+  "archer_mounted_3_2": {
+    "bones": 127,
+    "masks": {
+      "archer_mounted_3_2_mount_lod1": 0.2613,
+      "archer_mounted_3_2_mount_lod2": 0.2967,
+      "archer_mounted_3_2_mount_lod3": 0.212,
+      "archer_mounted_3_2_rider_lod1": 0.357,
+      "archer_mounted_3_2_rider_lod2": 0.3881,
+      "archer_mounted_3_2_rider_lod3": 0.3642
+    }
+  },
+  "archer_mounted_4_1": {
+    "bones": 127,
+    "masks": {
+      "archer_mounted_4_1_mount_lod1": 0.2613,
+      "archer_mounted_4_1_mount_lod2": 0.2967,
+      "archer_mounted_4_1_mount_lod3": 0.212,
+      "archer_mounted_4_1_rider_lod1": 0.3445,
+      "archer_mounted_4_1_rider_lod2": 0.3743,
+      "archer_mounted_4_1_rider_lod3": 0.3548
+    }
+  },
+  "archer_mounted_4_2": {
+    "bones": 127,
+    "masks": {
+      "archer_mounted_4_2_mount_lod1": 0.2613,
+      "archer_mounted_4_2_mount_lod2": 0.2967,
+      "archer_mounted_4_2_mount_lod3": 0.212,
+      "archer_mounted_4_2_rider_lod1": 0.3571,
+      "archer_mounted_4_2_rider_lod2": 0.3882,
+      "archer_mounted_4_2_rider_lod3": 0.3641
+    }
+  },
+  "corpse_1": {
+    "bones": 38,
+    "masks": {
+      "corpse_1_corpse_lod1": 0.3307,
+      "corpse_1_corpse_lod2": 0.3307,
+      "corpse_1_corpse_lod3": 0.3307
+    }
+  },
+  "crossbow_mounted_3_1": {
+    "bones": 127,
+    "masks": {
+      "crossbow_mounted_3_1_mount_lod1": 0.2613,
+      "crossbow_mounted_3_1_mount_lod2": 0.2967,
+      "crossbow_mounted_3_1_mount_lod3": 0.212,
+      "crossbow_mounted_3_1_rider_lod1": 0.3465,
+      "crossbow_mounted_3_1_rider_lod2": 0.375,
+      "crossbow_mounted_3_1_rider_lod3": 0.3566
+    }
+  },
+  "crossbow_mounted_3_2": {
+    "bones": 127,
+    "masks": {
+      "crossbow_mounted_3_2_mount_lod1": 0.2613,
+      "crossbow_mounted_3_2_mount_lod2": 0.2967,
+      "crossbow_mounted_3_2_mount_lod3": 0.212,
+      "crossbow_mounted_3_2_rider_lod1": 0.3586,
+      "crossbow_mounted_3_2_rider_lod2": 0.3884,
+      "crossbow_mounted_3_2_rider_lod3": 0.3657
+    }
+  },
+  "crossbow_mounted_4_1": {
+    "bones": 127,
+    "masks": {
+      "crossbow_mounted_4_1_mount_lod1": 0.2613,
+      "crossbow_mounted_4_1_mount_lod2": 0.2967,
+      "crossbow_mounted_4_1_mount_lod3": 0.212,
+      "crossbow_mounted_4_1_rider_lod1": 0.3466,
+      "crossbow_mounted_4_1_rider_lod2": 0.3753,
+      "crossbow_mounted_4_1_rider_lod3": 0.3569
+    }
+  },
+  "crossbow_mounted_4_2": {
+    "bones": 127,
+    "masks": {
+      "crossbow_mounted_4_2_mount_lod1": 0.2613,
+      "crossbow_mounted_4_2_mount_lod2": 0.2967,
+      "crossbow_mounted_4_2_mount_lod3": 0.212,
+      "crossbow_mounted_4_2_rider_lod1": 0.3586,
+      "crossbow_mounted_4_2_rider_lod2": 0.3885,
+      "crossbow_mounted_4_2_rider_lod3": 0.3657
+    }
+  },
+  "handcannon_mounted_4_1": {
+    "bones": 127,
+    "masks": {
+      "handcannon_mounted_4_1_mount_lod1": 0.2613,
+      "handcannon_mounted_4_1_mount_lod2": 0.2967,
+      "handcannon_mounted_4_1_mount_lod3": 0.212,
+      "handcannon_mounted_4_1_rider_lod1": 0.3466,
+      "handcannon_mounted_4_1_rider_lod2": 0.3753,
+      "handcannon_mounted_4_1_rider_lod3": 0.3569
+    }
+  },
+  "handcannon_mounted_4_2": {
+    "bones": 127,
+    "masks": {
+      "handcannon_mounted_4_2_mount_lod1": 0.2613,
+      "handcannon_mounted_4_2_mount_lod2": 0.2967,
+      "handcannon_mounted_4_2_mount_lod3": 0.212,
+      "handcannon_mounted_4_2_rider_lod1": 0.3586,
+      "handcannon_mounted_4_2_rider_lod2": 0.3885,
+      "handcannon_mounted_4_2_rider_lod3": 0.3657
+    }
+  },
+  "horse_1": {
+    "bones": 38,
+    "masks": {
+      "horse_1_horse_lod1": 0.2511,
+      "horse_1_horse_lod2": 0.234,
+      "horse_1_horse_lod3": 0.2367
+    }
+  },
+  "nokor_foot_2_1": {
+    "bones": 48,
+    "masks": {
+      "nokor_foot_2_1_rider_lod1": 0.1967,
+      "nokor_foot_2_1_rider_lod2": 0.2264,
+      "nokor_foot_2_1_rider_lod3": 0.2453
+    }
+  },
+  "nokor_foot_3_1": {
+    "bones": 48,
+    "masks": {
+      "nokor_foot_3_1_rider_lod1": 0.2239,
+      "nokor_foot_3_1_rider_lod2": 0.2309,
+      "nokor_foot_3_1_rider_lod3": 0.2475
+    }
+  },
+  "nokor_foot_3_2": {
+    "bones": 48,
+    "masks": {
+      "nokor_foot_3_2_rider_lod1": 0.2364,
+      "nokor_foot_3_2_rider_lod2": 0.245,
+      "nokor_foot_3_2_rider_lod3": 0.2626
+    }
+  },
+  "nokor_foot_4_1": {
+    "bones": 48,
+    "masks": {
+      "nokor_foot_4_1_rider_lod1": 0.2239,
+      "nokor_foot_4_1_rider_lod2": 0.2309,
+      "nokor_foot_4_1_rider_lod3": 0.2475
+    }
+  },
+  "nokor_foot_4_2": {
+    "bones": 48,
+    "masks": {
+      "nokor_foot_4_2_rider_lod1": 0.2364,
+      "nokor_foot_4_2_rider_lod2": 0.245,
+      "nokor_foot_4_2_rider_lod3": 0.2626
+    }
+  },
+  "nokor_mounted_2_1": {
+    "bones": 127,
+    "masks": {
+      "nokor_mounted_2_1_mount_lod1": 0.2577,
+      "nokor_mounted_2_1_mount_lod2": 0.2539,
+      "nokor_mounted_2_1_mount_lod3": 0.2278,
+      "nokor_mounted_2_1_rider_lod1": 0.3204,
+      "nokor_mounted_2_1_rider_lod2": 0.3328,
+      "nokor_mounted_2_1_rider_lod3": 0.3711
+    }
+  },
+  "nokor_mounted_2_2": {
+    "bones": 127,
+    "masks": {
+      "nokor_mounted_2_2_mount_lod1": 0.2577,
+      "nokor_mounted_2_2_mount_lod2": 0.2533,
+      "nokor_mounted_2_2_mount_lod3": 0.2278,
+      "nokor_mounted_2_2_rider_lod1": 0.3343,
+      "nokor_mounted_2_2_rider_lod2": 0.3449,
+      "nokor_mounted_2_2_rider_lod3": 0.3832
+    }
+  },
+  "nokor_mounted_3_1": {
+    "bones": 127,
+    "masks": {
+      "nokor_mounted_3_1_mount_lod1": 0.217,
+      "nokor_mounted_3_1_mount_lod2": 0.2469,
+      "nokor_mounted_3_1_mount_lod3": 0.2154,
+      "nokor_mounted_3_1_rider_lod1": 0.3802,
+      "nokor_mounted_3_1_rider_lod2": 0.3962,
+      "nokor_mounted_3_1_rider_lod3": 0.417
+    }
+  },
+  "nokor_mounted_3_2": {
+    "bones": 127,
+    "masks": {
+      "nokor_mounted_3_2_mount_lod1": 0.217,
+      "nokor_mounted_3_2_mount_lod2": 0.2469,
+      "nokor_mounted_3_2_mount_lod3": 0.2154,
+      "nokor_mounted_3_2_rider_lod1": 0.3877,
+      "nokor_mounted_3_2_rider_lod2": 0.4025,
+      "nokor_mounted_3_2_rider_lod3": 0.426
+    }
+  },
+  "nokor_mounted_4_1": {
+    "bones": 127,
+    "masks": {
+      "nokor_mounted_4_1_mount_lod1": 0.217,
+      "nokor_mounted_4_1_mount_lod2": 0.2469,
+      "nokor_mounted_4_1_mount_lod3": 0.2154,
+      "nokor_mounted_4_1_rider_lod1": 0.3802,
+      "nokor_mounted_4_1_rider_lod2": 0.3962,
+      "nokor_mounted_4_1_rider_lod3": 0.417
+    }
+  },
+  "nokor_mounted_4_2": {
+    "bones": 127,
+    "masks": {
+      "nokor_mounted_4_2_mount_lod1": 0.217,
+      "nokor_mounted_4_2_mount_lod2": 0.2469,
+      "nokor_mounted_4_2_mount_lod3": 0.2154,
+      "nokor_mounted_4_2_rider_lod1": 0.3877,
+      "nokor_mounted_4_2_rider_lod2": 0.4025,
+      "nokor_mounted_4_2_rider_lod3": 0.426
+    }
+  },
+  "religious_foot_3_1": {
+    "bones": 73,
+    "masks": {
+      "religious_foot_3_1_rider_lod1": 0.2667,
+      "religious_foot_3_1_rider_lod2": 0.2604,
+      "religious_foot_3_1_rider_lod3": 0.2868
+    }
+  },
+  "religious_foot_3_2": {
+    "bones": 73,
+    "masks": {
+      "religious_foot_3_2_rider_lod1": 0.2667,
+      "religious_foot_3_2_rider_lod2": 0.2604,
+      "religious_foot_3_2_rider_lod3": 0.2868
+    }
+  },
+  "religious_mounted_3_1": {
+    "bones": 127,
+    "masks": {
+      "religious_mounted_3_1_mount_lod1": 0.2684,
+      "religious_mounted_3_1_mount_lod2": 0.2746,
+      "religious_mounted_3_1_mount_lod3": 0.2647,
+      "religious_mounted_3_1_rider_lod1": 0.3544,
+      "religious_mounted_3_1_rider_lod2": 0.3465,
+      "religious_mounted_3_1_rider_lod3": 0.3622
+    }
+  },
+  "religious_mounted_3_2": {
+    "bones": 127,
+    "masks": {
+      "religious_mounted_3_2_mount_lod1": 0.2429,
+      "religious_mounted_3_2_mount_lod2": 0.2804,
+      "religious_mounted_3_2_mount_lod3": 0.272,
+      "religious_mounted_3_2_rider_lod1": 0.3527,
+      "religious_mounted_3_2_rider_lod2": 0.3401,
+      "religious_mounted_3_2_rider_lod3": 0.3043
+    }
+  },
+  "scout_foot_1_1": {
+    "bones": 48,
+    "masks": {
+      "scout_foot_1_1_rider_lod1": 0.2411,
+      "scout_foot_1_1_rider_lod2": 0.2461,
+      "scout_foot_1_1_rider_lod3": 0.1969
+    }
+  },
+  "spearman_mounted_1_1": {
+    "bones": 127,
+    "masks": {
+      "spearman_mounted_1_1_mount_lod1": 0.2744,
+      "spearman_mounted_1_1_mount_lod2": 0.3073,
+      "spearman_mounted_1_1_mount_lod3": 0.2771,
+      "spearman_mounted_1_1_rider_lod1": 0.2927,
+      "spearman_mounted_1_1_rider_lod2": 0.3018,
+      "spearman_mounted_1_1_rider_lod3": 0.3428
+    }
+  },
+  "spearman_mounted_1_2": {
+    "bones": 127,
+    "masks": {
+      "spearman_mounted_1_2_mount_lod1": 0.2744,
+      "spearman_mounted_1_2_mount_lod2": 0.3073,
+      "spearman_mounted_1_2_mount_lod3": 0.2771,
+      "spearman_mounted_1_2_rider_lod1": 0.3056,
+      "spearman_mounted_1_2_rider_lod2": 0.3136,
+      "spearman_mounted_1_2_rider_lod3": 0.3577
+    }
+  },
+  "spearman_mounted_2_1": {
+    "bones": 127,
+    "masks": {
+      "spearman_mounted_2_1_mount_lod1": 0.2684,
+      "spearman_mounted_2_1_mount_lod2": 0.2746,
+      "spearman_mounted_2_1_mount_lod3": 0.2647,
+      "spearman_mounted_2_1_rider_lod1": 0.3036,
+      "spearman_mounted_2_1_rider_lod2": 0.3086,
+      "spearman_mounted_2_1_rider_lod3": 0.334
+    }
+  },
+  "spearman_mounted_2_2": {
+    "bones": 127,
+    "masks": {
+      "spearman_mounted_2_2_mount_lod1": 0.2684,
+      "spearman_mounted_2_2_mount_lod2": 0.2746,
+      "spearman_mounted_2_2_mount_lod3": 0.2647,
+      "spearman_mounted_2_2_rider_lod1": 0.3123,
+      "spearman_mounted_2_2_rider_lod2": 0.2898,
+      "spearman_mounted_2_2_rider_lod3": 0.3479
+    }
+  },
+  "spearman_mounted_3_1": {
+    "bones": 127,
+    "masks": {
+      "spearman_mounted_3_1_mount_lod1": 0.2684,
+      "spearman_mounted_3_1_mount_lod2": 0.2746,
+      "spearman_mounted_3_1_mount_lod3": 0.2647,
+      "spearman_mounted_3_1_rider_lod1": 0.3036,
+      "spearman_mounted_3_1_rider_lod2": 0.3086,
+      "spearman_mounted_3_1_rider_lod3": 0.334
+    }
+  },
+  "spearman_mounted_3_2": {
+    "bones": 127,
+    "masks": {
+      "spearman_mounted_3_2_mount_lod1": 0.2429,
+      "spearman_mounted_3_2_mount_lod2": 0.2804,
+      "spearman_mounted_3_2_mount_lod3": 0.272,
+      "spearman_mounted_3_2_rider_lod1": 0.3072,
+      "spearman_mounted_3_2_rider_lod2": 0.3091,
+      "spearman_mounted_3_2_rider_lod3": 0.28
+    }
+  },
+  "spearman_mounted_4_1": {
+    "bones": 127,
+    "masks": {
+      "spearman_mounted_4_1_mount_lod1": 0.2684,
+      "spearman_mounted_4_1_mount_lod2": 0.2746,
+      "spearman_mounted_4_1_mount_lod3": 0.2647,
+      "spearman_mounted_4_1_rider_lod1": 0.3036,
+      "spearman_mounted_4_1_rider_lod2": 0.3086,
+      "spearman_mounted_4_1_rider_lod3": 0.334
+    }
+  },
+  "spearman_mounted_4_2": {
+    "bones": 127,
+    "masks": {
+      "spearman_mounted_4_2_mount_lod1": 0.2429,
+      "spearman_mounted_4_2_mount_lod2": 0.2804,
+      "spearman_mounted_4_2_mount_lod3": 0.272,
+      "spearman_mounted_4_2_rider_lod1": 0.3072,
+      "spearman_mounted_4_2_rider_lod2": 0.3091,
+      "spearman_mounted_4_2_rider_lod3": 0.28
+    }
+  },
+  "trader_foot_2_1": {
+    "bones": 73,
+    "masks": {
+      "trader_foot_2_1_rider_lod1": 0.2667,
+      "trader_foot_2_1_rider_lod2": 0.2604,
+      "trader_foot_2_1_rider_lod3": 0.2868
+    }
+  },
+  "trader_foot_2_2": {
+    "bones": 73,
+    "masks": {
+      "trader_foot_2_2_rider_lod1": 0.2667,
+      "trader_foot_2_2_rider_lod2": 0.2604,
+      "trader_foot_2_2_rider_lod3": 0.2868
+    }
+  },
+  "villager_mounted_1_1": {
+    "bones": 127,
+    "masks": {
+      "villager_mounted_1_1_mount_lod1": 0.3291,
+      "villager_mounted_1_1_mount_lod2": 0.367,
+      "villager_mounted_1_1_mount_lod3": 0.3446,
+      "villager_mounted_1_1_rider_lod1": 0.3261,
+      "villager_mounted_1_1_rider_lod2": 0.319,
+      "villager_mounted_1_1_rider_lod3": 0.3369
+    }
+  },
+  "villager_mounted_1_2": {
+    "bones": 127,
+    "masks": {
+      "villager_mounted_1_2_mount_lod1": 0.3291,
+      "villager_mounted_1_2_mount_lod2": 0.367,
+      "villager_mounted_1_2_mount_lod3": 0.3446,
+      "villager_mounted_1_2_rider_lod1": 0.3379,
+      "villager_mounted_1_2_rider_lod2": 0.351,
+      "villager_mounted_1_2_rider_lod3": 0.3593
+    }
+  }
+}

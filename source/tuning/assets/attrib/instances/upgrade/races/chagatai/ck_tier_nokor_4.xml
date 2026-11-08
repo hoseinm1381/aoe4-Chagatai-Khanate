@@ -1,0 +1,72 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073741929" />
+	<instance_reference name="parent_pbg" value="upgrade\races\mongol\units\upgrade_unit_manatarms_4_mon" />
+	<group name="upgrade_bag">
+		<group name="ui_position">
+			<int name="ui_position_row" value="3" overrideParent="True" />
+		</group>
+		<group name="ui_info">
+			<locstring name="screen_name" value="6030" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="screen_name_short" value="6030" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="help_text" value="6031" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="extra_text" value="7422" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="brief_text" value="0" overrideParent="True" />
+			<bool name="is_unique_to_race" value="True" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="81737725" List.ParentItemID="81737725">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_nokor_4" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</template_reference>
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="2134354398" List.ListAction="Append">
+				<enum name="reason" value="usage_and_display" />
+				<locstring name="ui_name" value="0" />
+				<bool name="is_present" value="True" />
+				<int name="max_completed" value="100" />
+				<int name="min_completed" value="1" />
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_nokor_3" mod="ac8da4d112bf433c888433228510b447" />
+				<bool name="include_queued" value="False" />
+				<group name="include_pbg_parenting">
+					<bool name="include_child_pbgs" value="False" />
+					<bool name="include_parent_pbgs" value="False" />
+				</group>
+				<bool name="include_completed" value="True" />
+			</template_reference>
+		</list>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<group name="ui_position">
+				<int name="ui_position_row" value="3" overrideParent="True" />
+			</group>
+			<group name="ui_info">
+				<locstring name="screen_name" value="6030" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="screen_name_short" value="6030" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="help_text" value="6031" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="extra_text" value="7422" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="brief_text" value="0" overrideParent="True" />
+				<bool name="is_unique_to_race" value="True" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="81737725" List.ParentItemID="81737725">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_nokor_4" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				</template_reference>
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="259561747" List.ListAction="Append">
+					<enum name="reason" value="usage_and_display" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="True" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_nokor_3" mod="ac8da4d112bf433c888433228510b447" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+			</list>
+		</group>
+		<uniqueid name="pbgid" value="1073741929" />
+		<instance_reference name="parent_pbg" value="upgrade\races\mongol\units\upgrade_unit_manatarms_4_mon" />
+	</variant>
+</instance>

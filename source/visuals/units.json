@@ -1,0 +1,233 @@
+[
+  {
+    "blueprint": "ck_spearman_mounted_1",
+    "style": "light",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier1_cavalry_horseman_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_light_age01/mon_horse_combined_light_age01": "spearman_mounted_1_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_light_female_age01/mon_horse_combined_light_female_age01": "spearman_mounted_1_2"
+    }
+  },
+  {
+    "blueprint": "ck_spearman_mounted_2",
+    "style": "light",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier2_cavalry_horseman_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_light_age02/mon_horse_combined_light_age02": "spearman_mounted_2_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_light_female_age02/mon_horse_combined_light_female_age02": "spearman_mounted_2_2"
+    }
+  },
+  {
+    "blueprint": "ck_spearman_mounted_3",
+    "style": "light",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_cavalry_horseman_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_light_age03/mon_horse_combined_light_age03": "spearman_mounted_3_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_light_female_age03/mon_horse_combined_light_female_age03": "spearman_mounted_3_2"
+    }
+  },
+  {
+    "blueprint": "ck_spearman_mounted_4",
+    "style": "light",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier4_cavalry_horseman_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_light_age03/mon_horse_combined_light_age03": "spearman_mounted_4_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_light_female_age03/mon_horse_combined_light_female_age03": "spearman_mounted_4_2"
+    }
+  },
+  {
+    "blueprint": "ck_nokor_mounted_3",
+    "style": "heavy",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_cavalry_knight_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_armor_age03/mon_horse_combined_armor_age03": "nokor_mounted_3_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_armor_female_age03/mon_horse_combined_armor_female_age03": "nokor_mounted_3_2"
+    }
+  },
+  {
+    "blueprint": "ck_nokor_mounted_4",
+    "style": "heavy",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier4_cavalry_knight_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_armor_age04/mon_horse_combined_armor_age04": "nokor_mounted_4_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_armor_female_age04/mon_horse_combined_armor_female_age04": "nokor_mounted_4_2"
+    }
+  },
+  {
+    "blueprint": "ck_nokor_mounted_2",
+    "style": "heavy",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier2_cavalry_knight_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_armor_age02/mon_horse_combined_armor_age02": "nokor_mounted_2_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_armor_female_age02/mon_horse_combined_armor_female_age02": "nokor_mounted_2_2"
+    }
+  },
+  {
+    "blueprint": "ck_nokor_foot_3",
+    "style": "heavy",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_manatarms_mon",
+    "models": {
+      "art/civilizations/mongols/humans/mon_infantry_armor_age03/mon_infantry_armor_age03": "nokor_foot_3_1",
+      "art/civilizations/mongols/humans/mon_infantry_armor_female_age03/mon_infantry_armor_female_age03": "nokor_foot_3_2"
+    }
+  },
+  {
+    "blueprint": "ck_nokor_foot_4",
+    "style": "heavy",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier4_manatarms_mon",
+    "models": {
+      "art/civilizations/mongols/humans/mon_infantry_armor_age03/mon_infantry_armor_age03": "nokor_foot_4_1",
+      "art/civilizations/mongols/humans/mon_infantry_armor_female_age03/mon_infantry_armor_female_age03": "nokor_foot_4_2"
+    }
+  },
+  {
+    "blueprint": "ck_nokor_foot_2",
+    "style": "heavy",
+    "donor": "attachments/attachment_lists/civilizations/english/units/tier2_manatarms_eng",
+    "models": {
+      "art/civilizations/english/humans/eng_infantry_armor_age02/eng_infantry_armor_age02": "nokor_foot_2_1"
+    }
+  },
+  {
+    "blueprint": "ck_archer_foot_2",
+    "style": "archer",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier2_archer_mon",
+    "models": {
+      "art/civilizations/mongols/humans/mon_ranged_bow_age02/mon_ranged_bow_age02": "archer_foot_2_1",
+      "art/civilizations/mongols/humans/mon_ranged_bow_female_age02/mon_ranged_bow_female_age02": "archer_foot_2_2"
+    }
+  },
+  {
+    "blueprint": "ck_archer_foot_3",
+    "style": "archer",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_archer_mon",
+    "models": {
+      "art/civilizations/mongols/humans/mon_ranged_bow_age03/mon_ranged_bow_age03": "archer_foot_3_1",
+      "art/civilizations/mongols/humans/mon_ranged_bow_female_age03/mon_ranged_bow_female_age03": "archer_foot_3_2"
+    }
+  },
+  {
+    "blueprint": "ck_archer_foot_4",
+    "style": "archer",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier4_archer_mon",
+    "models": {
+      "art/civilizations/mongols/humans/mon_ranged_bow_age04/mon_ranged_bow_age04": "archer_foot_4_1",
+      "art/civilizations/mongols/humans/mon_ranged_bow_female_age04/mon_ranged_bow_female_age04": "archer_foot_4_2"
+    }
+  },
+  {
+    "blueprint": "ck_archer_mounted_2",
+    "style": "archer",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier2_cavalry_horsearcher_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_age02/mon_horse_combined_bow_age02": "archer_mounted_2_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age02/mon_horse_combined_bow_female_age02": "archer_mounted_2_2"
+    }
+  },
+  {
+    "blueprint": "ck_archer_mounted_3",
+    "style": "archer",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_cavalry_horsearcher_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_age03/mon_horse_combined_bow_age03": "archer_mounted_3_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age03/mon_horse_combined_bow_female_age03": "archer_mounted_3_2"
+    }
+  },
+  {
+    "blueprint": "ck_archer_mounted_4",
+    "style": "archer",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier4_cavalry_horsearcher_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_age04/mon_horse_combined_bow_age04": "archer_mounted_4_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age04/mon_horse_combined_bow_female_age04": "archer_mounted_4_2"
+    }
+  },
+  {
+    "blueprint": "ck_crossbow_mounted_3",
+    "style": "crossbow",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_cavalry_horsearcher_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_age03/mon_horse_combined_bow_age03": "crossbow_mounted_3_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age03/mon_horse_combined_bow_female_age03": "crossbow_mounted_3_2"
+    }
+  },
+  {
+    "blueprint": "ck_crossbow_mounted_4",
+    "style": "crossbow",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier4_cavalry_horsearcher_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_age04/mon_horse_combined_bow_age04": "crossbow_mounted_4_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age04/mon_horse_combined_bow_female_age04": "crossbow_mounted_4_2"
+    }
+  },
+  {
+    "blueprint": "ck_handcannon_mounted_4",
+    "style": "gunner",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier4_cavalry_horsearcher_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_age04/mon_horse_combined_bow_age04": "handcannon_mounted_4_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age04/mon_horse_combined_bow_female_age04": "handcannon_mounted_4_2"
+    }
+  },
+  {
+    "blueprint": "ck_scout_foot_1",
+    "style": "scout",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier1_militia_rogue_mon",
+    "models": {
+      "art/civilizations/mongols/humans/mon_infantry_light_age01/mon_infantry_light_age01": "scout_foot_1_1"
+    }
+  },
+  {
+    "blueprint": "ck_religious_foot_3",
+    "style": "sufi",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_monk_mon",
+    "models": {
+      "art/civilizations/mongols/humans/mon_infantry_monk_age03/mon_infantry_monk_age03": "religious_foot_3_1",
+      "art/civilizations/mongols/humans/mon_infantry_monk_female_age03/mon_infantry_monk_female_age03": "religious_foot_3_2"
+    }
+  },
+  {
+    "blueprint": "ck_religious_mounted_3",
+    "style": "sufi",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_cavalry_horseman_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_light_age03/mon_horse_combined_light_age03": "religious_mounted_3_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_light_female_age03/mon_horse_combined_light_female_age03": "religious_mounted_3_2"
+    }
+  },
+  {
+    "blueprint": "ck_trader_foot_2",
+    "style": "trader",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier3_monk_mon",
+    "models": {
+      "art/civilizations/mongols/humans/mon_infantry_monk_age03/mon_infantry_monk_age03": "trader_foot_2_1",
+      "art/civilizations/mongols/humans/mon_infantry_monk_female_age03/mon_infantry_monk_female_age03": "trader_foot_2_2"
+    }
+  },
+  {
+    "blueprint": "ck_villager_mounted_1",
+    "style": "worker",
+    "donor": "attachments/attachment_lists/civilizations/mongol/units/tier1_cavalry_scout_mon",
+    "models": {
+      "art/civilizations/mongols/animals/mon_horse_combined_scout_age01/mon_horse_combined_scout_age01": "villager_mounted_1_1",
+      "art/civilizations/mongols/animals/mon_horse_combined_scout_female_age01/mon_horse_combined_scout_female_age01": "villager_mounted_1_2"
+    }
+  },
+  {
+    "blueprint": "ck_horse",
+    "style": "horse",
+    "donor": "attachments/attachment_lists/gaia/animals/gaia_huntable_reindeer",
+    "models": {
+      "art/civilizations/jin_dynasty/animals/jin_reindeer/jin_reindeer": "horse_1"
+    },
+    "animation_owner": "art/civilizations/common/animals/archetypes/base_horse/base_horse"
+  },
+  {
+    "blueprint": "ck_corpse",
+    "style": "corpse",
+    "donor": "attachments/attachment_lists/environment/non_tree_resources/gaia_food_reindeer_corpse",
+    "models": {
+      "art/civilizations/jin_dynasty/animals/jin_reindeer/jin_reindeer": "corpse_1"
+    }
+  }
+]

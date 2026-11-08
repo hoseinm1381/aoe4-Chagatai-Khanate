@@ -1,0 +1,36 @@
+{
+  "donor": "art/civilizations/mongols/animals/mon_horse_scout_age01/mon_horse_scout_age01.rgm",
+  "native_bones": 86,
+  "cloth_fit": [
+    {
+      "lod": 1,
+      "surface_samples": 900,
+      "min_clearance_m": 0.0127,
+      "max_clearance_m": 0.0333,
+      "max_weights_per_vertex": 4,
+      "max_weight_normalization_error": 2.220446049250313e-16
+    },
+    {
+      "lod": 2,
+      "surface_samples": 234,
+      "min_clearance_m": 0.0135,
+      "max_clearance_m": 0.0325,
+      "max_weights_per_vertex": 4,
+      "max_weight_normalization_error": 1.1102230246251565e-16
+    },
+    {
+      "lod": 3,
+      "surface_samples": 108,
+      "min_clearance_m": 0.0127,
+      "max_clearance_m": 0.0333,
+      "max_weights_per_vertex": 4,
+      "max_weight_normalization_error": 1.1102230246251565e-16
+    }
+  ],
+  "visible_player_color": {
+    "side": 0.2556,
+    "overhead": 0.2879
+  },
+  "approval_pending": true,
+  "integrated_with_release": false
+}

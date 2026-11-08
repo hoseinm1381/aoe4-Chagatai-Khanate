@@ -1,0 +1,54 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073765395" />
+	<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_villager_health" />
+	<group name="upgrade_bag">
+		<group name="ui_position">
+			<int name="ui_position_row" value="3" overrideParent="True" />
+			<int name="ui_position_column" value="1" overrideParent="True" />
+		</group>
+		<group name="ui_info">
+			<string name="hotkey_name" value="z" overrideParent="True" />
+			<template_reference name="ui_info_extended" value="tables\ui_info_ext">
+				<template_reference name="command_card_info" value="ui_command_card_info">
+					<group name="ui_position">
+						<int name="ui_position_row" value="3" overrideParent="True" />
+						<int name="ui_position_column" value="1" overrideParent="True" />
+					</group>
+				</template_reference>
+			</template_reference>
+			<locstring name="help_text" value="7493" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-764437486" List.ParentItemID="-764437486">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_villager_health" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</template_reference>
+		</list>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<group name="ui_position">
+				<int name="ui_position_row" value="3" overrideParent="True" />
+				<int name="ui_position_column" value="1" overrideParent="True" />
+			</group>
+			<group name="ui_info">
+				<string name="hotkey_name" value="z" overrideParent="True" />
+				<template_reference name="ui_info_extended" value="tables\ui_info_ext">
+					<template_reference name="command_card_info" value="ui_command_card_info">
+						<group name="ui_position">
+							<int name="ui_position_row" value="3" overrideParent="True" />
+							<int name="ui_position_column" value="1" overrideParent="True" />
+						</group>
+					</template_reference>
+				</template_reference>
+				<locstring name="help_text" value="7493" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-764437486" List.ParentItemID="-764437486">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_villager_health" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				</template_reference>
+			</list>
+		</group>
+		<uniqueid name="pbgid" value="1073765395" />
+		<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_villager_health" />
+	</variant>
+</instance>

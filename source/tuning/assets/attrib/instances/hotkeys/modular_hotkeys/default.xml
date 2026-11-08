@@ -1,0 +1,1588 @@
+<instance version="4" description="" template="hotkeys\modular_hotkeys">
+	<uniqueid name="pbgid" value="2071555" />
+	<group name="modular_hotkeys">
+		<list name="hotkey_contexts">
+			<group name="hotkey_context" comment="build menu 1" List.ItemID="1277844414">
+				<locstring name="ui_name" value="11223175" />
+				<string name="unique_key" value="build_menu_age_1" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_house" List.ItemID="630040607" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_mill" List.ItemID="501394109" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_lumber_camp" List.ItemID="-1543811192" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_mining_camp" List.ItemID="-1945664511" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_farm" List.ItemID="-700527542" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_barracks" List.ItemID="-1971933368" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_dock" List.ItemID="1422116780" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_outpost" List.ItemID="-2060122187" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_palisade" List.ItemID="-1269369237" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_palisade_gate" List.ItemID="-1312160687" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_house_of_wisdom" List.ItemID="1764982230" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_village" List.ItemID="1810446008" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_stable_mongols" List.ItemID="121304342" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_ger" List.ItemID="-696729007" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_pasture" List.ItemID="518856295" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_ovoo" List.ItemID="343399751" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_hunting_cabin" List.ItemID="-1670395086" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_wooden_fortress" List.ItemID="-342430154" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_mosque_sultanate" List.ItemID="-1061394490" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_astronomical_clocktower_chi" List.ItemID="-810151402" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_barbican_of_the_sun_chi" List.ItemID="-780346876" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_great_wall_chi" List.ItemID="1916372419" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_imperial_academy_chi" List.ItemID="1278593412" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_imperial_palace_chi" List.ItemID="1269668034" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_spirit_way_chi" List.ItemID="-765052955" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_military_school_ott" List.ItemID="-1301959717" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_pit_mine_mal" List.ItemID="-2020885269" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_olive_grove_byz" List.ItemID="-776528287" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_cistern_byz" List.ItemID="-335487927" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_aqueduct_byz" List.ItemID="-1275318243" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_jiangnan_tower_chi_ha_01" List.ItemID="568807770" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_meditation_gardens_chi_ha_01" List.ItemID="-1938945914" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_mount_lu_academy_chi_ha_01" List.ItemID="1258699551" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_shaolin_temple_chi_ha_01" List.ItemID="1486142811" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_temple_of_the_sun_chi_ha_01" List.ItemID="172165747" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_zhu_xi_library_chi_ha_01" List.ItemID="-627334698" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_matsuri_jpn_ha_sen" List.ItemID="-1597090171" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_stockyard_mon_ha_gol" List.ItemID="1810883391" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_daimyo_estate_hojo_jpn_ha_sen" List.ItemID="1285954214" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_daimyo_estate_oda_jpn_ha_sen" List.ItemID="-351429664" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_daimyo_estate_takeda_jpn_ha_sen" List.ItemID="-1890919448" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_varangian_warcamp_byz_ha_mac" List.ItemID="-995729036" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_stronghold_byz_ha_mac" List.ItemID="-1353384450" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_golden_tent_mon_ha_gol" List.ItemID="711048264" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_tower_house_sco" List.ItemID="2071206604" />
+				</list>
+				<int name="ui_sort_priority" value="200" />
+			</group>
+			<group name="hotkey_context" comment="build menu 2" List.ItemID="-1096409857">
+				<locstring name="ui_name" value="11223176" />
+				<string name="unique_key" value="build_menu_age_2" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_blacksmith" List.ItemID="-1556587439" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_market" List.ItemID="-1454797115" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_town_center" List.ItemID="1618202574" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_archery_range" List.ItemID="-73871468" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_stable" List.ItemID="843511765" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_wall_tower" List.ItemID="-61308156" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_wall" List.ItemID="-1192319343" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_wall_gate" List.ItemID="913805317" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_granary" List.ItemID="-1592613196" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_ranch_mal" List.ItemID="2012525577" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_mercenary_house_byz" List.ItemID="30182950" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_fortress_tem" List.ItemID="387783616" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_manor_lan" List.ItemID="1899333540" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_tughlaqabad_fort_sul_ha_tug" List.ItemID="1394365491" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_passive_trait_byz_ha_mac" List.ItemID="506684068" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_attack_ground" List.ItemID="-1573236502" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_grassland_jin" List.ItemID="-585361900" />
+				</list>
+				<int name="ui_sort_priority" value="300" />
+			</group>
+			<group name="hotkey_context" comment="build menu 3" List.ItemID="1975557161">
+				<locstring name="ui_name" value="11223177" />
+				<string name="unique_key" value="build_menu_age_3" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_3\build_monastery" List.ItemID="2141715100" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_3\build_siege_workshop" List.ItemID="-1077126159" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_3\build_keep" List.ItemID="1383436308" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_3\build_pagoda" List.ItemID="18431235" />
+				</list>
+				<int name="ui_sort_priority" value="400" />
+			</group>
+			<group name="hotkey_context" comment="build menu 4" List.ItemID="1122000284">
+				<locstring name="ui_name" value="11223178" />
+				<string name="unique_key" value="build_menu_age_4" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_4\build_university" List.ItemID="378653698" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_4\build_wonder" List.ItemID="-960329844" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\villager_build_menu\age_4\build_keep_jpn" List.ItemID="664053693" />
+				</list>
+				<int name="ui_sort_priority" value="500" />
+			</group>
+			<group name="hotkey_context" comment="General Commands" List.ItemID="-1691204595">
+				<locstring name="ui_name" value="11223908" />
+				<string name="unique_key" value="abilities" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\toggle_formation_spread" List.ItemID="-1433598801" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\toggle_formation_line" List.ItemID="-1543382241" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\toggle_formation_wedge" List.ItemID="-985107122" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\select_inline_menu_1" List.ItemID="1048548706" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\select_inline_menu_2" List.ItemID="382412423" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\select_inline_menu_3" List.ItemID="-1444362385" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\select_inline_menu_4" List.ItemID="498786101" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\general_delete" List.ItemID="102421327" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\villager_repair" List.ItemID="1525832616" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\villager_seek_shelter" List.ItemID="-882445542" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\orders\squad_order_stop" List.ItemID="1433183054" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\general_garrison" List.ItemID="1893136925" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\general_toggle_stand_ground" List.ItemID="-1370597798" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\orders\squad_order_patrol" List.ItemID="-32967046" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_pack_building" List.ItemID="-1922300332" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unpack_building" List.ItemID="1762491352" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_attack_ground" List.ItemID="978837715" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_convert" List.ItemID="1038696809" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_detonate" List.ItemID="-1899826119" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_drop_carcass" List.ItemID="-281657798" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_drop_relic" List.ItemID="1146959690" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_heal" List.ItemID="-292706180" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_toggle_auto_heal" List.ItemID="131812855" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_trade" List.ItemID="835739805" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_herd_sheep" List.ItemID="569961974" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_herd_sheep_khan" List.ItemID="360056838" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\orders\squad_order_attack_move" List.ItemID="622296071" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_trade_restart" List.ItemID="-920136039" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_age_up" List.ItemID="-707948788" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_set_rally_point" List.ItemID="-196259725" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_return_all_to_work" List.ItemID="-1791714647" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_return_to_work" List.ItemID="-1761401999" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unload" List.ItemID="719593232" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_cancel_construction" List.ItemID="1400249226" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unload_siege" List.ItemID="-1417741050" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_1" List.ItemID="1024612116" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_2" List.ItemID="-1762245391" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_build_battering_ram" List.ItemID="-18035455" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_build_siege_tower" List.ItemID="-823299204" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_build_mangonel" List.ItemID="193326568" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_build_springald" List.ItemID="-1672918475" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_build_tower_sultan_habb" List.ItemID="-825990327" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_town_bell" List.ItemID="-351679672" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_set_economic_rally_point" List.ItemID="1443761413" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_3" List.ItemID="72563171" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unpack_archery_range_mon_ha_gol" List.ItemID="121207318" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unpack_barracks_mon_ha_gol" List.ItemID="-299181974" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unpack_blacksmith_mon_ha_gol" List.ItemID="-501381896" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unpack_dock_mon_ha_gol" List.ItemID="-229659472" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unpack_stable_mon_ha_gol" List.ItemID="-551981543" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unpack_prayer_tent_mon_ha_gol" List.ItemID="-2085999056" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_unpack_siege_workshop_mon_ha_gol" List.ItemID="-1531564795" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\villager_drop_off" List.ItemID="-1914029409" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\mount" mod="ac8da4d112bf433c888433228510b447" List.ItemID="966444912" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\dismount" mod="ac8da4d112bf433c888433228510b447" List.ItemID="1708902476" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_mounted_scout" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-1119209482" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\mint" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-708378712" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\cancel_horse_order" mod="ac8da4d112bf433c888433228510b447" List.ItemID="877910472" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\cancel_all_horse_orders" mod="ac8da4d112bf433c888433228510b447" List.ItemID="1540406350" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\mount_trader" mod="ac8da4d112bf433c888433228510b447" List.ItemID="1692803014" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\dismount_trader" mod="ac8da4d112bf433c888433228510b447" List.ItemID="179313224" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\import_horse" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-379918076" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_scout_melee" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-2017595373" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\archer" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-1162994961" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\court" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-2109762805" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\ili_fattened" mod="ac8da4d112bf433c888433228510b447" List.ItemID="2098635984" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\ili_war" mod="ac8da4d112bf433c888433228510b447" List.ItemID="2070927894" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\mint_auto_start" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-1563712634" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\mint_auto_stop" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-206129922" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\nokor" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-67577614" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_religious" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-1667324455" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_trader" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-1558300504" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\withdraw" mod="ac8da4d112bf433c888433228510b447" List.ItemID="1085772838" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_archer" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-1130981765" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_crossbow" mod="ac8da4d112bf433c888433228510b447" List.ItemID="405397963" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_handcannon" mod="ac8da4d112bf433c888433228510b447" List.ItemID="1731818990" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_nokor" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-1026386975" List.ListAction="Append" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\chagatai\train_spearman" mod="ac8da4d112bf433c888433228510b447" List.ItemID="106712746" List.ListAction="Append" />
+				</list>
+				<int name="ui_sort_priority" value="100" />
+			</group>
+			<group name="hotkey_context" comment="town center" List.ItemID="653406059">
+				<locstring name="ui_name" value="11119069" />
+				<string name="unique_key" value="town_center" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\tech_textiles" List.ItemID="-871931796" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_official" List.ItemID="-2020172681" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_prelate" List.ItemID="-436965977" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_scout" List.ItemID="74757918" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_villager" List.ItemID="1596166397" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\tech_banco_repairs" List.ItemID="-813556025" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_saint_hfre" List.ItemID="558167337" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\tech_daimyo_manor_jpn" List.ItemID="1100702487" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\tech_fresh_foodstuffs" List.ItemID="-1970894307" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\tech_safe_passage_tem" List.ItemID="-1412145116" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\tech_sanctuary_tem" List.ItemID="-642730390" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\ability_pilgrim_destination_target_tem" List.ItemID="-1095519316" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_worker_elephant_sul_ha_tug" List.ItemID="-18491908" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_villager_mounted_jin" List.ItemID="-1075214845" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_emissary_jin" List.ItemID="922063144" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\tech_collective_hunting_jin" List.ItemID="-1675990125" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\train_volva_vik" List.ItemID="2098034610" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\tech_danevirke_vik" List.ItemID="-1353726928" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\ability_sacred_grove_target_tc_vik" List.ItemID="642406919" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_town_center\toggle_villager_production_vik" List.ItemID="1534302842" />
+				</list>
+				<int name="ui_sort_priority" value="860" />
+			</group>
+			<group name="hotkey_context" comment="mill" List.ItemID="282424183">
+				<locstring name="ui_name" value="11233392" />
+				<string name="unique_key" value="mill" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_food_gather_technology" List.ItemID="1765922887" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_wheelbarrow" List.ItemID="147241541" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_survival_techniques" List.ItemID="1938433801" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_professional_scouts" List.ItemID="2052010561" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_enclosures" List.ItemID="-717065851" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\produce_scout_rus" List.ItemID="-1087990978" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\produce_cattle" List.ItemID="2069879632" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_mohe_ancestry_jin" List.ItemID="-1038439666" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_sledges_vik" List.ItemID="-1524012947" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_fermtouns_pastures_sco" List.ItemID="-2116873329" />
+				</list>
+				<int name="ui_sort_priority" value="650" />
+			</group>
+			<group name="hotkey_context" comment="lumber camp" List.ItemID="975499476">
+				<locstring name="ui_name" value="11119561" />
+				<string name="unique_key" value="lumber_camp" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_lumber_camp\tech_forestry" List.ItemID="614235495" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_lumber_camp\tech_wood_gather_technology" List.ItemID="946913604" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_lumber_camp\tech_draft_horses_jin" List.ItemID="954163386" />
+				</list>
+				<int name="ui_sort_priority" value="600" />
+			</group>
+			<group name="hotkey_context" comment="mining camp" List.ItemID="-1681761578">
+				<locstring name="ui_name" value="11141897" />
+				<string name="unique_key" value="mining_camp" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mining_camp\tech_mining_gather_technology" List.ItemID="524685256" />
+				</list>
+				<int name="ui_sort_priority" value="700" />
+			</group>
+			<group name="hotkey_context" comment="ger" List.ItemID="-595167513">
+				<locstring name="ui_name" value="11150250" />
+				<string name="unique_key" value="ger" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ger\tech_food_gather_technology_mon" List.ItemID="-551770997" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ger\tech_wood_gather_technology_mon" List.ItemID="1344741431" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ger\tech_mining_gather_technology_mon" List.ItemID="376809420" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ger\tech_forestry_mon" List.ItemID="-473873127" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ger\tech_wheelbarrow_mon" List.ItemID="-2067129658" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ger\tech_survival_techniques_mon" List.ItemID="-1292249671" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ger\tech_professional_scouts_mon" List.ItemID="-44842204" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ovoo\tech_econ_ovoo_stone_rate_mon_ha_gol" List.ItemID="209956119" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_pasture\tech_econ_pasture_harvest_rate_mon_ha_gol" List.ItemID="-1244723630" />
+				</list>
+				<int name="ui_sort_priority" value="560" />
+			</group>
+			<group name="hotkey_context" comment="barracks" List.ItemID="2088315978">
+				<locstring name="ui_name" value="11141986" />
+				<string name="unique_key" value="barracks" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_armor_clad" List.ItemID="909426600" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_heavy_maces" List.ItemID="1540123703" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_phalanx" List.ItemID="-1106763899" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_two_handed_weapons" List.ItemID="1252575667" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_landsknecht" List.ItemID="2052182651" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_manatarms" List.ItemID="764951204" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_spearman" List.ItemID="-178327703" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_landsknecht" List.ItemID="-189661544" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_manatarms" List.ItemID="1186031375" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_spearman" List.ItemID="-1454268152" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_battle_hardened_chi" List.ItemID="1117332130" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_local_knowledge" List.ItemID="-1491126994" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_dragon_fire_hhre" List.ItemID="-412044415" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_katana_banner_jpn" List.ItemID="-159409581" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_nagae_yari_jpn" List.ItemID="703406391" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_odachi_jpn" List.ItemID="-1275179542" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_onna_bugeisha" List.ItemID="1868182466" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\upgrade_onna_bugeisha_jpn" List.ItemID="-799669719" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_ferocious_speed_byz" List.ItemID="-1048966445" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_musofadi_warrior" List.ItemID="1117423332" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_musofadi_warrior" List.ItemID="647418066" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\produce_jeanne_companion_infantry_fre_ha_01" List.ItemID="-357155460" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\upgrade_farimba_freeborn" List.ItemID="-1144755184" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_billmen_lan" List.ItemID="-1576853819" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_puncture_throw_lan" List.ItemID="-631571811" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_serjeant_tem" List.ItemID="428640273" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_hospitaller_tem" List.ItemID="1010378400" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_condottiero_tem" List.ItemID="931752723" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_teutonic_knight_tem" List.ItemID="-978990230" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_heavy_spearman_tem" List.ItemID="214126275" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_hospitaller_tem" List.ItemID="-128856598" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_serjeant_tem" List.ItemID="138578947" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_heavy_spearman" List.ItemID="1413094130" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_kanabo_jpn_ha_sen" List.ItemID="764250944" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_kanabo_jpn_ha_sen" List.ItemID="-1219367110" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_kharash_mon_ha_gol" List.ItemID="578706334" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_kharash_improvement_mon_ha_gol" List.ItemID="1626516505" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_reinforcements_barracks_mon_ha_gol" List.ItemID="-1469450938" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_tower_shields_jin" List.ItemID="-29212695" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_stormlances_jin" List.ItemID="1540328643" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\produce_zhanma_swordsman_jin" List.ItemID="423312737" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_berserker" List.ItemID="-1072296598" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_berserker_vik" List.ItemID="1240595629" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_infantry_hamrammr_vik" List.ItemID="933823815" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_infantry_turnshoes_vik" List.ItemID="-144505991" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_infantry_ulfberht_swords_vik" List.ItemID="-1283917765" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_lochaber_axe_sco" List.ItemID="-1493889761" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_basket_broadsword_sco" List.ItemID="-1029035610" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_cateran_sco" List.ItemID="1252932707" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_cateran_sco" List.ItemID="-2101646062" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\train_gallowglass_sco" List.ItemID="2091990545" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_gallowglass_sco" List.ItemID="1083107071" />
+				</list>
+				<int name="ui_sort_priority" value="900" />
+			</group>
+			<group name="hotkey_context" comment="outpost" List.ItemID="-2143905341">
+				<locstring name="ui_name" value="11260861" />
+				<string name="unique_key" value="outpost" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_outpost_arrowslits" List.ItemID="-1607239219" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_outpost_springald" List.ItemID="558739511" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_outpost_cannon" List.ItemID="-1726103238" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_fortify_outpost" List.ItemID="-427144661" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_castle_turret" List.ItemID="-264135702" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_castle_watch" List.ItemID="-1508771220" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_yam_network" List.ItemID="-786066787" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\ability_levy_militia" List.ItemID="-829252221" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\ability_levy_all_militia" List.ItemID="1362990878" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_outpost_mangonel_byz" List.ItemID="-1708690064" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_outpost_glorious_charge_mon_ha_gol" List.ItemID="1874272983" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_outpost_glorious_charge_mon_ha_gol" List.ItemID="2095409262" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_defensive_improvement_mon_ha_gol" List.ItemID="649422097" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_outpost_mengan_mouke_jin" List.ItemID="707927587" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\produce_highland_cattle_sco" List.ItemID="-1626345428" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_fortify_tower_houses_sco" List.ItemID="-1909911597" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\produce_scout_sco" List.ItemID="1432756104" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_barmkins_sco" List.ItemID="-1602277508" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_outpost\tech_stealth_forest_sco" List.ItemID="1840680565" />
+				</list>
+				<int name="ui_sort_priority" value="1400" />
+			</group>
+			<group name="hotkey_context" comment="archery range" List.ItemID="-1140407423">
+				<locstring name="ui_name" value="11119565" />
+				<string name="unique_key" value="archery_range" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_archer" List.ItemID="-1768842523" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_crossbowman" List.ItemID="1939718952" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_horsearcher" List.ItemID="1223006042" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_handcannoneer" List.ItemID="2039855024" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_grenadier_chi" List.ItemID="1115284476" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_war_elephant_tower_sul" List.ItemID="-696993079" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_repeater_crossbowman_chi" List.ItemID="183917525" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_camelarcher_abb" List.ItemID="1031038684" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_archer" List.ItemID="666610886" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_camelarcher_abb" List.ItemID="378009976" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_repeater_crossbow_chi" List.ItemID="-948681739" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_comp_bow_abb" List.ItemID="-1350088647" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_crossbow" List.ItemID="-1121832854" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_horsearcher" List.ItemID="-1265972818" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_gambesons_fre" List.ItemID="-1114544616" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_mangudai_weapon_damage_mon" List.ItemID="-1515096072" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_arrow_volley_eng" List.ItemID="-1698071919" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_crossbow_stirrups_fre" List.ItemID="-2037955958" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_landmark_siege_elephant_sul" List.ItemID="136324572" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_javelin_thrower" List.ItemID="1397865215" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_poison_arrows" List.ItemID="924436855" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_javelin_thrower" List.ItemID="-750456887" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_jannisary_ott" List.ItemID="-533239953" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_janissary_guns_ott" List.ItemID="820380752" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_horse_archer_mounted_training_rus" List.ItemID="914516756" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_pyrotechnics_chi" List.ItemID="-2106756226" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_armored_arch_hhre" List.ItemID="200586147" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\train_yumi_banner_jpn" List.ItemID="1269453163" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_kaburaya_whistling_arrow_jpn" List.ItemID="-1710987511" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\cmp_produce_turkichorsearcher_ayy" List.ItemID="469150656" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\cmp_tech_upgrade_turkichorsearcher_ayy" List.ItemID="515671374" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_desert_raider_abb_ha_01" List.ItemID="140644761" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_desert_raider_abb_ha_01" List.ItemID="-112307307" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_khan_hunter" List.ItemID="-298720926" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_horsearcher_ott" List.ItemID="-236430589" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_horsearcher_ott" List.ItemID="-324440706" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_grenadier_damage_chi" List.ItemID="1280545404" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_repeater_damage" List.ItemID="1924391749" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_synchronized_shot" List.ItemID="333619972" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_grenadier_chi_ha_01" List.ItemID="1585974937" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_genitour_tem" List.ItemID="-253923134" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_genoese_crossbowman_tem" List.ItemID="-2136820356" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_genitour_tem" List.ItemID="-922409645" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_genoese_crossbowman_tem" List.ItemID="2072246372" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_black_rider_hre" List.ItemID="171357192" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_tanegashima_ashigaru_jpn_ha_sen" List.ItemID="-332736325" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_tanegashima_ashigaru_jpn_ha_sen" List.ItemID="-260364861" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_ozutsu_jpn_ha_sen" List.ItemID="-1303121315" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_ozutsu_jpn_ha_sen" List.ItemID="1994834530" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_mangudai_triple_shot_mon_ha_gol" List.ItemID="-1434561940" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_reinforcements_archery_range_mon_ha_gol" List.ItemID="-1205816343" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\cmp_produce_eruptor_song" List.ItemID="-1658420089" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\cmp_tech_upgrade_eruptor_song" List.ItemID="539440034" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\produce_border_reiver_sco" List.ItemID="1470707163" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_archery_range\tech_upgrade_archer_arrow_hail_vik" List.ItemID="-349575998" />
+				</list>
+				<int name="ui_sort_priority" value="1000" />
+			</group>
+			<group name="hotkey_context" comment="Stable" List.ItemID="-961716128">
+				<locstring name="ui_name" value="11119576" />
+				<string name="unique_key" value="stable" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_camelrider_abb" List.ItemID="412562282" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_firelancer_chi" List.ItemID="-2045134777" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_horseman" List.ItemID="64046695" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_knight" List.ItemID="1797702632" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_camel_armor_abb" List.ItemID="-974968371" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_camelrider_abb" List.ItemID="-1070796908" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_cavalry_cantled_saddle_fre" List.ItemID="2083095970" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_cavalry_chivalry_fre" List.ItemID="-860283441" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_firelancer_chi" List.ItemID="1070349511" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_horseman" List.ItemID="558926749" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_war_elephant_sul" List.ItemID="1110467502" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_war_elephant_sul" List.ItemID="1524993132" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_scout" List.ItemID="-1819585736" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_cavalry_melee_damage_rus" List.ItemID="1860943841" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_knight" List.ItemID="1693445048" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_mehter" List.ItemID="888109985" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_imported_armor_mal" List.ItemID="-90834512" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_farima_leadership_mal" List.ItemID="-1810249134" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_warrior_scout_mal" List.ItemID="-1257132116" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_camel_rider_shields" List.ItemID="-2035349444" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_steppe_lancers_mon" List.ItemID="682353382" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_scout_los_increase" List.ItemID="593426117" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_scout_los_increase_sul" List.ItemID="-148731916" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_scout_los_increase_abb" List.ItemID="-1678160044" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_scout_abb" List.ItemID="2052711783" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_scout_chi" List.ItemID="-1493568512" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_scout_sul" List.ItemID="-900584432" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_scout_los_increase_chi" List.ItemID="2121534859" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_scout_los_increase_mal" List.ItemID="-1395288528" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_dragon_warhorse_hhre" List.ItemID="-187077957" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\train_cavalry_banner" List.ItemID="1817674219" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_marudo_amor_jpn" List.ItemID="-1705230056" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_expilatores_byz" List.ItemID="285967149" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_numeri_byz" List.ItemID="1353055200" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_trapezites_byz" List.ItemID="-1174902815" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_cataphract_byz" List.ItemID="1104014101" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_desert_raider_stable_abb_ha_01" List.ItemID="1226488682" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_imperial_guard_chi_ha_01" List.ItemID="310902548" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_yuan_raider_chi_ha_01" List.ItemID="1089587008" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_stable_upgrade_desert_raider_abb_ha_01" List.ItemID="-824854648" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_jeanne_companion_cavalry_fre_ha_01" List.ItemID="452479625" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_rule_of_templars_tem" List.ItemID="544026743" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_chevalier_confrere_tem" List.ItemID="1413385017" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_chevalier_confrere_tem" List.ItemID="-1179251982" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_elephant_raider_sul_ha_tug" List.ItemID="-227186371" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_elephant_raider_sul_ha_tug" List.ItemID="-1733086886" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_varangian_knight_byz_ha_mac" List.ItemID="1043163492" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_bodyguard_durability_mon_ha_gol" List.ItemID="-1335011282" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_reinforcements_stable_mon_ha_gol" List.ItemID="-754100631" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_riddari_byz_ha_mac" List.ItemID="76800589" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_quilted_armor_jin" List.ItemID="-862554792" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_trader_grassland_jin" List.ItemID="1710827688" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_mohe_tribesman_jin" List.ItemID="768219918" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_scout_jin" List.ItemID="934973881" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\produce_iron_pagoda_jin" List.ItemID="-1308863505" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_iron_pagoda_jin" List.ItemID="-1373253387" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_mohe_tribesman_jin" List.ItemID="150967527" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_scout_los_increase_jin" List.ItemID="510021686" />
+				</list>
+				<int name="ui_sort_priority" value="1100" />
+			</group>
+			<group name="hotkey_context" comment="Siege Workshop&#13;&#10;" List.ItemID="-458159101">
+				<locstring name="ui_name" value="11119481" />
+				<string name="unique_key" value="siege_workshop" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\produce_bombard" List.ItemID="-176190664" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\produce_culverin" List.ItemID="-274518271" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\produce_mangonel" List.ItemID="820819255" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\produce_ribauldequin" List.ItemID="-579853571" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\produce_springald" List.ItemID="570359810" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\produce_trebuchet" List.ItemID="-1088075091" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_adjustable_crossbars" List.ItemID="678658023" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_geometry_improved_mon" List.ItemID="-430499010" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_greased_axles" List.ItemID="1560887189" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_roller_shutter_triggers" List.ItemID="-781862721" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_shattering_projectiles" List.ItemID="-245798217" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_reusable_barrels_chi" List.ItemID="1907493853" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_reload_drills_chi" List.ItemID="329913715" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_lightweight_beams" List.ItemID="1137523166" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\produce_ram" List.ItemID="1793963000" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_greek_fire_byz" List.ItemID="-1529136378" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_siege_carpentry_abb_ha_01" List.ItemID="1428876932" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_adjustable_crossbars_mon" List.ItemID="-1111581943" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_adjustable_crossbars_improved_mon" List.ItemID="-140783833" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_geometry_mon" List.ItemID="657986380" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_geometry" List.ItemID="1031440837" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_roller_shutter_triggers_mon" List.ItemID="1729595423" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_roller_shutter_triggers_improved_mon" List.ItemID="1118029992" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_lightweight_beams_mon" List.ItemID="2141313008" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_lightweight_beams_improved_mon" List.ItemID="227178371" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_greased_axles_mon" List.ItemID="1050579927" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_greased_axles_improved_mon" List.ItemID="-454150372" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_ballista_elephant_sul_ha_tug" List.ItemID="-1954697886" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_transport_breachhead_mon_ha_gol" List.ItemID="-690337374" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\produce_ballista_elephant_sul_ha_tug" List.ItemID="-1526554754" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_flaming_springald_byz_ha_mac" List.ItemID="185609251" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_upgrade_siege_setup_byz_ha_mac" List.ItemID="2054282703" />
+				</list>
+				<int name="ui_sort_priority" value="1200" />
+			</group>
+			<group name="hotkey_context" comment="University&#13;&#10;" List.ItemID="1342445724">
+				<locstring name="ui_name" value="11227113" />
+				<string name="unique_key" value="university" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_ancient_techniques_chi" List.ItemID="-97948953" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_biology" List.ItemID="1972852657" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_chemistry" List.ItemID="-1815635917" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_court_architects" List.ItemID="1957562256" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_elite_army_tactics" List.ItemID="996052542" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_royal_bloodlines_fre" List.ItemID="-1031324947" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_siege_works" List.ItemID="-852056858" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_incendiary_arrows" List.ItemID="1408126005" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_silk_bowstrings" List.ItemID="-1728760240" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_leadshot" List.ItemID="446202207" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_silk_bowstrings_sul" List.ItemID="1689111922" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_brigandine_tem" List.ItemID="966763928" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_counterweight_defenses_tem" List.ItemID="-805224586" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_cranequins_tem" List.ItemID="1625955388" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_heaven_shaking_thunder_jin" List.ItemID="347577574" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_lamellar_armor_jin" List.ItemID="-118881808" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_trade_alliance_jin" List.ItemID="606632354" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_concanve_lens_hre" List.ItemID="1934396265" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_university\tech_upgrade_flintlock_sco" List.ItemID="-101540448" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_barracks\tech_upgrade_infantry_leikr_training_vik" List.ItemID="-4457816" />
+				</list>
+				<int name="ui_sort_priority" value="1300" />
+			</group>
+			<group name="hotkey_context" comment="Market" List.ItemID="1151223218">
+				<locstring name="ui_name" value="11121226" />
+				<string name="unique_key" value="market" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\buy_food" List.ItemID="-533374598" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\buy_stone" List.ItemID="1390263179" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\buy_wood" List.ItemID="664802484" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\produce_trade_cart" List.ItemID="1045039635" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\sell_food" List.ItemID="1481728026" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\sell_stone" List.ItemID="1400283897" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\sell_wood" List.ItemID="-2097978607" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\tech_upgrade_stone_commerce_mon" List.ItemID="-1174026367" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\toggle_trade_resource_type_abb" List.ItemID="1913121625" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\tech_upgrade_merchant_guilds_fre" List.ItemID="652664476" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\buy_olive_oil_byz" List.ItemID="1956196698" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\sell_olive_oil_byz" List.ItemID="1553670931" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\tech_upgrade_lettre_de_change_tem" List.ItemID="608759009" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\produce_venetian_trader" List.ItemID="-1161029624" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\ability_loan_large_tem" List.ItemID="-1203128821" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\ability_loan_medium_tem" List.ItemID="-1529217535" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\ability_loan_small_tem" List.ItemID="1492230027" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\train_yatai_jpn_ha_sen" List.ItemID="1905275253" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\ability_matsuri_call_yatai_jpn_ha_sen" List.ItemID="903304628" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\tech_upgrade_yatai_farm_gather_jpn_ha_sen" List.ItemID="-1401060486" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_market\tech_upgrade_economy_farmathr_vik" List.ItemID="1893781200" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_spice_roads" List.ItemID="-1449296082" />
+				</list>
+				<int name="ui_sort_priority" value="850" />
+			</group>
+			<group name="hotkey_context" comment="Religious Building" List.ItemID="-602333158">
+				<locstring name="ui_name" value="11260862" />
+				<string name="unique_key" value="monastery" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\produce_monk" List.ItemID="-1981199528" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_all_seeing_eye_sul" List.ItemID="1978274293" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_blessing_duration_rus" List.ItemID="-502853221" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_devoutness_hre" List.ItemID="263012345" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_herbal_medicine" List.ItemID="-275667989" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_inspired_warriors_hre" List.ItemID="-1352080988" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_monastic_shrines_mon" List.ItemID="2089246608" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_piety" List.ItemID="-929531612" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_sanctity_sul" List.ItemID="1389315889" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_tithe_barns" List.ItemID="1426846333" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_zeal_sul" List.ItemID="1913146172" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_efficient_production_sul" List.ItemID="837019973" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_swiftness_sul" List.ItemID="-1386646817" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_improved_blessing_rus" List.ItemID="-1839063932" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\toggle_assign_scholar_directly_sul" List.ItemID="-945272686" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_saints_veneration" List.ItemID="636900696" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_bunrei_jpn" List.ItemID="138693375" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_shinto_ritual_jpn" List.ItemID="-2086667394" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_gion_festival_jpn" List.ItemID="804778405" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_nehan_jpn" List.ItemID="-396044861" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_zen_jpn" List.ItemID="-646612187" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_five_mountain_jpn" List.ItemID="1245408813" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_faith" List.ItemID="162478948" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_benediction_hre" List.ItemID="2027736705" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_fanaticism_tem" List.ItemID="-1922070427" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_temple_monk_move_speed_jpn_ha_sen" List.ItemID="-2144042261" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_ovoo_tithe_barns_mon_ha_gol" List.ItemID="2046423623" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\tech_upgrade_elite_healer_elephant_sul_ha_tug" List.ItemID="1056426803" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_monastery\produce_healer_elephant" List.ItemID="1161040810" />
+				</list>
+				<int name="ui_sort_priority" value="1150" />
+			</group>
+			<group name="hotkey_context" comment="Blacksmith / Meinwerk Palace / Forge&#13;&#10;" List.ItemID="1368703086">
+				<locstring name="ui_name" value="11260864" />
+				<string name="unique_key" value="blacksmith" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_biology_mon" List.ItemID="-2057189243" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_chemistry_mon" List.ItemID="-702349058" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_elite_army_tactics_mon" List.ItemID="-2122368621" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_incendiary_arrows_mon" List.ItemID="2021280941" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_melee_armor" List.ItemID="1930922353" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_melee_damage" List.ItemID="467403046" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_ranged_armor" List.ItemID="-928700432" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_ranged_damage" List.ItemID="284393889" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_siege_works_mon" List.ItemID="67980274" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_boyars_fortitude_rus" List.ItemID="926751316" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_camel_handling_abb" List.ItemID="-2068502423" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_marching_drills_hre" List.ItemID="1546006407" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_siege_engineering" List.ItemID="-785653704" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_military_academy" List.ItemID="1495154836" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_forced_march_sul" List.ItemID="585979829" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_precision_training" List.ItemID="482282100" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_steel_barding" List.ItemID="1360262925" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_riveted_chain_mail" List.ItemID="-419274952" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_golden_cuirass_hhre" List.ItemID="-32398484" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_zornhau_hhre" List.ItemID="-1989500606" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_bodkin_bolts_hhre" List.ItemID="665377011" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_teardrop_shield_byz" List.ItemID="-333710268" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_sultans_mamluks_abb_ha_01" List.ItemID="1185551378" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_stable\tech_upgrade_infantry_support_abb_ha_01" List.ItemID="1951926630" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_smith_ordinance_company" List.ItemID="846319276" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_companions_hfre" List.ItemID="-1191754433" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_dali_horses" List.ItemID="-1502695833" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_elite_army_tactics_improved_mon" List.ItemID="-1261839839" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_biology_improved_mon" List.ItemID="2002298036" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_military_academy_improved_mon" List.ItemID="1596708661" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_siege_works_improved_mon" List.ItemID="163153739" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_siege_engineering_improved_mon" List.ItemID="482325939" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_serpentine_powder_mon" List.ItemID="-1340370334" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_silkstring_mon" List.ItemID="860423301" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_padded_jack" List.ItemID="-738729882" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_gold_mining_jpn" List.ItemID="-1537220479" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_military_production_speed_mon_ha_gol" List.ItemID="-1834322595" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_biology_mon_ha_gol" List.ItemID="-1307706301" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_chemistry_mon_ha_gol" List.ItemID="-1592501475" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_court_architects_mon_ha_gol" List.ItemID="-1840340519" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_elite_army_tactics_mon_ha_gol" List.ItemID="-943898893" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_incendiary_arrows_mon_ha_gol" List.ItemID="-687971034" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_leadshot_mon_ha_gol" List.ItemID="-1892565248" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_siege_works_mon_ha_gol" List.ItemID="1683665013" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_silk_bowstrings_mon_ha_gol" List.ItemID="-1502953430" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_wallace_rally_sco" List.ItemID="1004515682" />
+				</list>
+				<int name="ui_sort_priority" value="1250" />
+			</group>
+			<group name="hotkey_context" comment="Dock&#13;&#10;" List.ItemID="-1114373630">
+				<locstring name="ui_name" value="11170617" />
+				<string name="unique_key" value="dock" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_archer_ship" List.ItemID="-458995045" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_attack_ship" List.ItemID="217852313" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_demo_ship" List.ItemID="396496575" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_fishing_boat" List.ItemID="1916862303" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_galleass" List.ItemID="2061138669" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_trade_ship" List.ItemID="-1334000977" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_transport_ship" List.ItemID="1848298159" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_war_ship" List.ItemID="2078266739" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_armored_hull" List.ItemID="-2049649490" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_explosives" List.ItemID="-823053636" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_extended_lines" List.ItemID="-1586682401" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_fire_stations_hre" List.ItemID="-1234025979" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_long_guns_fre" List.ItemID="-1685202848" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_piracy_mon" List.ItemID="-1339979635" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_teak_masts_abb" List.ItemID="1749719684" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_admiralty_eng" List.ItemID="238432521" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_extra_hammocks" List.ItemID="-1993710015" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_springald_crews" List.ItemID="1336376819" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_incendiaries" List.ItemID="-1719073184" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_naval_arrowslits" List.ItemID="172862888" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_heated_shot" List.ItemID="1260195618" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_swivel_cannon" List.ItemID="1508673360" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_chain_shot" List.ItemID="-1811666410" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_thunderclap_bombs" List.ItemID="-1198534297" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_adaptable_hulls_rus" List.ItemID="1483578445" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_manuscript_trade_sul" List.ItemID="1477177280" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_canoe_tactics_mal" List.ItemID="1754826795" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_mounted_guns" List.ItemID="-1954121000" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_imperial_fleet_ott" List.ItemID="-1439773779" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_grand_galley_ott" List.ItemID="1470391200" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_copper_plating_jpn" List.ItemID="2013337707" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_heavy_dromon_byz" List.ItemID="-1723416772" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_liquid_explosives_byz" List.ItemID="-325931019" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_any_port_ayy" List.ItemID="4708761" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_patchwork_repairs_sul" List.ItemID="1378351227" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_crusader_fleets_tem" List.ItemID="1495462444" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_fort_support" List.ItemID="-118767327" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_naval_extra_oars_vik" List.ItemID="254839484" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_naval_leding_vik" List.ItemID="1349771700" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_naval_reinforced_keel_vik" List.ItemID="608793670" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_naval_snaerisspjot_vik" List.ItemID="1479189657" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_naval_sunstones_vik" List.ItemID="-1216250066" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_longship_vik" List.ItemID="-2038266789" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\produce_drakkar_vik" List.ItemID="1235985268" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dock\tech_upgrade_birlinn_crews_sco" List.ItemID="-691480932" />
+				</list>
+				<int name="ui_sort_priority" value="560" />
+			</group>
+			<group name="hotkey_context" comment="Keep / Fortress" List.ItemID="-1450478319">
+				<locstring name="ui_name" value="11269186" />
+				<string name="unique_key" value="keep" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_bombard_eng" List.ItemID="205020897" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_counterweight_treb_eng" List.ItemID="630985311" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_crossbowman_eng" List.ItemID="-1275558023" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_handcannoneer_eng" List.ItemID="998543644" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_knight_eng" List.ItemID="-1791417872" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_longbowman_eng" List.ItemID="-555834275" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_manatarms_eng" List.ItemID="-1406308411" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_ribauldequin_eng" List.ItemID="-1340641261" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_scout_sul" List.ItemID="399637340" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_boiling_oil" List.ItemID="2081938023" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_cannon_emplacement" List.ItemID="-332993261" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_extra_materials_chi" List.ItemID="1939292577" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_reinforced_defenses_hre" List.ItemID="-1587649760" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_slowburning_defenses_sul" List.ItemID="-136436670" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_springald_emplacement" List.ItemID="1264124054" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_network_of_citadels_eng" List.ItemID="-1832635696" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_mangonel_eng" List.ItemID="-1948755277" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_spearman_eng" List.ItemID="348881036" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_village_fortresses_sul" List.ItemID="-1839269543" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_enlistment_incentives_fre" List.ItemID="-1998917567" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_slate_and_stone_construction_hre" List.ItemID="2111137037" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_horseman_eng" List.ItemID="1644057429" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_springald_eng" List.ItemID="-1851286645" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_villager_sul" List.ItemID="-1278623979" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_great_bombard_emplacement" List.ItemID="-1370307184" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_mangonel_emplacement_byz" List.ItemID="1854877832" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_companions_hfre" List.ItemID="-1454972166" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_keep_ram_eng" List.ItemID="2075211795" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_trebuchet_emplacement_tem" List.ItemID="-976527556" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_treasure_towers_tem" List.ItemID="-459440092" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_iron_clamps_tem" List.ItemID="2127775744" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_desert_citadels_tem" List.ItemID="-1932636604" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\produce_worker_elephant_sul_ha_tug" List.ItemID="729178797" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_keep_walls_sul_ha_tug" List.ItemID="221311762" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_keep_curse_sul_ha_tug" List.ItemID="-226937246" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_keep_governor_sul_ha_tug" List.ItemID="1422826134" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_mengan_mouke_emplacement_jin" List.ItemID="-1856079374" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_flying_fire_battalions_jin" List.ItemID="985450156" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_medical_centers" List.ItemID="-100881580" />
+				</list>
+				<int name="ui_sort_priority" value="1350" />
+			</group>
+			<group name="hotkey_context" comment="house of learning" List.ItemID="-840559403">
+				<locstring name="ui_name" value="11148465" />
+				<string name="unique_key" value="house_of_learning" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_hearty_rations" List.ItemID="898995423" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_honed_blades" List.ItemID="-441747647" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_lookout_towers" List.ItemID="-281931153" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_reinforced_foundations" List.ItemID="-2012017893" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_tranquil_venue" List.ItemID="-192319078" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_paiks" List.ItemID="721371029" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_infantry_charge_sul_ha_tug" List.ItemID="-819202548" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_improved_spearman_sul_ha_tug" List.ItemID="-1579909040" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_collateral_damage_sul_ha_tug" List.ItemID="-1077915051" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_learning\tech_elephant_caretakers_sul_ha_tug" List.ItemID="-1627438139" />
+				</list>
+				<int name="ui_sort_priority" value="4500" />
+			</group>
+			<group name="hotkey_context" comment="house of wisdom" List.ItemID="1487731927">
+				<locstring name="ui_name" value="11183445" />
+				<string name="unique_key" value="house_of_wisdom" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_agriculture" List.ItemID="151599416" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_armored_caravans" List.ItemID="108584854" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_boot_camp" List.ItemID="-1074391452" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_camel_support" List.ItemID="-805805723" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_public_libraries" List.ItemID="-1601099004" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_grand_bazaar" List.ItemID="-89367725" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_improved_processing" List.ItemID="-127942103" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_preservation_of_knowledge" List.ItemID="2042499250" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_culture" List.ItemID="-1042397816" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_economy" List.ItemID="-1206026377" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_military" List.ItemID="-1991210286" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_trade" List.ItemID="1744776796" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_fertile_crescent" List.ItemID="-1051073586" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_algebra" List.ItemID="-1275325889" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_city_planning" List.ItemID="1633272609" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\tech_siege_directive" List.ItemID="-1749657071" />
+				</list>
+				<int name="ui_sort_priority" value="4700" />
+			</group>
+			<group name="hotkey_context" comment="royal_institute" List.ItemID="688976262">
+				<locstring name="ui_name" value="11145221" />
+				<string name="unique_key" value="royal_institute" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_cantled_saddles" List.ItemID="-1937591924" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_crossbow_stirrups" List.ItemID="-251779593" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_chivalry" List.ItemID="288567658" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_enlistment_incentives" List.ItemID="-1052250584" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_gambesons" List.ItemID="115281260" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_royal_bloodlines" List.ItemID="1254548365" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_upgrade_long_guns" List.ItemID="176584368" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_keep\tech_upgrade_landmark_companions_hfre" List.ItemID="1362015852" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_upgrade_merchant_guilds_landmark_fre" List.ItemID="1109000610" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_royal_institute\tech_ordinance_company" List.ItemID="-605786093" />
+				</list>
+				<int name="ui_sort_priority" value="7000" />
+			</group>
+			<group name="hotkey_context" comment="guild_hall" List.ItemID="1888636090">
+				<locstring name="ui_name" value="11145205" />
+				<string name="unique_key" value="guild_hall" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_guild_hall\ability_collect_resources" List.ItemID="1647420541" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_guild_hall\ability_toggle_food" List.ItemID="-781386525" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_guild_hall\ability_toggle_gold" List.ItemID="-94085679" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_guild_hall\ability_toggle_stone" List.ItemID="1271956939" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_guild_hall\ability_toggle_wood" List.ItemID="-1611879630" />
+				</list>
+				<int name="ui_sort_priority" value="4000" />
+			</group>
+			<group name="hotkey_context" comment="college of artillery" List.ItemID="1020857049">
+				<locstring name="ui_name" value="11148016" />
+				<string name="unique_key" value="college_of_artillery" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_college_of_artillery\produce_royal_cannon" List.ItemID="1768281433" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_college_of_artillery\produce_royal_culverin" List.ItemID="1427734842" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_college_of_artillery\produce_royal_ribauldequin" List.ItemID="430601964" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_college_of_artillery\tech_upgrade_chemistry_fre" List.ItemID="774318162" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_college_of_artillery\tech_upgrade_greased_axles_fre" List.ItemID="-1450747759" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_college_of_artillery\tech_upgrade_siege_works_fre" List.ItemID="-1196692204" />
+				</list>
+				<int name="ui_sort_priority" value="2800" />
+			</group>
+			<group name="hotkey_context" comment="high armory" List.ItemID="1853528475">
+				<locstring name="ui_name" value="11146036" />
+				<string name="unique_key" value="high_armory" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_high_armory\tech_banded_arms" List.ItemID="1757561536" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_high_armory\tech_fine_tuned_guns" List.ItemID="-1311265566" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_high_armory\tech_siege_crew_training" List.ItemID="-1963712235" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_high_armory\tech_wandering_town" List.ItemID="-1648818041" />
+				</list>
+				<int name="ui_sort_priority" value="4300" />
+			</group>
+			<group name="hotkey_context" comment="imperial academy" List.ItemID="-2043400355">
+				<locstring name="ui_name" value="11149140" />
+				<string name="unique_key" value="imperial_academy" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_imperial_academy\tech_imperial_examinations" List.ItemID="1664462314" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_imperial_academy\produce_imperial_official_imperial_academy" List.ItemID="625592570" />
+				</list>
+				<int name="ui_sort_priority" value="5000" />
+			</group>
+			<group name="hotkey_context" comment="Unit Abilities" List.ItemID="-1384032256">
+				<locstring name="ui_name" value="11227008" />
+				<string name="unique_key" value="unit_abilities" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_collect_tax" List.ItemID="-1876056835" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_conversion_faith" List.ItemID="-1161492962" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_deploy_palings" List.ItemID="1847232633" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_deploy_pavise" List.ItemID="1281578105" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_emergency_repair" List.ItemID="-793506566" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_force_march" List.ItemID="-894434066" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_scouting_falcon" List.ItemID="-1977292388" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_signal_arrow_attack" List.ItemID="340230107" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_signal_arrow_defense" List.ItemID="-735666155" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_signal_arrow_move_speed" List.ItemID="155927481" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_supervise" List.ItemID="879878852" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_toggle_automatic_tax_collection" List.ItemID="-1009968886" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_fortitude_ott" List.ItemID="-1509253998" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_stealth_mal" List.ItemID="-1167447575" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_cannon_swap_fre" List.ItemID="786438269" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_setup_camp_eng" List.ItemID="-958762056" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_gallop_rus" List.ItemID="398210162" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_spy_jpn" List.ItemID="1075544529" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_sabatoge_jpn" List.ItemID="-1996379761" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_blink_jpn" List.ItemID="1716010222" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_holy_inspiration" List.ItemID="1390473768" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_attack_drums_ott" List.ItemID="-2065952224" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_melee_drums_ott" List.ItemID="-591125951" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_ranged_drums_ott" List.ItemID="-1017699484" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_grandgalley_mil_school_ott" List.ItemID="-1810149563" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_baibars_barrage_ayy" List.ItemID="-1263370599" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_create_spy_ayy" List.ItemID="-1571879465" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_inspiration_ayy" List.ItemID="-1037265925" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_qutuz_armor_ayy" List.ItemID="1451081222" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_saladin_armor_ayy" List.ItemID="1073095853" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_saladin_toggle_armor_ayy" List.ItemID="-1958786207" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_saladin_toggle_speed_ayy" List.ItemID="1690180359" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_shirkuh_speed_ayy" List.ItemID="23679205" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_spy_dash_ayy" List.ItemID="628781500" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_spy_falcon_ayy" List.ItemID="995714944" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_tughtekin_attack_ayy" List.ItemID="-622651025" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_cataphract_charge" List.ItemID="-22633128" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_flask" List.ItemID="351312590" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_shield_wall_on" List.ItemID="1137013385" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_shield_wall_off" List.ItemID="-458862428" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_berserking" List.ItemID="2107298145" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_armor" List.ItemID="-1300389602" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_attack_damage" List.ItemID="-39295392" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_attack_speed" List.ItemID="-1532380507" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_healing" List.ItemID="1166984229" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_move_speed" List.ItemID="-2065862497" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_production" List.ItemID="2031014411" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_sunder" List.ItemID="2026316488" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_build_transport_ship" List.ItemID="-383929835" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_mass_heal_abb_ha_01" List.ItemID="-1494070512" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_swap_to_blade_abb_ha_01" List.ItemID="-18065898" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_swap_to_bow_abb_ha_01" List.ItemID="2041894530" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_structural_reinforcements_abb_ha_01" List.ItemID="-1103115593" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_swap_to_kinetic_abb_ha_01" List.ItemID="684163316" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_swap_to_incendiary_abb_ha_01" List.ItemID="2145890071" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_atabeg_supervision" List.ItemID="-863088598" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_place_yorishiro_jpn" List.ItemID="2074794212" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_monk_debuff_jpn" List.ItemID="1518177587" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_treasure_caravan_target_jpn" List.ItemID="-1876963448" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_body_of_iron_chi_ha_01" List.ItemID="-1156288194" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_arrow_volley_eng" List.ItemID="-1110531533" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_man_the_sails" List.ItemID="1800346303" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_lodya_combat_ship_rus" List.ItemID="1058535434" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_lodya_galley_ship_rus" List.ItemID="1986557073" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_lodya_incendiary_ship_rus" List.ItemID="-658541131" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_lodya_trade_ship_rus" List.ItemID="-1871108911" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_lodya_transport_ship_rus" List.ItemID="1107940422" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_patch_job_ott" List.ItemID="1436688560" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\toggle_trader_wood_fre" List.ItemID="1876389608" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\toggle_trader_food_fre" List.ItemID="-491748253" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_patch_job" List.ItemID="970410773" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_king_treason" List.ItemID="1821557623" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_king_sprint" List.ItemID="-677785033" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_scout_set_dropoff_target" List.ItemID="-340495835" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_synch_shot_lan" List.ItemID="1497261784" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_caracole_hre" List.ItemID="-906576058" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_deploy_tate" List.ItemID="-752962512" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_breachhead_carrier_mon_ha_gol" List.ItemID="-2061130646" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_convert_relic_to_ovoo_mon_ha_gol" List.ItemID="-383851914" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_khan_debuff_arrow_mon_ha_gol" List.ItemID="-1244292409" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_yatai_set_matsuri_target" List.ItemID="-1284172048" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_trample_sul_ha_tug" List.ItemID="-1245579445" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_field_repair_site_sul_ha_tug" List.ItemID="160380127" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_berserk_bogmadr" List.ItemID="-954263003" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_berserk_riddari" List.ItemID="-293077180" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\tech_runestones_byz_ha_mac" List.ItemID="593999240" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_flower_garden_jin" List.ItemID="1663737207" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_bribe_jin" List.ItemID="1770314304" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_establish_tributary_jin" List.ItemID="1759595695" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_grenade_throw_song" List.ItemID="544837374" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jiangnan_spear_chi_ha_01" List.ItemID="1288730088" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jiangnan_xbow_chi_ha_01" List.ItemID="2034002321" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jiangnan_yuan_chi_ha_01" List.ItemID="891047354" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jiangnan_zhuge_chi_ha_01" List.ItemID="-1718333091" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_zhan_ma_song" List.ItemID="-410565663" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_toggle_volva_boost_vik" List.ItemID="1846064980" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_establish_sacred_grove_vik" List.ItemID="-2016906451" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_living_off_land_vik" List.ItemID="2019140770" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_spiritual_awakening" List.ItemID="-1324129230" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_fortify_ribauldequin_fre" List.ItemID="227335836" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_establish_fishpond_sco" List.ItemID="430306389" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_hoist_fairy_flag_sco" List.ItemID="-1626747888" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_relocate_fish_pond_sco" List.ItemID="-494622275" />
+				</list>
+				<int name="ui_sort_priority" value="110" />
+			</group>
+			<group name="hotkey_context" comment="Ovoo" List.ItemID="2083176294">
+				<locstring name="ui_name" value="11153031" />
+				<string name="unique_key" value="ovoo" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ovoo\tech_additional_torches" List.ItemID="-668508174" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ovoo\tech_raid_bounty" List.ItemID="1069907946" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ovoo\tech_stone_bounty" List.ItemID="1515641914" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ovoo\tech_superior_mobility" List.ItemID="-1789884724" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ovoo\tech_whistling_arrows" List.ItemID="-996673257" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_ovoo\tech_pax_mongolica" List.ItemID="142713918" />
+				</list>
+				<int name="ui_sort_priority" value="6900" />
+			</group>
+			<group name="hotkey_context" comment="Wyngard Palace" List.ItemID="380095271">
+				<locstring name="ui_name" value="11142867" />
+				<string name="unique_key" value="wyngard_palace" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_wyngard_palace\produce_wyngard_army" List.ItemID="-1935505745" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_wyngard_palace\produce_wyngard_raiders" List.ItemID="620325712" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_wyngard_palace\produce_wyngard_rangers" List.ItemID="-908707526" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_wyngard_palace\produce_wyngard_footmen" List.ItemID="-1141252457" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_wyngard_palace\produce_garrison_command" List.ItemID="-644378146" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_wyngard_palace\produce_earls_retinue" List.ItemID="-1819880292" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_wyngard_palace\produce_gunpowder_contingent" List.ItemID="109946032" />
+				</list>
+				<int name="ui_sort_priority" value="8500" />
+			</group>
+			<group name="hotkey_context" comment="Military School" List.ItemID="57288192">
+				<locstring name="ui_name" value="11215551" />
+				<string name="unique_key" value="military_school" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_spearman" List.ItemID="281736596" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_sipahi" List.ItemID="-1353659641" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_archer" List.ItemID="1085207763" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_mehter" List.ItemID="1324505613" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_man_at_arms" List.ItemID="-693527927" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_crossbow" List.ItemID="23679690" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_jannisary" List.ItemID="-1238996549" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_knight" List.ItemID="-1343600170" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_military_school\toggle_horsearcher" List.ItemID="1855178492" />
+				</list>
+				<int name="ui_sort_priority" value="6500" />
+			</group>
+			<group name="hotkey_context" comment="Griot Bara" List.ItemID="-1528585694">
+				<locstring name="ui_name" value="11217423" />
+				<string name="unique_key" value="griot_bara" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_griot_bara\ability_food_festival" List.ItemID="-445079384" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_griot_bara\ability_military_festival" List.ItemID="1235439867" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_griot_bara\ability_siege_festival" List.ItemID="-372635063" />
+				</list>
+				<int name="ui_sort_priority" value="3700" />
+			</group>
+			<group name="hotkey_context" comment="Mansa Quarry" List.ItemID="622850184">
+				<locstring name="ui_name" value="11218088" />
+				<string name="unique_key" value="mansa_quarry" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mansa_quarry\toggle_gold_production" List.ItemID="902662596" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mansa_quarry\toggle_stone_production" List.ItemID="-494113060" />
+				</list>
+				<int name="ui_sort_priority" value="5500" />
+			</group>
+			<group name="hotkey_context" comment="Farimba Garrison" List.ItemID="885076475">
+				<locstring name="ui_name" value="11217099" />
+				<string name="unique_key" value="farimba_garrison" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\produce_mansa_javelineer" List.ItemID="963336213" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\produce_freeborn_warrior" List.ItemID="1677357829" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\produce_mansa_musofadi" List.ItemID="2141764424" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\unlock_freeborn_warrior" List.ItemID="1050623869" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\unlock_mansa_javelineer" List.ItemID="428680903" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\unlock_mansa_musofadi" List.ItemID="-423178013" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\upgrade_farimba_musofadi" List.ItemID="1563481950" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\upgrade_farimba_javelin_thrower" List.ItemID="-1405478081" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_farimba_garrison\upgrade_farimba_freeborn" List.ItemID="-609772039" />
+				</list>
+				<int name="ui_sort_priority" value="3000" />
+			</group>
+			<group name="hotkey_context" comment="Mehmed Imperial Armory" List.ItemID="102837109">
+				<locstring name="ui_name" value="11207682" />
+				<string name="unique_key" value="mehmed_imperial_armory" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mehmed_imperial_armory\toggle_springald" List.ItemID="1839249061" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mehmed_imperial_armory\toggle_mangonel" List.ItemID="65795356" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mehmed_imperial_armory\toggle_trebuchet" List.ItemID="1131425132" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mehmed_imperial_armory\toggle_ribauldequin" List.ItemID="-1486972495" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mehmed_imperial_armory\toggle_great_bombard" List.ItemID="165648162" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mehmed_imperial_armory\toggle_ram" List.ItemID="1282298816" />
+				</list>
+				<int name="ui_sort_priority" value="5700" />
+			</group>
+			<group name="hotkey_context" comment="House" List.ItemID="-1958623699">
+				<locstring name="ui_name" value="11254174" />
+				<string name="unique_key" value="house" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house\tech_border_settlements_byz" List.ItemID="1848739726" />
+				</list>
+				<int name="ui_sort_priority" value="550" />
+			</group>
+			<group name="hotkey_context" comment="Koka Township" List.ItemID="-412540029">
+				<locstring name="ui_name" value="11247514" />
+				<string name="unique_key" value="koka_township" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_koka_township\produce_shinobi" List.ItemID="-1974260176" />
+				</list>
+				<int name="ui_sort_priority" value="5300" />
+			</group>
+			<group name="hotkey_context" comment="Mount Lu Academy" List.ItemID="752919449">
+				<locstring name="ui_name" value="11247426" />
+				<string name="unique_key" value="mountlu_academy" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mountlu_academy\tech_imperial_seals" List.ItemID="623253630" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mountlu_academy\tech_military_bureau" List.ItemID="-227180460" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mountlu_academy\tech_regional_inspection" List.ItemID="-975813757" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mountlu_academy\tech_single_whip" List.ItemID="-801999954" />
+				</list>
+				<int name="ui_sort_priority" value="6700" />
+			</group>
+			<group name="hotkey_context" comment="Temple of the Sun" List.ItemID="-1103269154">
+				<locstring name="ui_name" value="11247594" />
+				<string name="unique_key" value="temple_of_sun" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_temple_of_sun\toggle_haste" List.ItemID="76087349" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_temple_of_sun\toggle_defense" List.ItemID="-1227110448" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_temple_of_sun\toggle_vitality" List.ItemID="-637215346" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_temple_of_sun\toggle_charge" List.ItemID="-576714695" />
+				</list>
+				<int name="ui_sort_priority" value="8000" />
+			</group>
+			<group name="hotkey_context" comment="Zhu Xi's Library" List.ItemID="-1058374195">
+				<locstring name="ui_name" value="11247554" />
+				<string name="unique_key" value="zhuxi_library" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_zhuxi_library\tech_upgrade_10k_bolts_chi" List.ItemID="259657617" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_zhuxi_library\tech_upgrade_advanced_administration_chi" List.ItemID="593469706" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_zhuxi_library\tech_upgrade_cloud_terror_chi" List.ItemID="460495216" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_zhuxi_library\tech_upgrade_dynastic_protectors_chi" List.ItemID="-2078270806" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_zhuxi_library\tech_upgrade_roar_dragon_chi" List.ItemID="-1773958431" />
+				</list>
+				<int name="ui_sort_priority" value="9000" />
+			</group>
+			<group name="hotkey_context" comment="Tanegashima Gunsmith" List.ItemID="2004848046">
+				<locstring name="ui_name" value="11247518" />
+				<string name="unique_key" value="tanegashima_gunsmith" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tanegashima_gunsmith\produce_deployed_bombard_jpn" List.ItemID="-895371217" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tanegashima_gunsmith\produce_deployed_handcannoneer_jpn" List.ItemID="-176658504" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tanegashima_gunsmith\produce_deployed_ozutso_jpn" List.ItemID="-1322646706" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tanegashima_gunsmith\produce_deployed_ribauldequin_jpn" List.ItemID="-23590924" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tanegashima_gunsmith\produce_bombard_jpn" List.ItemID="-1784245667" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tanegashima_gunsmith\produce_handcannoneer_jpn" List.ItemID="991864153" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tanegashima_gunsmith\produce_ozutso_jpn" List.ItemID="985022560" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tanegashima_gunsmith\produce_ribauldequin_jpn" List.ItemID="2146297054" />
+				</list>
+				<int name="ui_sort_priority" value="7500" />
+			</group>
+			<group name="hotkey_context" comment="CMP Siege Camp AYY" List.ItemID="1102436085">
+				<locstring name="ui_name" value="11258280" />
+				<string name="unique_key" value="siege_camp" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_thundrous_barrage_ayy" List.ItemID="593469706" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\cmp_ability_precise_barrage_ayy" List.ItemID="-1773958431" />
+				</list>
+				<int name="ui_sort_priority" value="102000" />
+			</group>
+			<group name="hotkey_context" comment="CMP Arsenal" List.ItemID="-1082467800">
+				<locstring name="ui_name" value="11258282" />
+				<string name="unique_key" value="cmp_arsenal" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_crossbow_cranequin" List.ItemID="593469706" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_boiling_oil" List.ItemID="-1773958431" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_ranged_armor" List.ItemID="433870022" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_ranged_damage" List.ItemID="103595678" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_ranged_incendiary" List.ItemID="-1771968880" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_siege_adjustable_crossbar" List.ItemID="472442884" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_siege_roller_trigger" List.ItemID="-318242809" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_siege_weapon_speed" List.ItemID="-1003058694" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_siege_works" List.ItemID="-804087793" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_building_arsenal\cmp_tech_upgrade_silk_strings" List.ItemID="1594347716" />
+				</list>
+				<int name="ui_sort_priority" value="100000" />
+			</group>
+			<group name="hotkey_context" comment="CMP Bureau Brothers' Workshop FRE" List.ItemID="-570040781">
+				<locstring name="ui_name" value="11258281" />
+				<string name="unique_key" value="bb_workshop" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_bureau_brothers_workshop\cmp_produce_culverin" List.ItemID="593469706" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_bureau_brothers_workshop\cmp_produce_cannon" List.ItemID="-1773958431" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_bureau_brothers_workshop\cmp_produce_ribauldequin" List.ItemID="-224718075" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_bureau_brothers_workshop\cmp_upgrade_bb_royal" List.ItemID="515636609" />
+				</list>
+				<int name="ui_sort_priority" value="101000" />
+			</group>
+			<group name="hotkey_context" comment="Imperial Hippodrome" List.ItemID="-2013393179">
+				<locstring name="ui_name" value="11234023" />
+				<string name="unique_key" value="imperial_hippodrome" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_imperial_hippodrome\ability_triumph" List.ItemID="209875270" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_imperial_hippodrome\produce_champion_horseman" List.ItemID="1477964765" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_imperial_hippodrome\produce_champion_knight" List.ItemID="-421745674" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_imperial_hippodrome\produce_champion_scout" List.ItemID="219555571" />
+				</list>
+				<int name="ui_sort_priority" value="2900" />
+			</group>
+			<group name="hotkey_context" comment="Mercenary House / Golden Horn Tower" List.ItemID="1393172530">
+				<locstring name="ui_name" value="11258262" />
+				<string name="unique_key" value="mercenary_house" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\tech_eastern_contract_byz" List.ItemID="1524803373" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\tech_western_contract_byz" List.ItemID="-1621764898" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\tech_silk_contract_byz" List.ItemID="-1917112225" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\tech_upgrade_contract_byz" List.ItemID="1328341339" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_auto_mercenaries" List.ItemID="1939186587" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\produce_merc_1" List.ItemID="-1353746852" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\produce_merc_2" List.ItemID="633002395" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\produce_merc_3" List.ItemID="1614278626" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\produce_merc_4" List.ItemID="-1376971624" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mercenary_house\produce_merc_5" List.ItemID="2115048894" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_toggle_crossbowman_byz_ha_mac" List.ItemID="1736501355" />
+				</list>
+				<int name="ui_sort_priority" value="6000" />
+			</group>
+			<group name="hotkey_context" comment="Foreign Engineering Company" List.ItemID="71072751">
+				<locstring name="ui_name" value="11234126" />
+				<string name="unique_key" value="foreign_engineering_company" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_foreign_engineering_company\produce_hui_pao_byz" List.ItemID="1390634988" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_foreign_engineering_company\produce_nest_of_bees_byz" List.ItemID="-1096309738" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_foreign_engineering_company\produce_royal_cannon_byz" List.ItemID="-1175055822" />
+				</list>
+				<int name="ui_sort_priority" value="3200" />
+			</group>
+			<group name="hotkey_context" comment="Cistern " List.ItemID="-254052870">
+				<locstring name="ui_name" value="11274721" />
+				<string name="unique_key" value="cistern" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_cistern_first_hill\ability_akritoi_defense_byz" List.ItemID="1475445990" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_cistern_first_hill\ability_toggle_automatic_pilgrim_flask_byz" List.ItemID="1832802961" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_cistern_first_hill\ability_toggle_conscriptio_byz" List.ItemID="1184703605" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_cistern_first_hill\ability_toggle_dialecticus_byz" List.ItemID="2068148457" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_cistern_first_hill\ability_toggle_praesidium_byz" List.ItemID="37387898" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_cistern_first_hill\ability_cisterns_favor_byz_ha_mac" List.ItemID="-1136409166" />
+				</list>
+				<int name="ui_sort_priority" value="2700" />
+			</group>
+			<group name="hotkey_context" comment="Jeanne d'Arc" List.ItemID="-1576049409">
+				<locstring name="ui_name" value="11260817" />
+				<string name="unique_key" value="jeanne_d_arc" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jeanne_divine_arrow" List.ItemID="1536030209" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jeanne_valorous_inspiration" List.ItemID="74975092" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jeanne_strength_of_heaven" List.ItemID="837459371" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jeanne_rider_companions" List.ItemID="-281193917" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jeanne_champion_companions" List.ItemID="-1504333001" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jeanne_consecrate" List.ItemID="1815373276" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jeanne_divine_restoration" List.ItemID="-871966349" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_jeanne_holy_wrath" List.ItemID="347451963" />
+				</list>
+				<int name="ui_sort_priority" value="115" />
+			</group>
+			<group name="hotkey_context" comment="house of wisdom (ayyubid)" List.ItemID="1335932705">
+				<locstring name="ui_name" value="11260827" />
+				<string name="unique_key" value="house_of_wisdom_ayyubid" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\produce_atabeg_abb" List.ItemID="-1205168961" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\cmp_tech_ancient_relics_ayy" List.ItemID="1698018302" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\cmp_tech_berries_ayy" List.ItemID="1562170884" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\cmp_tech_construction_drills_ayy" List.ItemID="-1841351559" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\cmp_tech_fresh_reserves_ayy" List.ItemID="145116878" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_culture_a_abb_01" List.ItemID="1286814107" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_culture_b_abb_01" List.ItemID="-1680581301" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_trade_a_abb_01" List.ItemID="-2099892877" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_trade_b_abb_01" List.ItemID="298777379" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_economy_a_abb_01" List.ItemID="706880619" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_economy_b_abb_01" List.ItemID="1639533295" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_military_a_abb_01" List.ItemID="1541044826" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\wing_military_b_abb_01" List.ItemID="-374351113" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\buy_stone_abb_ha_01" List.ItemID="326348717" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\buy_food_abb_ha_01" List.ItemID="-701634592" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\buy_wood_abb_ha_01" List.ItemID="1662588213" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\buy_swordsman_abb_ha_01" List.ItemID="-1151504648" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\buy_skirmisher_abb_ha_01" List.ItemID="244933695" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_house_of_wisdom\buy_trader_abb_ha_01" List.ItemID="-981123873" />
+				</list>
+				<int name="ui_sort_priority" value="4700" />
+			</group>
+			<group name="hotkey_context" comment="Abbey of Kings" List.ItemID="-1241622814">
+				<locstring name="ui_name" value="11142865" />
+				<string name="unique_key" value="abbey_of_kings" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_abbey_of_kings\ability_crown_a_king_eng" List.ItemID="-1638584378" />
+				</list>
+				<int name="ui_sort_priority" value="5000" />
+			</group>
+			<group name="hotkey_context" comment="Palace of the Sultan" List.ItemID="1455929297">
+				<locstring name="ui_name" value="11154522" />
+				<string name="unique_key" value="palace_of_the_sultan" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_palace_of_the_sultan\toggle_elite_tower_elephant_production" List.ItemID="-1207165376" />
+				</list>
+				<int name="ui_sort_priority" value="3000" />
+			</group>
+			<group name="hotkey_context" comment="Imperial Palace" List.ItemID="-471551614">
+				<locstring name="ui_name" value="11149145" />
+				<string name="unique_key" value="imperial_palace" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_imperial_palace\ability_imperial_spies" List.ItemID="-1125571960" />
+				</list>
+				<int name="ui_sort_priority" value="5000" />
+			</group>
+			<group name="hotkey_context" comment="Kura Storehouse" List.ItemID="-474519585">
+				<locstring name="ui_name" value="11247515" />
+				<string name="unique_key" value="kura_storehouse" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kura_storehouse\tech_mining_gather_technology_jpn" List.ItemID="1359086139" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kura_storehouse\tech_forestry_jpn" List.ItemID="492161506" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kura_storehouse\tech_wood_gather_technology_jpn" List.ItemID="-628494292" />
+				</list>
+				<int name="ui_sort_priority" value="5350" />
+			</group>
+			<group name="hotkey_context" comment="Grand Winery" List.ItemID="-327183975">
+				<locstring name="ui_name" value="11234016" />
+				<string name="unique_key" value="grand_winery" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_grand_winery\produce_monk_byz" List.ItemID="-1668612403" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_grand_winery\tech_food_gather_technology_byz" List.ItemID="2109071210" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_grand_winery\tech_professional_scouts_byz" List.ItemID="-167260270" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_grand_winery\tech_survival_techniques_byz" List.ItemID="39462237" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_grand_winery\tech_upgrade_herbal_medicine_byz" List.ItemID="1517743433" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_grand_winery\tech_upgrade_piety_byz" List.ItemID="2030960125" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_grand_winery\tech_upgrade_tithe_barns_byz" List.ItemID="-85497959" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_grand_winery\tech_wheelbarrow_byz" List.ItemID="-1964705824" />
+				</list>
+				<int name="ui_sort_priority" value="5450" />
+			</group>
+			<group name="hotkey_context" comment="Kings College" List.ItemID="-2115154687">
+				<locstring name="ui_name" value="11265443" />
+				<string name="unique_key" value="kings_college" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kings_college\tech_hill_training" List.ItemID="344422336" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kings_college\tech_collar_esses" List.ItemID="-1327964990" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kings_college\tech_warwolf" List.ItemID="-1889044064" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kings_college\tech_burgundian" List.ItemID="862795836" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kings_college\tech_militarytactics" List.ItemID="-343564664" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_kings_college\tech_royal_crown" List.ItemID="-218448134" />
+				</list>
+				<int name="ui_sort_priority" value="4600" />
+			</group>
+			<group name="hotkey_context" comment="castle lancaster&#13;&#10;" List.ItemID="-1968902736">
+				<locstring name="ui_name" value="11265442" />
+				<string name="unique_key" value="castle_lancaster" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_castle_lancaster\tech_upgrade_shire_levy" List.ItemID="-1310251476" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_castle_lancaster\tech_upgrade_muster_nobles" List.ItemID="395120138" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_castle_lancaster\tech_upgrade_exact_militia" List.ItemID="-1154907739" />
+				</list>
+				<int name="ui_sort_priority" value="5400" />
+			</group>
+			<group name="hotkey_context" comment="manor&#13;&#10;" List.ItemID="-731347037">
+				<locstring name="ui_name" value="11265482" />
+				<string name="unique_key" value="manor" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_manor_lan\tech_upgrade_condensed_1" List.ItemID="-247398747" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_manor_lan\tech_upgrade_condensed_2" List.ItemID="1299881129" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_manor_lan\tech_upgrade_manor_gold" List.ItemID="-716440560" />
+				</list>
+				<int name="ui_sort_priority" value="570" />
+			</group>
+			<group name="hotkey_context" comment="Koka Township (Sengoku)" List.ItemID="-1634720907">
+				<locstring name="ui_name" value="11269812" />
+				<string name="unique_key" value="koka_township_sengoku" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_koka_township\shinobi_ambush_jpn_ha_sen" List.ItemID="-1974260176" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_koka_township\shinobi_spy_jpn_ha_sen" List.ItemID="1944668542" />
+				</list>
+				<int name="ui_sort_priority" value="5300" />
+			</group>
+			<group name="hotkey_context" comment="Daimyo Estate (Sengoku)" List.ItemID="1765195191">
+				<locstring name="ui_name" value="11266351" />
+				<string name="unique_key" value="daimyo_estate_sengoku" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\produce_daimyo" List.ItemID="433116660" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_hojo_level_1" List.ItemID="-59321752" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_hojo_level_2" List.ItemID="228157087" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_hojo_level_3" List.ItemID="1493370619" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_oda_level_1" List.ItemID="-718738338" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_oda_level_2" List.ItemID="-1241528082" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_oda_level_3" List.ItemID="-1548573364" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_takeda_level_1" List.ItemID="975022427" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_takeda_level_2" List.ItemID="831260283" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\tech_upgrade_takeda_level_3" List.ItemID="-751577412" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\produce_handcannon_levy" List.ItemID="1566438830" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\produce_horseman_levy" List.ItemID="-504317082" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\produce_knight_levy" List.ItemID="994716283" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\produce_samurai_levy" List.ItemID="1680523933" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\produce_spearman_levy" List.ItemID="-511891604" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_daimyo_estate\produce_yumi_levy" List.ItemID="1359850436" />
+				</list>
+				<int name="ui_sort_priority" value="5300" />
+			</group>
+			<group name="hotkey_context" comment="Temple of Equality (Sengoku)" List.ItemID="-568248860">
+				<locstring name="ui_name" value="11269818" />
+				<string name="unique_key" value="temple_of_equality_sengoku" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_temple_of_equality\tech_ikko_ikki_healing_jpn_ha_sen" List.ItemID="1862352890" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_temple_of_equality\tech_ikko_ikki_attack_jpn_ha_sen" List.ItemID="653645248" />
+				</list>
+				<int name="ui_sort_priority" value="5300" />
+			</group>
+			<group name="hotkey_context" comment="Golden Tent (Golden Horde)" List.ItemID="1849700635">
+				<locstring name="ui_name" value="11269903" />
+				<string name="unique_key" value="golden_tent_golden_horde" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\produce_golden_khan" List.ItemID="373495416" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\produce_torguud_bodyguard" List.ItemID="1097240205" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_tent_castle_1_tribute_mon_ha_gol" List.ItemID="1673310655" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_tent_castle_2_batch_production_mon_ha_gol" List.ItemID="-159223456" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_tent_feudal_1_pasture_mon_ha_gol" List.ItemID="-1051127316" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_tent_feudal_2_relics_mon_ha_gol" List.ItemID="-1124928962" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\produce_keshik" List.ItemID="545283029" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\produce_kharash" List.ItemID="1317216107" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\produce_mangudai" List.ItemID="-1259122153" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\produce_traction_trebuchet" List.ItemID="1470513659" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_tent_dark_1_khan_mon_ha_gol" List.ItemID="667709336" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_tent_dark_2_cart_mon_ha_gol" List.ItemID="737160520" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\ability_defensive_edict_mon_ha_gol" List.ItemID="480532507" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\ability_kharash_edict_mon_ha_gol" List.ItemID="-1485512145" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\ability_production_speed_edict_mon_ha_gol" List.ItemID="-736759817" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\ability_stockyard_edict_mon_ha_gol" List.ItemID="2023316758" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_golden_tent\tech_upgrade_khan_debuff_arrow_mon_ha_gol" List.ItemID="1311086462" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_rus_tributes_mon_ha_gol" List.ItemID="-1560330912" />
+				</list>
+				<int name="ui_sort_priority" value="5300" />
+			</group>
+			<group name="hotkey_context" comment="Varangian Arsenal&#13;&#10;" List.ItemID="-1755027332">
+				<locstring name="ui_name" value="11270138" />
+				<string name="unique_key" value="varangian_arsenal" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_cavalry_armor_byz_ha_mac" List.ItemID="145624498" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_cavalry_damage_byz_ha_mac" List.ItemID="210894097" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_melee_armor_byz_ha_mac" List.ItemID="-19592524" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_melee_damage_byz_ha_mac" List.ItemID="-1135712369" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_military_academy_byz_ha_mac" List.ItemID="225289190" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_ranged_armor_byz_ha_mac" List.ItemID="427694821" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_ranged_damage_byz_ha_mac" List.ItemID="-271558468" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_siege_engineering_byz_ha_mac" List.ItemID="1503007168" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_siege_survivability_byz_ha_mac" List.ItemID="1297604751" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_varangian_bowmen_blinding_byz_ha_mac" List.ItemID="-1329771823" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_rhomphaia_byz_ha_mac" List.ItemID="-290571977" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_varangian_arsenal\tech_upgrade_building_survivability_byz_ha_mac" List.ItemID="1333719855" />
+				</list>
+				<int name="ui_sort_priority" value="1250" />
+			</group>
+			<group name="hotkey_context" comment="Varangian Stronghold" List.ItemID="453712238">
+				<locstring name="ui_name" value="11266518" />
+				<string name="unique_key" value="varangian_stronghold" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\produce_manatarms_byz_ha_mac" List.ItemID="-1708595224" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\produce_spearman_byz_ha_mac" List.ItemID="-957593528" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\produce_archer_byz_ha_mac" List.ItemID="1529042481" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\produce_knight_byz_ha_mac" List.ItemID="5052602" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\tech_upgrade_archer_byz_ha_mac" List.ItemID="-28102018" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\tech_upgrade_knight_byz_ha_mac" List.ItemID="-1740076557" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\tech_upgrade_manatarms_byz_ha_mac" List.ItemID="-941749237" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\tech_upgrade_spearman_byz_ha_mac" List.ItemID="504672113" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_passive_trait_byz_ha_mac\tech_upgrade_stronghold_arrows_byz_ha_mac" List.ItemID="270125709" />
+				</list>
+				<int name="ui_sort_priority" value="900" />
+			</group>
+			<group name="hotkey_context" comment="Palatine School" List.ItemID="-1210720053">
+				<locstring name="ui_name" value="11271406" />
+				<string name="unique_key" value="palatine_school" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_palatine_school_byz_ha_mac\produce_batch_cataphracts_byz_ha_mac" List.ItemID="-1387931385" />
+				</list>
+				<int name="ui_sort_priority" value="3200" />
+			</group>
+			<group name="hotkey_context" comment="War Camp&#13;&#10;" List.ItemID="-967756988">
+				<locstring name="ui_name" value="11270303" />
+				<string name="unique_key" value="war_camp" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_war_camp\toggle_archer_byz_ha_mac" List.ItemID="1174323566" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_war_camp\toggle_attack_ship_byz_ha_mac" List.ItemID="1233287043" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_war_camp\toggle_galley_byz_ha_mac" List.ItemID="715131613" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_war_camp\toggle_knight_byz_ha_mac" List.ItemID="-1135492030" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_war_camp\toggle_manatarms_byz_ha_mac" List.ItemID="-939198666" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_war_camp\toggle_spearman_byz_ha_mac" List.ItemID="1603185346" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_war_camp\tech_palace_pillaging_byz_ha_mac" List.ItemID="1804986455" />
+				</list>
+				<int name="ui_sort_priority" value="900" />
+			</group>
+			<group name="hotkey_context" comment="Worker Elephant" List.ItemID="-1108128608">
+				<locstring name="ui_name" value="11266252" />
+				<string name="unique_key" value="worker_elephant" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\worker_elephant_survival_techniques_sul_ha_tug" List.ItemID="1504550629" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_elephant_economy_sul_ha_tug" List.ItemID="211424763" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\worker_elephant_professional_scouts_sul_ha_tug" List.ItemID="1059991996" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_lumber_camp\worker_elephant_tech_forestry_sul_ha_tug" List.ItemID="1669306883" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\tech_worker_elephant_wheelbarrow" List.ItemID="-411294970" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mill\worker_elephant_field_repair_site_sul_ha_tug" List.ItemID="-1276665362" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_field_repair_site_sul_ha_tug" List.ItemID="-1917407868" />
+				</list>
+				<int name="ui_sort_priority" value="660" />
+			</group>
+			<group name="hotkey_context" comment="Machine Workshop" List.ItemID="307071550">
+				<locstring name="ui_name" value="11270932" />
+				<string name="unique_key" value="machine_workshop" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\produce_bed_crossbow_jin" List.ItemID="-539302820" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\produce_crossbowman_jin" List.ItemID="-1027621477" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\produce_nest_of_bees_jin" List.ItemID="-995143916" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\produce_bombard_jin" List.ItemID="-1934666607" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\produce_eruptor_jin" List.ItemID="-948655789" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\produce_ram_jin" List.ItemID="15041829" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\produce_trebuchet_jin" List.ItemID="1582178523" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\tech_lightweight_beams_jin" List.ItemID="183234800" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\tech_upgrade_bed_crossbow_jin" List.ItemID="-923949263" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\tech_upgrade_crossbow_jin" List.ItemID="1339169939" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\tech_upgrade_geometry_jin" List.ItemID="-947244237" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\tech_upgrade_lightweight_frames_jin" List.ItemID="2121881647" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\tech_upgrade_porcupine_defense_jin" List.ItemID="-1286312848" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_machine_workshop_jin\tech_upgrade_pili_pao" List.ItemID="-681103593" />
+				</list>
+				<int name="ui_sort_priority" value="1001" />
+			</group>
+			<group name="hotkey_context" comment="Tributary State" List.ItemID="865165122">
+				<locstring name="ui_name" value="11271202" />
+				<string name="unique_key" value="tributary_state" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_tributary_state\tech_tributary_mengan_mouke_jin" List.ItemID="1926536272" />
+				</list>
+				<int name="ui_sort_priority" value="9100" />
+			</group>
+			<group name="hotkey_context" comment="CMP Machine Workshop Song" List.ItemID="-423245627">
+				<locstring name="ui_name" value="11271972" />
+				<string name="unique_key" value="machine_workshop_song_cmp" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_machine_workshop\produce_ram_machine_song_cmp" List.ItemID="175812866" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_machine_workshop\produce_eruptor_machine_song_cmp" List.ItemID="389245475" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_machine_workshop\produce_firelancer_machine_song_cmp" List.ItemID="1859446370" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_machine_workshop\produce_nestofbees_machine_song_cmp" List.ItemID="99097793" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_machine_workshop\produce_trebuchet_machine_song_cmp" List.ItemID="-81200240" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\cmp_machine_workshop\tech_upgrade_greased_axles_machine_song_cmp" List.ItemID="-1394904042" />
+				</list>
+				<int name="ui_sort_priority" value="103000" />
+			</group>
+			<group name="hotkey_context" comment="Dragon Pavilion" List.ItemID="1101234967">
+				<locstring name="ui_name" value="11270966" />
+				<string name="unique_key" value="dragon_pavilion" />
+				<list name="bindings" comment="Dragon Pavilion">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_dragon_pavilian\produce_emissary_dragon_pavilion" List.ItemID="1568898972" />
+				</list>
+				<int name="ui_sort_priority" value="9200" />
+			</group>
+			<group name="hotkey_context" comment="Longhouse" List.ItemID="412273809">
+				<locstring name="ui_name" value="11272973" />
+				<string name="unique_key" value="longhouse_vik" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_longhouse\train_bondi" List.ItemID="1116813875" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_longhouse\tech_bee_skeps_vik" List.ItemID="-1518978229" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_longhouse\tech_farmstead_vik" List.ItemID="724773603" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_longhouse\tech_loom_vik" List.ItemID="1943304178" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_longhouse\tech_smithy_vik" List.ItemID="-890978587" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_longhouse\tech_bondi_wood_gather_vik" List.ItemID="-1338875909" />
+				</list>
+				<int name="ui_sort_priority" value="9220" />
+			</group>
+			<group name="hotkey_context" comment="Viking Landmarks" List.ItemID="62118085">
+				<locstring name="ui_name" value="11273523" />
+				<string name="unique_key" value="viking_landmarks" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_viking_landmarks\tech_upgrade_economy_folkekirken_vik" List.ItemID="613776883" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_call_shield_maidens_vik" List.ItemID="-1652179364" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\abilities\ability_toggle_berserker_production_vik" List.ItemID="316608952" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_viking_landmarks\train_shield_maiden_vik" List.ItemID="-1994444786" />
+				</list>
+				<int name="ui_sort_priority" value="1255" />
+			</group>
+			<group name="hotkey_context" comment="Mustering Hall - Sco" List.ItemID="-628504090">
+				<locstring name="ui_name" value="11274807" />
+				<string name="unique_key" value="mustering_hall" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\highland_upgrade_1_sco" List.ItemID="257910917" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\highland_upgrade_2_sco" List.ItemID="717422445" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\highland_upgrade_3_sco" List.ItemID="-1185436646" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\lowland_upgrade_1_sco" List.ItemID="-1031896402" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\lowland_upgrade_2_sco" List.ItemID="-1124105664" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\lowland_upgrade_3_sco" List.ItemID="184224406" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\muster_1_sco" List.ItemID="1058138287" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\muster_2_sco" List.ItemID="-128482092" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\muster_3_sco" List.ItemID="1950463885" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\muster_4_sco" List.ItemID="241762345" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\muster_5_sco" List.ItemID="465240153" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\muster_6_sco" List.ItemID="219761704" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\muster_7_sco" List.ItemID="-613359713" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_mustering_hall_sco\muster_mangonel_sco" List.ItemID="-1808325696" />
+				</list>
+				<int name="ui_sort_priority" value="1300" />
+			</group>
+			<group name="hotkey_context" comment="Scottish Landmarks" List.ItemID="-1105487106">
+				<locstring name="ui_name" value="11274588" />
+				<string name="unique_key" value="scottish_landmarks" />
+				<list name="bindings">
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_scotland_landmarks\move_saints_relic_sco" List.ItemID="1067969863" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_scotland_landmarks\produce_culverin_sco" List.ItemID="293899826" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_scotland_landmarks\produce_kirkman_sco" List.ItemID="-1103537369" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_scotland_landmarks\produce_ribauldequin_sco" List.ItemID="-741169943" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_scotland_landmarks\snowdoun_gate_toggle_1_sco" List.ItemID="-632948482" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_scotland_landmarks\snowdoun_gate_toggle_2_sco" List.ItemID="414524770" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_scotland_landmarks\snowdoun_gate_toggle_3_sco" List.ItemID="1022268429" />
+					<instance_reference name="binding" value="hotkeys\hotkey_binding\building_scotland_landmarks\snowdoun_gate_toggle_4_sco" List.ItemID="-1955652531" />
+				</list>
+				<int name="ui_sort_priority" value="1260" />
+			</group>
+		</list>
+	</group>
+</instance>

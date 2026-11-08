@@ -1,0 +1,201 @@
+{
+  "status": "User approved completed Steppe Hearth",
+  "stock_ger_donor": "art/civilizations/mongols/structures/house/mon_house_control_a_age01/mon_house_control_a_age01.rgm",
+  "geometry": "Stock Dark Age Ger body, felt shell, door frame and roof crown; front curtain tied open visually by omitting its closed panel",
+  "donor_props": {
+    "sacks": "art/civilizations/common/props/sack_pile/sack_pile.rgm",
+    "basket": "art/civilizations/common/props/basket_woven_food/basket_woven_food.rgm",
+    "wood": "art/civilizations/common/weapons/tools/res_wood_carry/res_wood_carry.rgm",
+    "ore": "art/civilizations/common/weapons/tools/res_gold_tradecart/res_gold_tradecart.rgm",
+    "stone": "art/civilizations/common/props/stone_pile_neat/stone_pile_neat.rgm"
+  },
+  "dropoff_resources": [
+    "food",
+    "wood",
+    "gold",
+    "stone"
+  ],
+  "native_footprint_change": false,
+  "unobstructed_yard_lane_width_m": 1.845,
+  "asset_parts": {
+    "Stock lower supports and threshold": 968,
+    "Stock external cords and felt patches": 2159,
+    "Stock roof ribs and ties": 2426,
+    "Stock interior hearth": 187,
+    "Stock wall lattice": 2984,
+    "Stock rolled door awning": 210,
+    "Stock roof crown and spokes": 794,
+    "Stock right doorway post": 342,
+    "Stock left doorway post": 436,
+    "Stock rounded Ger felt shell / custom wraps": 3148,
+    "Wood / native cut bundles": 170,
+    "Wood / stacked tied bundle": 170,
+    "Food / bundled grain sacks": 850,
+    "Food / woven produce basket": 1154,
+    "Gold / native ore stockpile": 1192,
+    "Stone / stacked cut blocks": 1982,
+    "Gold tray / bottom": 6,
+    "Gold tray / long rail": 6,
+    "Gold tray / end rail": 6,
+    "Gold tray / long rail.001": 6,
+    "Gold tray / end rail.001": 6
+  },
+  "asset_bounds_m": [
+    [
+      -2.758760929107666,
+      -3.3428783416748047,
+      -0.04193115234375
+    ],
+    [
+      3.275946855545044,
+      3.169921875,
+      2.732421875
+    ]
+  ],
+  "scope": "Completed art approved; all nine lifecycle meshes cooked and packaged",
+  "reopen_check": {
+    "meshes": 21,
+    "packed_textures": 11,
+    "master_sha256": "7833d6558a450b0ed6f2aee6f54975b23ff9d409a5356931e54db00cc8b43ca7"
+  },
+  "visible_owner_color_preview_percent": {
+    "front": 20.92,
+    "rear": 26.85
+  },
+  "lifecycle": {
+    "source": "Chagatai-Steppe-Hearth-Lifecycle.blend",
+    "status": "native cook and SGA state bindings verified",
+    "stage_geometry": {
+      "healthy": {
+        "parts": 21,
+        "faces": 19202
+      },
+      "frame00": {
+        "parts": 2,
+        "faces": 2632
+      },
+      "frame25": {
+        "parts": 6,
+        "faces": 6054
+      },
+      "frame50": {
+        "parts": 8,
+        "faces": 10296
+      },
+      "frame75": {
+        "parts": 9,
+        "faces": 12113
+      },
+      "wear": {
+        "parts": 21,
+        "faces": 19192
+      },
+      "breach": {
+        "parts": 19,
+        "faces": 16448
+      },
+      "collapse": {
+        "parts": 10,
+        "faces": 8283
+      },
+      "ruins": {
+        "parts": 10,
+        "faces": 8283
+      }
+    },
+    "source_sha256": "72e0e170fbb41673b22301bca278e9fe92845bc1c8a58f73bf6efdaf657827c2",
+    "native_editor_status": "succeeded",
+    "states": [
+      "steppe_hearth_healthy",
+      "steppe_hearth_frame00",
+      "steppe_hearth_frame25",
+      "steppe_hearth_frame50",
+      "steppe_hearth_frame75",
+      "steppe_hearth_wear",
+      "steppe_hearth_breach",
+      "steppe_hearth_collapse",
+      "steppe_hearth_ruins"
+    ],
+    "lod_payload_sizes": [
+      [
+        1455656,
+        970872,
+        562466
+      ],
+      [
+        228440,
+        153704,
+        87850
+      ],
+      [
+        540564,
+        351140,
+        199066
+      ],
+      [
+        866344,
+        569422,
+        322384
+      ],
+      [
+        911994,
+        606158,
+        351564
+      ],
+      [
+        1455565,
+        970665,
+        562131
+      ],
+      [
+        1235823,
+        830681,
+        483551
+      ],
+      [
+        649903,
+        450581,
+        256033
+      ],
+      [
+        649900,
+        452454,
+        256870
+      ]
+    ],
+    "lifecycle_actions": [
+      "set_lifecycle_construct_00",
+      "set_lifecycle_construct_10",
+      "set_lifecycle_construct_20",
+      "set_lifecycle_construct_30",
+      "set_lifecycle_construct_40",
+      "set_lifecycle_construct_50",
+      "set_lifecycle_construct_60",
+      "set_lifecycle_construct_70",
+      "set_lifecycle_construct_80",
+      "set_lifecycle_construct_90",
+      "set_lifecycle_healthy",
+      "set_lifecycle_damage1",
+      "set_lifecycle_damage2",
+      "set_lifecycle_damage3",
+      "set_lifecycle_construct_05",
+      "set_lifecycle_construct_15",
+      "set_lifecycle_construct_25",
+      "set_lifecycle_construct_35",
+      "set_lifecycle_construct_45",
+      "set_lifecycle_construct_55",
+      "set_lifecycle_construct_65",
+      "set_lifecycle_construct_75",
+      "set_lifecycle_construct_85",
+      "set_lifecycle_construct_95",
+      "set_lifecycle_damage4",
+      "set_lifecycle_damage5",
+      "set_lifecycle_preview",
+      "set_lifecycle_ruins",
+      "set_lifecycle_targeting"
+    ],
+    "atlas_owner_mask_coverage": 0.15825,
+    "retained_master_restaged": true,
+    "in_game_destruction_and_repair": "pending user playtest"
+  }
+}

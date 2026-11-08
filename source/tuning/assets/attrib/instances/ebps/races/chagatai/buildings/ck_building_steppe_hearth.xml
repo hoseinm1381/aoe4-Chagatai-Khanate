@@ -1,0 +1,219 @@
+<instance version="6" template="ebps" description="Chagatai foundation">
+	<uniqueid name="pbgid" value="1073741825" />
+	<instance_reference name="parent_pbg" value="ebps\races\mongol\buildings\building_house_mon" />
+	<list name="extensions" removedIds="1658669162, 313596191">
+		<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="-290320659" List.ParentItemID="-290320659">
+			<list name="abilities" removedIds="937564793, 1432199309, 618242168" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="-1131493931" List.ParentItemID="-1131493931">
+			<list name="unit_type_list" removedIds="-790121528" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\action_apply_ext" List.ItemID="111767974" List.ParentItemID="111767974">
+			<list name="action_state_trees" removedIds="-2090020798" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\action_tree_ext" List.ItemID="210689407" List.ParentItemID="210689407">
+			<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\construction_ext" List.ItemID="54229194" List.ParentItemID="54229194">
+			<state_tree_node name="can_be_cancelled_state_tree_conditions" value="" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\cost_ext" List.ItemID="-307639384" List.ParentItemID="-307639384">
+			<group name="time_cost">
+				<enum_table name="cost">
+					<float name="wood" value="75" overrideParent="True" />
+				</enum_table>
+			</group>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\resource_drop_off_ext" List.ItemID="-213922469" List.ParentItemID="-213922469">
+			<enum_table name="accepted_resources">
+				<bool name="stone" value="True" overrideParent="True" />
+			</enum_table>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\upgrade_ext" overrideParent="True" List.ItemID="-505557511" List.ParentItemID="-505557511">
+			<bool name="must_be_in_supply" value="False" />
+			<float name="number_of_standard_slots" value="-1" />
+			<list name="standard_upgrades" overrideParent="True">
+				<instance_reference name="upgrade" value="upgrade\races\common\research\economy\upgrade_econ_resource_wood_harvest_rate_2" List.ItemID="-668797338" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\economy\upgrade_econ_resource_wood_harvest_rate_3" List.ItemID="-2099968070" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\economy\upgrade_econ_resource_wood_harvest_rate_4" overrideParent="True" List.ItemID="1343425684" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_wood_fell_rate_1" overrideParent="True" List.ItemID="-2144965998" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_unit_town_center_wheelbarrow_1" overrideParent="True" List.ItemID="-1795497166" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_2" List.ItemID="1484722328" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_3" List.ItemID="-841227657" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_4" List.ItemID="1808982627" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_livestock_1" List.ItemID="-1302806487" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_livestock_2" List.ItemID="-585225791" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_livestock_3" List.ItemID="1489029141" mod="ac8da4d112bf433c888433228510b447" />
+			</list>
+			<int name="max_queue_size_override" value="-1" />
+			<state_tree_node name="production_item_completed_openingbranch" value="" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-87256776" List.ParentItemID="-87256776">
+			<locstring name="screen_name" value="1200" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="help_text" value="1201" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="extra_text" value="5200" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<list name="ui_extra_infos" removedIds="589000403" />
+			<bool name="is_unique_to_race" value="True" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="-589959009" List.ParentItemID="-589959009" overrideParent="True">
+			<bool name="can_repair" value="True" overrideParent="True" />
+			<bool name="cuttable" value="False" />
+			<string name="death_event_name" value="death" />
+			<float name="death_seconds" value="-1" overrideParent="True" />
+			<bool name="delete_when_dead" value="False" overrideParent="True" />
+			<bool name="force_attacker_memory" value="False" />
+			<float name="hitpoints" value="1000" overrideParent="True" />
+			<bool name="is_invincible" value="False" />
+			<bool name="is_salvagable_wreck" value="False" />
+			<instance_reference name="rebuilt_entity" value="" />
+			<instance_reference name="rebuilt_squad" value="" />
+			<bool name="rebuilt_use_wreck_owner" value="False" />
+			<bool name="receive_weapon_cover_modifiers" value="False" />
+			<float name="regeneration" value="0" />
+			<bool name="regeneration_disabled" value="True" />
+			<bool name="remove_from_pathfinding_on_death" value="False" overrideParent="True" />
+			<bool name="reveal_to_all_on_death" value="False" />
+			<bool name="ui_can_scuttle" value="True" />
+			<float name="target_size" value="5" />
+			<float name="weapon_priority" value="80" />
+			<template_reference name="wreck_entity_option" value="options\none">
+      </template_reference>
+			<enum name="armor_type" value="None" />
+			<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+				<float name="armor" value="1" />
+			</template_reference>
+			<enum name="allegiance_override" value="none" />
+			<bool name="not_default_attackable" value="False" />
+			<enum_table name="armor_scaler_by_damage_type">
+				<float name="True Damage" value="0" />
+				<float name="Melee" value="0" />
+				<float name="Ranged" value="50" />
+				<float name="Fire" value="0" />
+			</enum_table>
+			<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<state_tree_node name="death_action_tree" value="building_death_actions\buildings\house_death_actions" />
+			<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+			<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+			<bool name="can_be_damaged_by_ally" value="False" />
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions" removedIds="1658669162, 313596191">
+			<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="-290320659" List.ParentItemID="-290320659">
+				<list name="abilities" removedIds="937564793, 1449811549, 1432199309" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="-1131493931" List.ParentItemID="-1131493931">
+				<list name="unit_type_list" removedIds="-790121528" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\action_tree_ext" List.ItemID="210689407" List.ParentItemID="210689407">
+				<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\construction_ext" List.ItemID="54229194" List.ParentItemID="54229194">
+				<state_tree_node name="can_be_cancelled_state_tree_conditions" value="" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\cost_ext" List.ItemID="-307639384" List.ParentItemID="-307639384">
+				<group name="time_cost">
+					<enum_table name="cost">
+						<float name="wood" value="75" overrideParent="True" />
+					</enum_table>
+				</group>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\resource_drop_off_ext" List.ItemID="-213922469" List.ParentItemID="-213922469">
+				<enum_table name="accepted_resources">
+					<bool name="stone" value="True" overrideParent="True" />
+				</enum_table>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\upgrade_ext" overrideParent="True" List.ItemID="-505557511" List.ParentItemID="-505557511">
+				<bool name="must_be_in_supply" value="False" />
+				<float name="number_of_standard_slots" value="-1" />
+				<list name="standard_upgrades" overrideParent="True">
+					<instance_reference name="upgrade" value="upgrade\races\common\research\economy\upgrade_econ_resource_wood_harvest_rate_2" List.ItemID="-1424428131" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\economy\upgrade_econ_resource_wood_harvest_rate_3" List.ItemID="602783597" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\economy\upgrade_econ_resource_wood_harvest_rate_4" overrideParent="True" List.ItemID="-829322561" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_wood_fell_rate_1" overrideParent="True" List.ItemID="-140098472" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_unit_town_center_wheelbarrow_1" overrideParent="True" List.ItemID="-2004586689" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_2" List.ItemID="1221975878" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_3" List.ItemID="1820990537" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_4" List.ItemID="974938836" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_livestock_1" List.ItemID="-998443900" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_livestock_2" List.ItemID="-1704417729" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_livestock_3" List.ItemID="-1223775073" mod="ac8da4d112bf433c888433228510b447" />
+				</list>
+				<int name="max_queue_size_override" value="-1" />
+				<state_tree_node name="production_item_completed_openingbranch" value="" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-87256776" List.ParentItemID="-87256776">
+				<locstring name="screen_name" value="1200" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="help_text" value="1201" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="extra_text" value="5200" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<list name="ui_extra_infos" removedIds="589000403" />
+				<bool name="is_unique_to_race" value="True" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="-589959009" List.ParentItemID="-589959009" overrideParent="True">
+				<bool name="can_repair" value="True" overrideParent="True" />
+				<bool name="cuttable" value="False" />
+				<string name="death_event_name" value="death" />
+				<float name="death_seconds" value="-1" overrideParent="True" />
+				<bool name="delete_when_dead" value="False" overrideParent="True" />
+				<bool name="force_attacker_memory" value="False" />
+				<float name="hitpoints" value="1000" overrideParent="True" />
+				<bool name="is_invincible" value="False" />
+				<bool name="is_salvagable_wreck" value="False" />
+				<instance_reference name="rebuilt_entity" value="" />
+				<instance_reference name="rebuilt_squad" value="" />
+				<bool name="rebuilt_use_wreck_owner" value="False" />
+				<bool name="receive_weapon_cover_modifiers" value="False" />
+				<float name="regeneration" value="0" />
+				<bool name="regeneration_disabled" value="True" />
+				<bool name="remove_from_pathfinding_on_death" value="False" overrideParent="True" />
+				<bool name="reveal_to_all_on_death" value="False" />
+				<bool name="ui_can_scuttle" value="True" />
+				<float name="target_size" value="5" />
+				<float name="weapon_priority" value="80" />
+				<template_reference name="wreck_entity_option" value="options\none">
+        </template_reference>
+				<enum name="armor_type" value="None" />
+				<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+					<float name="armor" value="1" />
+				</template_reference>
+				<enum name="allegiance_override" value="none" />
+				<bool name="not_default_attackable" value="False" />
+				<enum_table name="armor_scaler_by_damage_type">
+					<float name="True Damage" value="0" />
+					<float name="Melee" value="0" />
+					<float name="Ranged" value="50" />
+					<float name="Fire" value="0" />
+				</enum_table>
+				<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<state_tree_node name="death_action_tree" value="xp3_building_death_actions\buildings\house_death_actions" />
+				<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+				<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+				<bool name="can_be_damaged_by_ally" value="False" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741825" />
+		<instance_reference name="parent_pbg" value="ebps\races\mongol\buildings\building_house_mon" />
+	</variant>
+</instance>

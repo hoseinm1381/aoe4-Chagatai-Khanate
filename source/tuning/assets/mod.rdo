@@ -1,0 +1,28 @@
+<DataWarehouse>
+	<!--Mod/-->
+	<DataObject Name="chagatai_khanate" Type="Mod" Id="11474285518348132399" Version="1">
+		<DataProperty Name="m_description" Type="Object">
+			<DataValue Name="util::ReflectLocString">11474285522984134211</DataValue>
+			<!--Mod/util::ReflectLocString/-->
+			<DataObject Name="" Type="util::ReflectLocString" Id="11474285522984134211" OwnerId="11474285518348132399">
+				<DataProperty Name="m_modPart2" Type="UInt32" Value="573801608"/>
+				<DataProperty Name="m_modPart3" Type="UInt32" Value="1202983045"/>
+				<DataProperty Name="m_modPart0" Type="UInt32" Value="2894963921"/>
+				<DataProperty Name="m_modPart1" Type="UInt32" Value="1128010431"/>
+				<DataProperty Name="m_locStringKey" Type="Int32" Value="2"/>
+			</DataObject>
+		</DataProperty>
+		<DataProperty Name="m_name" Type="Object">
+			<DataValue Name="util::ReflectLocString">11474285521702304319</DataValue>
+			<!--Mod/util::ReflectLocString/-->
+			<DataObject Name="" Type="util::ReflectLocString" Id="11474285521702304319" OwnerId="11474285518348132399">
+				<DataProperty Name="m_modPart2" Type="UInt32" Value="573801608"/>
+				<DataProperty Name="m_modPart3" Type="UInt32" Value="1202983045"/>
+				<DataProperty Name="m_modPart0" Type="UInt32" Value="2894963921"/>
+				<DataProperty Name="m_modPart1" Type="UInt32" Value="1128010431"/>
+				<DataProperty Name="m_locStringKey" Type="Int32" Value="1"/>
+			</DataObject>
+		</DataProperty>
+	</DataObject>
+</DataWarehouse>
+

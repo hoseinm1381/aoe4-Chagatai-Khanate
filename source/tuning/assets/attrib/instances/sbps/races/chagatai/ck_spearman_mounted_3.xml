@@ -1,0 +1,146 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073741842" />
+	<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_horseman_3_mon" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="26981830" List.ParentItemID="26981830">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="2066260470" List.ParentItemID="2066260470">
+					<instance_reference name="type" value="ebps\races\chagatai\units\ck_spearman_mounted_3" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="2021268" List.ParentItemID="2021268">
+			<list name="requirement_table" overrideParent="True">
+				<template_reference name="required" value="requirements\required_population" List.ItemID="1413747652">
+					<enum name="reason" value="display" />
+					<group name="free_pop">
+						<float name="medic" value="0" />
+						<float name="personnel" value="0" />
+						<float name="vehicle" value="1" />
+					</group>
+				</template_reference>
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1261336166">
+					<enum name="reason" value="usage_and_display" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="True" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_spearman_3" mod="ac8da4d112bf433c888433228510b447" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1248630133">
+					<enum name="reason" value="usage_and_display" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="False" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_spearman_4" mod="ac8da4d112bf433c888433228510b447" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+			</list>
+			<state_tree_node name="requirement_statetree" value="" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="-1463089901" List.ParentItemID="-1463089901">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="-555061488" List.ParentItemID="-555061488">
+					<group name="info">
+						<locstring name="screen_name" value="7006" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<locstring name="help_text" value="2201" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<locstring name="extra_text" value="7101" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<locstring name="brief_text" value="0" overrideParent="True" />
+						<file name="icon_name" value="chagatai\units\stock_based\light_lancer" overrideParent="True" />
+						<file name="portrait_name" value="chagatai\units\stock_based\light_lancer" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="True" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="1095429345" List.ParentItemID="1095429345">
+			<list name="abilities" removedIds="437456000" />
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="26981830" List.ParentItemID="26981830">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="2066260470" List.ParentItemID="2066260470">
+						<instance_reference name="type" value="ebps\races\chagatai\units\ck_spearman_mounted_3" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="2021268" List.ParentItemID="2021268">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_population" List.ItemID="1413747652">
+						<enum name="reason" value="display" />
+						<group name="free_pop">
+							<float name="medic" value="0" />
+							<float name="personnel" value="0" />
+							<float name="vehicle" value="1" />
+						</group>
+					</template_reference>
+					<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-1335902556">
+						<enum name="reason" value="usage_and_display" />
+						<locstring name="ui_name" value="0" />
+						<bool name="is_present" value="True" />
+						<int name="max_completed" value="100" />
+						<int name="min_completed" value="1" />
+						<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_spearman_3" mod="ac8da4d112bf433c888433228510b447" />
+						<bool name="include_queued" value="False" />
+						<group name="include_pbg_parenting">
+							<bool name="include_child_pbgs" value="False" />
+							<bool name="include_parent_pbgs" value="False" />
+						</group>
+						<bool name="include_completed" value="True" />
+					</template_reference>
+					<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1110049221">
+						<enum name="reason" value="usage_and_display" />
+						<locstring name="ui_name" value="0" />
+						<bool name="is_present" value="False" />
+						<int name="max_completed" value="100" />
+						<int name="min_completed" value="1" />
+						<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_spearman_4" mod="ac8da4d112bf433c888433228510b447" />
+						<bool name="include_queued" value="False" />
+						<group name="include_pbg_parenting">
+							<bool name="include_child_pbgs" value="False" />
+							<bool name="include_parent_pbgs" value="False" />
+						</group>
+						<bool name="include_completed" value="True" />
+					</template_reference>
+				</list>
+				<state_tree_node name="requirement_statetree" value="" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="-1463089901" List.ParentItemID="-1463089901">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="-555061488" List.ParentItemID="-555061488">
+						<group name="info">
+							<locstring name="screen_name" value="7006" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<locstring name="help_text" value="2201" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<locstring name="extra_text" value="7101" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<locstring name="brief_text" value="0" overrideParent="True" />
+							<file name="icon_name" value="chagatai\units\stock_based\light_lancer" overrideParent="True" />
+							<file name="portrait_name" value="chagatai\units\stock_based\light_lancer" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="True" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="1095429345" List.ParentItemID="1095429345">
+				<list name="abilities" removedIds="437456000" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741842" />
+		<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_horseman_3_mon" />
+	</variant>
+</instance>

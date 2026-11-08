@@ -1,0 +1,352 @@
+{
+  "buildings": [
+    {
+      "asset": "pasture",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "pasture_ruins"
+      ]
+    },
+    {
+      "asset": "steppe_hearth",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "steppe_hearth_ruins"
+      ]
+    },
+    {
+      "asset": "melee",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "melee_m1_ruins"
+      ]
+    },
+    {
+      "asset": "ranged",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "ranged_r2_ruins"
+      ]
+    },
+    {
+      "asset": "almaliq",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "almaliq_ruins"
+      ]
+    },
+    {
+      "asset": "ordu",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "ordu_ruins"
+      ]
+    },
+    {
+      "asset": "qarshi",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "qarshi_ruins"
+      ]
+    },
+    {
+      "asset": "court",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "court_ruins"
+      ]
+    },
+    {
+      "asset": "ili",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "ili_ruins"
+      ]
+    },
+    {
+      "asset": "mint",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "mint_ruins"
+      ]
+    },
+    {
+      "asset": "wonder",
+      "damage_and_repair_sequence": [
+        "healthy",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5",
+        "ruins",
+        "ruins",
+        "damage_5",
+        "damage_4",
+        "damage_3",
+        "damage_2",
+        "damage_1",
+        "healthy"
+      ],
+      "ruin_mesh": [
+        "wonder_ruins"
+      ]
+    }
+  ],
+  "owner_tested_017_building_controllers_preserved": true,
+  "foot_trader_trade_state_preserved": true,
+  "foot_trader_native_trade_contract_and_timed_cleanup": true,
+  "passages": [
+    {
+      "building": "ck_building_melee",
+      "site": [
+        6.0,
+        6.0
+      ],
+      "scale": 1.0,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_building_pasture",
+      "site": [
+        4.0,
+        4.0
+      ],
+      "scale": 1.0,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_building_ranged",
+      "site": [
+        6.0,
+        6.0
+      ],
+      "scale": 1.0,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_building_steppe_hearth",
+      "site": [
+        4.0,
+        4.0
+      ],
+      "scale": 1.0,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_building_wonder",
+      "site": [
+        12.0,
+        12.0
+      ],
+      "scale": 1.0,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_landmark_almaliq",
+      "site": [
+        8.0,
+        8.0
+      ],
+      "scale": 1.0,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_landmark_court",
+      "site": [
+        8.0,
+        8.0
+      ],
+      "scale": 1.25,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_landmark_ili",
+      "site": [
+        8.0,
+        8.0
+      ],
+      "scale": 1.0,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_landmark_mint",
+      "site": [
+        8.0,
+        8.0
+      ],
+      "scale": 1.15,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_landmark_ordu",
+      "site": [
+        8.0,
+        8.0
+      ],
+      "scale": 1.25,
+      "adjacent_clearance": 2
+    },
+    {
+      "building": "ck_landmark_qarshi",
+      "site": [
+        8.0,
+        8.0
+      ],
+      "scale": 1.0,
+      "adjacent_clearance": 2
+    }
+  ],
+  "unchanged_working_materials": 59,
+  "native_game_tested": false
+}

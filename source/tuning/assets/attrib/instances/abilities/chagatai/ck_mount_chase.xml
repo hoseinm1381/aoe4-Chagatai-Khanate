@@ -1,0 +1,34 @@
+<instance version="6" template="abilities">
+	<uniqueid name="pbgid" value="1073765447" />
+	<instance_reference name="parent_pbg" value="abilities\modal_abilities\core\guard_follow" />
+	<group name="ability_bag">
+		<float name="range" value="4" overrideParent="True" />
+		<list name="requirements_target" overrideParent="True">
+			<template_reference name="required" value="requirements\required_ownership" List.ItemID="-212213321">
+				<enum name="reason" value="usage" />
+				<locstring name="ui_name" value="0" />
+				<enum name="ownership_type" value="self" />
+			</template_reference>
+		</list>
+		<enum name="ui_ability_issue_type" value="Normal" overrideParent="True" />
+		<bool name="ui_ability_can_display" value="False" overrideParent="True" />
+		<bool name="clear_ability_on_blueprint_conversion" value="False" overrideParent="True" />
+	</group>
+	<variant name="xp3">
+		<uniqueid name="pbgid" value="1073765447" />
+		<instance_reference name="parent_pbg" value="abilities\modal_abilities\core\guard_follow" />
+		<group name="ability_bag">
+			<float name="range" value="4" overrideParent="True" />
+			<list name="requirements_target" overrideParent="True">
+				<template_reference name="required" value="requirements\required_ownership" List.ItemID="-212213321">
+					<enum name="reason" value="usage" />
+					<locstring name="ui_name" value="0" />
+					<enum name="ownership_type" value="self" />
+				</template_reference>
+			</list>
+			<enum name="ui_ability_issue_type" value="Normal" overrideParent="True" />
+			<bool name="ui_ability_can_display" value="False" overrideParent="True" />
+			<bool name="clear_ability_on_blueprint_conversion" value="False" overrideParent="True" />
+		</group>
+	</variant>
+</instance>

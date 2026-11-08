@@ -1,0 +1,224 @@
+[
+  {
+    "asset": "pasture",
+    "states": [
+      "pasture_healthy",
+      "pasture_frame00",
+      "pasture_frame25",
+      "pasture_frame50",
+      "pasture_frame75",
+      "pasture_wear",
+      "pasture_breach",
+      "pasture_collapse",
+      "pasture_ruins"
+    ],
+    "resource": "art/scenario/chagatai/pasture/model",
+    "lods": 3
+  },
+  {
+    "asset": "steppe_hearth",
+    "states": [
+      "steppe_hearth_healthy",
+      "steppe_hearth_frame00",
+      "steppe_hearth_frame25",
+      "steppe_hearth_frame50",
+      "steppe_hearth_frame75",
+      "steppe_hearth_wear",
+      "steppe_hearth_breach",
+      "steppe_hearth_collapse",
+      "steppe_hearth_ruins"
+    ],
+    "resource": "art/scenario/chagatai/steppe_hearth/model",
+    "lods": 3
+  },
+  {
+    "asset": "melee",
+    "states": [
+      "melee_healthy",
+      "melee_m1_frame00",
+      "melee_m1_frame25",
+      "melee_m1_frame50",
+      "melee_m1_frame75",
+      "melee_m1_ruins"
+    ],
+    "resource": "art/scenario/chagatai/melee/model",
+    "lods": 3,
+    "stage_aliases": {
+      "healthy": "healthy",
+      "m1_frame00": "frame00",
+      "m1_frame25": "frame25",
+      "m1_frame50": "frame50",
+      "m1_frame75": "frame75",
+      "m1_ruins": "ruins"
+    },
+    "state_groups": {
+      "healthy": [
+        "healthy",
+        "preview",
+        "targeting",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5"
+      ]
+    }
+  },
+  {
+    "asset": "ranged",
+    "states": [
+      "ranged_healthy",
+      "ranged_r2_frame00",
+      "ranged_r2_frame25",
+      "ranged_r2_frame50",
+      "ranged_r2_frame75",
+      "ranged_r2_ruins"
+    ],
+    "resource": "art/scenario/chagatai/ranged/model",
+    "lods": 3,
+    "stage_aliases": {
+      "healthy": "healthy",
+      "r2_frame00": "frame00",
+      "r2_frame25": "frame25",
+      "r2_frame50": "frame50",
+      "r2_frame75": "frame75",
+      "r2_ruins": "ruins"
+    },
+    "state_groups": {
+      "healthy": [
+        "healthy",
+        "preview",
+        "targeting",
+        "damage_1",
+        "damage_2",
+        "damage_3",
+        "damage_4",
+        "damage_5"
+      ]
+    }
+  },
+  {
+    "asset": "almaliq",
+    "states": [
+      "almaliq_healthy",
+      "almaliq_frame00",
+      "almaliq_frame25",
+      "almaliq_frame50",
+      "almaliq_frame75",
+      "almaliq_damage_1",
+      "almaliq_damage_2",
+      "almaliq_damage_3",
+      "almaliq_damage_4",
+      "almaliq_damage_5",
+      "almaliq_ruins"
+    ],
+    "resource": "art/scenario/chagatai/almaliq/model",
+    "lods": 3
+  },
+  {
+    "asset": "ordu",
+    "states": [
+      "ordu_healthy",
+      "ordu_frame00",
+      "ordu_frame25",
+      "ordu_frame50",
+      "ordu_frame75",
+      "ordu_damage_1",
+      "ordu_damage_2",
+      "ordu_damage_3",
+      "ordu_damage_4",
+      "ordu_damage_5",
+      "ordu_ruins"
+    ],
+    "resource": "art/scenario/chagatai/ordu/model",
+    "lods": 3
+  },
+  {
+    "asset": "qarshi",
+    "states": [
+      "qarshi_healthy",
+      "qarshi_frame00",
+      "qarshi_frame25",
+      "qarshi_frame50",
+      "qarshi_frame75",
+      "qarshi_damage_1",
+      "qarshi_damage_2",
+      "qarshi_damage_3",
+      "qarshi_damage_4",
+      "qarshi_damage_5",
+      "qarshi_ruins"
+    ],
+    "resource": "art/scenario/chagatai/qarshi/model",
+    "lods": 3
+  },
+  {
+    "asset": "court",
+    "states": [
+      "court_healthy",
+      "court_frame00",
+      "court_frame25",
+      "court_frame50",
+      "court_frame75",
+      "court_damage_1",
+      "court_damage_2",
+      "court_damage_3",
+      "court_damage_4",
+      "court_damage_5",
+      "court_ruins"
+    ],
+    "resource": "art/scenario/chagatai/court/model",
+    "lods": 3
+  },
+  {
+    "asset": "ili",
+    "states": [
+      "ili_healthy",
+      "ili_frame00",
+      "ili_frame25",
+      "ili_frame50",
+      "ili_frame75",
+      "ili_damage_1",
+      "ili_damage_2",
+      "ili_damage_3",
+      "ili_damage_4",
+      "ili_damage_5",
+      "ili_ruins"
+    ],
+    "resource": "art/scenario/chagatai/ili/model",
+    "lods": 3
+  },
+  {
+    "asset": "mint",
+    "states": [
+      "mint_healthy",
+      "mint_frame00",
+      "mint_frame25",
+      "mint_frame50",
+      "mint_frame75",
+      "mint_damage_1",
+      "mint_damage_2",
+      "mint_damage_3",
+      "mint_damage_4",
+      "mint_damage_5",
+      "mint_ruins"
+    ],
+    "resource": "art/scenario/chagatai/mint/model",
+    "lods": 3
+  },
+  {
+    "asset": "wonder",
+    "states": [
+      "wonder_healthy",
+      "wonder_frame00",
+      "wonder_frame25",
+      "wonder_frame50",
+      "wonder_frame75",
+      "wonder_wear",
+      "wonder_breach",
+      "wonder_collapse",
+      "wonder_ruins"
+    ],
+    "resource": "art/scenario/chagatai/wonder/model",
+    "lods": 3
+  }
+]

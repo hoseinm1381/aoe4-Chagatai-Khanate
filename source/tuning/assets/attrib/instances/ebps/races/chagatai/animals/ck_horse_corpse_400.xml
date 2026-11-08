@@ -1,0 +1,39 @@
+<instance version="6" template="ebps">
+	<uniqueid name="pbgid" value="1073765381" />
+	<instance_reference name="parent_pbg" value="ebps\environment\non_tree_resources\gaia_food_sheep_corpse" />
+	<list name="extensions">
+		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-938551274" List.ParentItemID="-938551274">
+			<locstring name="help_text" value="1131" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<file name="icon_name" value="gaia\animals\reindeer" overrideParent="True" />
+			<locstring name="screen_name" value="1130" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="extra_text" value="7407" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<file name="portrait_name" value="" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\resource_deposit_ext" List.ItemID="-1926292144" List.ParentItemID="-1926292144">
+			<float name="initial_amount" value="400" overrideParent="True" />
+			<bool name="cannot_be_gathered_by_enemy" value="False" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\entity_blueprint_ext" List.ItemID="1973043413" List.ParentItemID="1973043413">
+			<instance_reference name="animator_attachments" value="attachments\attachment_lists\environment\non_tree_resources\gaia_food_reindeer_corpse" overrideParent="True" />
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-938551274" List.ParentItemID="-938551274">
+				<locstring name="help_text" value="1131" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<file name="icon_name" value="gaia\animals\reindeer" overrideParent="True" />
+				<locstring name="screen_name" value="1130" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="extra_text" value="7407" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\resource_deposit_ext" List.ItemID="-1926292144" List.ParentItemID="-1926292144">
+				<float name="initial_amount" value="400" overrideParent="True" />
+				<bool name="cannot_be_gathered_by_enemy" value="False" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\entity_blueprint_ext" List.ItemID="1973043413" List.ParentItemID="1973043413">
+				<instance_reference name="animator_attachments" value="attachments\attachment_lists\environment\non_tree_resources\gaia_food_reindeer_corpse" overrideParent="True" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073765381" />
+		<instance_reference name="parent_pbg" value="ebps\environment\non_tree_resources\gaia_food_sheep_corpse" />
+	</variant>
+</instance>

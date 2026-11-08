@@ -1,0 +1,56 @@
+[HAVOK SKELETON DEFINITION FILE]
+
+[BONES START]
+gaia_root
+gaia_c_pelvis
+gaia_c_tail0
+gaia_c_tail1
+gaia_c_tail2
+gaia_c_tail3
+gaia_c_tail4
+gaia_c_tail5
+gaia_c_tail6
+gaia_r_leg_upper
+gaia_r_leg_lower
+gaia_r_leg_ankle
+gaia_r_leg_toebase
+gaia_r_leg_toe
+gaia_r_leg_toe_end
+gaia_l_leg_upper
+gaia_l_leg_lower
+gaia_l_leg_ankle
+gaia_l_leg_toebase
+gaia_l_leg_toe
+gaia_l_leg_toe_end
+gaia_c_spine1
+gaia_c_spine2
+gaia_c_spine3
+gaia_c_spine4
+gaia_r_arm_shoulder
+gaia_r_arm_upper
+gaia_r_arm_lower
+gaia_r_arm_wrist
+gaia_r_arm_fingerbase
+gaia_r_arm_finger
+gaia_r_arm_finger_end
+gaia_l_arm_shoulder
+gaia_l_arm_upper
+gaia_l_arm_lower
+gaia_l_arm_wrist
+gaia_l_arm_fingerbase
+gaia_l_arm_finger
+gaia_l_arm_finger_end
+gaia_c_neck1
+gaia_c_neck2
+gaia_c_neck3
+gaia_c_neck4
+gaia_c_head
+gaia_l_ear1
+gaia_l_ear2
+gaia_r_ear1
+gaia_r_ear2
+[END]
+
+[PARTITION START]
+fullbody_lod3 gaia_root gaia_r_ear2
+[END]

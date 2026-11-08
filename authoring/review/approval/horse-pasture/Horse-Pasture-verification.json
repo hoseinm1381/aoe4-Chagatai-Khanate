@@ -1,0 +1,237 @@
+{
+  "status": "User approved completed Horse Pasture with the miniature drinking horse",
+  "game_asset": "art/civilizations/mongols/structures/pasture/mon_pasture_control_age03/mon_pasture_control_age03.rgm",
+  "source_geometry": [
+    "stock canopy, struts, poles and ropes",
+    "stock split-rail enclosure",
+    "stock trough",
+    "stock Jin haystack"
+  ],
+  "original_stock_footprint_scale": [
+    4,
+    4
+  ],
+  "gameplay_footprint_change": false,
+  "mesh_bounds_m": [
+    [
+      -4.206503868103027,
+      -4.117441177368164,
+      -0.5616894364356995
+    ],
+    [
+      4.439531326293945,
+      4.152500152587891,
+      2.6905078887939453
+    ]
+  ],
+  "parts": {
+    "Stock deployed canopy frame, poles and guy ropes": 1724,
+    "Stock pasture split-rail corral, widened": 1680,
+    "Stock Mongol Pasture canopy / embroidered horse cloth": 851,
+    "Gatepost dyed wrap 1": 36,
+    "Gatepost dyed wrap 2": 36,
+    "Long watering trough / 1": 200,
+    "Hay stack under canopy / 1": 39,
+    "Hay stack under canopy / 2": 94,
+    "Small feeding pile / 1": 39,
+    "Small feeding pile / 2": 94,
+    "Waterline fitted inside stock trough": 8
+  },
+  "gate_clearance_m": 3.239,
+  "stock_trough_water_end_limits_m": [
+    -0.5737718071937561,
+    0.5737718071937561
+  ],
+  "owner_color_mask": "packed greyscale derived from canopy field, also used on fitted gatepost wraps",
+  "scope": "Completed art approved; all nine lifecycle meshes cooked and packaged",
+  "visible_player_color_base_preview_percent": {
+    "front": 36.15,
+    "reverse": 37.07
+  },
+  "base_design_master_readback": {
+    "asset_meshes": 11,
+    "packed_images": 11,
+    "sha256": "45dab5943d2e8bd7e23d9d065204da5b37a84e9c227d7d8bfa2daa742f40f643"
+  },
+  "drinking_horse": {
+    "linear_scale_from_approved_horse": 0.64,
+    "approach_degrees": 35,
+    "pose_degrees": {
+      "gaia_c_neck1": 31.3,
+      "gaia_c_neck2": 9,
+      "gaia_c_neck3": 5,
+      "gaia_c_neck4": 1,
+      "gaia_c_head": 3.6999999999999993
+    },
+    "muzzle_above_water_m": 0.0369,
+    "water_z": 0.5353,
+    "muzzle_xyz": [
+      -2.391556978225708,
+      -0.9522677659988403,
+      0.5722240209579468
+    ],
+    "trough_surface_intersections": {
+      "Miniature drinking horse / body": 0,
+      "Miniature drinking horse / tail and tack": 0,
+      "Miniature drinking horse / woven blanket": 0
+    },
+    "hoof_clearance_m": 0.008,
+    "parts": {
+      "Miniature drinking horse / body": 1292,
+      "Miniature drinking horse / tail and tack": 356,
+      "Miniature drinking horse / woven blanket": 1796
+    },
+    "bounds_m": [
+      [
+        -2.601229667663574,
+        -1.109915018081665,
+        0.00800000037997961
+      ],
+      [
+        -0.6033263802528381,
+        -0.009025931358337402,
+        1.2122962474822998
+      ]
+    ],
+    "master_sha256": "aa5a2979bec3bd1599a4cd1a7337dd18a968322a0e47fb262f5cd681559aa82f",
+    "reopen_verified": true,
+    "behavior": "Stationary building decoration in a drinking pose",
+    "visual_approval": "approved"
+  },
+  "lifecycle": {
+    "source": "Chagatai-Horse-Pasture-Lifecycle.blend",
+    "status": "native cook and SGA state bindings verified",
+    "stage_geometry": {
+      "healthy": {
+        "parts": 14,
+        "faces": 8245
+      },
+      "frame00": {
+        "parts": 1,
+        "faces": 770
+      },
+      "frame25": {
+        "parts": 2,
+        "faces": 2079
+      },
+      "frame50": {
+        "parts": 2,
+        "faces": 3404
+      },
+      "frame75": {
+        "parts": 3,
+        "faces": 4255
+      },
+      "wear": {
+        "parts": 10,
+        "faces": 4793
+      },
+      "breach": {
+        "parts": 8,
+        "faces": 4660
+      },
+      "collapse": {
+        "parts": 5,
+        "faces": 1823
+      },
+      "ruins": {
+        "parts": 5,
+        "faces": 1823
+      }
+    },
+    "source_sha256": "1ebef74df4615f6ee8d9b981bea31430d0a4037191a7561a780ed7f5740586b6",
+    "native_editor_status": "succeeded",
+    "states": [
+      "pasture_healthy",
+      "pasture_frame00",
+      "pasture_frame25",
+      "pasture_frame50",
+      "pasture_frame75",
+      "pasture_wear",
+      "pasture_breach",
+      "pasture_collapse",
+      "pasture_ruins"
+    ],
+    "lod_payload_sizes": [
+      [
+        506944,
+        413562,
+        258216
+      ],
+      [
+        72950,
+        48260,
+        29000
+      ],
+      [
+        190536,
+        123126,
+        70746
+      ],
+      [
+        309870,
+        199440,
+        113816
+      ],
+      [
+        332448,
+        212320,
+        124332
+      ],
+      [
+        386701,
+        247747,
+        144997
+      ],
+      [
+        374733,
+        239489,
+        140427
+      ],
+      [
+        156829,
+        102235,
+        59191
+      ],
+      [
+        156826,
+        103268,
+        59496
+      ]
+    ],
+    "lifecycle_actions": [
+      "set_lifecycle_construct_00",
+      "set_lifecycle_construct_10",
+      "set_lifecycle_construct_20",
+      "set_lifecycle_construct_30",
+      "set_lifecycle_construct_40",
+      "set_lifecycle_construct_50",
+      "set_lifecycle_construct_60",
+      "set_lifecycle_construct_70",
+      "set_lifecycle_construct_80",
+      "set_lifecycle_construct_90",
+      "set_lifecycle_healthy",
+      "set_lifecycle_damage1",
+      "set_lifecycle_damage2",
+      "set_lifecycle_damage3",
+      "set_lifecycle_construct_05",
+      "set_lifecycle_construct_15",
+      "set_lifecycle_construct_25",
+      "set_lifecycle_construct_35",
+      "set_lifecycle_construct_45",
+      "set_lifecycle_construct_55",
+      "set_lifecycle_construct_65",
+      "set_lifecycle_construct_75",
+      "set_lifecycle_construct_85",
+      "set_lifecycle_construct_95",
+      "set_lifecycle_damage4",
+      "set_lifecycle_damage5",
+      "set_lifecycle_preview",
+      "set_lifecycle_ruins",
+      "set_lifecycle_targeting"
+    ],
+    "atlas_owner_mask_coverage": 0.31817,
+    "retained_master_restaged": true,
+    "in_game_destruction_and_repair": "pending user playtest"
+  }
+}

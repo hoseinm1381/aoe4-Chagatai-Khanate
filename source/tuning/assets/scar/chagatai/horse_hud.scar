@@ -1,0 +1,241 @@
+local N=ChagataiNative
+local widget='ChagataiHorseHUD'
+local context
+local lastSelected={}
+
+-- Leave room below the tab for the selected building and global queue rows.
+local xaml=[[
+<Border xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        HorizontalAlignment="Left" VerticalAlignment="Bottom"
+        Width="199" Margin="3,0,0,357" BorderBrush="#A38B58" BorderThickness="1">
+    <Border.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#F8293C51" Offset="0"/>
+            <GradientStop Color="#F8111B28" Offset="1"/>
+        </LinearGradientBrush>
+    </Border.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="79"/>
+            <ColumnDefinition Width="57"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style x:Key="CooldownText" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#FAE5BA"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Margin" Value="2,0"/>
+            </Style>
+            <Style x:Key="HorseButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="#FAE5BA"/>
+                <Setter Property="Focusable" Value="False"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="Tile" Background="{TemplateBinding Background}"
+                                    BorderBrush="#705D3D" BorderThickness="0,0,1,0" Padding="3,3,3,4">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Tile" Property="Background" Value="#475773"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="Tile" Property="Background" Value="#1C2B40"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="HorseLabel" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="Foreground" Value="#DBC18B"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="HorseValue" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="#FAE5BA"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <Button Style="{StaticResource HorseButton}" Command="{Binding [cycle]}"
+                CommandParameter="total" ToolTip="{Binding [totalTip]}">
+            <StackPanel>
+                <TextBlock Text="{Binding [totalLabel]}" Style="{StaticResource HorseLabel}"/>
+                <TextBlock Text="{Binding [total]}" Style="{StaticResource HorseValue}"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="1" Style="{StaticResource HorseButton}" Command="{Binding [cycle]}"
+                CommandParameter="idle" ToolTip="{Binding [idleTip]}">
+            <StackPanel>
+                <TextBlock Text="{Binding [idleLabel]}" Style="{StaticResource HorseLabel}"/>
+                <TextBlock Text="{Binding [idle]}" Style="{StaticResource HorseValue}"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="2" Style="{StaticResource HorseButton}" Command="{Binding [cycle]}"
+                CommandParameter="military" ToolTip="{Binding [militaryTip]}">
+            <StackPanel>
+                <TextBlock Text="{Binding [militaryLabel]}" Style="{StaticResource HorseLabel}"/>
+                <TextBlock Text="{Binding [military]}" Style="{StaticResource HorseValue}"/>
+            </StackPanel>
+        </Button>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal"
+                    HorizontalAlignment="Center" IsHitTestVisible="False" Margin="0,3">
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding [showMount]}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            <TextBlock Text="{Binding [mountLabel]}" Style="{StaticResource CooldownText}"/>
+            <TextBlock Text="{Binding [mountTime]}" Style="{StaticResource CooldownText}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal"
+                    HorizontalAlignment="Center" IsHitTestVisible="False" Margin="0,3">
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding [showDismount]}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            <TextBlock Text="{Binding [dismountLabel]}" Style="{StaticResource CooldownText}"/>
+            <TextBlock Text="{Binding [dismountTime]}" Style="{StaticResource CooldownText}"/>
+        </StackPanel>
+    </Grid>
+</Border>]]
+
+local function localOwner()
+    if UI_IsReplay() or UI_IsXboxUI() then return end
+    local info=Core_GetPlayersTableEntry(Game_GetLocalPlayer())
+    local p=info and N.players[info.index]
+    if p and not p.auxiliary and Player_IsAlive(p.id) then return p end
+end
+
+local function snapshot(p)
+    local view={count=0,total={},idle={},military={},militaryCount=0}
+    for _,id in ipairs(N.Keys(p.horses.horses)) do
+        local h=p.horses.horses[id]
+        if h.alive and not h.deathPending then
+            view.count=view.count+1
+            local rider=h.status=='mounted' and p.horses.riders[h.reservation]
+            local entity=N.Entity(rider and rider.id or h.nativeID)
+            local military=rider and rider.pair~='villager' and rider.pair~='trader'
+            if military then view.militaryCount=view.militaryCount+1 end
+            if entity and N.Owner(entity)==p.id and Entity_IsAlive(entity)
+                and not Entity_IsOfType(entity,'animal_corpse') and not Entity_IsInHold(entity) then
+                local squad=Entity_GetSquad(entity)
+                if squad and squad~=0 then
+                    local item={id=id,squad=squad,entity=entity}
+                    view.total[#view.total+1]=item
+                    if military then view.military[#view.military+1]=item end
+                    if h.status=='loose' and N.HorseSettled(squad) then view.idle[#view.idle+1]=item end
+                end
+            end
+        end
+    end
+    return view
+end
+
+local function cycle(parameter)
+    local p=context and localOwner()
+    if not p or (parameter~='total' and parameter~='idle' and parameter~='military') then return end
+    local items=snapshot(p)[parameter]
+    if #items==0 then return end
+    local nextItem=items[1]
+    for _,item in ipairs(items) do
+        if lastSelected[parameter] and item.id>lastSelected[parameter] then nextItem=item;break end
+    end
+    lastSelected[parameter]=nextItem.id
+    Misc_SelectSquad(nextItem.squad,true)
+    Camera_FocusOnPosition(Entity_GetPosition(nextItem.entity))
+end
+
+function ChagataiHorseHUD_Cycle(parameter)
+    pcall(cycle,parameter)
+end
+
+local function cooldowns(p)
+    local now=N.Now()
+    local selectedMount,recentMount,dismount=0,0,0
+    for id,rider in pairs(p.horses.riders) do
+        if rider.alive and rider.cooldownUntil>now then
+            local entity=N.Entity(id)
+            if entity and N.Owner(entity)==p.id and Entity_IsAlive(entity) then
+                local seconds=math.ceil(rider.cooldownUntil-now)
+                local squad=Entity_GetSquad(entity)
+                local selected=(squad and squad~=0 and Misc_IsSquadSelected(squad)) or Misc_IsEntitySelected(entity)
+                if rider.form=='foot' then
+                    recentMount=math.max(recentMount,seconds)
+                    if selected then selectedMount=math.max(selectedMount,seconds) end
+                elseif rider.form=='mounted' and selected then
+                    dismount=math.max(dismount,seconds)
+                end
+            end
+        end
+    end
+    -- The replacement may not inherit selection. Keep the latest dismount
+    -- visible and label it separately from the selected rider's timer.
+    return selectedMount>0 and selectedMount or recentMount,dismount,selectedMount==0
+end
+
+function N.RemoveHorseHUD()
+    if not context then return end
+    UI_Remove(widget)
+    context=nil;lastSelected={}
+end
+
+function N.RestoreHorseHUD()
+    -- The engine recreates the SCAR HUD root on restore.
+    context=nil;lastSelected={}
+end
+
+function N.UpdateHorseHUD()
+    local p=localOwner()
+    if not p then N.RemoveHorseHUD();return end
+    local view=snapshot(p)
+    local total=view.count..' / '..ChagataiConfig.horse.nativeCap
+    -- Bind strings to TextBlock.Text so the UI bridge renders the counts.
+    local idle=tostring(#view.idle)
+    local military=tostring(view.militaryCount)
+    local mount,dismount,recent=cooldowns(p)
+    local mountTime,dismountTime=mount..'s',dismount..'s'
+    local created=not context
+    if not context then
+        context={total=total,idle=idle,military=military,cycle=UI_CreateCommand('ChagataiHorseHUD_Cycle'),
+            totalLabel=Loc_GetString('$ac8da4d112bf433c888433228510b447:5206'),
+            idleLabel=Loc_GetString('$ac8da4d112bf433c888433228510b447:5207'),
+            militaryLabel=Loc_GetString('$ac8da4d112bf433c888433228510b447:5208'),
+            totalTip=Loc_GetString('$ac8da4d112bf433c888433228510b447:5209'),
+            idleTip=Loc_GetString('$ac8da4d112bf433c888433228510b447:5210'),
+            militaryTip=Loc_GetString('$ac8da4d112bf433c888433228510b447:5211'),
+            selectedMountLabel=Loc_GetString('$ac8da4d112bf433c888433228510b447:5220'),
+            dismountLabel=Loc_GetString('$ac8da4d112bf433c888433228510b447:5221'),
+            recentMountLabel=Loc_GetString('$ac8da4d112bf433c888433228510b447:5222')}
+    elseif total==context.total and idle==context.idle and military==context.military
+        and mountTime==context.mountTime and dismountTime==context.dismountTime and recent==context.recent then return end
+    context.total,context.idle,context.military=total,idle,military
+    context.showMount,context.showDismount=mount>0,dismount>0
+    context.mountTime,context.dismountTime,context.recent=mountTime,dismountTime,recent
+    context.mountLabel=recent and context.recentMountLabel or context.selectedMountLabel
+    if created then
+        UI_AddChild('ScarNotReplay','XamlPresenter',widget,
+            {IsHitTestVisible=true,Xaml=xaml,DataContext=UI_CreateDataContext(context)})
+    else
+        UI_SetDataContext(widget,context)
+    end
+end

@@ -1,0 +1,33 @@
+-- Presentation only. Keep the owner-tested native render/controller resources.
+local N=ChagataiNative
+local custom={pasture=true,steppe_hearth=true,melee=true,ranged=true,wonder=true,
+    almaliq=true,ordu=true,qarshi=true,court=true,ili=true,mint=true}
+
+function N.BuildingVisualState(alive,underConstruction,progress,health)
+    if not alive or health<=0 then return 'ruins' end
+    if underConstruction then
+        local stage=math.min(19,math.max(0,math.floor(progress*20)))*5
+        return string.format('construct_%02d',stage)
+    end
+    -- Same health bands as the official Forbidden Palace lifecycle.
+    if health>=0.85 then return 'healthy'
+    elseif health>=0.68 then return 'damage_1'
+    elseif health>=0.51 then return 'damage_2'
+    elseif health>=0.34 then return 'damage_3'
+    elseif health>=0.17 then return 'damage_4'
+    else return 'damage_5' end
+end
+
+function N.BuildingVisual(b,entity,now)
+    if N.ended or not b or not custom[b.role] or not entity then return end
+    if not Entity_IsValid(Entity_GetID(entity)) then return end
+    local alive=Entity_IsAlive(entity)
+    local health=Entity_GetHealthPercentage(entity)
+    local constructing=alive and Entity_IsUnderConstruction(entity)
+    local progress=constructing and Entity_GetBuildingProgress(entity) or 1
+    local state=N.BuildingVisualState(alive,constructing,progress,health)
+    if b.visualState~=state or not b.visualRefresh or now>=b.visualRefresh then
+        Entity_SetAnimatorState(entity,'life_cycle_state',state)
+        b.visualState=state;b.visualRefresh=now+2
+    end
+end

@@ -1,0 +1,27 @@
+{
+  "source": "Unchanged first native root from the qualified Korean villager rig",
+  "records": [
+    {
+      "name": "metarig_root",
+      "parent_name": null,
+      "global_reference_transform": {
+        "quaternion_xyzw": [
+          -0.7071067690849304,
+          -0.0,
+          0.0,
+          0.7071067690849304
+        ],
+        "translation_xyz": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale_xyz": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ]
+}

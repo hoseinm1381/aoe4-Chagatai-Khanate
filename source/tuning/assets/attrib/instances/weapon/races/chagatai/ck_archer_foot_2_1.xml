@@ -1,0 +1,50 @@
+<instance version="6" template="weapon">
+	<uniqueid name="pbgid" value="1073741893" />
+	<instance_reference name="parent_pbg" value="weapon\races\common\ranged\weapon_archer_incendiary" />
+	<group name="weapon_bag">
+		<group name="fire">
+			<float name="wind_up" value="0.0" overrideParent="True" />
+			<float name="wind_down" value="0.4583333333333333" overrideParent="True" />
+		</group>
+		<group name="aim">
+			<group name="fire_aim_time">
+				<float name="max" value="0.22916666666666666" overrideParent="True" />
+				<float name="min" value="0.22916666666666666" overrideParent="True" />
+			</group>
+		</group>
+		<group name="reload">
+			<group name="duration">
+				<float name="max" value="0.6875" overrideParent="True" />
+				<float name="min" value="0.6875" overrideParent="True" />
+			</group>
+		</group>
+		<group name="moving">
+			<bool name="can_fire_while_moving" value="False" overrideParent="True" />
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="weapon_bag">
+			<group name="fire">
+				<float name="wind_up" value="0.0" overrideParent="True" />
+				<float name="wind_down" value="0.4583333333333333" overrideParent="True" />
+			</group>
+			<group name="aim">
+				<group name="fire_aim_time">
+					<float name="max" value="0.22916666666666666" overrideParent="True" />
+					<float name="min" value="0.22916666666666666" overrideParent="True" />
+				</group>
+			</group>
+			<group name="reload">
+				<group name="duration">
+					<float name="max" value="0.6875" overrideParent="True" />
+					<float name="min" value="0.6875" overrideParent="True" />
+				</group>
+			</group>
+			<group name="moving">
+				<bool name="can_fire_while_moving" value="False" overrideParent="True" />
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073741893" />
+		<instance_reference name="parent_pbg" value="weapon\races\common\ranged\weapon_archer_incendiary" />
+	</variant>
+</instance>

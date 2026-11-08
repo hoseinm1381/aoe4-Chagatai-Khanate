@@ -1,0 +1,498 @@
+<instance version="6" template="ebps">
+	<uniqueid name="pbgid" value="1073741959" />
+	<instance_reference name="parent_pbg" value="ebps\races\mongol\buildings\building_wonder_age3_khanbaliq_mon" />
+	<list name="extensions">
+		<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="669128015" List.ParentItemID="669128015">
+			<list name="abilities" removedIds="-7834965, -892634410, -148970614, -580257611" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="555024994" List.ParentItemID="555024994" overrideParent="True">
+			<enum name="weapon_targeting" value="automatic" />
+			<bool name="intersection_testing" value="False" />
+			<list name="unit_type_list" overrideParent="True">
+				<enum name="unit_type" value="building" List.ItemID="-1306550552" />
+				<enum name="unit_type" value="wonder" List.ItemID="1769503310" />
+				<enum name="unit_type" value="wonder_castle_age" List.ItemID="88108355" />
+				<enum name="unit_type" value="siegeable" List.ItemID="-1884043717" />
+				<enum name="unit_type" value="select_special_building" List.ItemID="128202434" />
+				<enum name="unit_type" value="landmark" List.ItemID="-654325679" />
+				<enum name="unit_type" value="age3_landmark1" List.ItemID="-1608149800" />
+				<enum name="unit_type" value="audio_production_landmark" List.ItemID="475420892" />
+				<enum name="unit_type" value="town_center_or_landmark" List.ItemID="-1922865230" />
+				<enum name="unit_type" value="free_passive_unit_production" List.ItemID="527577481" />
+				<enum name="unit_type" value="house" List.ItemID="1936927077" />
+				<enum name="unit_type" value="herdable_resource_generator" overrideParent="True" List.ItemID="-1828776810" />
+				<enum name="unit_type" value="emits_herding_interest" List.ItemID="990743292" />
+				<enum name="unit_type" value="pasture" overrideParent="True" List.ItemID="902814291" />
+			</list>
+			<list name="race_type_list" overrideParent="True">
+				<instance_reference name="race_type" value="racebps\mongol" List.ItemID="269687109" />
+			</list>
+			<list name="attack_target_restriction_on_attacker">
+      </list>
+			<list name="attack_target_restriction_on_victim">
+      </list>
+			<enum_table name="weapon_category_targeting_filter">
+				<bool name="1melee" value="False" />
+				<bool name="2ranged" value="False" />
+				<bool name="3siege" value="True" />
+				<bool name="4charge" value="True" />
+				<bool name="5brace" value="True" />
+				<bool name="6auto_ability_cast" value="True" />
+				<bool name="7single_cast_ability" value="True" />
+				<bool name="8dummy" value="False" />
+				<bool name="9idle" value="True" />
+			</enum_table>
+			<list name="unit_type_list_selection_keybind_only" overrideParent="True">
+				<enum name="unit_type" value="military_production_building" List.ItemID="632409309" />
+			</list>
+			<list name="unit_type_list_ui_appear_as_only">
+      </list>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\action_apply_ext" List.ItemID="-267997863" List.ParentItemID="-267997863">
+			<list name="action_state_trees" removedIds="-1824787948, 1250551039" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\construction_ext" List.ItemID="1828097256" List.ParentItemID="1828097256">
+			<state_tree_node name="can_be_cancelled_state_tree_conditions" value="" overrideParent="True" />
+			<group name="on_construction_complete_state_tree_refs">
+				<string name="while_construction_complete_entity_state_tree_ref" value="building_construction_complete\buildings\landmark_construction_complete" overrideParent="True" />
+				<string name="on_construction_complete_entity_state_tree_ref" value="" overrideParent="True" />
+			</group>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\action_tree_ext" List.ItemID="-621948538" List.ParentItemID="-621948538">
+			<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="646243642" List.ParentItemID="646243642">
+			<locstring name="screen_name" value="4240" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="help_text" value="4241" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="extra_text" value="1144" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<bool name="is_unique_to_race" value="True" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\spawner_ext" List.ItemID="-89102304" overrideParent="True" List.ParentItemID="-89102304">
+			<bool name="must_be_in_supply" value="False" />
+			<float name="reinforce_radius" value="0" />
+			<list name="spawn_items" overrideParent="True">
+				<group name="spawn_item" List.ItemID="-1865531138">
+					<group name="ui_position">
+						<int name="ui_position_row" value="-1" overrideParent="True" />
+						<int name="ui_position_column" value="-1" overrideParent="True" />
+					</group>
+					<instance_reference name="entity" value="" />
+					<instance_reference name="squad" value="sbps\races\chagatai\animals\ck_horse_ili" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+					<bool name="spawn_at_map_entry_point" value="False" />
+					<instance_reference name="ui_menu" value="menu\mon_age1" />
+					<int name="number_to_spawn" value="1" />
+					<locstring name="ui_screen_name" value="0" />
+					<locstring name="ui_help_text" value="0" />
+					<enum_table name="item_cost_adjustment">
+						<float name="action" value="0" />
+						<float name="command" value="0" />
+						<float name="popcap" value="0" />
+						<float name="food" value="0" />
+						<float name="wood" value="0" />
+						<float name="stone" value="0" />
+						<float name="gold" value="0" />
+						<float name="militia_hre" value="0" />
+						<float name="merc_byz" value="0" />
+					</enum_table>
+					<bool name="can_be_cancelled" value="False" overrideParent="True" />
+					<int name="number_to_queue_up_to_when_modified" value="5" />
+					<list name="additional_squads">
+					</list>
+					<instance_reference name="hotkey_binding" value="" overrideParent="True" />
+					<template_reference name="ui_info_extended" value="tables\ui_info_ext">
+						<template_reference name="command_card_info" value="">
+						</template_reference>
+						<template_reference name="quick_abilities_info" value="">
+						</template_reference>
+						<template_reference name="quick_commands_info" value="ui_quick_commands_info" overrideParent="True">
+							<int name="quick_commands_slot_index" value="0" overrideParent="True" />
+							<enum name="quick_commands_hotkey" value="x_quick_command_y" overrideParent="True" />
+							<int name="quick_commands_priority" value="5" overrideParent="True" />
+						</template_reference>
+						<template_reference name="quick_formation_info" value="">
+						</template_reference>
+						<template_reference name="ping_menu_info" value="">
+						</template_reference>
+						<enum name="category" value="Economic" />
+						<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info" overrideParent="True">
+							<enum name="quick_commands_hotkey" value="x_quick_command_y" />
+							<int name="quick_commands_priority" value="5" />
+							<int name="quick_commands_slot_index" value="2" />
+							<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+						</template_reference>
+						<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+							<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\default" overrideParent="True" />
+							<int name="nominal_index" value="0" overrideParent="True" />
+							<int name="priority" value="0" />
+							<instance_reference name="linked" value="" />
+						</template_reference>
+						<enum name="observer_type" value="Disabled" />
+						<group name="issuable_info">
+							<bool name="is_secondary" value="False" />
+							<instance_reference name="secondary_issuable" value="" />
+						</group>
+					</template_reference>
+					<file name="ui_icon_name" value="" />
+					<string name="ui_tooltip_data_template" value="" />
+				</group>
+			</list>
+			<list name="bonus_xp_from_hold_list">
+			</list>
+			<list name="reinforce_requirements">
+			</list>
+			<bool name="spawn_to_hold_try_first" value="False" />
+			<list name="queue_requirements">
+			</list>
+			<bool name="can_rally" value="True" />
+			<template_reference name="animated_spawn_option" value="options\none">
+			</template_reference>
+			<int name="max_queue_size_override" value="1" />
+			<string name="queue_requirements_openingbranch" value="" />
+			<string name="reinforce_requirements_openingbranch" value="" />
+			<state_tree_node name="production_item_completed_openingbranch" value="" overrideParent="True" />
+			<bool name="enforce_minimum_clearance_at_spawn_positions" value="True" />
+			<bool name="enforce_minimum_clearance_if_entities_blocking" value="True" />
+			<float name="enforce_minimum_clearance_at_spawn_positions_search_range" value="30" />
+			<instance_reference name="rally_pass_type" value="pass_types\vehicle" overrideParent="True" />
+			<bool name="reset_production_progress_at_current_pop_cap" value="False" overrideParent="True" />
+			<bool name="can_spawn_if_neutral" value="False" />
+			<bool name="default_rally_points_allowed" value="True" />
+			<bool name="economic_rally_points_allowed" value="False" />
+			<bool name="always_use_economic_rally_points" value="False" />
+			<bool name="use_alternative_rally_point_system" value="False" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\upgrade_ext" List.ItemID="-1352379827" overrideParent="True" List.ParentItemID="-1352379827">
+			<bool name="must_be_in_supply" value="False" />
+			<float name="number_of_standard_slots" value="0" />
+			<list name="standard_upgrades">
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_production_1" List.ItemID="1821310202" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_production_2" List.ItemID="-1785951933" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_production_3" List.ItemID="1870750320" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_horse_hp_1" List.ItemID="1320041259" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_horse_hp_2" List.ItemID="-111991075" mod="ac8da4d112bf433c888433228510b447" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_horse_hp_3" List.ItemID="2016820555" mod="ac8da4d112bf433c888433228510b447" />
+			</list>
+			<int name="max_queue_size_override" value="-1" />
+			<state_tree_node name="production_item_completed_openingbranch" value="" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\requirement_ext" List.ItemID="665441583" List.ParentItemID="665441583">
+			<list name="requirement_table">
+				<template_reference name="required" value="requirements\required_not" List.ItemID="1261614712" List.ParentItemID="1261614712">
+					<list name="requirement_table">
+						<template_reference name="required" value="requirements\required_any_in_list" List.ItemID="-950345816" List.ParentItemID="-950345816">
+							<list name="requirements">
+								<template_reference name="requirement" value="requirements\required_structure" List.ItemID="490618741" List.ParentItemID="490618741">
+									<instance_reference name="structure_name" value="ebps\races\chagatai\buildings\ck_landmark_ili" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+								</template_reference>
+								<template_reference name="requirement" value="requirements\required_structure" List.ItemID="1259492814" List.ParentItemID="1259492814">
+									<instance_reference name="structure_name" value="ebps\races\chagatai\buildings\ck_landmark_mint" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+								</template_reference>
+							</list>
+						</template_reference>
+					</list>
+				</template_reference>
+			</list>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="77336098" List.ParentItemID="77336098" overrideParent="True">
+			<bool name="can_repair" value="True" />
+			<bool name="cuttable" value="False" />
+			<string name="death_event_name" value="death" />
+			<float name="death_seconds" value="-1" />
+			<bool name="delete_when_dead" value="False" />
+			<bool name="force_attacker_memory" value="False" />
+			<float name="hitpoints" value="5000" />
+			<bool name="is_invincible" value="False" />
+			<bool name="is_salvagable_wreck" value="False" />
+			<instance_reference name="rebuilt_entity" value="" />
+			<instance_reference name="rebuilt_squad" value="" />
+			<bool name="rebuilt_use_wreck_owner" value="True" />
+			<bool name="receive_weapon_cover_modifiers" value="False" />
+			<float name="regeneration" value="0" />
+			<bool name="regeneration_disabled" value="True" />
+			<bool name="remove_from_pathfinding_on_death" value="False" />
+			<bool name="reveal_to_all_on_death" value="False" />
+			<bool name="ui_can_scuttle" value="True" />
+			<float name="target_size" value="5" />
+			<float name="weapon_priority" value="80" />
+			<template_reference name="wreck_entity_option" value="options\none">
+      </template_reference>
+			<enum name="armor_type" value="None" />
+			<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+				<float name="armor" value="1" />
+			</template_reference>
+			<enum name="allegiance_override" value="none" />
+			<bool name="not_default_attackable" value="False" />
+			<enum_table name="armor_scaler_by_damage_type">
+				<float name="True Damage" value="0" />
+				<float name="Melee" value="0" />
+				<float name="Ranged" value="50" />
+				<float name="Fire" value="0" />
+			</enum_table>
+			<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<state_tree_node name="death_action_tree" value="building_death_actions\landmarks\landmarks_age3\mongol_khanbaliq" overrideParent="True" />
+			<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+			<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+			<bool name="can_be_damaged_by_ally" value="False" />
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="669128015" List.ParentItemID="669128015">
+				<list name="abilities" removedIds="-7834965, -892634410, -148970614, -580257611" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="555024994" List.ParentItemID="555024994" overrideParent="True">
+				<enum name="weapon_targeting" value="automatic" />
+				<bool name="intersection_testing" value="False" />
+				<list name="unit_type_list" overrideParent="True">
+					<enum name="unit_type" value="building" List.ItemID="-1226323713" />
+					<enum name="unit_type" value="wonder" List.ItemID="792966655" />
+					<enum name="unit_type" value="wonder_castle_age" List.ItemID="501799476" />
+					<enum name="unit_type" value="siegeable" List.ItemID="1974016677" />
+					<enum name="unit_type" value="select_special_building" List.ItemID="2141914250" />
+					<enum name="unit_type" value="landmark" List.ItemID="242394970" />
+					<enum name="unit_type" value="age3_landmark1" List.ItemID="-140240810" />
+					<enum name="unit_type" value="audio_production_landmark" List.ItemID="1388797948" />
+					<enum name="unit_type" value="military_only_production" List.ItemID="1926649900" />
+					<enum name="unit_type" value="town_center_or_landmark" List.ItemID="-501738906" />
+					<enum name="unit_type" value="house" List.ItemID="-85795655" />
+					<enum name="unit_type" value="herdable_resource_generator" overrideParent="True" List.ItemID="-543559710" />
+					<enum name="unit_type" value="emits_herding_interest" List.ItemID="741756498" />
+					<enum name="unit_type" value="pasture" overrideParent="True" List.ItemID="-1667943622" />
+				</list>
+				<list name="race_type_list" overrideParent="True">
+					<instance_reference name="race_type" value="racebps\mongol" List.ItemID="789374729" />
+				</list>
+				<list name="attack_target_restriction_on_attacker">
+        </list>
+				<list name="attack_target_restriction_on_victim">
+        </list>
+				<enum_table name="weapon_category_targeting_filter">
+					<bool name="1melee" value="False" />
+					<bool name="2ranged" value="False" />
+					<bool name="3siege" value="True" />
+					<bool name="4charge" value="True" />
+					<bool name="5brace" value="True" />
+					<bool name="6auto_ability_cast" value="True" />
+					<bool name="7single_cast_ability" value="True" />
+					<bool name="8dummy" value="False" />
+					<bool name="9idle" value="True" />
+				</enum_table>
+				<list name="unit_type_list_selection_keybind_only" overrideParent="True">
+					<enum name="unit_type" value="military_production_building" List.ItemID="1873022428" />
+				</list>
+				<list name="unit_type_list_ui_appear_as_only">
+        </list>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\action_apply_ext" List.ItemID="-267997863" List.ParentItemID="-267997863">
+				<list name="action_state_trees" removedIds="-1824787948" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\construction_ext" List.ItemID="1828097256" List.ParentItemID="1828097256">
+				<state_tree_node name="can_be_cancelled_state_tree_conditions" value="" overrideParent="True" />
+				<group name="on_construction_complete_state_tree_refs">
+					<string name="while_construction_complete_entity_state_tree_ref" value="building_construction_complete\buildings\landmark_construction_complete" overrideParent="True" />
+					<string name="on_construction_complete_entity_state_tree_ref" value="" overrideParent="True" />
+				</group>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\action_tree_ext" List.ItemID="-621948538" List.ParentItemID="-621948538">
+				<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="646243642" List.ParentItemID="646243642">
+				<locstring name="screen_name" value="4240" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="help_text" value="4241" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="extra_text" value="1144" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<bool name="is_unique_to_race" value="True" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\spawner_ext" List.ItemID="-89102304" overrideParent="True" List.ParentItemID="-89102304">
+				<bool name="must_be_in_supply" value="False" />
+				<float name="reinforce_radius" value="0" />
+				<list name="spawn_items" overrideParent="True">
+					<group name="spawn_item" List.ItemID="-134677789">
+						<group name="ui_position">
+							<int name="ui_position_row" value="-1" overrideParent="True" />
+							<int name="ui_position_column" value="-1" overrideParent="True" />
+						</group>
+						<instance_reference name="entity" value="" />
+						<instance_reference name="squad" value="sbps\races\chagatai\animals\ck_horse_ili" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<bool name="spawn_at_map_entry_point" value="False" />
+						<instance_reference name="ui_menu" value="menu\mon_age1" />
+						<int name="number_to_spawn" value="1" />
+						<locstring name="ui_screen_name" value="0" />
+						<locstring name="ui_help_text" value="0" />
+						<enum_table name="item_cost_adjustment">
+							<float name="action" value="0" />
+							<float name="command" value="0" />
+							<float name="popcap" value="0" />
+							<float name="food" value="0" />
+							<float name="wood" value="0" />
+							<float name="stone" value="0" />
+							<float name="gold" value="0" />
+							<float name="militia_hre" value="0" />
+							<float name="merc_byz" value="0" />
+						</enum_table>
+						<bool name="can_be_cancelled" value="False" overrideParent="True" />
+						<int name="number_to_queue_up_to_when_modified" value="5" />
+						<list name="additional_squads">
+						</list>
+						<instance_reference name="hotkey_binding" value="" overrideParent="True" />
+						<template_reference name="ui_info_extended" value="tables\ui_info_ext">
+							<template_reference name="command_card_info" value="">
+							</template_reference>
+							<template_reference name="quick_abilities_info" value="">
+							</template_reference>
+							<template_reference name="quick_commands_info" value="ui_quick_commands_info" overrideParent="True">
+								<int name="quick_commands_slot_index" value="0" overrideParent="True" />
+								<enum name="quick_commands_hotkey" value="x_quick_command_y" overrideParent="True" />
+								<int name="quick_commands_priority" value="5" overrideParent="True" />
+							</template_reference>
+							<template_reference name="quick_formation_info" value="">
+							</template_reference>
+							<template_reference name="ping_menu_info" value="">
+							</template_reference>
+							<enum name="category" value="Economic" />
+							<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info" overrideParent="True">
+								<enum name="quick_commands_hotkey" value="x_quick_command_y" />
+								<int name="quick_commands_priority" value="5" />
+								<int name="quick_commands_slot_index" value="2" />
+								<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+							</template_reference>
+							<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+								<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\default" overrideParent="True" />
+								<int name="nominal_index" value="0" overrideParent="True" />
+								<int name="priority" value="0" />
+								<instance_reference name="linked" value="" />
+							</template_reference>
+							<enum name="observer_type" value="Disabled" />
+							<group name="issuable_info">
+								<bool name="is_secondary" value="False" />
+								<instance_reference name="secondary_issuable" value="" />
+							</group>
+						</template_reference>
+						<file name="ui_icon_name" value="" />
+						<string name="ui_tooltip_data_template" value="" />
+					</group>
+				</list>
+				<list name="bonus_xp_from_hold_list">
+				</list>
+				<list name="reinforce_requirements">
+				</list>
+				<bool name="spawn_to_hold_try_first" value="False" />
+				<list name="queue_requirements">
+				</list>
+				<bool name="can_rally" value="True" />
+				<template_reference name="animated_spawn_option" value="options\none">
+				</template_reference>
+				<int name="max_queue_size_override" value="1" />
+				<string name="queue_requirements_openingbranch" value="" />
+				<string name="reinforce_requirements_openingbranch" value="" />
+				<state_tree_node name="production_item_completed_openingbranch" value="" overrideParent="True" />
+				<bool name="enforce_minimum_clearance_at_spawn_positions" value="True" />
+				<bool name="enforce_minimum_clearance_if_entities_blocking" value="True" />
+				<float name="enforce_minimum_clearance_at_spawn_positions_search_range" value="30" />
+				<instance_reference name="rally_pass_type" value="pass_types\vehicle" overrideParent="True" />
+				<bool name="reset_production_progress_at_current_pop_cap" value="False" overrideParent="True" />
+				<bool name="can_spawn_if_neutral" value="False" />
+				<bool name="default_rally_points_allowed" value="True" />
+				<bool name="economic_rally_points_allowed" value="False" />
+				<bool name="always_use_economic_rally_points" value="False" />
+				<bool name="use_alternative_rally_point_system" value="False" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\upgrade_ext" List.ItemID="-1352379827" overrideParent="True" List.ParentItemID="-1352379827">
+				<bool name="must_be_in_supply" value="False" />
+				<float name="number_of_standard_slots" value="0" />
+				<list name="standard_upgrades">
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_production_1" List.ItemID="-416181486" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_production_2" List.ItemID="-1515112710" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_production_3" List.ItemID="-1978519523" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_horse_hp_1" List.ItemID="1433983520" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_horse_hp_2" List.ItemID="-1685538653" mod="ac8da4d112bf433c888433228510b447" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_horse_hp_3" List.ItemID="-2088551336" mod="ac8da4d112bf433c888433228510b447" />
+				</list>
+				<int name="max_queue_size_override" value="-1" />
+				<state_tree_node name="production_item_completed_openingbranch" value="" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\requirement_ext" List.ItemID="665441583" List.ParentItemID="665441583">
+				<list name="requirement_table">
+					<template_reference name="required" value="requirements\required_not" List.ItemID="1261614712" List.ParentItemID="1261614712">
+						<list name="requirement_table">
+							<template_reference name="required" value="requirements\required_any_in_list" List.ItemID="-950345816" List.ParentItemID="-950345816">
+								<list name="requirements">
+									<template_reference name="requirement" value="requirements\required_structure" List.ItemID="490618741" List.ParentItemID="490618741">
+										<instance_reference name="structure_name" value="ebps\races\chagatai\buildings\ck_landmark_ili" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+									</template_reference>
+									<template_reference name="requirement" value="requirements\required_structure" List.ItemID="1259492814" List.ParentItemID="1259492814">
+										<instance_reference name="structure_name" value="ebps\races\chagatai\buildings\ck_landmark_mint" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+									</template_reference>
+								</list>
+							</template_reference>
+						</list>
+					</template_reference>
+				</list>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="77336098" List.ParentItemID="77336098" overrideParent="True">
+				<bool name="can_repair" value="True" />
+				<bool name="cuttable" value="False" />
+				<string name="death_event_name" value="death" />
+				<float name="death_seconds" value="-1" />
+				<bool name="delete_when_dead" value="False" />
+				<bool name="force_attacker_memory" value="False" />
+				<float name="hitpoints" value="5000" />
+				<bool name="is_invincible" value="False" />
+				<bool name="is_salvagable_wreck" value="False" />
+				<instance_reference name="rebuilt_entity" value="" />
+				<instance_reference name="rebuilt_squad" value="" />
+				<bool name="rebuilt_use_wreck_owner" value="True" />
+				<bool name="receive_weapon_cover_modifiers" value="False" />
+				<float name="regeneration" value="0" />
+				<bool name="regeneration_disabled" value="True" />
+				<bool name="remove_from_pathfinding_on_death" value="False" />
+				<bool name="reveal_to_all_on_death" value="False" />
+				<bool name="ui_can_scuttle" value="True" />
+				<float name="target_size" value="5" />
+				<float name="weapon_priority" value="80" />
+				<template_reference name="wreck_entity_option" value="options\none">
+        </template_reference>
+				<enum name="armor_type" value="None" />
+				<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+					<float name="armor" value="1" />
+				</template_reference>
+				<enum name="allegiance_override" value="none" />
+				<bool name="not_default_attackable" value="False" />
+				<enum_table name="armor_scaler_by_damage_type">
+					<float name="True Damage" value="0" />
+					<float name="Melee" value="0" />
+					<float name="Ranged" value="50" />
+					<float name="Fire" value="0" />
+				</enum_table>
+				<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<state_tree_node name="death_action_tree" value="xp3_building_death_actions\landmarks\landmarks_age3\mongol_khanbaliq" overrideParent="True" />
+				<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+				<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+				<bool name="can_be_damaged_by_ally" value="False" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741959" />
+		<instance_reference name="parent_pbg" value="ebps\races\mongol\buildings\building_wonder_age3_khanbaliq_mon" />
+	</variant>
+</instance>

@@ -1,0 +1,1210 @@
+{
+  "status": "awaiting user acceptance",
+  "visual_stage": "Blender bind-pose art review",
+  "units": {
+    "lancer": {
+      "name": "Light Lancer",
+      "tiers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "variants": 8,
+      "sampled_visible_mask": {
+        "spearman_mounted_1_1": 0.3254,
+        "spearman_mounted_1_2": 0.321,
+        "spearman_mounted_2_1": 0.2724,
+        "spearman_mounted_2_2": 0.2729,
+        "spearman_mounted_3_1": 0.2738,
+        "spearman_mounted_3_2": 0.3027,
+        "spearman_mounted_4_1": 0.2743,
+        "spearman_mounted_4_2": 0.3038
+      },
+      "models": {
+        "spearman_mounted_1_1": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_light_age01/mon_horse_combined_light_age01.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1258,
+              "triangles": 1586,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 517,
+              "triangles": 558,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 206,
+              "triangles": 225,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 956,
+              "triangles": 1374,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 416,
+              "triangles": 500,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 184,
+              "triangles": 178,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "spearman_mounted_1_2": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_light_female_age01/mon_horse_combined_light_female_age01.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1258,
+              "triangles": 1586,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 517,
+              "triangles": 558,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 206,
+              "triangles": 225,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 999,
+              "triangles": 1428,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 479,
+              "triangles": 569,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 200,
+              "triangles": 193,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "spearman_mounted_2_1": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_light_age02/mon_horse_combined_light_age02.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1706,
+              "triangles": 1986,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 681,
+              "triangles": 674,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 305,
+              "triangles": 249,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1094,
+              "triangles": 1532,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 480,
+              "triangles": 556,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 220,
+              "triangles": 202,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "spearman_mounted_2_2": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_light_female_age02/mon_horse_combined_light_female_age02.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1706,
+              "triangles": 1986,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 681,
+              "triangles": 674,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 305,
+              "triangles": 249,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1109,
+              "triangles": 1543,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 603,
+              "triangles": 700,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 235,
+              "triangles": 218,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "spearman_mounted_3_1": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_light_age03/mon_horse_combined_light_age03.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1905,
+              "triangles": 2216,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 700,
+              "triangles": 665,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 273,
+              "triangles": 237,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1094,
+              "triangles": 1532,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 480,
+              "triangles": 556,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 220,
+              "triangles": 202,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true,
+          "compatible_stock_rider": "art/civilizations/mongols/animals/mon_horse_combined_light_age02/mon_horse_combined_light_age02.rgm",
+          "approved_reference_candidate_rider": "art/civilizations/mongols/animals/mon_horse_combined_light_age02/mon_horse_combined_light_age02.rgm"
+        },
+        "spearman_mounted_3_2": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_light_female_age03/mon_horse_combined_light_female_age03.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1905,
+              "triangles": 2216,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 700,
+              "triangles": 665,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 273,
+              "triangles": 237,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1234,
+              "triangles": 1642,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 594,
+              "triangles": 629,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 306,
+              "triangles": 226,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "spearman_mounted_4_1": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_light_age03/mon_horse_combined_light_age03.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1905,
+              "triangles": 2216,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 700,
+              "triangles": 665,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 273,
+              "triangles": 237,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1094,
+              "triangles": 1532,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 480,
+              "triangles": 556,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 220,
+              "triangles": 202,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true,
+          "compatible_stock_rider": "art/civilizations/mongols/animals/mon_horse_combined_light_age02/mon_horse_combined_light_age02.rgm",
+          "approved_reference_candidate_rider": "art/civilizations/mongols/animals/mon_horse_combined_light_age02/mon_horse_combined_light_age02.rgm"
+        },
+        "spearman_mounted_4_2": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_light_female_age03/mon_horse_combined_light_female_age03.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1905,
+              "triangles": 2216,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 700,
+              "triangles": 665,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 273,
+              "triangles": 237,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1234,
+              "triangles": 1642,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 594,
+              "triangles": 629,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 306,
+              "triangles": 226,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        }
+      }
+    },
+    "nokor": {
+      "name": "Foot Nökör",
+      "tiers": [
+        2,
+        3,
+        4
+      ],
+      "variants": 5,
+      "sampled_visible_mask": {
+        "nokor_foot_2_1": 0.3386,
+        "nokor_foot_3_1": 0.3381,
+        "nokor_foot_3_2": 0.3371,
+        "nokor_foot_4_1": 0.3388,
+        "nokor_foot_4_2": 0.337
+      },
+      "models": {
+        "nokor_foot_2_1": {
+          "donor": "art/civilizations/mongols/humans/mon_infantry_armor_age03/mon_infantry_armor_age03.rgm",
+          "bones": 48,
+          "stock_groups": [
+            {
+              "name": "lod1",
+              "vertices": 1201,
+              "triangles": 1740,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod2",
+              "vertices": 481,
+              "triangles": 564,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod3",
+              "vertices": 242,
+              "triangles": 220,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [],
+          "native_uvs": true,
+          "previous_art_donor": "art/civilizations/english/humans/eng_infantry_armor_age02/eng_infantry_armor_age02.rgm"
+        },
+        "nokor_foot_3_1": {
+          "donor": "art/civilizations/mongols/humans/mon_infantry_armor_age03/mon_infantry_armor_age03.rgm",
+          "bones": 48,
+          "stock_groups": [
+            {
+              "name": "lod1",
+              "vertices": 1201,
+              "triangles": 1740,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod2",
+              "vertices": 481,
+              "triangles": 564,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod3",
+              "vertices": 242,
+              "triangles": 220,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [],
+          "native_uvs": true
+        },
+        "nokor_foot_3_2": {
+          "donor": "art/civilizations/mongols/humans/mon_infantry_armor_female_age03/mon_infantry_armor_female_age03.rgm",
+          "bones": 48,
+          "stock_groups": [
+            {
+              "name": "lod1",
+              "vertices": 1212,
+              "triangles": 1736,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod2",
+              "vertices": 520,
+              "triangles": 610,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod3",
+              "vertices": 251,
+              "triangles": 230,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [],
+          "native_uvs": true
+        },
+        "nokor_foot_4_1": {
+          "donor": "art/civilizations/mongols/humans/mon_infantry_armor_age03/mon_infantry_armor_age03.rgm",
+          "bones": 48,
+          "stock_groups": [
+            {
+              "name": "lod1",
+              "vertices": 1201,
+              "triangles": 1740,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod2",
+              "vertices": 481,
+              "triangles": 564,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod3",
+              "vertices": 242,
+              "triangles": 220,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [],
+          "native_uvs": true
+        },
+        "nokor_foot_4_2": {
+          "donor": "art/civilizations/mongols/humans/mon_infantry_armor_female_age03/mon_infantry_armor_female_age03.rgm",
+          "bones": 48,
+          "stock_groups": [
+            {
+              "name": "lod1",
+              "vertices": 1212,
+              "triangles": 1736,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod2",
+              "vertices": 520,
+              "triangles": 610,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "lod3",
+              "vertices": 251,
+              "triangles": 230,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [],
+          "native_uvs": true
+        }
+      }
+    },
+    "archer": {
+      "name": "Mounted Chagatai Archer",
+      "tiers": [
+        2,
+        3,
+        4
+      ],
+      "variants": 6,
+      "sampled_visible_mask": {
+        "archer_mounted_2_1": 0.3085,
+        "archer_mounted_2_2": 0.2048,
+        "archer_mounted_3_1": 0.2828,
+        "archer_mounted_3_2": 0.2822,
+        "archer_mounted_4_1": 0.2867,
+        "archer_mounted_4_2": 0.2863
+      },
+      "models": {
+        "archer_mounted_2_1": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_bow_age02/mon_horse_combined_bow_age02.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1403,
+              "triangles": 1800,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 531,
+              "triangles": 583,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 227,
+              "triangles": 222,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1236,
+              "triangles": 1558,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 548,
+              "triangles": 560,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 234,
+              "triangles": 201,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "archer_mounted_2_2": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age02/mon_horse_combined_bow_female_age02.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1403,
+              "triangles": 1800,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 531,
+              "triangles": 583,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 227,
+              "triangles": 222,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1435,
+              "triangles": 1746,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 587,
+              "triangles": 584,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 272,
+              "triangles": 225,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true,
+          "compatible_stock_rider": "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age03/mon_horse_combined_bow_female_age03.rgm",
+          "approved_reference_candidate_rider": "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age03/mon_horse_combined_bow_female_age03.rgm"
+        },
+        "archer_mounted_3_1": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_bow_age03/mon_horse_combined_bow_age03.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1635,
+              "triangles": 1896,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 644,
+              "triangles": 673,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 274,
+              "triangles": 277,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1432,
+              "triangles": 1764,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 581,
+              "triangles": 564,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 291,
+              "triangles": 239,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "archer_mounted_3_2": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age03/mon_horse_combined_bow_female_age03.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1635,
+              "triangles": 1896,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 644,
+              "triangles": 673,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 274,
+              "triangles": 277,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1435,
+              "triangles": 1746,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 587,
+              "triangles": 584,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 272,
+              "triangles": 225,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "archer_mounted_4_1": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_bow_age04/mon_horse_combined_bow_age04.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1635,
+              "triangles": 1896,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 644,
+              "triangles": 673,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 274,
+              "triangles": 277,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1432,
+              "triangles": 1764,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 581,
+              "triangles": 564,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 291,
+              "triangles": 239,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        },
+        "archer_mounted_4_2": {
+          "donor": "art/civilizations/mongols/animals/mon_horse_combined_bow_female_age04/mon_horse_combined_bow_female_age04.rgm",
+          "bones": 127,
+          "stock_groups": [
+            {
+              "name": "horse_lod1",
+              "vertices": 1635,
+              "triangles": 1896,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod2",
+              "vertices": 644,
+              "triangles": 673,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "horse_lod3",
+              "vertices": 274,
+              "triangles": 277,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod1",
+              "vertices": 1435,
+              "triangles": 1746,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod2",
+              "vertices": 587,
+              "triangles": 584,
+              "original_positions_uv_weights": true
+            },
+            {
+              "name": "rider_lod3",
+              "vertices": 272,
+              "triangles": 225,
+              "original_positions_uv_weights": true
+            }
+          ],
+          "fitted_saddlecloth": [
+            {
+              "lod": 1,
+              "sample_count": 704,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 2,
+              "sample_count": 234,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            },
+            {
+              "lod": 3,
+              "sample_count": 108,
+              "clearance_m": [
+                0.017,
+                0.033
+              ],
+              "weights_per_vertex_max": 4
+            }
+          ],
+          "native_uvs": true
+        }
+      }
+    }
+  }
+}

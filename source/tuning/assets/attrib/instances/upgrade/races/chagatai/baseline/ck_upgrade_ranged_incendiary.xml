@@ -1,0 +1,38 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073765353" />
+	<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_ranged_incendiary" />
+	<group name="upgrade_bag">
+		<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_incendiary_arrows_mon" overrideParent="True" />
+		<group name="ui_position">
+			<int name="ui_position_row" value="3" overrideParent="True" />
+			<int name="ui_position_column" value="3" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="786995758" List.ParentItemID="786995758">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_ranged_incendiary" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</template_reference>
+		</list>
+		<group name="ui_info">
+			<locstring name="help_text" value="7485" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_incendiary_arrows_mon" overrideParent="True" />
+			<group name="ui_position">
+				<int name="ui_position_row" value="3" overrideParent="True" />
+				<int name="ui_position_column" value="4" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="786995758" List.ParentItemID="786995758">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_ranged_incendiary" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				</template_reference>
+			</list>
+			<group name="ui_info">
+				<locstring name="help_text" value="7485" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073765353" />
+		<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_ranged_incendiary" />
+	</variant>
+</instance>

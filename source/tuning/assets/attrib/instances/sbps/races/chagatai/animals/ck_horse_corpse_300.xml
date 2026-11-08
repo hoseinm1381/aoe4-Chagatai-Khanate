@@ -1,0 +1,51 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073765380" />
+	<instance_reference name="parent_pbg" value="sbps\races\gaia\animals\gaia_herdable_sheep_corpse" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="1034906816" List.ParentItemID="1034906816">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="-1435591199" List.ParentItemID="-1435591199">
+					<group name="info">
+						<locstring name="extra_text" value="7407" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<locstring name="help_text" value="1131" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<file name="icon_name" value="gaia\animals\reindeer" overrideParent="True" />
+						<locstring name="screen_name" value="1130" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<file name="portrait_name" value="" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="-1262730987" List.ParentItemID="-1262730987">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="-592218289" List.ParentItemID="-592218289">
+					<instance_reference name="type" value="ebps\races\chagatai\animals\ck_horse_corpse_300" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				</group>
+			</list>
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="1034906816" List.ParentItemID="1034906816">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="-1435591199" List.ParentItemID="-1435591199">
+						<group name="info">
+							<locstring name="extra_text" value="7407" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<locstring name="help_text" value="1131" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<file name="icon_name" value="gaia\animals\reindeer" overrideParent="True" />
+							<locstring name="screen_name" value="1130" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="-1262730987" List.ParentItemID="-1262730987">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="-592218289" List.ParentItemID="-592218289">
+						<instance_reference name="type" value="ebps\races\chagatai\animals\ck_horse_corpse_300" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+					</group>
+				</list>
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073765380" />
+		<instance_reference name="parent_pbg" value="sbps\races\gaia\animals\gaia_herdable_sheep_corpse" />
+	</variant>
+</instance>

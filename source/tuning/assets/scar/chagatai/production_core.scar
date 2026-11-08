@@ -1,0 +1,83 @@
+-- Offline transaction state. Actual native removal/refunds require adapter commits.
+ChagataiProduction = {}
+
+local function clone(source)
+
+    local result = {}
+    for key, value in pairs(source) do
+        if type(value) == "table" then result[key] = clone(value) else result[key] = value end
+    end
+    return result
+end
+
+function ChagataiProduction.New()
+
+    return {entries={}}
+end
+
+-- nativeAdmitted must mean the engine admitted the queue/cap operation.
+-- No Lua count or synthetic cap token replaces the native Sheep counter.
+function ChagataiProduction.Admit(state, horses, economy, id, producerID, position, now,
+    riderPayment, fallbackProfile, nativeAdmitted)
+
+    if nativeAdmitted ~= true or state.entries[id] ~= nil then return nil end
+    local horse = ChagataiHorse.NearestFree(horses,position,ChagataiConfig.horse.trainingRange)
+    local entry = {producerID=producerID,status="active",payment=clone(riderPayment)}
+    if horse ~= nil then
+        if not ChagataiHorse.Reserve(horses,horse.id,"production",id) then return nil end
+        entry.kind,entry.horseID,entry.originalPosition = "physical",horse.id,clone(horse.position)
+    else
+        if ChagataiEconomy.StartFallback(economy,id,now,fallbackProfile,true) == nil then return nil end
+        entry.kind,entry.profile = "fallback",clone(fallbackProfile)
+        entry.payment.gold = (entry.payment.gold or 0)+ChagataiConfig.horse.fallbackGold
+    end
+    state.entries[id] = entry
+    return entry
+end
+
+-- Apply returned receipt once through the adapter. Position search starts at the
+-- saved Horse position, with no distance limit if it is blocked.
+function ChagataiProduction.Cancel(state, horses, economy, id, now)
+
+    local entry = state.entries[id]
+    if entry == nil or entry.status ~= "active" then return nil end
+    entry.status = "cancelled"
+    local receipt = {payment=clone(entry.payment),releaseNativeReservation=true}
+    if entry.kind == "physical" then
+        local horse = horses.horses[entry.horseID]
+        if horse == nil then return receipt end
+        ChagataiHorse.Release(horses,horse.id,"production",id)
+        receipt.horse = {id=horse.id,hp=horse.hp,maximum=horse.maximum,
+            profile=clone(horse.profile),position=clone(entry.originalPosition)}
+    else
+        ChagataiEconomy.Cancel(economy,id,now)
+    end
+    return receipt
+end
+
+function ChagataiProduction.Complete(state, horses, economy, id, riderID, pair, riderMaximum, position, now)
+
+    local entry = state.entries[id]
+    if entry == nil or entry.status ~= "active" or horses.riders[riderID] ~= nil then return nil end
+    assert(ChagataiConfig.pairs[pair] ~= nil and riderMaximum > 0, "Invalid production completion")
+    local horse
+    if entry.kind == "physical" then
+        horse = horses.horses[entry.horseID]
+        if horse == nil or not horse.alive or horse.status ~= "production" or horse.reservation ~= id then return nil end
+    else
+        -- The adapter allocates a stable logical Horse ID distinct from all prior
+        -- identities, and supplies it on the queue entry before native completion.
+        if entry.newHorseID == nil or horses.horses[entry.newHorseID] ~= nil then return nil end
+        local profile = ChagataiEconomy.Complete(economy,id,now)
+        if profile == nil then return nil end
+        horse = ChagataiHorse.AddHorse(horses,entry.newHorseID,profile,
+            ChagataiHorse.Maximum(profile,horses.horseTier),position)
+    end
+    local rider = ChagataiHorse.AddRider(horses,riderID,pair,riderMaximum,riderMaximum,position)
+    rider.form,rider.horseID = "mounted",horse.id
+    rider.maximum,rider.hp = riderMaximum+horse.maximum,riderMaximum+horse.hp
+    rider.cooldownUntil = now+ChagataiConfig.horse.conversionCooldown
+    horse.status,horse.reservation = "mounted",riderID
+    entry.status = "complete"
+    return rider
+end

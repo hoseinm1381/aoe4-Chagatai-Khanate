@@ -1,0 +1,56 @@
+{
+  "r2_healthy": {
+    "lifecycle": "healthy",
+    "civilization_age": 2,
+    "objects": 21,
+    "triangles": 24682,
+    "visible_preview_mask_area_percent": 58.87,
+    "total_view_samples": 19015,
+    "donor": "art/civilizations/mongols/structures/archery_range/mon_archery_range_control_age02/mon_archery_range_control_age02.rgm"
+  },
+  "r2_ruins": {
+    "lifecycle": "ruins",
+    "civilization_age": 2,
+    "objects": 29,
+    "triangles": 14478,
+    "visible_preview_mask_area_percent": 0.0,
+    "total_view_samples": 15375,
+    "donor": "art/civilizations/mongols/structures/archery_range/mon_archery_range_control_age02/mon_archery_range_control_age02.rgm"
+  },
+  "r3_healthy": {
+    "lifecycle": "healthy",
+    "civilization_age": 3,
+    "objects": 43,
+    "triangles": 29539,
+    "visible_preview_mask_area_percent": 44.02,
+    "total_view_samples": 20039,
+    "donor": "art/civilizations/mongols/structures/archery_range/mon_archery_range_control_age03/mon_archery_range_control_age03.rgm"
+  },
+  "r3_ruins": {
+    "lifecycle": "ruins",
+    "civilization_age": 3,
+    "objects": 34,
+    "triangles": 17142,
+    "visible_preview_mask_area_percent": 0.0,
+    "total_view_samples": 15408,
+    "donor": "art/civilizations/mongols/structures/archery_range/mon_archery_range_control_age03/mon_archery_range_control_age03.rgm"
+  },
+  "r4_healthy": {
+    "lifecycle": "healthy",
+    "civilization_age": 4,
+    "objects": 81,
+    "triangles": 30243,
+    "visible_preview_mask_area_percent": 43.05,
+    "total_view_samples": 19829,
+    "donor": "art/civilizations/mongols/structures/archery_range/mon_archery_range_control_age03/mon_archery_range_control_age03.rgm"
+  },
+  "r4_ruins": {
+    "lifecycle": "ruins",
+    "civilization_age": 4,
+    "objects": 40,
+    "triangles": 17267,
+    "visible_preview_mask_area_percent": 0.0,
+    "total_view_samples": 14986,
+    "donor": "art/civilizations/mongols/structures/archery_range/mon_archery_range_control_age03/mon_archery_range_control_age03.rgm"
+  }
+}

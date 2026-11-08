@@ -1,0 +1,123 @@
+[
+  {
+    "asset": "pasture",
+    "member": "art/scenario/chagatai/pasture_healthy/pasture_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 1362650,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "steppe_hearth",
+    "member": "art/scenario/chagatai/steppe_hearth_healthy/steppe_hearth_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 687714,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "melee",
+    "member": "art/scenario/chagatai/melee_healthy/melee_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 581405,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "ranged",
+    "member": "art/scenario/chagatai/ranged_healthy/ranged_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 348843,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "almaliq",
+    "member": "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 170516,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "ordu",
+    "member": "art/scenario/chagatai/ordu_healthy/ordu_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 348802,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "qarshi",
+    "member": "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 511297,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "court",
+    "member": "art/scenario/chagatai/court_healthy/court_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 524174,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "ili",
+    "member": "art/scenario/chagatai/ili_healthy/ili_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 501787,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "mint",
+    "member": "art/scenario/chagatai/mint_healthy/mint_healthy_albedo.rrtex",
+    "size": [
+      2048,
+      2048
+    ],
+    "masked_pixels": 324936,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  },
+  {
+    "asset": "wonder",
+    "member": "art/scenario/chagatai/wonder_healthy/wonder_healthy_albedo.rrtex",
+    "size": [
+      512,
+      256
+    ],
+    "masked_pixels": 32768,
+    "unmasked_source_pixels_unchanged": true,
+    "alpha_unchanged": true
+  }
+]

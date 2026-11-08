@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod xmlns="http://schemas.datacontract.org/2004/07/Essence.Editor.Modding" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<DataGenericPath>source\</DataGenericPath>
+	<DataIntermediatePath>cache</DataIntermediatePath>
+	<ID>8b6ecd75-c450-436f-8506-8bc0cc388e75</ID>
+	<LocDBPath i:nil="true" />
+	<Type>Extension</Type>
+</Mod>

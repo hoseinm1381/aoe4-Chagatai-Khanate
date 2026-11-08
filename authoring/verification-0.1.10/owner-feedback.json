@@ -1,0 +1,14 @@
+{
+  "tested_version": "0.1.9",
+  "confirmed_working": [
+    "building destroyed states",
+    "landmark health-based damage and repair",
+    "unit player colors"
+  ],
+  "reported_issues": [
+    "building blue almost white",
+    "building red orange-ish",
+    "foot Trader trade broken and still unanimated"
+  ],
+  "requested_action": "Restore trade behavior; defer Foot Trader animation; correct building colors; ZIP only"
+}

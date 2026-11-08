@@ -1,0 +1,26 @@
+{
+  "zip_crc_verified": true,
+  "sga_integrity_verified": true,
+  "active_visual_receivers": 46,
+  "skinned_unit_variants": 46,
+  "buildings": 11,
+  "building_state_meshes": 105,
+  "cooked_player_color_masks_decoded": 57,
+  "cooked_mask_atlas_texel_range": [
+    0.0,
+    0.4152
+  ],
+  "original_gameplay_and_presentation_members_verified": true,
+  "opening_regression": {
+    "matched_release": "0.1.2",
+    "members": 29,
+    "dispatcher_change_limited_to_building_visual_import": true,
+    "scout_rig_and_material_verified_separately": true
+  },
+  "stock_rigs_and_skin_binds_verified": 46,
+  "private_native_materials_verified": 57,
+  "building_blockers_verified": 11,
+  "adjacent_building_passage_world_units": 2.0,
+  "stable_building_controllers_with_scripted_lifecycle": 11,
+  "corrected_building_albedo_atlases": 11
+}

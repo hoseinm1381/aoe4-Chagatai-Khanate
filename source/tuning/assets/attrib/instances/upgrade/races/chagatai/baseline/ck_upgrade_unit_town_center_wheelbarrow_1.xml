@@ -1,0 +1,38 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073765362" />
+	<instance_reference name="parent_pbg" value="upgrade\races\common\research\unit\upgrade_unit_town_center_wheelbarrow_1" />
+	<group name="upgrade_bag">
+		<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_ger\tech_wheelbarrow_mon" overrideParent="True" />
+		<group name="ui_position">
+			<int name="ui_position_row" value="2" overrideParent="True" />
+			<int name="ui_position_column" value="2" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-472144511" List.ParentItemID="-472144511">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_unit_town_center_wheelbarrow_1" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</template_reference>
+		</list>
+		<group name="ui_info">
+			<locstring name="help_text" value="7492" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_ger\tech_wheelbarrow_mon" overrideParent="True" />
+			<group name="ui_position">
+				<int name="ui_position_row" value="2" overrideParent="True" />
+				<int name="ui_position_column" value="2" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-472144511" List.ParentItemID="-472144511">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_unit_town_center_wheelbarrow_1" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				</template_reference>
+			</list>
+			<group name="ui_info">
+				<locstring name="help_text" value="7492" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073765362" />
+		<instance_reference name="parent_pbg" value="upgrade\races\common\research\unit\upgrade_unit_town_center_wheelbarrow_1" />
+	</variant>
+</instance>

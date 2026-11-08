@@ -1,0 +1,93 @@
+{
+  "schema": "garrison.civilization-authoring/v1",
+  "owner": "ac8da4d1-12bf-433c-8884-33228510b447",
+  "race": "chagatai",
+  "name": "Chagatai Khanate",
+  "description": "Raise horses, field mounted and foot troops, and develop the cities and pasturelands of Central Asia.",
+  "capital": "ac8da4d112bf433c888433228510b447:ck_building_town_center_capital",
+  "villager": "ac8da4d112bf433c888433228510b447:ck_unit_villager",
+  "scout": "ac8da4d112bf433c888433228510b447:ck_scout_foot_1",
+  "speech_race": "mongols",
+  "speech_speaker": "mongols",
+  "resources": {
+    "food": 200,
+    "wood": 150,
+    "gold": 100,
+    "stone": 0
+  },
+  "starting_squads": [
+    "ac8da4d112bf433c888433228510b447:ck_unit_villager",
+    "ac8da4d112bf433c888433228510b447:ck_unit_villager",
+    "ac8da4d112bf433c888433228510b447:ck_unit_villager",
+    "ac8da4d112bf433c888433228510b447:ck_unit_villager",
+    "ac8da4d112bf433c888433228510b447:ck_unit_villager",
+    "ac8da4d112bf433c888433228510b447:ck_unit_villager",
+    "ac8da4d112bf433c888433228510b447:ck_scout_foot_1",
+    "ac8da4d112bf433c888433228510b447:ck_horse",
+    "ac8da4d112bf433c888433228510b447:ck_horse",
+    "ac8da4d112bf433c888433228510b447:ck_horse",
+    "ac8da4d112bf433c888433228510b447:ck_horse",
+    "ac8da4d112bf433c888433228510b447:ck_horse"
+  ],
+  "starting_offsets": [
+    [
+      -2.2,
+      0
+    ],
+    [
+      -3.3,
+      -2
+    ],
+    [
+      -1,
+      -2
+    ],
+    [
+      -2,
+      -4
+    ],
+    [
+      0,
+      -4
+    ],
+    [
+      -1,
+      -6
+    ],
+    [
+      6,
+      -4
+    ],
+    [
+      0,
+      -4.5
+    ],
+    [
+      0.4,
+      -4.2
+    ],
+    [
+      0.8,
+      -3.9
+    ],
+    [
+      0.8,
+      -3.6
+    ],
+    [
+      1.2,
+      -3.6
+    ]
+  ],
+  "entity_directory": "chagatai",
+  "squad_directory": "chagatai",
+  "traits": "Horses, Mounted Warfare, Pasture Economy",
+  "difficulty": 3,
+  "bonuses": [
+    "Horses can serve as mounts or provide Food.",
+    "Train mounted troops with a nearby Horse or pay an additional Gold cost.",
+    "Steppe Hearths provide housing."
+  ],
+  "image_prefix": "garrison/chagatai/presentation",
+  "period": "Chagatai Khanate"
+}

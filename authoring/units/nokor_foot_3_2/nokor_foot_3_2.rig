@@ -1,0 +1,56 @@
+[HAVOK SKELETON DEFINITION FILE]
+
+[BONES START]
+metarig_root
+metarig_pelvis
+metarig_lleg1
+metarig_lleg2
+metarig_rleg1
+metarig_rleg2
+metarig_spine1
+metarig_spine2
+metarig_ribcage
+metarig_neck1
+metarig_neck2
+metarig_head
+metarig_larmcollarbone
+metarig_larmupper1
+metarig_larmupper2
+metarig_larmlower1
+metarig_larmlower2
+metarig_larmpalm
+metarig_larmpalmsocket
+metarig_rarmcollarbone
+metarig_rarmupper1
+metarig_rarmupper2
+metarig_rarmlower1
+metarig_rarmlower2
+metarig_rarmpalm
+metarig_rarmpalmsocket
+metarig_llegankle
+metarig_rlegankle
+metarig_larmmiddle1
+metarig_larmthumb1
+metarig_rarmmiddle1
+metarig_rarmthumb1
+metarig_llegtoe1
+metarig_rlegtoe1
+metarig_larmmiddle2
+metarig_larmmiddle3
+metarig_larmthumb2
+metarig_larmthumb3
+metarig_larmindex1
+metarig_larmindex2
+metarig_larmindex3
+metarig_rarmmiddle2
+metarig_rarmmiddle3
+metarig_rarmthumb2
+metarig_rarmthumb3
+metarig_rarmindex1
+metarig_rarmindex2
+metarig_rarmindex3
+[END]
+
+[PARTITION START]
+fullbody_lod3 metarig_root metarig_rarmindex3
+[END]

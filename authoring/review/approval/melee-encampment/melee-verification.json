@@ -1,0 +1,74 @@
+{
+  "m1_healthy": {
+    "lifecycle": "healthy",
+    "civilization_age": 1,
+    "objects": 98,
+    "triangles": 12030,
+    "visible_preview_mask_area_percent": 45.63,
+    "total_view_samples": 14086,
+    "donor": "art/civilizations/mongols/structures/barracks/mon_barracks_control_age01/mon_barracks_control_age01.rgm"
+  },
+  "m1_ruins": {
+    "lifecycle": "ruins",
+    "civilization_age": 1,
+    "objects": 94,
+    "triangles": 8124,
+    "visible_preview_mask_area_percent": 0.0,
+    "total_view_samples": 11590,
+    "donor": "art/civilizations/mongols/structures/barracks/mon_barracks_control_age01/mon_barracks_control_age01.rgm"
+  },
+  "m2_healthy": {
+    "lifecycle": "healthy",
+    "civilization_age": 2,
+    "objects": 98,
+    "triangles": 10442,
+    "visible_preview_mask_area_percent": 64.81,
+    "total_view_samples": 15714,
+    "donor": "art/civilizations/mongols/structures/barracks/mon_barracks_control_age02/mon_barracks_control_age02.rgm"
+  },
+  "m2_ruins": {
+    "lifecycle": "ruins",
+    "civilization_age": 2,
+    "objects": 79,
+    "triangles": 5559,
+    "visible_preview_mask_area_percent": 0.0,
+    "total_view_samples": 9669,
+    "donor": "art/civilizations/mongols/structures/barracks/mon_barracks_control_age02/mon_barracks_control_age02.rgm"
+  },
+  "m3_healthy": {
+    "lifecycle": "healthy",
+    "civilization_age": 3,
+    "objects": 115,
+    "triangles": 13430,
+    "visible_preview_mask_area_percent": 63.66,
+    "total_view_samples": 16162,
+    "donor": "art/civilizations/mongols/structures/barracks/mon_barracks_control_age03/mon_barracks_control_age03.rgm"
+  },
+  "m3_ruins": {
+    "lifecycle": "ruins",
+    "civilization_age": 3,
+    "objects": 84,
+    "triangles": 6984,
+    "visible_preview_mask_area_percent": 0.0,
+    "total_view_samples": 10285,
+    "donor": "art/civilizations/mongols/structures/barracks/mon_barracks_control_age03/mon_barracks_control_age03.rgm"
+  },
+  "m4_healthy": {
+    "lifecycle": "healthy",
+    "civilization_age": 4,
+    "objects": 145,
+    "triangles": 15234,
+    "visible_preview_mask_area_percent": 58.46,
+    "total_view_samples": 16775,
+    "donor": "art/civilizations/mongols/structures/barracks/mon_barracks_control_age03/mon_barracks_control_age03.rgm"
+  },
+  "m4_ruins": {
+    "lifecycle": "ruins",
+    "civilization_age": 4,
+    "objects": 90,
+    "triangles": 7545,
+    "visible_preview_mask_area_percent": 0.0,
+    "total_view_samples": 11168,
+    "donor": "art/civilizations/mongols/structures/barracks/mon_barracks_control_age03/mon_barracks_control_age03.rgm"
+  }
+}

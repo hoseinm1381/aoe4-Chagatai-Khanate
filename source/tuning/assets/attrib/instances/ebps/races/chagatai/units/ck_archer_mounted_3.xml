@@ -1,0 +1,356 @@
+<instance version="6" template="ebps">
+	<uniqueid name="pbgid" value="1073741861" />
+	<instance_reference name="parent_pbg" value="ebps\races\mongol\units\unit_horsearcher_3_mon" />
+	<list name="extensions">
+		<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="584609974" List.ParentItemID="584609974" comment="Horse and rider entities require identical health_ext values. Keep them in sync." overrideParent="True">
+			<bool name="can_repair" value="False" />
+			<bool name="cuttable" value="False" />
+			<string name="death_event_name" value="Death" />
+			<float name="death_seconds" value="19" />
+			<bool name="delete_when_dead" value="True" />
+			<bool name="force_attacker_memory" value="False" />
+			<float name="hitpoints" value="140.0" overrideParent="True" />
+			<bool name="is_invincible" value="False" />
+			<bool name="is_salvagable_wreck" value="False" />
+			<instance_reference name="rebuilt_entity" value="" />
+			<instance_reference name="rebuilt_squad" value="" />
+			<bool name="rebuilt_use_wreck_owner" value="False" />
+			<bool name="receive_weapon_cover_modifiers" value="True" />
+			<float name="regeneration" value="0" />
+			<bool name="regeneration_disabled" value="True" />
+			<bool name="remove_from_pathfinding_on_death" value="True" />
+			<bool name="reveal_to_all_on_death" value="False" />
+			<bool name="ui_can_scuttle" value="True" />
+			<float name="target_size" value="1" />
+			<float name="weapon_priority" value="100" />
+			<template_reference name="wreck_entity_option" value="options\none">
+			</template_reference>
+			<enum name="armor_type" value="None" />
+			<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+				<float name="armor" value="1" />
+			</template_reference>
+			<enum name="allegiance_override" value="none" />
+			<bool name="not_default_attackable" value="False" />
+			<enum_table name="armor_scaler_by_damage_type">
+				<float name="True Damage" value="0" overrideParent="True" />
+				<float name="Melee" value="0" overrideParent="True" />
+				<float name="Ranged" value="0" overrideParent="True" />
+				<float name="Fire" value="0" overrideParent="True" />
+			</enum_table>
+			<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<state_tree_node name="death_action_tree" value="" />
+			<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+			<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+			<bool name="can_be_damaged_by_ally" value="False" />
+			<enum_table name="percentage_reduction_armor_by_damage_type">
+				<float name="True Damage" value="0" />
+				<float name="Melee" value="0" />
+				<float name="Ranged" value="0" />
+				<float name="Fire" value="0" />
+			</enum_table>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\population_ext" List.ItemID="-157619472" List.ParentItemID="-157619472">
+			<float name="personnel_pop" value="1" overrideParent="True" />
+			<float name="vehicle_pop" value="1" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\cost_ext" List.ItemID="1012099503" List.ParentItemID="1012099503">
+			<group name="time_cost">
+				<enum_table name="cost">
+					<float name="food" value="30.0" overrideParent="True" />
+					<float name="wood" value="50.0" overrideParent="True" />
+					<float name="gold" value="0.0" overrideParent="True" />
+					<float name="stone" value="0.0" overrideParent="True" />
+				</enum_table>
+				<float name="time_seconds" value="15" overrideParent="True" />
+			</group>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\moving_ext" List.ItemID="1821048869" List.ParentItemID="1821048869">
+			<enum_table name="speed_scaling_table">
+				<float name="default_speed" value="6.25" overrideParent="True" />
+			</enum_table>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="-533480301" List.ParentItemID="-533480301">
+			<list name="abilities" removedIds="523508707" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\combat_ext" List.ItemID="698418421" List.ParentItemID="698418421">
+			<list name="hardpoints">
+				<group name="hardpoint" List.ItemID="627415271" List.ParentItemID="627415271">
+					<list name="weapon_table" overrideParent="True">
+						<group name="weapon" List.ItemID="-1699110008">
+							<group name="heading">
+								<float name="x" value="0" />
+								<float name="y" value="0" />
+								<float name="z" value="0" />
+							</group>
+							<float name="length" value="0" />
+							<group name="origin">
+								<float name="x" value="0" />
+								<float name="y" value="1.75" />
+								<float name="z" value="1" />
+							</group>
+							<enum name="type" value="default" />
+							<template_reference name="weapon_entity_attachment" value="" overrideParent="True" />
+							<template_reference name="non_entity_weapon_wrapper" value="non_entity_weapon_wrapper" overrideParent="True">
+								<instance_reference name="non_entity_weapon_wrapper_pbg" value="weapon\races\chagatai\ck_archer_mounted_3_0" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+								<instance_reference name="animator_attachments" value="attachments\attachment_lists\races\mongol\weapons\wpn_range_archer_3_mon" overrideParent="True" />
+								<string name="marker_name_parent" value="MetaRig_LArmPalmSocket" overrideParent="True" />
+							</template_reference>
+						</group>
+						<group name="weapon" List.ItemID="1376578125">
+							<group name="heading">
+								<float name="x" value="0" />
+								<float name="y" value="0" />
+								<float name="z" value="0" />
+							</group>
+							<float name="length" value="0" />
+							<group name="origin">
+								<float name="x" value="0" />
+								<float name="y" value="1.75" />
+								<float name="z" value="1" />
+							</group>
+							<enum name="type" value="default" />
+							<template_reference name="weapon_entity_attachment" value="" overrideParent="True" />
+							<template_reference name="non_entity_weapon_wrapper" value="non_entity_weapon_wrapper" overrideParent="True">
+								<instance_reference name="non_entity_weapon_wrapper_pbg" value="weapon\races\chagatai\ck_archer_mounted_3_1" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+								<instance_reference name="animator_attachments" value="attachments\attachment_lists\races\mongol\weapons\wpn_range_archer_3_mon" overrideParent="True" />
+								<string name="marker_name_parent" value="MetaRig_LArmPalmSocket" overrideParent="True" />
+							</template_reference>
+						</group>
+						<group name="weapon" overrideParent="True" List.ItemID="618539926">
+							<group name="heading">
+								<float name="x" value="0" />
+								<float name="y" value="0" />
+								<float name="z" value="0" />
+							</group>
+							<float name="length" value="0" />
+							<group name="origin">
+								<float name="x" value="0" />
+								<float name="y" value="1.75" />
+								<float name="z" value="1" />
+							</group>
+							<enum name="type" value="default" />
+							<template_reference name="weapon_entity_attachment" value="">
+              </template_reference>
+							<template_reference name="non_entity_weapon_wrapper" value="non_entity_weapon_wrapper">
+								<instance_reference name="non_entity_weapon_wrapper_pbg" value="weapon\races\chagatai\ck_archer_mounted_3_2" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+								<instance_reference name="animator_attachments" value="attachments\attachment_lists\races\core\weapons\wpn_siege_archer_incendiary" />
+								<string name="marker_name_parent" value="MetaRig_LArmPalmSocket" />
+							</template_reference>
+						</group>
+					</list>
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="-2085794998" List.ParentItemID="-2085794998">
+			<list name="unit_type_list" overrideParent="True">
+				<enum name="unit_type" value="military" List.ItemID="-1237903300" />
+				<enum name="unit_type" value="cavalry" List.ItemID="1369019188" />
+				<enum name="unit_type" value="cavalry_archer" List.ItemID="496387550" />
+				<enum name="unit_type" value="human" List.ItemID="-764585287" />
+				<enum name="unit_type" value="horse" List.ItemID="1507441880" />
+				<enum name="unit_type" value="ranged" List.ItemID="-1207709152" />
+				<enum name="unit_type" value="formational" List.ItemID="-656579412" />
+				<enum name="unit_type" value="mangudai" List.ItemID="-758412490" />
+				<enum name="unit_type" value="archer" List.ItemID="-2045857480" />
+				<enum name="unit_type" value="annihilation_condition" List.ItemID="-2126737585" />
+				<enum name="unit_type" value="included_by_military_hotkeys" List.ItemID="748836511" />
+				<enum name="unit_type" value="land_military" List.ItemID="-917330461" />
+				<enum name="unit_type" value="find_non_siege_land_military" List.ItemID="-1928477111" />
+			</list>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\tier_ext" List.ItemID="181591875" List.ParentItemID="181591875">
+			<list name="tier_group_list">
+				<list name="tier_group" List.ItemID="-78734107" List.ParentItemID="-78734107" removedIds="1544028076">
+					<group name="tier" List.ItemID="134421859" List.ParentItemID="134421859">
+						<instance_reference name="statetree_tier_pgb_upgrade_target_squad" value="" overrideParent="True" />
+					</group>
+				</list>
+			</list>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-13182395" List.ParentItemID="-13182395">
+			<locstring name="screen_name" value="7018" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="help_text" value="2221" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<locstring name="extra_text" value="7105" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+			<file name="icon_name" value="chagatai\units\stock_based\archer_mounted" overrideParent="True" />
+			<file name="portrait_name" value="chagatai\units\stock_based\archer_mounted" overrideParent="True" />
+			<bool name="is_unique_to_race" value="True" overrideParent="True" />
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="584609974" List.ParentItemID="584609974" comment="Horse and rider entities require identical health_ext values. Keep them in sync." overrideParent="True">
+				<bool name="can_repair" value="False" />
+				<bool name="cuttable" value="False" />
+				<string name="death_event_name" value="Death" />
+				<float name="death_seconds" value="19" />
+				<bool name="delete_when_dead" value="True" />
+				<bool name="force_attacker_memory" value="False" />
+				<float name="hitpoints" value="140.0" overrideParent="True" />
+				<bool name="is_invincible" value="False" />
+				<bool name="is_salvagable_wreck" value="False" />
+				<instance_reference name="rebuilt_entity" value="" />
+				<instance_reference name="rebuilt_squad" value="" />
+				<bool name="rebuilt_use_wreck_owner" value="False" />
+				<bool name="receive_weapon_cover_modifiers" value="True" />
+				<float name="regeneration" value="0" />
+				<bool name="regeneration_disabled" value="True" />
+				<bool name="remove_from_pathfinding_on_death" value="True" />
+				<bool name="reveal_to_all_on_death" value="False" />
+				<bool name="ui_can_scuttle" value="True" />
+				<float name="target_size" value="1" />
+				<float name="weapon_priority" value="100" />
+				<template_reference name="wreck_entity_option" value="options\none">
+				</template_reference>
+				<enum name="armor_type" value="None" />
+				<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+					<float name="armor" value="1" />
+				</template_reference>
+				<enum name="allegiance_override" value="none" />
+				<bool name="not_default_attackable" value="False" />
+				<enum_table name="armor_scaler_by_damage_type">
+					<float name="True Damage" value="0" overrideParent="True" />
+					<float name="Melee" value="0" overrideParent="True" />
+					<float name="Ranged" value="0" overrideParent="True" />
+					<float name="Fire" value="0" overrideParent="True" />
+				</enum_table>
+				<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<state_tree_node name="death_action_tree" value="" />
+				<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+				<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+				<bool name="can_be_damaged_by_ally" value="False" />
+				<enum_table name="percentage_reduction_armor_by_damage_type">
+					<float name="True Damage" value="0" />
+					<float name="Melee" value="0" />
+					<float name="Ranged" value="0" />
+					<float name="Fire" value="0" />
+				</enum_table>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\population_ext" List.ItemID="-157619472" List.ParentItemID="-157619472">
+				<float name="personnel_pop" value="1" overrideParent="True" />
+				<float name="vehicle_pop" value="1" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\cost_ext" List.ItemID="1012099503" List.ParentItemID="1012099503">
+				<group name="time_cost">
+					<enum_table name="cost">
+						<float name="food" value="30.0" overrideParent="True" />
+						<float name="wood" value="50.0" overrideParent="True" />
+						<float name="gold" value="0.0" overrideParent="True" />
+						<float name="stone" value="0.0" overrideParent="True" />
+					</enum_table>
+					<float name="time_seconds" value="15" overrideParent="True" />
+				</group>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\moving_ext" List.ItemID="1821048869" List.ParentItemID="1821048869">
+				<enum_table name="speed_scaling_table">
+					<float name="default_speed" value="6.25" overrideParent="True" />
+				</enum_table>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\combat_ext" List.ItemID="698418421" List.ParentItemID="698418421">
+				<list name="hardpoints">
+					<group name="hardpoint" List.ItemID="627415271" List.ParentItemID="627415271">
+						<list name="weapon_table" overrideParent="True">
+							<group name="weapon" List.ItemID="-1893839182">
+								<group name="heading">
+									<float name="x" value="0" />
+									<float name="y" value="0" />
+									<float name="z" value="0" />
+								</group>
+								<float name="length" value="0" />
+								<group name="origin">
+									<float name="x" value="0" />
+									<float name="y" value="1.75" />
+									<float name="z" value="1" />
+								</group>
+								<enum name="type" value="default" />
+								<template_reference name="weapon_entity_attachment" value="" overrideParent="True" />
+								<template_reference name="non_entity_weapon_wrapper" value="non_entity_weapon_wrapper" overrideParent="True">
+									<instance_reference name="non_entity_weapon_wrapper_pbg" value="weapon\races\chagatai\ck_archer_mounted_3_0" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+									<instance_reference name="animator_attachments" value="attachments\attachment_lists\races\mongol\weapons\wpn_range_archer_3_mon" overrideParent="True" />
+									<string name="marker_name_parent" value="MetaRig_LArmPalmSocket" overrideParent="True" />
+								</template_reference>
+							</group>
+							<group name="weapon" List.ItemID="-919076769">
+								<group name="heading">
+									<float name="x" value="0" />
+									<float name="y" value="0" />
+									<float name="z" value="0" />
+								</group>
+								<float name="length" value="0" />
+								<group name="origin">
+									<float name="x" value="0" />
+									<float name="y" value="1.75" />
+									<float name="z" value="1" />
+								</group>
+								<enum name="type" value="default" />
+								<template_reference name="weapon_entity_attachment" value="" overrideParent="True" />
+								<template_reference name="non_entity_weapon_wrapper" value="non_entity_weapon_wrapper" overrideParent="True">
+									<instance_reference name="non_entity_weapon_wrapper_pbg" value="weapon\races\chagatai\ck_archer_mounted_3_1" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+									<instance_reference name="animator_attachments" value="attachments\attachment_lists\races\mongol\weapons\wpn_range_archer_3_mon" overrideParent="True" />
+									<string name="marker_name_parent" value="MetaRig_LArmPalmSocket" overrideParent="True" />
+								</template_reference>
+							</group>
+						</list>
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="-2085794998" List.ParentItemID="-2085794998">
+				<list name="unit_type_list" overrideParent="True">
+					<enum name="unit_type" value="military" List.ItemID="-1058866537" />
+					<enum name="unit_type" value="cavalry" List.ItemID="-787264130" />
+					<enum name="unit_type" value="cavalry_archer" List.ItemID="-1210535094" />
+					<enum name="unit_type" value="human" List.ItemID="1762444799" />
+					<enum name="unit_type" value="horse" List.ItemID="-101924613" />
+					<enum name="unit_type" value="ranged" List.ItemID="1851766190" />
+					<enum name="unit_type" value="formational" List.ItemID="-1171664161" />
+					<enum name="unit_type" value="mangudai" List.ItemID="269454459" />
+					<enum name="unit_type" value="archer" List.ItemID="-1253763579" />
+					<enum name="unit_type" value="annihilation_condition" List.ItemID="-733174565" />
+					<enum name="unit_type" value="included_by_military_hotkeys" List.ItemID="-1059015442" />
+					<enum name="unit_type" value="land_military" List.ItemID="676138075" />
+					<enum name="unit_type" value="find_non_siege_land_military" List.ItemID="586648577" />
+				</list>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\tier_ext" List.ItemID="181591875" List.ParentItemID="181591875">
+				<list name="tier_group_list">
+					<list name="tier_group" List.ItemID="-78734107" List.ParentItemID="-78734107" removedIds="1544028076">
+						<group name="tier" List.ItemID="134421859" List.ParentItemID="134421859">
+							<instance_reference name="statetree_tier_pgb_upgrade_target_squad" value="" overrideParent="True" />
+						</group>
+					</list>
+				</list>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-13182395" List.ParentItemID="-13182395">
+				<locstring name="screen_name" value="7018" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="help_text" value="2221" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<locstring name="extra_text" value="7105" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+				<file name="icon_name" value="chagatai\units\stock_based\archer_mounted" overrideParent="True" />
+				<file name="portrait_name" value="chagatai\units\stock_based\archer_mounted" overrideParent="True" />
+				<bool name="is_unique_to_race" value="True" overrideParent="True" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741861" />
+		<instance_reference name="parent_pbg" value="ebps\races\mongol\units\unit_horsearcher_3_mon" />
+	</variant>
+</instance>

@@ -1,0 +1,63 @@
+{
+  "native_animation_owner": "art/civilizations/common/animals/archetypes/base_horse/base_horse",
+  "review_skin": "art/civilizations/mongols/animals/mon_horse_scout_age01/mon_horse_scout_age01",
+  "exact_stock_skeleton_sha256": "f60f04fd7e1264f64c5983647b6869d23b7202b2b865670d439192b6d37e2b67",
+  "matched_stock_attachments": {
+    "attachments/attachment_lists/dev/units/tier1_dev_horse_test": "art/civilizations/english/animals/eng_horse_light_age02/eng_horse_light_age02",
+    "attachments/attachment_lists/civilizations/english/units/tier2_trade_cart_guard_eng": "art/civilizations/english/animals/eng_horse_trade_age02/eng_horse_trade_age02"
+  },
+  "ordered_bone_hierarchy_match": 86,
+  "native_cook_verified": true,
+  "cooked_bone_hierarchy_match": 86,
+  "cooked_lods": 3,
+  "cooked_owner_mask_atlas_texel_fraction": 0.22427,
+  "native_match_tested": false,
+  "release": "0.1.5",
+  "original_opening_archive_member_hashes_verified": true,
+  "experimental_gaia_rebind": {
+    "release": "0.1.4",
+    "stock_animation_owner": "art/civilizations/common/animals/archetypes/base_horse_gaia/base_horse_gaia",
+    "stock_animation_source_blueprint": "ebps/gaia/animals/gaia_huntable_zebra",
+    "idle": "navigation\\horse_calm_idle_01",
+    "walk": "navigation\\horse_calm_walk_01",
+    "voice": "sfx_horse_idle_whinnies",
+    "ordered_bone_hierarchy_match": 48,
+    "skin_skeleton_sha256": "bda4cccc40bed9c02d5a54a8b8c6ac47bdeabca2708c45d519698c714e3d07a8",
+    "animator_skeleton_sha256": "73d6ef77a351031bdab4aa850a1b9d604acec8b7d04b9a3d7250c636503442d9",
+    "native_cook_verified": true,
+    "cooked_lods": 3,
+    "native_match_tested": false,
+    "animator_binding": "Direct installed game resource",
+    "custom_idle_audio_track": false,
+    "previous_0_1_3": {
+      "release": "0.1.3",
+      "stock_animation_owner": "art/civilizations/common/animals/archetypes/base_horse_gaia/base_horse_gaia",
+      "private_animation_owner": "art/scenario/chagatai/horse_animator/animator",
+      "stock_animation_source_blueprint": "ebps/gaia/animals/gaia_huntable_zebra",
+      "idle": "navigation\\horse_calm_idle_01",
+      "walk": "navigation\\horse_calm_walk_01",
+      "voice": "sfx_horse_idle_whinnies",
+      "ordered_bone_hierarchy_match": 48,
+      "skin_skeleton_sha256": "bda4cccc40bed9c02d5a54a8b8c6ac47bdeabca2708c45d519698c714e3d07a8",
+      "animator_skeleton_sha256": "73d6ef77a351031bdab4aa850a1b9d604acec8b7d04b9a3d7250c636503442d9",
+      "native_cook_verified": true,
+      "cooked_lods": 3,
+      "native_match_tested": false,
+      "previous_0_1_2": {
+        "native_animation_owner": "art/civilizations/common/animals/archetypes/base_horse/base_horse",
+        "review_skin": "art/civilizations/mongols/animals/mon_horse_scout_age01/mon_horse_scout_age01",
+        "exact_stock_skeleton_sha256": "f60f04fd7e1264f64c5983647b6869d23b7202b2b865670d439192b6d37e2b67",
+        "matched_stock_attachments": {
+          "attachments/attachment_lists/dev/units/tier1_dev_horse_test": "art/civilizations/english/animals/eng_horse_light_age02/eng_horse_light_age02",
+          "attachments/attachment_lists/civilizations/english/units/tier2_trade_cart_guard_eng": "art/civilizations/english/animals/eng_horse_trade_age02/eng_horse_trade_age02"
+        },
+        "ordered_bone_hierarchy_match": 86,
+        "native_cook_verified": true,
+        "cooked_bone_hierarchy_match": 86,
+        "cooked_lods": 3,
+        "cooked_owner_mask_atlas_texel_fraction": 0.22427,
+        "native_match_tested": false
+      }
+    }
+  }
+}

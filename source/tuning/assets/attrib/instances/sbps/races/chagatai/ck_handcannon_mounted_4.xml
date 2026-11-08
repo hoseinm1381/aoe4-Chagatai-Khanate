@@ -1,0 +1,698 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073741876" />
+	<list name="extensions" overrideParent="True">
+		<template_reference name="squadexts" value="sbpextensions\squad_blueprint_ext" List.ItemID="926847233">
+			<enum_table name="QueryTree_States">
+				<state_tree_node name="squad_state_idle" value="unit_squad_query\Idle" />
+				<state_tree_node name="squad_state_move" value="unit_squad_query\Move" />
+				<state_tree_node name="squad_state_attack" value="unit_squad_query\Attack" />
+				<state_tree_node name="squad_state_gather" value="unit_squad_query\Gather" />
+				<state_tree_node name="squad_state_gather_food" value="unit_squad_query\GatherFood" />
+				<state_tree_node name="squad_state_gather_wood" value="unit_squad_query\GatherWood" />
+				<state_tree_node name="squad_state_gather_stone" value="unit_squad_query\GatherStone" />
+				<state_tree_node name="squad_state_gather_gold" value="unit_squad_query\GatherGold" />
+				<state_tree_node name="squad_state_idle_villager" value="unit_squad_query\IdleVillager" />
+				<state_tree_node name="squad_state_retreat" value="" />
+				<state_tree_node name="squad_state_evacuate" value="unit_squad_query\Evacuating" />
+				<state_tree_node name="squad_state_truly_idle" value="unit_squad_query\TrulyIdle" />
+				<state_tree_node name="squad_state_attack_move" value="unit_squad_query\AttackMove" />
+				<state_tree_node name="squad_state_ability" value="" />
+			</enum_table>
+			<bool name="browsable_in_editor" value="True" overrideParent="True" />
+			<bool name="can_be_controlled" value="True" overrideParent="True" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_command_forwarding_ext" List.ItemID="-809170392">
+			<instance_reference name="default_command_weight" value="default_command_weight\default" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_capture_strategic_point_ext" List.ItemID="205782199">
+			<float name="capture_distance" value="10" />
+			<float name="capture_rate_multiplier" value="0" />
+			<float name="revert_rate_multiplier" value="1" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_game_mode_ext" List.ItemID="2070169018">
+			<group name="capture_point">
+				<float name="capture_rate_multiplier" value="1" />
+			</group>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="1698722791">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="9876523">
+					<group name="info">
+						<bool name="allow_spawner_production" value="False" />
+						<locstring name="extra_text" value="7109" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<locstring name="help_text" value="2241" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<string name="hotkey_name" value="A" />
+						<file name="icon_name" value="chagatai\units\stock_based\handcannon_mounted" overrideParent="True" />
+						<bool name="minimap_team_only" value="False" />
+						<file name="minimap_texture" value="" />
+						<instance_reference name="modal_ability" value="" />
+						<bool name="reveal_for_decryption" value="True" />
+						<locstring name="screen_name" value="7025" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<string name="selection_group" value="mountedgrenadier" overrideParent="True" />
+						<int name="ui_priority" value="0" />
+						<bool name="use_random_entity_speaker" value="False" />
+						<file name="portrait_name" value="chagatai\units\stock_based\handcannon_mounted" overrideParent="True" />
+						<float name="minimap_texture_scale" value="0.65" overrideParent="True" />
+						<locstring name="brief_text" value="0" overrideParent="True" />
+						<locstring name="screen_name_short" value="0" />
+						<enum name="map_rotation_type_override" value="no_override" />
+						<bool name="show_in_build_log" value="True" />
+						<file name="symbol_icon_name" value="" />
+						<string name="cover_level_icon_postfix" value="" />
+						<bool name="hide_ucs" value="False" />
+						<enum name="decorator_visibility" value="visible" />
+						<string name="debug_text" value="" />
+						<string name="selection_datatemplate" value="UniqueDatatemplate" overrideParent="True" />
+						<string name="tooltip_data_template" value="BuildingMilitaryDataTemplate" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<string name="decorator_data_template" value="" />
+						<enum name="ui_combine_type" value="intersection" />
+						<int name="global_unit_control_row" value="1" />
+						<bool name="decorator_show_reload_progress" value="False" />
+						<instance_reference name="ui_decorator" value="" />
+						<bool name="is_respawnable" value="False" />
+						<enum name="respawn_location" value="" />
+						<enum name="respawn_progress" value="" />
+						<enum name="respawn_time" value="" />
+						<locstring name="respawn_help" value="0" />
+						<enum name="respawn_unit_class" value="" />
+						<bool name="is_unique_to_race" value="True" overrideParent="True" />
+						<bool name="show_production" value="True" />
+						<string name="respawn_datatemplate" value="" />
+						<enum name="decorator" value="CardinalSquad" />
+						<int name="map_layer" value="-1" />
+						<enum name="map_mark" value="Squad" overrideParent="True" />
+						<group name="ui_codex_info">
+							<bool name="exclusive" value="False" />
+							<int name="priority" value="0" />
+							<group name="ui_position">
+								<int name="ui_position_column" value="-1" />
+								<int name="ui_position_row" value="-1" />
+							</group>
+						</group>
+						<file name="flag_icon_override" value="" />
+						<file name="extra_icon" value="" />
+						<template_reference name="extra_text_formatter" value="">
+            </template_reference>
+						<template_reference name="help_text_formatter" value="">
+            </template_reference>
+						<template_reference name="screen_name_formatter" value="">
+            </template_reference>
+						<template_reference name="screen_name_short_formatter" value="">
+            </template_reference>
+						<template_reference name="brief_text_formatter" value="">
+            </template_reference>
+						<string name="sound" value="sfx_ui_produce_unit_click" overrideParent="True" />
+						<string name="sound_alternative" value="" overrideParent="True" />
+						<group name="stats_info">
+							<bool name="include_in_lifespan_stat" value="True" />
+						</group>
+						<float name="minimap_texture_zoom_scale" value="0" />
+						<locstring name="help_text_controller" value="0" />
+						<locstring name="extra_text_controller" value="0" />
+					</group>
+					<instance_reference name="ext_key" value="" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" overrideParent="True" List.ItemID="1582797300">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="-131178347">
+					<float name="num" value="1" />
+					<instance_reference name="type" value="ebps\races\chagatai\units\ck_handcannon_mounted_4" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+					<list name="unit_attachments" overrideParent="True">
+          </list>
+					<bool name="is_default_unit" value="True" />
+				</group>
+			</list>
+			<float name="squad_female_chance" value="0" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_modifier_ext" List.ItemID="-276049598">
+    </template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="49334870">
+			<list name="requirement_table" overrideParent="True">
+				<template_reference name="required" value="requirements\required_population" List.ItemID="-1246977489">
+					<enum name="reason" value="display" />
+					<group name="free_pop">
+						<float name="medic" value="0" />
+						<float name="personnel" value="0" />
+						<float name="vehicle" value="1" />
+					</group>
+				</template_reference>
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1935325686">
+					<enum name="reason" value="usage" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="True" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\dev\ages\imperial_age" overrideParent="True" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+			</list>
+			<state_tree_node name="requirement_statetree" value="" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_combat_behaviour_ext" List.ItemID="-895596331">
+			<float name="heavy_weapon_setup_delay" value="999" />
+			<float name="reaction_delay_seconds" value="25" />
+			<float name="reveal_self_attacker_time" value="0" />
+			<bool name="reveal_self_attacker_time_use" value="False" />
+			<group name="suppression">
+				<bool name="can_be_suppressed" value="False" />
+				<float name="noncombat_delay" value="7" />
+				<float name="noncombat_recover_multiplier" value="50" />
+				<float name="pin_down_activate_threshold" value="0.6" />
+				<float name="pin_down_recover_threshold" value="0.5" />
+				<float name="recover_rate" value="0.008" />
+				<float name="suppressed_activate_threshold" value="0.2" />
+				<float name="suppressed_recover_threshold" value="0.15" />
+				<enum_table name="cover_info">
+					<template_reference name="tp_defcover" value="suppression_cover_info">
+						<float name="recover_multiplier" value="1" />
+					</template_reference>
+					<template_reference name="plain" value="suppression_cover_info">
+						<float name="recover_multiplier" value="1" />
+					</template_reference>
+					<template_reference name="hill" value="suppression_cover_info">
+						<float name="recover_multiplier" value="1" />
+					</template_reference>
+					<template_reference name="mountain" value="suppression_cover_info">
+						<float name="recover_multiplier" value="1" />
+					</template_reference>
+					<template_reference name="forest" value="suppression_cover_info">
+						<float name="recover_multiplier" value="1" />
+					</template_reference>
+					<template_reference name="water" value="suppression_cover_info">
+						<float name="recover_multiplier" value="1" />
+					</template_reference>
+				</enum_table>
+				<template_reference name="pin_down_activate_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="suppressed_activate_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+			</group>
+			<float name="reaction_combat_delay_seconds" value="30" />
+			<template_reference name="can_recrew_abandoned_option" value="options\sbpextensions\squad_combat_behaviour_ext\can_recrew_abandoned">
+				<template_reference name="is_mobile_driver_option" value="options\none">
+        </template_reference>
+			</template_reference>
+			<template_reference name="charge_option" value="options\none">
+      </template_reference>
+			<bool name="ranged_weapons_prefer_single_squad_target" value="True" />
+			<bool name="accept_move_commands_while_combat" value="False" />
+			<float name="reveal_defender_time" value="0" />
+			<bool name="reveal_defender_time_use" value="False" />
+			<instance_reference name="range_reticule" value="" />
+			<bool name="can_be_tied_up" value="False" overrideParent="True" />
+			<bool name="attack_move_command_requires_valid_range" value="True" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_holdable_ext" List.ItemID="377206387">
+			<list name="modifier_table">
+      </list>
+			<state_tree_node name="hold_target_requirement" value="" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="-1846616777">
+			<list name="abilities" overrideParent="True" />
+			<int name="ui_combine_priority" value="0" />
+			<group name="squad_orders">
+				<group name="abandon_team_weapon">
+					<bool name="available" value="False" />
+				</group>
+				<group name="attack_ground">
+					<bool name="available" value="True" />
+				</group>
+				<group name="attack_move">
+					<bool name="available" value="True" />
+				</group>
+				<group name="cancel_construction">
+					<bool name="available" value="True" />
+				</group>
+				<group name="hold_fire_off">
+					<bool name="available" value="False" />
+				</group>
+				<group name="hold_fire_on">
+					<bool name="available" value="False" />
+				</group>
+				<group name="hold_position">
+					<bool name="available" value="True" />
+				</group>
+				<group name="load">
+					<bool name="available" value="True" />
+				</group>
+				<group name="move">
+					<bool name="available" value="True" />
+				</group>
+				<group name="pickup_item">
+					<bool name="available" value="False" />
+				</group>
+				<group name="plant_demolitions">
+					<bool name="available" value="False" />
+				</group>
+				<group name="prefer_melee">
+					<bool name="available" value="False" />
+				</group>
+				<group name="prefer_ranged">
+					<bool name="available" value="False" />
+				</group>
+				<group name="retire">
+					<bool name="available" value="False" />
+				</group>
+				<group name="retreat">
+					<bool name="available" value="False" />
+				</group>
+				<group name="reverse_move">
+					<bool name="available" value="False" />
+				</group>
+				<group name="stop">
+					<bool name="available" value="True" />
+				</group>
+				<group name="trade">
+					<bool name="available" value="False" />
+				</group>
+				<group name="unload">
+					<bool name="available" value="True" />
+				</group>
+				<group name="unload_here">
+					<bool name="available" value="True" />
+				</group>
+				<group name="vault">
+					<bool name="available" value="False" />
+				</group>
+				<group name="add_patrol_point">
+					<bool name="available" value="True" />
+				</group>
+			</group>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_type_ext" List.ItemID="314696527">
+			<list name="squad_type_list" overrideParent="True">
+				<enum name="squad_type" value="military" List.ItemID="-1337394343" />
+				<enum name="squad_type" value="cavalry" List.ItemID="-589603131" />
+				<enum name="squad_type" value="scar_age4" List.ItemID="1164317857" overrideParent="True" />
+				<enum name="squad_type" value="ranged" List.ItemID="-1142031274" />
+				<enum name="squad_type" value="scar_military" List.ItemID="745811220" />
+				<enum name="squad_type" value="gunpowder" List.ItemID="-1338591074" />
+				<enum name="squad_type" value="spawn_ignored_on_timeline" List.ItemID="-1897168712" />
+			</list>
+			<list name="squad_race_type_list" overrideParent="True">
+				<instance_reference name="squad_race_type" value="racebps\mongol" overrideParent="True" List.ItemID="-1446377310" />
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_speech_ext" List.ItemID="-773708076">
+			<string name="squad_speaker_code" value="horseman" overrideParent="True" />
+			<group name="squad_speech_parameters">
+				<string name="squad_class_code" value="military" overrideParent="True" />
+				<string name="squad_name_code" value="horseman" overrideParent="True" />
+				<string name="squad_unit_code" value="mounted" overrideParent="True" />
+				<enum name="squad_race_code" value="no_race" />
+			</group>
+			<int name="importance" value="9" overrideParent="True" />
+			<bool name="is_idle_battle_chatter_enabled" value="False" />
+			<list name="age_mapping" overrideParent="True">
+				<int name="age_number" value="3" overrideParent="True" List.ItemID="467835739" />
+				<int name="age_number" value="3" overrideParent="True" List.ItemID="1698912014" />
+				<int name="age_number" value="3" overrideParent="True" List.ItemID="390862905" />
+				<int name="age_number" value="4" overrideParent="True" List.ItemID="557944451" />
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_audio_ext" List.ItemID="2031227374">
+			<list name="rtpc_events">
+      </list>
+			<list name="sound_banks">
+      </list>
+			<template_reference name="kill_streak_option" value="options\none">
+      </template_reference>
+			<enum name="death_event_type" value="" />
+			<bool name="in_fow_distance_to_enemy_rtpc_enabled" value="False" />
+			<enum name="initial_spawn_event_type" value="" />
+			<enum name="unit_type" value="cavalry_light" overrideParent="True" />
+			<int name="importance" value="10" overrideParent="True" />
+			<float name="potential_damage" value="0" overrideParent="True" />
+			<int name="music_importance" value="5" overrideParent="True" />
+			<bool name="is_dynamic_audio_object" value="True" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_statemodel_ext" List.ItemID="1137400826">
+			<instance_reference name="schema" value="statemodel_schema\units\calvary" overrideParent="True" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_formation_group_ext" List.ItemID="1290694387">
+			<float name="desired_protection_level_in_formation" value="4.75" overrideParent="True" />
+			<instance_reference name="default_formation_group_spot_generator" value="formation_group_spot_generator\land\land_box_fill_spot_generator" overrideParent="True" />
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<uniqueid name="pbgid" value="1073741876" />
+		<list name="extensions" overrideParent="True">
+			<template_reference name="squadexts" value="sbpextensions\squad_blueprint_ext" List.ItemID="268926050">
+				<enum_table name="QueryTree_States">
+					<state_tree_node name="squad_state_idle" value="unit_squad_query\Idle" />
+					<state_tree_node name="squad_state_move" value="unit_squad_query\Move" />
+					<state_tree_node name="squad_state_attack" value="unit_squad_query\Attack" />
+					<state_tree_node name="squad_state_gather" value="unit_squad_query\Gather" />
+					<state_tree_node name="squad_state_gather_food" value="unit_squad_query\GatherFood" />
+					<state_tree_node name="squad_state_gather_wood" value="unit_squad_query\GatherWood" />
+					<state_tree_node name="squad_state_gather_stone" value="unit_squad_query\GatherStone" />
+					<state_tree_node name="squad_state_gather_gold" value="unit_squad_query\GatherGold" />
+					<state_tree_node name="squad_state_idle_villager" value="unit_squad_query\IdleVillager" />
+					<state_tree_node name="squad_state_retreat" value="" />
+					<state_tree_node name="squad_state_evacuate" value="unit_squad_query\Evacuating" />
+					<state_tree_node name="squad_state_truly_idle" value="unit_squad_query\TrulyIdle" />
+					<state_tree_node name="squad_state_attack_move" value="unit_squad_query\AttackMove" />
+					<state_tree_node name="squad_state_ability" value="" />
+				</enum_table>
+				<bool name="browsable_in_editor" value="True" overrideParent="True" />
+				<bool name="can_be_controlled" value="True" overrideParent="True" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_command_forwarding_ext" List.ItemID="1279366001">
+				<instance_reference name="default_command_weight" value="default_command_weight\default" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_capture_strategic_point_ext" List.ItemID="7642713">
+				<float name="capture_distance" value="10" />
+				<float name="capture_rate_multiplier" value="0" />
+				<float name="revert_rate_multiplier" value="1" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_game_mode_ext" List.ItemID="-1256851358">
+				<group name="capture_point">
+					<float name="capture_rate_multiplier" value="1" />
+				</group>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="-2083043965">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="1553076202">
+						<group name="info">
+							<bool name="allow_spawner_production" value="False" />
+							<locstring name="extra_text" value="7109" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<locstring name="help_text" value="2241" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<string name="hotkey_name" value="A" />
+							<file name="icon_name" value="chagatai\units\stock_based\handcannon_mounted" overrideParent="True" />
+							<bool name="minimap_team_only" value="False" />
+							<file name="minimap_texture" value="" />
+							<instance_reference name="modal_ability" value="" />
+							<bool name="reveal_for_decryption" value="True" />
+							<locstring name="screen_name" value="7025" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+							<string name="selection_group" value="mountedgrenadier" overrideParent="True" />
+							<int name="ui_priority" value="0" />
+							<bool name="use_random_entity_speaker" value="False" />
+							<file name="portrait_name" value="chagatai\units\stock_based\handcannon_mounted" overrideParent="True" />
+							<float name="minimap_texture_scale" value="0.65" overrideParent="True" />
+							<locstring name="brief_text" value="0" overrideParent="True" />
+							<locstring name="screen_name_short" value="0" />
+							<enum name="map_rotation_type_override" value="no_override" />
+							<bool name="show_in_build_log" value="True" />
+							<file name="symbol_icon_name" value="" />
+							<string name="cover_level_icon_postfix" value="" />
+							<bool name="hide_ucs" value="False" />
+							<enum name="decorator_visibility" value="visible" />
+							<string name="debug_text" value="" />
+							<string name="selection_datatemplate" value="UniqueDatatemplate" overrideParent="True" />
+							<string name="tooltip_data_template" value="BuildingMilitaryDataTemplate" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<string name="decorator_data_template" value="" />
+							<enum name="ui_combine_type" value="intersection" />
+							<int name="global_unit_control_row" value="1" />
+							<bool name="decorator_show_reload_progress" value="False" />
+							<instance_reference name="ui_decorator" value="" />
+							<bool name="is_respawnable" value="False" />
+							<enum name="respawn_location" value="" />
+							<enum name="respawn_progress" value="" />
+							<enum name="respawn_time" value="" />
+							<locstring name="respawn_help" value="0" />
+							<enum name="respawn_unit_class" value="" />
+							<bool name="is_unique_to_race" value="True" overrideParent="True" />
+							<bool name="show_production" value="True" />
+							<string name="respawn_datatemplate" value="" />
+							<enum name="decorator" value="CardinalSquad" />
+							<int name="map_layer" value="-1" />
+							<enum name="map_mark" value="Squad" overrideParent="True" />
+							<group name="ui_codex_info">
+								<bool name="exclusive" value="False" />
+								<int name="priority" value="0" />
+								<group name="ui_position">
+									<int name="ui_position_column" value="-1" />
+									<int name="ui_position_row" value="-1" />
+								</group>
+							</group>
+							<file name="flag_icon_override" value="" />
+							<file name="extra_icon" value="" />
+							<template_reference name="extra_text_formatter" value="">
+            </template_reference>
+							<template_reference name="help_text_formatter" value="">
+            </template_reference>
+							<template_reference name="screen_name_formatter" value="">
+            </template_reference>
+							<template_reference name="screen_name_short_formatter" value="">
+            </template_reference>
+							<template_reference name="brief_text_formatter" value="">
+            </template_reference>
+							<string name="sound" value="sfx_ui_produce_unit_click" overrideParent="True" />
+							<string name="sound_alternative" value="" overrideParent="True" />
+							<group name="stats_info">
+								<bool name="include_in_lifespan_stat" value="True" />
+							</group>
+							<float name="minimap_texture_zoom_scale" value="0" />
+							<locstring name="help_text_controller" value="0" />
+							<locstring name="extra_text_controller" value="0" />
+						</group>
+						<instance_reference name="ext_key" value="" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" overrideParent="True" List.ItemID="1558659586">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="2057657551">
+						<float name="num" value="1" />
+						<instance_reference name="type" value="ebps\races\chagatai\units\ck_handcannon_mounted_4" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
+						<list name="unit_attachments" overrideParent="True">
+          </list>
+						<bool name="is_default_unit" value="True" />
+					</group>
+				</list>
+				<float name="squad_female_chance" value="0" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_modifier_ext" List.ItemID="-1028473965">
+    </template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="2099296057">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_population" List.ItemID="-1246977489">
+						<enum name="reason" value="display" />
+						<group name="free_pop">
+							<float name="medic" value="0" />
+							<float name="personnel" value="0" />
+							<float name="vehicle" value="1" />
+						</group>
+					</template_reference>
+					<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-746043452">
+						<enum name="reason" value="usage" />
+						<locstring name="ui_name" value="0" />
+						<bool name="is_present" value="True" />
+						<int name="max_completed" value="100" />
+						<int name="min_completed" value="1" />
+						<instance_reference name="upgrade_name" value="upgrade\dev\ages\imperial_age" overrideParent="True" />
+						<bool name="include_queued" value="False" />
+						<group name="include_pbg_parenting">
+							<bool name="include_child_pbgs" value="False" />
+							<bool name="include_parent_pbgs" value="False" />
+						</group>
+						<bool name="include_completed" value="True" />
+					</template_reference>
+				</list>
+				<state_tree_node name="requirement_statetree" value="" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_combat_behaviour_ext" List.ItemID="-681915772">
+				<float name="heavy_weapon_setup_delay" value="999" />
+				<float name="reaction_delay_seconds" value="25" />
+				<float name="reveal_self_attacker_time" value="0" />
+				<bool name="reveal_self_attacker_time_use" value="False" />
+				<group name="suppression">
+					<bool name="can_be_suppressed" value="False" />
+					<float name="noncombat_delay" value="7" />
+					<float name="noncombat_recover_multiplier" value="50" />
+					<float name="pin_down_activate_threshold" value="0.6" />
+					<float name="pin_down_recover_threshold" value="0.5" />
+					<float name="recover_rate" value="0.008" />
+					<float name="suppressed_activate_threshold" value="0.2" />
+					<float name="suppressed_recover_threshold" value="0.15" />
+					<enum_table name="cover_info">
+						<template_reference name="tp_defcover" value="suppression_cover_info">
+							<float name="recover_multiplier" value="1" />
+						</template_reference>
+						<template_reference name="plain" value="suppression_cover_info">
+							<float name="recover_multiplier" value="1" />
+						</template_reference>
+						<template_reference name="hill" value="suppression_cover_info">
+							<float name="recover_multiplier" value="1" />
+						</template_reference>
+						<template_reference name="mountain" value="suppression_cover_info">
+							<float name="recover_multiplier" value="1" />
+						</template_reference>
+						<template_reference name="forest" value="suppression_cover_info">
+							<float name="recover_multiplier" value="1" />
+						</template_reference>
+						<template_reference name="water" value="suppression_cover_info">
+							<float name="recover_multiplier" value="1" />
+						</template_reference>
+					</enum_table>
+					<template_reference name="pin_down_activate_action_tree" value="state_tree_reference_info">
+						<state_tree_node name="ActionTree_OpeningBranch" value="" />
+						<bool name="start_suspended" value="False" />
+					</template_reference>
+					<template_reference name="suppressed_activate_action_tree" value="state_tree_reference_info">
+						<state_tree_node name="ActionTree_OpeningBranch" value="" />
+						<bool name="start_suspended" value="False" />
+					</template_reference>
+				</group>
+				<float name="reaction_combat_delay_seconds" value="30" />
+				<template_reference name="can_recrew_abandoned_option" value="options\sbpextensions\squad_combat_behaviour_ext\can_recrew_abandoned">
+					<template_reference name="is_mobile_driver_option" value="options\none">
+        </template_reference>
+				</template_reference>
+				<template_reference name="charge_option" value="options\none">
+      </template_reference>
+				<bool name="ranged_weapons_prefer_single_squad_target" value="True" />
+				<bool name="accept_move_commands_while_combat" value="False" />
+				<float name="reveal_defender_time" value="0" />
+				<bool name="reveal_defender_time_use" value="False" />
+				<instance_reference name="range_reticule" value="" />
+				<bool name="can_be_tied_up" value="False" overrideParent="True" />
+				<bool name="attack_move_command_requires_valid_range" value="True" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_holdable_ext" List.ItemID="310753439">
+				<list name="modifier_table">
+      </list>
+				<state_tree_node name="hold_target_requirement" value="" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="2031451447">
+				<list name="abilities" overrideParent="True" />
+				<int name="ui_combine_priority" value="0" />
+				<group name="squad_orders">
+					<group name="abandon_team_weapon">
+						<bool name="available" value="False" />
+					</group>
+					<group name="attack_ground">
+						<bool name="available" value="True" />
+					</group>
+					<group name="attack_move">
+						<bool name="available" value="True" />
+					</group>
+					<group name="cancel_construction">
+						<bool name="available" value="True" />
+					</group>
+					<group name="hold_fire_off">
+						<bool name="available" value="False" />
+					</group>
+					<group name="hold_fire_on">
+						<bool name="available" value="False" />
+					</group>
+					<group name="hold_position">
+						<bool name="available" value="True" />
+					</group>
+					<group name="load">
+						<bool name="available" value="True" />
+					</group>
+					<group name="move">
+						<bool name="available" value="True" />
+					</group>
+					<group name="pickup_item">
+						<bool name="available" value="False" />
+					</group>
+					<group name="plant_demolitions">
+						<bool name="available" value="False" />
+					</group>
+					<group name="prefer_melee">
+						<bool name="available" value="False" />
+					</group>
+					<group name="prefer_ranged">
+						<bool name="available" value="False" />
+					</group>
+					<group name="retire">
+						<bool name="available" value="False" />
+					</group>
+					<group name="retreat">
+						<bool name="available" value="False" />
+					</group>
+					<group name="reverse_move">
+						<bool name="available" value="False" />
+					</group>
+					<group name="stop">
+						<bool name="available" value="True" />
+					</group>
+					<group name="trade">
+						<bool name="available" value="False" />
+					</group>
+					<group name="unload">
+						<bool name="available" value="True" />
+					</group>
+					<group name="unload_here">
+						<bool name="available" value="True" />
+					</group>
+					<group name="vault">
+						<bool name="available" value="False" />
+					</group>
+					<group name="add_patrol_point">
+						<bool name="available" value="True" />
+					</group>
+				</group>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_type_ext" List.ItemID="1599990406">
+				<list name="squad_type_list" overrideParent="True">
+					<enum name="squad_type" value="military" List.ItemID="-599058616" />
+					<enum name="squad_type" value="cavalry" List.ItemID="1103510422" />
+					<enum name="squad_type" value="scar_age4" List.ItemID="356059316" overrideParent="True" />
+					<enum name="squad_type" value="ranged" List.ItemID="-122464180" />
+					<enum name="squad_type" value="scar_military" List.ItemID="-479142040" />
+					<enum name="squad_type" value="gunpowder" List.ItemID="-1390993411" />
+					<enum name="squad_type" value="spawn_ignored_on_timeline" List.ItemID="991625841" />
+				</list>
+				<list name="squad_race_type_list" overrideParent="True">
+					<instance_reference name="squad_race_type" value="racebps\mongol" overrideParent="True" List.ItemID="-1883169173" />
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_speech_ext" List.ItemID="-422092682">
+				<string name="squad_speaker_code" value="horseman" overrideParent="True" />
+				<group name="squad_speech_parameters">
+					<string name="squad_class_code" value="military" overrideParent="True" />
+					<string name="squad_name_code" value="horseman" overrideParent="True" />
+					<string name="squad_unit_code" value="mounted" overrideParent="True" />
+					<enum name="squad_race_code" value="no_race" />
+				</group>
+				<int name="importance" value="9" overrideParent="True" />
+				<bool name="is_idle_battle_chatter_enabled" value="False" />
+				<list name="age_mapping" overrideParent="True">
+					<int name="age_number" value="3" overrideParent="True" List.ItemID="-1644862671" />
+					<int name="age_number" value="3" overrideParent="True" List.ItemID="-1196969395" />
+					<int name="age_number" value="3" overrideParent="True" List.ItemID="613940460" />
+					<int name="age_number" value="4" overrideParent="True" List.ItemID="-1314017010" />
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_audio_ext" List.ItemID="888725724">
+				<list name="rtpc_events">
+      </list>
+				<list name="sound_banks">
+      </list>
+				<template_reference name="kill_streak_option" value="options\none">
+      </template_reference>
+				<enum name="death_event_type" value="" />
+				<bool name="in_fow_distance_to_enemy_rtpc_enabled" value="False" />
+				<enum name="initial_spawn_event_type" value="" />
+				<enum name="unit_type" value="cavalry_light" overrideParent="True" />
+				<int name="importance" value="10" overrideParent="True" />
+				<float name="potential_damage" value="0" overrideParent="True" />
+				<int name="music_importance" value="5" overrideParent="True" />
+				<bool name="is_dynamic_audio_object" value="True" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_statemodel_ext" List.ItemID="-1131667790">
+				<instance_reference name="schema" value="statemodel_schema\units\calvary" overrideParent="True" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_formation_group_ext" List.ItemID="1230427074">
+				<float name="desired_protection_level_in_formation" value="4.75" overrideParent="True" />
+				<instance_reference name="default_formation_group_spot_generator" value="formation_group_spot_generator\land\land_box_fill_spot_generator" overrideParent="True" />
+			</template_reference>
+		</list>
+	</variant>
+</instance>
