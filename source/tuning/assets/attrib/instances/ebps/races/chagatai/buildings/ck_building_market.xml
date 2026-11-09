@@ -96,8 +96,8 @@
 					<instance_reference name="squad" value="sbps\races\chagatai\ck_trader_mounted_2" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 					<bool name="spawn_at_map_entry_point" value="False" />
 					<group name="ui_position">
-						<int name="ui_position_row" value="-1" overrideParent="True" />
-						<int name="ui_position_column" value="-1" overrideParent="True" />
+						<int name="ui_position_row" value="1" overrideParent="True" />
+						<int name="ui_position_column" value="3" overrideParent="True" />
 					</group>
 					<instance_reference name="ui_menu" value="" overrideParent="True" />
 					<int name="number_to_spawn" value="1" overrideParent="True" />
@@ -130,7 +130,7 @@
 						</template_reference>
 						<template_reference name="ping_menu_info" value="">
 						</template_reference>
-						<enum name="category" value="Upgrade" overrideParent="True" />
+						<enum name="category" value="Economic" overrideParent="True" />
 						<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
 							<enum name="quick_commands_hotkey" value="" />
 							<int name="quick_commands_priority" value="-1" />
@@ -384,8 +384,8 @@
 						<instance_reference name="squad" value="sbps\races\chagatai\ck_trader_mounted_2" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 						<bool name="spawn_at_map_entry_point" value="False" />
 						<group name="ui_position">
-							<int name="ui_position_row" value="-1" overrideParent="True" />
-							<int name="ui_position_column" value="-1" overrideParent="True" />
+							<int name="ui_position_row" value="1" overrideParent="True" />
+							<int name="ui_position_column" value="3" overrideParent="True" />
 						</group>
 						<instance_reference name="ui_menu" value="" overrideParent="True" />
 						<int name="number_to_spawn" value="1" overrideParent="True" />

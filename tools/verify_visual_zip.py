@@ -6,7 +6,7 @@ import re
 import struct
 import zipfile
 
-from build import locate_inventory, rgd, sha, stock_game, TEMP_ROOT
+from build import child, locate_inventory, rgd, sha, stock_game, TEMP_ROOT
 from compose_buildings import ART, STATES, find, rc
 from repair_animators import HORSE, HORSE_IDLE, building_controller
 from native_visuals import SCOUT_MODEL, rig_donors, restore_rig, building_boxes, PASSAGE_WIDTH
@@ -81,14 +81,10 @@ def verify_model(root, resource, building, dds):
         conditions = [c.payload for c in selector.children if c.tag == b"CNBP"]
         records = [c.payload for c in selector.children if c.tag == b"MSD " and len(c.payload) > 4]
         expected = lifecycle_rows(building)
-        actions = find(graph, b"ACTC").children
-        if len(conditions) != len(expected) or find(graph, b"BBPC").children:
-            raise ValueError(f"Unexpected building controller or selector table for {resource}")
-        if "selectors" in building:
-            for age in ("feudal", "castle", "imperial"):
-                action = next(c for c in actions if c.decoded_name == f"act_set_current_age_{age}")
-                if rc.lp_string("current_age_state") not in action.payload or rc.lp_string(age) not in action.payload:
-                    raise ValueError(f"Incorrect age action for {resource} {age}")
+        if len(conditions) != len(expected):
+            raise ValueError(f"Unexpected building selector table for {resource}")
+        if find(graph, b"BBPC").children or find(graph, b"ACTC").children:
+            raise ValueError(f"Unexpected native behavior in the tested controller for {resource}")
         for (mesh, pairs, match_any), payload, record in zip(expected, conditions, records, strict=True):
             _, pos = rc.read_lp_string(record, 0)
             selected, end = rc.read_lp_string(record, pos + 4)
@@ -132,8 +128,29 @@ def verify_opening(readback, visuals):
     baseline = json.loads((visuals / "opening-baseline.json").read_bytes())
     changed_scout = {SCOUT_MODEL, SCOUT_MODEL.replace('.rgm','.rrgeom'), SCOUT_MODEL.replace('.rgm','.rrmaterial')}
     dispatcher='scar/garrison/chagatai/dispatcher.scar'
+    army='attrib/army/garrison/chagatai/chagatai_standard.rgd'
     def original_digest(member):
         raw=(readback/member).read_bytes()
+        if member==army:
+            doc=rgd.read(raw)
+            for variant in (n for n in doc.nodes if n.kind in ('List','List2')):
+                bag=child(variant,'army_bag')
+                bag.value.remove(child(bag,'ui'))
+            if sha(rgd.write(doc)) != baseline['army_gameplay_sha256']:
+                raise ValueError('Starting army changed outside presentation fields')
+            return baseline['sha256'][army]
+        if member.startswith('attrib/ebps/races/chagatai/animals/') and Path(member).stem in {
+            'ck_horse', 'ck_horse_ili', 'ck_horse_import'
+        }:
+            doc = rgd.read(raw)
+            for variant in (n for n in doc.nodes if n.kind in ('List', 'List2')):
+                if variant.key == 'campaign':
+                    continue
+                deposit = child(child(variant, 'resource_deposit_ext'), 'initial_amount')
+                if deposit.value != 600:
+                    raise ValueError(f'Horse deposit does not admit the full Fattened profile: {member}')
+                deposit.value = 400.0
+            return sha(rgd.write(doc))
         if member==dispatcher:
             statement=b'import("chagatai/building_visuals.scar")'
             added=statement+(b'\r\n' if statement+b'\r\n' in raw else b'\n')
@@ -147,7 +164,7 @@ def verify_opening(readback, visuals):
     stock = stock_game.current().model_files(HORSE, required=(".rgo",))
     if HORSE_IDLE.encode("ascii") not in stock[".rgo"]:
         raise ValueError("The installed Horse animator lacks the opening idle binding")
-    return {"matched_release": baseline["observed_release"], "members": len(baseline["sha256"]) - len(changed_scout), "dispatcher_change_limited_to_building_visual_import": True, "scout_rig_and_material_verified_separately": True}
+    return {"matched_release": baseline["observed_release"], "members": len(baseline["sha256"]) - len(changed_scout), "dispatcher_change_limited_to_building_visual_import": True, "scout_rig_and_material_verified_separately": True, "army_gameplay_digest_verified": True}
 
 
 def main():
@@ -216,6 +233,10 @@ def main():
             if visual_tier_diffs != tier_slots or animator_diffs:
                 raise ValueError(f"Missing tier art or changed animation owner in {name}")
         observed.update(visual_models)
+        if name.startswith("ck_landmark_") or name == "ck_building_wonder":
+            stamps = {p for p in before if p.endswith("/building_presentation_ext/construction_stamp")}
+            if not stamps or any(not before[p][1] or before[p] != after.get(p) for p in stamps):
+                raise ValueError(f"Missing inherited construction stamp in {name}")
         tier_diffs = differences - animator_diffs - visual_tier_diffs
         if tier_diffs:
             if name not in ("ck_building_melee", "ck_building_ranged"):
@@ -275,9 +296,13 @@ def main():
     models = {name: value for name, value in receivers.items() if isinstance(value, str)}
     boxes = building_boxes(tables, game, models)
     for resource in models.values():
-        original=(args.visuals/'art'/(resource+'.rgo')).read_bytes()
-        if (readback/(resource+'.rgo')).read_bytes()!=building_controller(original,game):
+        original = (args.visuals/'art'/(resource+'.rgo')).read_bytes()
+        if (readback/(resource+'.rgo')).read_bytes() != building_controller(original, buildings[resource]):
             raise ValueError(f"Incorrect native lifecycle controller: {resource}")
+        member = resource + '.rgm'
+        original = (args.visuals/'art'/member).read_bytes()
+        if (readback/member).read_bytes() != repair_resource(member, original, material_map, game):
+            raise ValueError(f"Unexpected model changes in {resource}")
     for member, expected in boxes.items():
         if (readback / member).read_bytes() != expected:
             raise ValueError(f"Incorrect footprint blocker: {member}")

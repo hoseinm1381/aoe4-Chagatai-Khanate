@@ -33,5 +33,6 @@
     "attrib/sbps/races/chagatai/ck_scout_foot_1.rgd": "adc1d5eba037ba6a1ae373b0b1b641702687049bfea13835ba1d59bf056b9306",
     "attrib/sbps/races/chagatai/ck_unit_villager.rgd": "bb4fb2f3bc904c6553517e6ce3ab386290d06c8b8717f0298f838405e3a20e86",
     "scar/garrison/chagatai/dispatcher.scar": "a4e550a3563bb6b7a72035612923549e80253c1224f32e68820e433c77ee91cb"
-  }
+  },
+  "army_gameplay_sha256": "9f113a0235f8d3ca110e4bf78eb1797af0b218790a2ac16c67577cd2fd9df2f2"
 }

@@ -9,10 +9,10 @@
     "masked_pixels": 1362650,
     "unmasked_source_pixels_unchanged": true,
     "alpha_unchanged": true,
-    "sha256": "4502e0e2019cb2d08174590e9e6b43c40fb9d0949c67b4679a8dbf3a75bb31ee",
+    "sha256": "222450846e839ccff4883e681052fd150a9d6784ad1658d092bf490e77681ad7",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 1.0738117098808289
+    "mean_compression_error": 1.1035330295562744
   },
   {
     "asset": "steppe_hearth",
@@ -24,144 +24,185 @@
     "masked_pixels": 687714,
     "unmasked_source_pixels_unchanged": true,
     "alpha_unchanged": true,
-    "sha256": "9860dc252695514d43c4297bf3e3e2c8a4ee3843bcec587a78779de88943ec78",
+    "sha256": "a960a8e9e63f386e9de12e2335f42486e612f6c84f4254804f77b49aa2fe4eb1",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.12942522764205933
+    "mean_compression_error": 0.12770456075668335
   },
   {
     "asset": "melee",
     "member": "art/scenario/chagatai/melee_healthy/melee_healthy_albedo.rrtex",
-    "size": [
-      2048,
-      2048
-    ],
-    "masked_pixels": 581405,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "761ec2f31b9ef7f1e17b7e9aad6029a62ebfd9815400d0af81cbef7370aec1c9",
+    "sha256": "f4d9efe31be580143fdd78199ab085aa343af6e322fc829fd266b90e6c6d477b",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.06877493858337402
+    "mean_compression_error": 1.0294
+  },
+  {
+    "asset": "melee",
+    "member": "art/scenario/chagatai/melee_healthy/melee_healthy_pattern.rrtex",
+    "sha256": "d2d784425f1e0499e28c0409c1549b980788ab4080c73e5a5194ec3b7750a3a9",
+    "native_internal_format": 22,
+    "mips": 12,
+    "mean_compression_error": 0.0165,
+    "cooked_healthy_lod1_owner_color_area": {
+      "melee_healthy": 0.0585,
+      "melee_m2_healthy": 0.1219,
+      "melee_m3_healthy": 0.2475,
+      "melee_m4_healthy": 0.2382
+    }
   },
   {
     "asset": "ranged",
     "member": "art/scenario/chagatai/ranged_healthy/ranged_healthy_albedo.rrtex",
-    "size": [
-      2048,
-      2048
-    ],
-    "masked_pixels": 348843,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "58bbadd1ef3e554dbf95116ed415c2f0d23d245ba41af82bd7fd845d21d5ff13",
+    "sha256": "d8f6d7d9db5a9f27c1e38fcc0a852cd7697ef04c8fa91040966a8466ddd4aaec",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.04720461368560791
+    "mean_compression_error": 1.0657
+  },
+  {
+    "asset": "ranged",
+    "member": "art/scenario/chagatai/ranged_healthy/ranged_healthy_pattern.rrtex",
+    "sha256": "8b8930c8b2e5b15961faf0a13910a5c2822d4c224cb732d8ec0f96cf1d48f9d2",
+    "native_internal_format": 22,
+    "mips": 12,
+    "mean_compression_error": 0.0151,
+    "cooked_healthy_lod1_owner_color_area": {
+      "ranged_healthy": 0.2481,
+      "ranged_r3_healthy": 0.1402,
+      "ranged_r4_healthy": 0.1397
+    }
   },
   {
     "asset": "almaliq",
     "member": "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_albedo.rrtex",
-    "size": [
-      2048,
-      2048
-    ],
-    "masked_pixels": 170516,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "0f7b4954c3799c7445fda9a1f8dc53e6cfd6079ecab8e95548b448a9aa68eef5",
+    "sha256": "15b1bad59ceb73cdf113af5327be808332b2ab8a3d8b040cb733911af9367863",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.09072667360305786
+    "mean_compression_error": 1.0592
+  },
+  {
+    "asset": "almaliq",
+    "member": "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_pattern.rrtex",
+    "sha256": "0a62bb89eef7a2dd7c84a58f6f1f6950200664b54fcc0ce14cf231bc606a701a",
+    "native_internal_format": 22,
+    "mips": 12,
+    "mean_compression_error": 0.0056,
+    "cooked_healthy_lod1_owner_color_area": {
+      "almaliq_healthy": 0.0809
+    }
   },
   {
     "asset": "ordu",
     "member": "art/scenario/chagatai/ordu_healthy/ordu_healthy_albedo.rrtex",
-    "size": [
-      2048,
-      2048
-    ],
-    "masked_pixels": 348802,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "f092086583273a7e2553a177bd1998d05f605f08dad0d0b9f956a452b4d93739",
+    "sha256": "172cf060dfcfc4455e1ed7f75749cc0f1c394d2129ca7bbee85dddd74e78733f",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.0769997239112854
+    "mean_compression_error": 1.173
+  },
+  {
+    "asset": "ordu",
+    "member": "art/scenario/chagatai/ordu_healthy/ordu_healthy_pattern.rrtex",
+    "sha256": "95385b79d9ae5297971f614a1471bf67035cef251da6ae430b75168901961cb5",
+    "native_internal_format": 22,
+    "mips": 12,
+    "mean_compression_error": 0.0137,
+    "cooked_healthy_lod1_owner_color_area": {
+      "ordu_healthy": 0.1768
+    }
   },
   {
     "asset": "qarshi",
     "member": "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_albedo.rrtex",
-    "size": [
-      2048,
-      2048
-    ],
-    "masked_pixels": 511297,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "d6076c3736abd6150a9c45f01d2eeac76a7c6064492c39dc3c6adc00bbc4fd74",
+    "sha256": "a2777061713d6abc7df97e84c95ba56139fd544c82a044d5ef63245a3118014a",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.26484566926956177
+    "mean_compression_error": 1.1221
+  },
+  {
+    "asset": "qarshi",
+    "member": "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_pattern.rrtex",
+    "sha256": "24d2813511f2226b789736750c9df3bab4dd5781cd68ed119e8f35d311dafe25",
+    "native_internal_format": 22,
+    "mips": 12,
+    "mean_compression_error": 0.0334,
+    "cooked_healthy_lod1_owner_color_area": {
+      "qarshi_healthy": 0.0527
+    }
   },
   {
     "asset": "court",
     "member": "art/scenario/chagatai/court_healthy/court_healthy_albedo.rrtex",
-    "size": [
-      2048,
-      2048
-    ],
-    "masked_pixels": 524174,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "2d3949f90e177eecfd20120b1eb483219acbfb3dd495f1e1e8cc57dafaa5cfae",
+    "sha256": "7cbbef2cb6b80b2930412912111271bc11847b9c907183480acc498a99c322f7",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.11103343963623047
+    "mean_compression_error": 0.7266
+  },
+  {
+    "asset": "court",
+    "member": "art/scenario/chagatai/court_healthy/court_healthy_pattern.rrtex",
+    "sha256": "390eb56a7cc6a779b1fb5c1ddbcef2b1aeac4a4f8318244e906c40334abc8308",
+    "native_internal_format": 22,
+    "mips": 12,
+    "mean_compression_error": 0.0253,
+    "cooked_healthy_lod1_owner_color_area": {
+      "court_healthy": 0.119
+    }
   },
   {
     "asset": "ili",
     "member": "art/scenario/chagatai/ili_healthy/ili_healthy_albedo.rrtex",
-    "size": [
-      2048,
-      2048
-    ],
-    "masked_pixels": 501787,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "051682a2b6ac0f148d9eaa0b198f0e95e3f3ea117e9ae30efa5cbd8f3d395605",
+    "sha256": "2cc2b1f9424e4cba099726644ec6b4e21bf2ff422711109725a44e3f3d9f9568",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.10762739181518555
+    "mean_compression_error": 0.8728
+  },
+  {
+    "asset": "ili",
+    "member": "art/scenario/chagatai/ili_healthy/ili_healthy_pattern.rrtex",
+    "sha256": "e3aa7facbec638571ed8c1843a025575cab74c5c205257abc3cca70fc4ba8f1e",
+    "native_internal_format": 22,
+    "mips": 12,
+    "mean_compression_error": 0.0187,
+    "cooked_healthy_lod1_owner_color_area": {
+      "ili_healthy": 0.1788
+    }
   },
   {
     "asset": "mint",
     "member": "art/scenario/chagatai/mint_healthy/mint_healthy_albedo.rrtex",
-    "size": [
-      2048,
-      2048
-    ],
-    "masked_pixels": 324936,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "ffa955c3d92075bfa790945cbb42408168ea50e41ad4fd235a7d7e732a3f6f80",
+    "sha256": "3f5b93cada8ad4e916713510096ee54af2129e1f1e0369c293eecc188c1bd1b1",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.08304703235626221
+    "mean_compression_error": 0.7275
+  },
+  {
+    "asset": "mint",
+    "member": "art/scenario/chagatai/mint_healthy/mint_healthy_pattern.rrtex",
+    "sha256": "0db5ccb99c58838545780ba51e7c1343d4a695368813ac4a0e238a67a315a22d",
+    "native_internal_format": 22,
+    "mips": 12,
+    "mean_compression_error": 0.0216,
+    "cooked_healthy_lod1_owner_color_area": {
+      "mint_healthy": 0.0551
+    }
   },
   {
     "asset": "wonder",
     "member": "art/scenario/chagatai/wonder_healthy/wonder_healthy_albedo.rrtex",
-    "size": [
-      512,
-      256
-    ],
-    "masked_pixels": 32768,
-    "unmasked_source_pixels_unchanged": true,
-    "alpha_unchanged": true,
-    "sha256": "ba88a5654fc68305200a5dfce26939fb58b459dc04b9669f5535730641b8ea46",
+    "sha256": "39c8c63796276e36024a9a333b06c94200fd25e88af61a29c36d282aa83d88ef",
     "native_internal_format": 19,
     "mips": 10,
-    "mean_compression_error": 0.15229415893554688
+    "mean_compression_error": 1.5105
+  },
+  {
+    "asset": "wonder",
+    "member": "art/scenario/chagatai/wonder_healthy/wonder_healthy_pattern.rrtex",
+    "sha256": "6559a8fba28370973a60fcc78bb6b7be981945bccb5330402a07685427f136cb",
+    "native_internal_format": 22,
+    "mips": 10,
+    "mean_compression_error": 0.0534,
+    "cooked_healthy_lod1_owner_color_area": {
+      "wonder_healthy": 0.0994
+    }
   }
 ]

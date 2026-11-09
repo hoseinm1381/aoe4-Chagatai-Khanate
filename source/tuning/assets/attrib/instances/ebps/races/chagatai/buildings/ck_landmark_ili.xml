@@ -3,7 +3,10 @@
 	<instance_reference name="parent_pbg" value="ebps\races\mongol\buildings\building_wonder_age3_khanbaliq_mon" />
 	<list name="extensions">
 		<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="669128015" List.ParentItemID="669128015">
-			<list name="abilities" removedIds="-7834965, -892634410, -148970614, -580257611" />
+			<list name="abilities" removedIds="-7834965, -892634410, -148970614, -580257611">
+				<instance_reference name="ability" value="abilities\chagatai\ck_ili_war" mod="ac8da4d112bf433c888433228510b447" List.ItemID="1627480915" List.ListAction="Append" />
+				<instance_reference name="ability" value="abilities\chagatai\ck_ili_fattened" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-846196217" List.ListAction="Append" />
+			</list>
 		</template_reference>
 		<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="555024994" List.ParentItemID="555024994" overrideParent="True">
 			<enum name="weapon_targeting" value="automatic" />
@@ -249,7 +252,10 @@
 	<variant name="xp3">
 		<list name="extensions">
 			<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="669128015" List.ParentItemID="669128015">
-				<list name="abilities" removedIds="-7834965, -892634410, -148970614, -580257611" />
+				<list name="abilities" removedIds="-7834965, -892634410, -148970614, -580257611">
+					<instance_reference name="ability" value="abilities\chagatai\ck_ili_war" mod="ac8da4d112bf433c888433228510b447" List.ItemID="1627480915" List.ListAction="Append" />
+					<instance_reference name="ability" value="abilities\chagatai\ck_ili_fattened" mod="ac8da4d112bf433c888433228510b447" List.ItemID="-846196217" List.ListAction="Append" />
+				</list>
 			</template_reference>
 			<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="555024994" List.ParentItemID="555024994" overrideParent="True">
 				<enum name="weapon_targeting" value="automatic" />

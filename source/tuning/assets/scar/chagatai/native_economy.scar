@@ -417,7 +417,7 @@ function N.Pasture(p,b,entity,dt,now)
         if Player_GetCurrentPopulation(p.id,CT_Vehicle)>=Player_GetCurrentPopulationCap(p.id,CT_Vehicle) then return end
         local desired=N.Passable(p.id,N.Around(b.position,0,8))
         local key=b.role=='ili' and 'sbps/races/chagatai/animals/ck_horse_ili' or 'sbps/races/chagatai/animals/ck_horse'
-        local e=N.TryHorseSpawn(p,key,desired,N.Profile(p,false),nil,nil,true)
+        local e=N.TryHorseSpawn(p,key,desired,N.Profile(p,false,b.role=='ili'),nil,nil,true)
         if not e then return end
         b.firstHorse=true
         N.RallyHorse(e,entity)

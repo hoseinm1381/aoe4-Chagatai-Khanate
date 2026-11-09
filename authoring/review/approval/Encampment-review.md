@@ -4,4 +4,6 @@ The packed Blender masters use the installed Mongol Barracks and Archery Range c
 
 The verification JSON measures projected owner-mask coverage from a fixed isometric camera using the first visible mesh surface. It also verifies the finished and ruin collections, their weapon cues, and packed textures. These are Blender checks.
 
-Native staging still needs age-specific LODs and lifecycle selectors. The inherited Mongol building tier group has no Imperial model tier. The installed English production building controls provide a native pattern for an Imperial tier using imperial_age and act_set_current_age_imperial. Preserve the Chagatai production and existing non-art tier groups when wiring it. The player package has not been updated with this art.
+For 0.2.1, stage the packed master with `authoring/reviewed-landmarks/stage_age_encampment.py`. Cook the staged project and pass its archive to `tools/compose_encampments.py`. This produces one model per encampment with all its age-specific construction, completed and rubble meshes. The composed atlases contain neutral player-color cloth. Keep them with the matching model and replace the record in `source/visuals/buildings.json`.
+
+The package uses a single lifecycle state field for age and construction. The existing presentation tick selects it from the owner's age and the building's condition. Age transitions still require in-game verification.

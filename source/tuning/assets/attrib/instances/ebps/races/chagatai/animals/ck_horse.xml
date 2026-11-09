@@ -15,7 +15,7 @@
 		<template_reference name="exts" value="ebpextensions\resource_deposit_ext" List.ItemID="1456212255" List.ParentItemID="1456212255">
 			<int name="num_gatherers_to_assign_by_ai" value="4" overrideParent="True" />
 			<int name="num_gatherers_to_assign_by_vps" value="4" overrideParent="True" />
-			<float name="initial_amount" value="400" overrideParent="True" />
+			<float name="initial_amount" value="600" overrideParent="True" />
 			<instance_reference name="resource_sub_type" value="resource_sub_type\herded_animal" overrideParent="True" />
 			<enum name="resource_gather_job" value="gather_herdable" overrideParent="True" />
 			<bool name="cannot_be_gathered_by_enemy" value="False" overrideParent="True" />
@@ -177,7 +177,7 @@
 			<template_reference name="exts" value="ebpextensions\resource_deposit_ext" List.ItemID="1456212255" List.ParentItemID="1456212255">
 				<int name="num_gatherers_to_assign_by_ai" value="4" overrideParent="True" />
 				<int name="num_gatherers_to_assign_by_vps" value="4" overrideParent="True" />
-				<float name="initial_amount" value="400" overrideParent="True" />
+				<float name="initial_amount" value="600" overrideParent="True" />
 				<instance_reference name="resource_sub_type" value="resource_sub_type\herded_animal" overrideParent="True" />
 				<enum name="resource_gather_job" value="gather_herdable" overrideParent="True" />
 				<bool name="cannot_be_gathered_by_enemy" value="False" overrideParent="True" />

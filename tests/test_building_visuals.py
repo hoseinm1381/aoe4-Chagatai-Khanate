@@ -47,6 +47,22 @@ class BuildingVisuals(unittest.TestCase):
             actor.valid=true;n.ended=true;n.BuildingVisual(building,actor,6)
             assert(#calls==2)
         ''')
+    def test_encampment_switches_tier_and_keeps_age_on_destruction(self):
+        self.lua.execute('''
+            building.role='ranged'
+            local n=ChagataiNative
+            local age=2
+            function n.Owner() return 1 end
+            function Player_GetCurrentAge() return age end
+            n.BuildingVisual(building,actor,0)
+            age=3;n.BuildingVisual(building,actor,1)
+            actor.constructing=true;actor.progress=.63
+            age=4;n.BuildingVisual(building,actor,2)
+            actor.alive=false;actor.hp=0
+            age=3;n.BuildingVisual(building,actor,3)
+            assert(table.concat(calls,',')=='healthy,castle_healthy,imperial_construct_50,imperial_ruins')
+        ''')
+
     def test_stock_building_is_untouched(self):
         self.lua.execute('''
             building.role='blacksmith'

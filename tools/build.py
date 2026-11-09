@@ -1,6 +1,5 @@
 """Assemble a local Chagatai Garrison candidate from two verified native cooks."""
 import argparse
-from collections import Counter
 from copy import deepcopy
 import hashlib
 import json
@@ -21,7 +20,7 @@ sys.path.insert(0, str(EXT))
 from garrison_shared import mod_bundle, rgd, stock_game
 
 DISPATCHER = "scar/garrison/chagatai/dispatcher.scar"
-VERSION = "0.1.10"
+VERSION = "0.2.4"
 SHARED_SQUADS_MARKER = "local sharedSquads = {} -- Filled by tools/build.py."
 ARCHETYPES = {
     "town_center":"town_center", "house":"steppe_hearth", "barracks":"melee",
@@ -64,89 +63,6 @@ def refs(parent):
         fields = {item.key: item.value for item in node.value}
         if fields.get("$PBGNAME"):
             yield path, fields.get("$PBGMAP","").replace("\\","/"), fields["$PBGNAME"]
-
-def age_of(name):
-    match = re.search(r"_(foot|mounted)_([1-4])$", name)
-    if match:
-        return int(match[2])
-    lowered = name.lower()
-    if "imperial" in lowered or "elite" in lowered:
-        return 4
-    if "castle" in lowered or "veteran" in lowered:
-        return 3
-    if "feudal" in lowered or "early" in lowered:
-        return 2
-    return 1
-
-def populate_codex(doc, tables, owner):
-    capital = "ck_building_town_center_capital"
-    producer_prefix = "attrib/ebps/races/chagatai/buildings/"
-    plans = []
-    for member, table in sorted(tables.items(), key=lambda pair:(not pair[0].endswith(capital+".rgd"),pair[0])):
-        if not member.startswith(producer_prefix):
-            continue
-        producer = Path(member).stem
-        if producer == "ck_building_town_center":
-            continue
-        landmark = producer.startswith("ck_landmark_")
-        slug = producer.removeprefix("ck_landmark_" if landmark else "ck_building_")
-        age = LANDMARK_AGE[slug] if landmark else BUILDING_AGE.get(slug, 1)
-        products = {
-            (family, name) for path, family, name in refs(child(table,"default"))
-            if family in {"sbps","upgrade"}
-            and (path.startswith("spawner_ext/spawn_items/") or path.startswith("upgrade_ext/standard_upgrades/"))
-            and not name.endswith(("_hidden", "_dummy"))
-        }
-        if producer == capital:
-            products.update(("sbps",owner+":"+name) for name in ("ck_unit_villager","ck_scout_foot_1","ck_horse"))
-        plans.append((producer, landmark, age, sorted(products)))
-    sample = at(doc,"default","codex_bag")
-    group_sample = child(sample,"tech_tree").value[0]
-    item_sample = child(group_sample,"items").value[0]
-    legacy_sample = at(sample,"root_item","children").value[0]
-    container_sample = child(legacy_sample,"children").value[0]
-    leaf_sample = child(container_sample,"children").value[0]
-    for variant in (n for n in doc.nodes if n.kind in ("List","List2")):
-        bag = child(variant,"codex_bag")
-        tree = child(bag,"tech_tree")
-        root = child(bag,"root_item")
-        roots = child(root,"children")
-        groups, old_groups = [], []
-        for producer, landmark, age, products in plans:
-            header_age = age - 1 if landmark else age
-            group, legacy = deepcopy(group_sample), deepcopy(legacy_sample)
-            ref(child(legacy,"pbg"),"ebps",owner+":"+producer)
-            at(legacy,"ui_codex_info","ui_position","ui_position_column").value = header_age-1
-            entries, leaves = [], []
-            rows = Counter()
-            for family, name in [("ebps",owner+":"+producer),*products]:
-                item = deepcopy(item_sample)
-                ref(child(item,"pbg"),family,name)
-                ref(child(item,"upgrade_pbg"),"","")
-                product_age = max(age, age_of(name))
-                y = (header_age-1)*3 + (2 if landmark else 0) if family=="ebps" else (product_age-1)*3+(2 if family=="upgrade" else 1)
-                for key, value in (("x_position",rows[y]*2),("y_position",y),
-                                   ("left_branch_length",0),("right_branch_length",0),("top_line_length",0)):
-                    child(item,key).value = value
-                rows[y] += 1
-                entries.append(item)
-                if family != "ebps":
-                    container, leaf = deepcopy(container_sample), deepcopy(leaf_sample)
-                    ref(child(leaf,"pbg"),family,name)
-                    at(leaf,"ui_codex_info","ui_position","ui_position_column").value = product_age-1
-                    child(leaf,"children").value = []
-                    child(container,"children").value = [leaf]
-                    leaves.append(container)
-            child(group,"items").value = entries
-            child(group,"background_height").value = 11
-            child(group,"background_template").value = "center" if producer == capital else "military"
-            child(legacy,"children").value = leaves
-            groups.append(group)
-            old_groups.append(legacy)
-        tree.value = groups
-        roots.value = old_groups
-        child(bag,"landmark_count").value = len(LANDMARK_AGE)
-    return len(plans)
 
 def locate_inventory(game, archive, target):
     listing = game.archiver.run(["list",str(archive),"--verify"])
@@ -222,6 +138,20 @@ def build(args):
     # mechanics retain their exact values.
     membership_fields = ("type_ext/race_type_list/", "squad_type_ext/squad_race_type_list/")
     stock_blueprints = game.blueprint_index(work/"stock-index")
+    # Animator scale changes visual size. Compensated simboxes preserve the
+    # 0.1.10 world-space blocker and the existing construction footprint.
+    for member, doc in tables.items():
+        if member.startswith('attrib/ebps/') and (
+            Path(member).stem in {'ck_building_melee', 'ck_building_ranged'}
+            or Path(member).stem.startswith('ck_landmark_')
+        ):
+            for variant in (n for n in doc.nodes if n.kind in ('List', 'List2')):
+                scale = at(variant, 'entity_blueprint_ext', 'animator_scale')
+                if member.endswith('/ck_building_melee.rgd'):
+                    assert scale.value == 100
+                    scale.value = 200.0
+                else:
+                    scale.value = round(scale.value * 1.4, 4)
     from bind_art import repair_unit_presentation
     repair_unit_presentation(tables, game, profile)
     visual_receivers={}
@@ -235,7 +165,8 @@ def build(args):
             raise ValueError(f"Missing building bindings: {BUILDINGS.keys()-models.keys()}")
         visual_receivers.update(models)
         visual_receivers.update(unit_bindings(tables,game,stock_blueprints,profile,args.visuals))
-        controllers = {resource + ".rgo" for resource in models.values()}
+        controllers = {row["resource"] + ".rgo": row
+                       for row in read_json(args.visuals/"buildings.json")}
         donors = rig_donors(args.visuals)
         materials = material_donors(args.visuals)
         for member, data in building_boxes(tables, game, models).items():
@@ -247,7 +178,7 @@ def build(args):
                 member = asset.relative_to(args.visuals / "art").as_posix()
                 data = color_textures.get(member, asset.read_bytes())
                 if member in controllers:
-                    data = building_controller(data, game)
+                    data = building_controller(data, controllers[member])
                 if member in donors:
                     stock = game.model_files(donors[member], required=(".rgm",))[".rgm"]
                     data = restore_rig(data, stock)
@@ -273,7 +204,11 @@ def build(args):
                     reviewed_shared[family].add(name)
     recipe["shared_entities"] = sorted(reviewed_shared["ebps"])
     shared_squads = sorted(reviewed_shared["sbps"])
-    producer_count = populate_codex(next(doc for path,doc in tables.items() if path.startswith("attrib/codex/")),tables,owner)
+    from codex import populate
+    codex_report = populate(next(doc for path,doc in tables.items() if path.startswith("attrib/codex/")),
+                            tables, owner, game, stock_blueprints)
+    write_json(work/"codex-layout.json", codex_report)
+    producer_count = len(codex_report)
 
     locales = {}
     for member,toc in tuning_tocs.items():
@@ -297,6 +232,30 @@ def build(args):
                 rows[new] = value
             else:
                 rows[key] = value
+    army = next(doc for path,doc in tables.items() if path.startswith("attrib/army/"))
+    bonus_rows = {}
+    bonus_icons = read_json(SOURCE/"bonus-icons.json")
+    for variant in (n for n in army.nodes if n.kind in ('List','List2')):
+        summary = at(variant, 'army_bag', 'ui', 'global_traits_summary')
+        template = summary.value[0]
+        header = deepcopy(template)
+        child(header,'icon').value = bonus_icons[0]
+        header.value.remove(child(header,'description'))
+        traits = [header]
+        for index, (bonus, icon) in enumerate(zip(profile["bonuses"], bonus_icons, strict=True)):
+            title, desc = bonus.split(': ',1)
+            title_id, desc_id = str(16000+2*index), str(16001+2*index)
+            bonus_rows.update({title_id:title, desc_id:desc})
+            trait = deepcopy(template)
+            child(trait,'icon').value = icon
+            child(trait,'title').value = '$'+owner+':'+title_id
+            child(trait,'description').value = '$'+owner+':'+desc_id
+            traits.append(trait)
+        summary.value = traits
+    for rows in locales.values():
+        if bonus_rows.keys() & rows.keys():
+            raise ValueError("Overview bonus localization ID collision")
+        rows.update(bonus_rows)
     for member,doc in tables.items():
         if member in carrier_members:
             for _,node in rgd.flatten(doc.nodes):
@@ -419,7 +378,9 @@ def build(args):
     mod_bundle.write_package(delivery/"bundle",zip_path,bundle_key="chagatai",
         details={"id":"chagatai","name":"Chagatai Khanate","version":VERSION if visual_receivers else f"{VERSION}-dev.1",
             "summary":"Independent Chagatai Khanate art and gameplay playtest." if visual_receivers else "Independent Chagatai Khanate development build.",
-            "description":profile["description"],"author":"hosein81",
+            "description":profile["description"],"author":"hosein81 and chilly5",
+            "civilization":{"period":profile["period"],"difficulty":profile["difficulty"],
+                            "tagline":profile["traits"],"bonuses":profile["bonuses"]},
             "min_garrison":"0.1.16","updated":"2026-11-09","content_types":["civilization"],"cover":"cover.png"},
         archives=[("chagatai","civilization",archive)],
         start_here=(ROOT/"START-HERE.md").read_text(encoding="utf-8"),

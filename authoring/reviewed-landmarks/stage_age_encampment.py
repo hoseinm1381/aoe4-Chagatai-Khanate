@@ -51,3 +51,17 @@ recipe=recipe.replace('n.label=="Owner mask"','n.label in ("Owner mask","Dynamic
 recipe=recipe.replace('n.label=="Albedo source"','n.label=="Albedo source" or n.image.colorspace_settings.name=="sRGB"')
 recipe=recipe.replace("assert GRID<=8","assert GRID<=14")
 exec(compile(recipe,"shared-landmark-stage","exec"))
+
+
+if os.environ.get("CK_KEEP_DEFAULT_CLOTH") != "1":
+    # Match the native owner-color base used by the other Chagatai buildings.
+    sys.path.insert(0, str(P/"tools"))
+    from building_color import neutral_cloth
+
+    albedo = healthy/f"{key}_healthy_albedo.png"
+    pattern = healthy/f"{key}_healthy_pattern.png"
+    with Image.open(albedo) as image:
+        original = np.array(image.convert("RGBA"))
+    with Image.open(pattern) as image:
+        mask = np.array(image.convert("RGB"))[:, :, 0]
+    Image.fromarray(neutral_cloth(original, mask)).save(albedo)

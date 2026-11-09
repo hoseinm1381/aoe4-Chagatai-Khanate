@@ -1,13 +1,11 @@
-# Chagatai Khanate 0.1.10
+# Chagatai Khanate 0.2.4
 
-Import this ZIP into Garrison, enable Chagatai Khanate, and choose it in Standard Skirmish with Tuning Pack None. Start a new match.
+Import the ZIP in Garrison, then select Chagatai Khanate in Standard Skirmish with Tuning Pack None.
 
-This update corrects the owner-color base of custom building cloth and restores Foot Trader's native trade behavior. Foot Trader animation is still a known issue and is deliberately deferred.
+Check the Overview for seven illustrated bonuses and thirteen unique technologies. The Town Center column lists trainable units, and Horses appear under their producers. The unique upgrade icons use native age pips.
 
-Please check:
+Check the Melee Encampment through Dark, Feudal, Castle and Imperial and the Ranged Encampment through Feudal, Castle and Imperial. Watch a completed building during the age transition and place another in the new age. Check construction, rubble, and red and blue cloth.
 
-1. Red and blue on the Encampments, Steppe Hearth, Horse Pasture and landmarks beside your units.
-2. A complete Foot Trader route, including both endpoints and income; repeat after mounting/dismounting.
-3. Building destruction and landmark damage/repair, which worked in your 0.1.9 test and remain unchanged.
+All six age-up landmarks are 40% larger visually. Their site footprints and world-space collision bounds are preserved. The Ranged Encampment is 40% larger visually. All 11 custom structures face 180Â° from their previous direction. Check the reduced owner-color trim with red and blue players. The Steppe Hearth and Horse Pasture retain their usual color coverage. The overview and Garrison card show 1227â€“1705 CE.
 
-The ZIP was assembled from validated native carrier/tuning cooks with current typed trade bindings and newly cooked building albedo textures. A native texture-only cook was run; no new mesh/XML cook or agent-run native test. Save/load and multiplayer remain unqualified.
+Qarshi Palace trains Mounted Villagers and shares Textiles with the Town Center. The Market has Mounted Trader in row 1, column 3. At Ili Royal Pastures, select War Herds or Fattened Herds for future Horses. The modes share a 60-second cooldown. A slaughtered Fattened Horse yields 600 Food.

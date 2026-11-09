@@ -39,18 +39,28 @@
       "melee_m1_frame25",
       "melee_m1_frame50",
       "melee_m1_frame75",
-      "melee_m1_ruins"
+      "melee_m1_ruins",
+      "melee_m2_healthy",
+      "melee_m2_frame00",
+      "melee_m2_frame25",
+      "melee_m2_frame50",
+      "melee_m2_frame75",
+      "melee_m2_ruins",
+      "melee_m3_healthy",
+      "melee_m3_frame00",
+      "melee_m3_frame25",
+      "melee_m3_frame50",
+      "melee_m3_frame75",
+      "melee_m3_ruins",
+      "melee_m4_healthy",
+      "melee_m4_frame00",
+      "melee_m4_frame25",
+      "melee_m4_frame50",
+      "melee_m4_frame75",
+      "melee_m4_ruins"
     ],
     "resource": "art/scenario/chagatai/melee/model",
     "lods": 3,
-    "stage_aliases": {
-      "healthy": "healthy",
-      "m1_frame00": "frame00",
-      "m1_frame25": "frame25",
-      "m1_frame50": "frame50",
-      "m1_frame75": "frame75",
-      "m1_ruins": "ruins"
-    },
     "state_groups": {
       "healthy": [
         "healthy",
@@ -61,7 +71,119 @@
         "damage_3",
         "damage_4",
         "damage_5"
+      ],
+      "m1_frame00": [
+        "construct_00",
+        "construct_05",
+        "construct_10",
+        "construct_15",
+        "construct_20"
+      ],
+      "m1_frame25": [
+        "construct_25",
+        "construct_30",
+        "construct_35",
+        "construct_40",
+        "construct_45"
+      ],
+      "m1_frame50": [
+        "construct_50",
+        "construct_55",
+        "construct_60",
+        "construct_65",
+        "construct_70"
+      ],
+      "m1_frame75": [
+        "construct_75",
+        "construct_80",
+        "construct_85",
+        "construct_90",
+        "construct_95"
+      ],
+      "m1_ruins": [
+        "ruins"
+      ],
+      "m2_healthy": [
+        "feudal_healthy"
+      ],
+      "m2_frame00": [
+        "feudal_construct_00"
+      ],
+      "m2_frame25": [
+        "feudal_construct_25"
+      ],
+      "m2_frame50": [
+        "feudal_construct_50"
+      ],
+      "m2_frame75": [
+        "feudal_construct_75"
+      ],
+      "m2_ruins": [
+        "feudal_ruins"
+      ],
+      "m3_healthy": [
+        "castle_healthy"
+      ],
+      "m3_frame00": [
+        "castle_construct_00"
+      ],
+      "m3_frame25": [
+        "castle_construct_25"
+      ],
+      "m3_frame50": [
+        "castle_construct_50"
+      ],
+      "m3_frame75": [
+        "castle_construct_75"
+      ],
+      "m3_ruins": [
+        "castle_ruins"
+      ],
+      "m4_healthy": [
+        "imperial_healthy"
+      ],
+      "m4_frame00": [
+        "imperial_construct_00"
+      ],
+      "m4_frame25": [
+        "imperial_construct_25"
+      ],
+      "m4_frame50": [
+        "imperial_construct_50"
+      ],
+      "m4_frame75": [
+        "imperial_construct_75"
+      ],
+      "m4_ruins": [
+        "imperial_ruins"
       ]
+    },
+    "age_tiers": {
+      "1": {},
+      "2": {
+        "healthy": "feudal_healthy",
+        "frame00": "feudal_construct_00",
+        "frame25": "feudal_construct_25",
+        "frame50": "feudal_construct_50",
+        "frame75": "feudal_construct_75",
+        "ruins": "feudal_ruins"
+      },
+      "3": {
+        "healthy": "castle_healthy",
+        "frame00": "castle_construct_00",
+        "frame25": "castle_construct_25",
+        "frame50": "castle_construct_50",
+        "frame75": "castle_construct_75",
+        "ruins": "castle_ruins"
+      },
+      "4": {
+        "healthy": "imperial_healthy",
+        "frame00": "imperial_construct_00",
+        "frame25": "imperial_construct_25",
+        "frame50": "imperial_construct_50",
+        "frame75": "imperial_construct_75",
+        "ruins": "imperial_ruins"
+      }
     }
   },
   {
@@ -72,18 +194,22 @@
       "ranged_r2_frame25",
       "ranged_r2_frame50",
       "ranged_r2_frame75",
-      "ranged_r2_ruins"
+      "ranged_r2_ruins",
+      "ranged_r3_healthy",
+      "ranged_r3_frame00",
+      "ranged_r3_frame25",
+      "ranged_r3_frame50",
+      "ranged_r3_frame75",
+      "ranged_r3_ruins",
+      "ranged_r4_healthy",
+      "ranged_r4_frame00",
+      "ranged_r4_frame25",
+      "ranged_r4_frame50",
+      "ranged_r4_frame75",
+      "ranged_r4_ruins"
     ],
     "resource": "art/scenario/chagatai/ranged/model",
     "lods": 3,
-    "stage_aliases": {
-      "healthy": "healthy",
-      "r2_frame00": "frame00",
-      "r2_frame25": "frame25",
-      "r2_frame50": "frame50",
-      "r2_frame75": "frame75",
-      "r2_ruins": "ruins"
-    },
     "state_groups": {
       "healthy": [
         "healthy",
@@ -94,7 +220,93 @@
         "damage_3",
         "damage_4",
         "damage_5"
+      ],
+      "r2_frame00": [
+        "construct_00",
+        "construct_05",
+        "construct_10",
+        "construct_15",
+        "construct_20"
+      ],
+      "r2_frame25": [
+        "construct_25",
+        "construct_30",
+        "construct_35",
+        "construct_40",
+        "construct_45"
+      ],
+      "r2_frame50": [
+        "construct_50",
+        "construct_55",
+        "construct_60",
+        "construct_65",
+        "construct_70"
+      ],
+      "r2_frame75": [
+        "construct_75",
+        "construct_80",
+        "construct_85",
+        "construct_90",
+        "construct_95"
+      ],
+      "r2_ruins": [
+        "ruins"
+      ],
+      "r3_healthy": [
+        "castle_healthy"
+      ],
+      "r3_frame00": [
+        "castle_construct_00"
+      ],
+      "r3_frame25": [
+        "castle_construct_25"
+      ],
+      "r3_frame50": [
+        "castle_construct_50"
+      ],
+      "r3_frame75": [
+        "castle_construct_75"
+      ],
+      "r3_ruins": [
+        "castle_ruins"
+      ],
+      "r4_healthy": [
+        "imperial_healthy"
+      ],
+      "r4_frame00": [
+        "imperial_construct_00"
+      ],
+      "r4_frame25": [
+        "imperial_construct_25"
+      ],
+      "r4_frame50": [
+        "imperial_construct_50"
+      ],
+      "r4_frame75": [
+        "imperial_construct_75"
+      ],
+      "r4_ruins": [
+        "imperial_ruins"
       ]
+    },
+    "age_tiers": {
+      "2": {},
+      "3": {
+        "healthy": "castle_healthy",
+        "frame00": "castle_construct_00",
+        "frame25": "castle_construct_25",
+        "frame50": "castle_construct_50",
+        "frame75": "castle_construct_75",
+        "ruins": "castle_ruins"
+      },
+      "4": {
+        "healthy": "imperial_healthy",
+        "frame00": "imperial_construct_00",
+        "frame25": "imperial_construct_25",
+        "frame50": "imperial_construct_50",
+        "frame75": "imperial_construct_75",
+        "ruins": "imperial_ruins"
+      }
     }
   },
   {

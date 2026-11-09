@@ -37,20 +37,20 @@
 			<locstring name="help_text" value="5171" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="extra_text" value="7451" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="brief_text" value="0" overrideParent="True" />
-			<string name="hotkey_name" value="A" overrideParent="True" />
+			<string name="hotkey_name" value="E" overrideParent="True" />
 			<file name="icon_name" value="races\common\units\trade_cart" overrideParent="True" />
 			<template_reference name="ui_info_extended" value="tables\ui_info_ext">
 				<template_reference name="command_card_info" value="ui_command_card_info">
 					<group name="ui_position">
-						<int name="ui_position_row" value="2" overrideParent="True" />
-						<int name="ui_position_column" value="1" overrideParent="True" />
+						<int name="ui_position_row" value="1" overrideParent="True" />
+						<int name="ui_position_column" value="3" overrideParent="True" />
 					</group>
 				</template_reference>
 			</template_reference>
 		</group>
 		<group name="ui_position">
-			<int name="ui_position_row" value="2" overrideParent="True" />
-			<int name="ui_position_column" value="1" overrideParent="True" />
+			<int name="ui_position_row" value="1" overrideParent="True" />
+			<int name="ui_position_column" value="3" overrideParent="True" />
 		</group>
 	</group>
 	<variant name="xp3">
@@ -90,20 +90,20 @@
 				<locstring name="help_text" value="5171" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="extra_text" value="7451" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="brief_text" value="0" overrideParent="True" />
-				<string name="hotkey_name" value="A" overrideParent="True" />
+				<string name="hotkey_name" value="E" overrideParent="True" />
 				<file name="icon_name" value="races\common\units\trade_cart" overrideParent="True" />
 				<template_reference name="ui_info_extended" value="tables\ui_info_ext">
 					<template_reference name="command_card_info" value="ui_command_card_info">
 						<group name="ui_position">
-							<int name="ui_position_row" value="2" overrideParent="True" />
-							<int name="ui_position_column" value="1" overrideParent="True" />
+							<int name="ui_position_row" value="1" overrideParent="True" />
+							<int name="ui_position_column" value="3" overrideParent="True" />
 						</group>
 					</template_reference>
 				</template_reference>
 			</group>
 			<group name="ui_position">
-				<int name="ui_position_row" value="2" overrideParent="True" />
-				<int name="ui_position_column" value="1" overrideParent="True" />
+				<int name="ui_position_row" value="1" overrideParent="True" />
+				<int name="ui_position_column" value="3" overrideParent="True" />
 			</group>
 		</group>
 		<uniqueid name="pbgid" value="1073741987" />

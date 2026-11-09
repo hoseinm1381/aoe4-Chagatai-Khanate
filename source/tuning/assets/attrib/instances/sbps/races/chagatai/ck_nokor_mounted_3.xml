@@ -58,7 +58,7 @@
 						<locstring name="help_text" value="2211" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 						<locstring name="extra_text" value="7103" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 						<locstring name="brief_text" value="0" overrideParent="True" />
-						<file name="icon_name" value="chagatai\units\stock_based\nokor_mounted" overrideParent="True" />
+						<file name="icon_name" value="chagatai\units\stock_based\nokor_mounted_age3" overrideParent="True" />
 						<file name="portrait_name" value="chagatai\units\stock_based\nokor_mounted" overrideParent="True" />
 						<bool name="is_unique" value="False" overrideParent="True" />
 						<bool name="is_unique_to_race" value="True" overrideParent="True" />
@@ -128,7 +128,7 @@
 							<locstring name="help_text" value="2211" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 							<locstring name="extra_text" value="7103" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 							<locstring name="brief_text" value="0" overrideParent="True" />
-							<file name="icon_name" value="chagatai\units\stock_based\nokor_mounted" overrideParent="True" />
+							<file name="icon_name" value="chagatai\units\stock_based\nokor_mounted_age3" overrideParent="True" />
 							<file name="portrait_name" value="chagatai\units\stock_based\nokor_mounted" overrideParent="True" />
 							<bool name="is_unique" value="False" overrideParent="True" />
 							<bool name="is_unique_to_race" value="True" overrideParent="True" />

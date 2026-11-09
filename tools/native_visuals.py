@@ -132,7 +132,7 @@ def restore_rig(raw, stock):
 PASSAGE_WIDTH = 2.0
 
 
-def opening_box(raw, width, depth, scale=1.0):
+def opening_box(raw, width, depth, scale=1.0, height=4):
     model = rc.parse(raw)
     data = find(model, b"AEGD")
     if data.version != 3 or data.payload.count(STOCK_BOX_SIZE) != 2:
@@ -141,7 +141,7 @@ def opening_box(raw, width, depth, scale=1.0):
     # two-unit passage. Divide out animator scale (e.g. landmarks at 125%).
     if min(width, depth) <= PASSAGE_WIDTH or scale <= 0:
         raise ValueError("Invalid building clearance or animator scale")
-    replacement = struct.pack("<3f", (width-PASSAGE_WIDTH)/scale, 4, (depth-PASSAGE_WIDTH)/scale)
+    replacement = struct.pack("<3f", (width-PASSAGE_WIDTH)/scale, height, (depth-PASSAGE_WIDTH)/scale)
     payload = data.payload.replace(STOCK_BOX_SIZE, replacement)
     return rc.rebuild(model, lambda c: payload if c.offset == data.offset else None)
 
@@ -166,7 +166,10 @@ def building_boxes(tables, game, models):
         [(width, depth, scale)] = sizes
         if min(width, depth) <= 0:
             raise ValueError(f"{name} has no valid build footprint")
-        out[models[name] + ".simbox"] = opening_box(template, width, depth, scale)
+        height = 4/scale if name in {"ck_building_melee", "ck_building_ranged"} else 4
+        if name.startswith("ck_landmark_"):
+            height /= 1.4
+        out[models[name] + ".simbox"] = opening_box(template, width, depth, scale, height)
     if len(out) != len(models):
         raise ValueError("Missing building simulation boxes")
     return out

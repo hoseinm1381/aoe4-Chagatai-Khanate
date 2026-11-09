@@ -223,7 +223,7 @@ function N.RegisterHorseBirth(p,e,record)
         if not tx or tx.status~='active' then return end
         profile=tx.profile
     end
-    local ok,horse=pcall(N.NewHorse,p,e,profile or N.Profile(p,false))
+    local ok,horse=pcall(N.NewHorse,p,e,profile or N.Profile(p,false,record.kind=='ili'))
     if not ok then
         local partial=N.entities[id]
         if partial and partial.horseID then

@@ -1,12 +1,12 @@
 {
   "owner": "ac8da4d112bf433c888433228510b447",
-  "members": 866,
+  "members": 893,
   "attributes": 328,
   "codex_groups": 21,
   "tuning_cook_owner": "ac8da4d112bf433c888433228510b447",
-  "archive_sha256": "c0825a88c7b1e4421a60f7d4aaa8f64f4c79f3238f5cace7943e0f5a1a861e58",
-  "zip_sha256": "e9f8d885d1c858f29cc3196b8cf6df2eac4be26aac0d1dad258f0cf0f3882c21",
-  "zip": "release/Chagatai-Khanate-Garrison-0.1.10.zip",
+  "archive_sha256": "27247c6f6f1f474a8d28745224347aaa78a7e2ed7da602a22b35e6e1e7a38ec0",
+  "zip_sha256": "f4cc09c11dde4cc98b0818f260921f17d4c4fd58173b71d43e6a1da257a4115d",
+  "zip": "release/Chagatai-Khanate-Garrison-0.2.4.zip",
   "runtime_tested": false,
   "visual_receivers": {
     "ck_building_melee": "art/scenario/chagatai/melee/model",
@@ -174,23 +174,35 @@
     "unit_trebuchet_4_tr_mon",
     "unit_workshop_ram_3_mon"
   ],
-  "native_game_tested": false,
-  "installed": false,
-  "build_method": "Reused validated carrier/tuning cooks; fresh native BC1 building-albedo cook; restored native Trader actor/schema bindings.",
-  "host_tests": {
-    "passed": 7,
-    "failed": 0
+  "carrier_sha256": "eb3bfdb1a005214c42e2fbbb6deadaad47e5cbc9b70d88f5ec7ecdf9102f0ac9",
+  "tuning_sha256": "547ea536d09357d95ff3709161522576235113ed93dc158eeae28e932730e0dd",
+  "visual_readback": {
+    "zip_crc_verified": true,
+    "sga_integrity_verified": true,
+    "active_visual_receivers": 46,
+    "skinned_unit_variants": 46,
+    "buildings": 11,
+    "building_state_meshes": 135,
+    "cooked_player_color_masks_decoded": 57,
+    "cooked_mask_atlas_texel_range": [
+      0.0,
+      0.4152
+    ],
+    "original_gameplay_and_presentation_members_verified": true,
+    "opening_regression": {
+      "matched_release": "0.1.2",
+      "members": 29,
+      "dispatcher_change_limited_to_building_visual_import": true,
+      "scout_rig_and_material_verified_separately": true,
+      "army_gameplay_digest_verified": true
+    },
+    "stock_rigs_and_skin_binds_verified": 46,
+    "private_native_materials_verified": 57,
+    "building_blockers_verified": 11,
+    "adjacent_building_passage_world_units": 2.0,
+    "stable_building_controllers_with_scripted_lifecycle": 11,
+    "corrected_building_albedo_atlases": 20
   },
-  "owner_feedback_version": "0.1.9",
-  "owner_confirmed": [
-    "building destruction",
-    "landmark health-based damage and repair",
-    "unit player color"
-  ],
-  "known_issues": [
-    "Foot Trader animation deferred at owner request"
-  ],
-  "texture_cook_receipt": "authoring/verification-0.1.10/texture-cook.json",
   "lifecycle_readback": {
     "buildings": [
       {
@@ -213,7 +225,9 @@
         ],
         "ruin_mesh": [
           "pasture_ruins"
-        ]
+        ],
+        "age_meshes": {},
+        "construction_meshes": []
       },
       {
         "asset": "steppe_hearth",
@@ -235,7 +249,9 @@
         ],
         "ruin_mesh": [
           "steppe_hearth_ruins"
-        ]
+        ],
+        "age_meshes": {},
+        "construction_meshes": []
       },
       {
         "asset": "melee",
@@ -257,7 +273,42 @@
         ],
         "ruin_mesh": [
           "melee_m1_ruins"
-        ]
+        ],
+        "age_meshes": {
+          "1": {
+            "healthy": "melee_healthy",
+            "construct_00": "melee_m1_frame00",
+            "construct_25": "melee_m1_frame25",
+            "construct_50": "melee_m1_frame50",
+            "construct_75": "melee_m1_frame75",
+            "ruins": "melee_m1_ruins"
+          },
+          "2": {
+            "healthy": "melee_m2_healthy",
+            "construct_00": "melee_m2_frame00",
+            "construct_25": "melee_m2_frame25",
+            "construct_50": "melee_m2_frame50",
+            "construct_75": "melee_m2_frame75",
+            "ruins": "melee_m2_ruins"
+          },
+          "3": {
+            "healthy": "melee_m3_healthy",
+            "construct_00": "melee_m3_frame00",
+            "construct_25": "melee_m3_frame25",
+            "construct_50": "melee_m3_frame50",
+            "construct_75": "melee_m3_frame75",
+            "ruins": "melee_m3_ruins"
+          },
+          "4": {
+            "healthy": "melee_m4_healthy",
+            "construct_00": "melee_m4_frame00",
+            "construct_25": "melee_m4_frame25",
+            "construct_50": "melee_m4_frame50",
+            "construct_75": "melee_m4_frame75",
+            "ruins": "melee_m4_ruins"
+          }
+        },
+        "construction_meshes": []
       },
       {
         "asset": "ranged",
@@ -279,7 +330,34 @@
         ],
         "ruin_mesh": [
           "ranged_r2_ruins"
-        ]
+        ],
+        "age_meshes": {
+          "2": {
+            "healthy": "ranged_healthy",
+            "construct_00": "ranged_r2_frame00",
+            "construct_25": "ranged_r2_frame25",
+            "construct_50": "ranged_r2_frame50",
+            "construct_75": "ranged_r2_frame75",
+            "ruins": "ranged_r2_ruins"
+          },
+          "3": {
+            "healthy": "ranged_r3_healthy",
+            "construct_00": "ranged_r3_frame00",
+            "construct_25": "ranged_r3_frame25",
+            "construct_50": "ranged_r3_frame50",
+            "construct_75": "ranged_r3_frame75",
+            "ruins": "ranged_r3_ruins"
+          },
+          "4": {
+            "healthy": "ranged_r4_healthy",
+            "construct_00": "ranged_r4_frame00",
+            "construct_25": "ranged_r4_frame25",
+            "construct_50": "ranged_r4_frame50",
+            "construct_75": "ranged_r4_frame75",
+            "ruins": "ranged_r4_ruins"
+          }
+        },
+        "construction_meshes": []
       },
       {
         "asset": "almaliq",
@@ -301,6 +379,13 @@
         ],
         "ruin_mesh": [
           "almaliq_ruins"
+        ],
+        "age_meshes": {},
+        "construction_meshes": [
+          "almaliq_frame00",
+          "almaliq_frame25",
+          "almaliq_frame50",
+          "almaliq_frame75"
         ]
       },
       {
@@ -323,6 +408,13 @@
         ],
         "ruin_mesh": [
           "ordu_ruins"
+        ],
+        "age_meshes": {},
+        "construction_meshes": [
+          "ordu_frame00",
+          "ordu_frame25",
+          "ordu_frame50",
+          "ordu_frame75"
         ]
       },
       {
@@ -345,6 +437,13 @@
         ],
         "ruin_mesh": [
           "qarshi_ruins"
+        ],
+        "age_meshes": {},
+        "construction_meshes": [
+          "qarshi_frame00",
+          "qarshi_frame25",
+          "qarshi_frame50",
+          "qarshi_frame75"
         ]
       },
       {
@@ -367,6 +466,13 @@
         ],
         "ruin_mesh": [
           "court_ruins"
+        ],
+        "age_meshes": {},
+        "construction_meshes": [
+          "court_frame00",
+          "court_frame25",
+          "court_frame50",
+          "court_frame75"
         ]
       },
       {
@@ -389,6 +495,13 @@
         ],
         "ruin_mesh": [
           "ili_ruins"
+        ],
+        "age_meshes": {},
+        "construction_meshes": [
+          "ili_frame00",
+          "ili_frame25",
+          "ili_frame50",
+          "ili_frame75"
         ]
       },
       {
@@ -411,6 +524,13 @@
         ],
         "ruin_mesh": [
           "mint_ruins"
+        ],
+        "age_meshes": {},
+        "construction_meshes": [
+          "mint_frame00",
+          "mint_frame25",
+          "mint_frame50",
+          "mint_frame75"
         ]
       },
       {
@@ -433,10 +553,17 @@
         ],
         "ruin_mesh": [
           "wonder_ruins"
+        ],
+        "age_meshes": {},
+        "construction_meshes": [
+          "wonder_frame00",
+          "wonder_frame25",
+          "wonder_frame50",
+          "wonder_frame75"
         ]
       }
     ],
-    "owner_tested_017_building_controllers_preserved": true,
+    "pinned_building_controllers_verified": true,
     "foot_trader_trade_state_preserved": true,
     "foot_trader_native_trade_contract_and_timed_cleanup": true,
     "passages": [
@@ -446,7 +573,7 @@
           6.0,
           6.0
         ],
-        "scale": 1.0,
+        "scale": 2.0,
         "adjacent_clearance": 2
       },
       {
@@ -464,7 +591,7 @@
           6.0,
           6.0
         ],
-        "scale": 1.0,
+        "scale": 1.4,
         "adjacent_clearance": 2
       },
       {
@@ -491,7 +618,7 @@
           8.0,
           8.0
         ],
-        "scale": 1.0,
+        "scale": 1.4,
         "adjacent_clearance": 2
       },
       {
@@ -500,7 +627,7 @@
           8.0,
           8.0
         ],
-        "scale": 1.25,
+        "scale": 1.75,
         "adjacent_clearance": 2
       },
       {
@@ -509,7 +636,7 @@
           8.0,
           8.0
         ],
-        "scale": 1.0,
+        "scale": 1.4,
         "adjacent_clearance": 2
       },
       {
@@ -518,7 +645,7 @@
           8.0,
           8.0
         ],
-        "scale": 1.15,
+        "scale": 1.61,
         "adjacent_clearance": 2
       },
       {
@@ -527,7 +654,7 @@
           8.0,
           8.0
         ],
-        "scale": 1.25,
+        "scale": 1.75,
         "adjacent_clearance": 2
       },
       {
@@ -536,223 +663,79 @@
           8.0,
           8.0
         ],
-        "scale": 1.0,
+        "scale": 1.4,
         "adjacent_clearance": 2
       }
     ],
-    "unchanged_working_materials": 59,
+    "unchanged_working_materials": 0,
     "native_game_tested": false
   },
-  "regression_readback": {
-    "changed_art": [
-      "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_albedo.rrtex",
-      "art/scenario/chagatai/court_healthy/court_healthy_albedo.rrtex",
-      "art/scenario/chagatai/ili_healthy/ili_healthy_albedo.rrtex",
-      "art/scenario/chagatai/melee_healthy/melee_healthy_albedo.rrtex",
-      "art/scenario/chagatai/mint_healthy/mint_healthy_albedo.rrtex",
-      "art/scenario/chagatai/ordu_healthy/ordu_healthy_albedo.rrtex",
-      "art/scenario/chagatai/pasture_healthy/pasture_healthy_albedo.rrtex",
-      "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_albedo.rrtex",
-      "art/scenario/chagatai/ranged_healthy/ranged_healthy_albedo.rrtex",
-      "art/scenario/chagatai/steppe_hearth_healthy/steppe_hearth_healthy_albedo.rrtex",
-      "art/scenario/chagatai/wonder_healthy/wonder_healthy_albedo.rrtex"
+  "landmark_and_market_readback": {
+    "qarshi_uses_town_center_textiles": true,
+    "qarshi_mounted_villager_slot": [
+      2,
+      1
     ],
-    "unchanged_art_files": 483,
-    "unchanged_scar_files": 14,
-    "building_texture_readback": [
-      {
-        "asset": "pasture",
-        "member": "art/scenario/chagatai/pasture_healthy/pasture_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 1362650,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "4502e0e2019cb2d08174590e9e6b43c40fb9d0949c67b4679a8dbf3a75bb31ee",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 1.0738117098808289
-      },
-      {
-        "asset": "steppe_hearth",
-        "member": "art/scenario/chagatai/steppe_hearth_healthy/steppe_hearth_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 687714,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "9860dc252695514d43c4297bf3e3e2c8a4ee3843bcec587a78779de88943ec78",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.12942522764205933
-      },
-      {
-        "asset": "melee",
-        "member": "art/scenario/chagatai/melee_healthy/melee_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 581405,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "761ec2f31b9ef7f1e17b7e9aad6029a62ebfd9815400d0af81cbef7370aec1c9",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.06877493858337402
-      },
-      {
-        "asset": "ranged",
-        "member": "art/scenario/chagatai/ranged_healthy/ranged_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 348843,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "58bbadd1ef3e554dbf95116ed415c2f0d23d245ba41af82bd7fd845d21d5ff13",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.04720461368560791
-      },
-      {
-        "asset": "almaliq",
-        "member": "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 170516,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "0f7b4954c3799c7445fda9a1f8dc53e6cfd6079ecab8e95548b448a9aa68eef5",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.09072667360305786
-      },
-      {
-        "asset": "ordu",
-        "member": "art/scenario/chagatai/ordu_healthy/ordu_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 348802,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "f092086583273a7e2553a177bd1998d05f605f08dad0d0b9f956a452b4d93739",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.0769997239112854
-      },
-      {
-        "asset": "qarshi",
-        "member": "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 511297,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "d6076c3736abd6150a9c45f01d2eeac76a7c6064492c39dc3c6adc00bbc4fd74",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.26484566926956177
-      },
-      {
-        "asset": "court",
-        "member": "art/scenario/chagatai/court_healthy/court_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 524174,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "2d3949f90e177eecfd20120b1eb483219acbfb3dd495f1e1e8cc57dafaa5cfae",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.11103343963623047
-      },
-      {
-        "asset": "ili",
-        "member": "art/scenario/chagatai/ili_healthy/ili_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 501787,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "051682a2b6ac0f148d9eaa0b198f0e95e3f3ea117e9ae30efa5cbd8f3d395605",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.10762739181518555
-      },
-      {
-        "asset": "mint",
-        "member": "art/scenario/chagatai/mint_healthy/mint_healthy_albedo.rrtex",
-        "size": [
-          2048,
-          2048
-        ],
-        "masked_pixels": 324936,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "ffa955c3d92075bfa790945cbb42408168ea50e41ad4fd235a7d7e732a3f6f80",
-        "native_internal_format": 19,
-        "mips": 12,
-        "mean_compression_error": 0.08304703235626221
-      },
-      {
-        "asset": "wonder",
-        "member": "art/scenario/chagatai/wonder_healthy/wonder_healthy_albedo.rrtex",
-        "size": [
-          512,
-          256
-        ],
-        "masked_pixels": 32768,
-        "unmasked_source_pixels_unchanged": true,
-        "alpha_unchanged": true,
-        "sha256": "ba88a5654fc68305200a5dfce26939fb58b459dc04b9669f5535730641b8ea46",
-        "native_internal_format": 19,
-        "mips": 10,
-        "mean_compression_error": 0.15229415893554688
-      }
+    "market_mounted_trader_native_and_fallback_slot": [
+      1,
+      3
     ],
-    "native_game_tested": false
-  },
-  "visual_readback": {
-    "zip_crc_verified": true,
-    "sga_integrity_verified": true,
-    "active_visual_receivers": 46,
-    "skinned_unit_variants": 46,
-    "buildings": 11,
-    "building_state_meshes": 105,
-    "cooked_player_color_masks_decoded": 57,
-    "cooked_mask_atlas_texel_range": [
-      0.0,
-      0.4152
-    ],
-    "original_gameplay_and_presentation_members_verified": true,
-    "opening_regression": {
-      "matched_release": "0.1.2",
-      "members": 29,
-      "dispatcher_change_limited_to_building_visual_import": true,
-      "scout_rig_and_material_verified_separately": true
+    "ili_herd_slots": {
+      "war": [
+        1,
+        3
+      ],
+      "fattened": [
+        1,
+        4
+      ]
     },
-    "stock_rigs_and_skin_binds_verified": 46,
-    "private_native_materials_verified": 57,
-    "building_blockers_verified": 11,
-    "adjacent_building_passage_world_units": 2.0,
-    "stable_building_controllers_with_scripted_lifecycle": 11,
-    "corrected_building_albedo_atlases": 11
+    "ili_shared_cooldown_seconds": 60,
+    "fattened_horse_food": 600,
+    "unchanged_0_2_4_art": true
   },
-  "final_package_verified": true
+  "building_presentation_readback": {
+    "compared_to": "0.2.3",
+    "members": 893,
+    "changed_members": 43,
+    "rotated_custom_models": 11,
+    "ranged_visual_scale_percent": 140,
+    "ranged_world_space_blocker_preserved": true,
+    "unchanged_native_building_controllers": 11,
+    "era": "1227–1705 CE",
+    "cooked_healthy_lod1_owner_color_area": {
+      "melee": {
+        "melee_healthy": 0.0585,
+        "melee_m2_healthy": 0.1219,
+        "melee_m3_healthy": 0.2475,
+        "melee_m4_healthy": 0.2382
+      },
+      "ranged": {
+        "ranged_healthy": 0.2481,
+        "ranged_r3_healthy": 0.1402,
+        "ranged_r4_healthy": 0.1397
+      },
+      "almaliq": {
+        "almaliq_healthy": 0.0809
+      },
+      "ordu": {
+        "ordu_healthy": 0.1768
+      },
+      "qarshi": {
+        "qarshi_healthy": 0.0527
+      },
+      "court": {
+        "court_healthy": 0.119
+      },
+      "ili": {
+        "ili_healthy": 0.1788
+      },
+      "mint": {
+        "mint_healthy": 0.0551
+      },
+      "wonder": {
+        "wonder_healthy": 0.0994
+      }
+    }
+  }
 }

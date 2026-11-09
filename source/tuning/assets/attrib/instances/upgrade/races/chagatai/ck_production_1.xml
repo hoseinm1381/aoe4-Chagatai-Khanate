@@ -64,7 +64,7 @@
 		<group name="ui_info">
 			<locstring name="screen_name" value="3001" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="screen_name_short" value="3001" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
-			<file name="icon_name" value="races\mongols\buildings\pasture" overrideParent="True" />
+			<file name="icon_name" value="chagatai\upgrades\production_1" overrideParent="True" />
 			<locstring name="help_text" value="3101" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="extra_text" value="7416" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="brief_text" value="0" overrideParent="True" />
@@ -139,7 +139,7 @@
 			<group name="ui_info">
 				<locstring name="screen_name" value="3001" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="screen_name_short" value="3001" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
-				<file name="icon_name" value="races\mongols\buildings\pasture" overrideParent="True" />
+				<file name="icon_name" value="chagatai\upgrades\production_1" overrideParent="True" />
 				<locstring name="help_text" value="3101" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="extra_text" value="7416" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="brief_text" value="0" overrideParent="True" />

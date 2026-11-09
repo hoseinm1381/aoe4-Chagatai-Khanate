@@ -84,10 +84,14 @@
   "traits": "Horses, Mounted Warfare, Pasture Economy",
   "difficulty": 3,
   "bonuses": [
-    "Horses can serve as mounts or provide Food.",
-    "Train mounted troops with a nearby Horse or pay an additional Gold cost.",
-    "Steppe Hearths provide housing."
+    "Horses and Pastures: Start with five Horses. Horse Pastures breed additional Horses for mounts or Food.",
+    "Mounted Warfare: Eligible units can mount and dismount. Mounted training uses an idle Horse within 32 metres or costs 80 extra Gold.",
+    "Steppe Hearths: House your population and research technologies that improve Villager gathering.",
+    "Horse Breeding: Research Horse Husbandry for faster breeding and Selective Breeding for more Horse health.",
+    "Trade and Horse Imports: Markets and Almaliq Market import Horses. The Market trains both Foot and Mounted Traders.",
+    "Yam Logistics: Research Yam Logistics to increase movement speed for all land units by 5%.",
+    "Landmark Choices: Choose between trade, military and horse economy landmarks. Ili can breed War Horses or Fattened Horses."
   ],
   "image_prefix": "garrison/chagatai/presentation",
-  "period": "Chagatai Khanate"
+  "period": "1227–1705 CE"
 }

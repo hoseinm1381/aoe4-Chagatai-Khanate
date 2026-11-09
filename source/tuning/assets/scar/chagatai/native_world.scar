@@ -311,9 +311,9 @@ function N.Gold(p,amount,reason)
     if reason then Player_SetResourceInternal(p,RT_Gold,total,reason)
     else Player_SetResource(p,RT_Gold,total) end
 end
-function N.Profile(p,imported)
+function N.Profile(p,imported,iliBirth)
 
-    return ChagataiHorse.Profile(p.iliActive and p.ili.mode or 'baseline',imported,p.almaliq)
+    return ChagataiHorse.Profile((iliBirth or p.iliActive) and p.ili.mode or 'baseline',imported,p.almaliq)
 end
 function N.NormalizeHorseBlueprint(h,entity)
 

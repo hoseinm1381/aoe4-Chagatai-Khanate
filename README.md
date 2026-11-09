@@ -1,8 +1,12 @@
 # Chagatai Khanate for Garrison
 
-An independent Age of Empires IV civilization by hosein81 and chilly5. The [playable 0.1.10 ZIP](https://github.com/hoseinm1381/aoe4-Chagatai-Khanate/releases/tag/v0.1.10) imports through Garrison. Enable the civilization and select Chagatai Khanate in Standard Skirmish with Tuning Pack None. See [START-HERE.md](START-HERE.md).
+An independent Age of Empires IV civilization by hosein81 and chilly5. Import the 0.2.4 playable ZIP through Garrison and select Chagatai Khanate in Standard Skirmish with Tuning Pack None. See [START-HERE.md](START-HERE.md).
 
-0.1.10 corrects the cloth color base on 11 custom buildings and restores Foot Trader's native trade setup. Foot Trader animation is a known issue. The native texture cook and package verification passed. In-game red and blue appearance and a complete trade route still await validation for this build.
+0.2.4 turns all 11 custom structures by 180°, enlarges the Ranged Encampment by 40% visually, and uses the original material colors with player-color trim on nine structures. The era shown in Garrison and the game is 1227–1705 CE.
+
+0.2.3 restores the working 0.2.1 construction stamps and building animators after the 0.2.2 loading crash. The fire and scaffolding changes are deferred.
+
+0.2.1 adds illustrated bonuses, a fuller unique technology list, and stock age pips for the unique upgrades. The Town Center column no longer lists Horses. The six age-up landmarks render 40% larger with compensated collision bounds, and the encampments use their separate age models.
 
 ## Editable source
 
@@ -20,7 +24,7 @@ python -m pip install -r .tools/requirements-python313.txt
 ./Build.ps1 -Python python
 ```
 
-Pass `-Editor` to select a different model-capable editor and `-Scratch` to use a short local work path. The build generates fresh carrier and tuning cooks, assembles them with the retained art, checks the package, and writes the player ZIP to `release/`. See [BUILD-VERIFICATION.json](BUILD-VERIFICATION.json) for the published package receipt.
+Pass `-Editor` to select a different model-capable editor and `-Scratch` to use a short local work path. The build generates fresh carrier and tuning cooks, assembles them with the retained art, checks the package, and writes the player ZIP to `release/`. See [BUILD-VERIFICATION.json](BUILD-VERIFICATION.json) for the package receipt.
 
 ## Recook edited art
 
@@ -31,3 +35,5 @@ Pass `-Editor` to select a different model-capable editor and `-Scratch` to use 
 - **Wonder.** Generate an atlas with `authoring/ordu_atlas.py` and run `authoring/stage_building_states.py` with the Wonder key. Cook that staged project with the Kit editor and compose the result with `tools/compose_buildings.py`.
 
 For the building color cook, follow [the texture recipe](authoring/building-colors-0.1.10/README.md). Run the full build after promoting new art to verify the bindings and package.
+
+To recook the 0.2.4 facing, set `CK_REVERSE_BUILDING_FACING=1` before running the building staging recipes. Set `CK_KEEP_DEFAULT_CLOTH=1` for the Encampments to keep their original albedo during staging. Run `authoring/sample_building_palette.py` in background Blender on the staged models, then run `authoring/trim_building_palette.py` with Python on the same scratch run. Run `authoring/promote_building_art.py stage <scratch-run> <pasture-and-hearth-run>` to combine the staged models. Cook the resulting project in `cook-input` and run `authoring/promote_building_art.py promote <cooked-sga> <scratch-run>`. Use `--verify-half-turn` when comparing against the previous facing during a rotation change.

@@ -78,7 +78,7 @@
 		<group name="ui_info">
 			<locstring name="screen_name" value="3013" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="screen_name_short" value="3013" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
-			<file name="icon_name" value="races\common\units\scout" overrideParent="True" />
+			<file name="icon_name" value="chagatai\upgrades\horse_hp_3" overrideParent="True" />
 			<locstring name="help_text" value="3113" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="extra_text" value="7417" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="brief_text" value="0" overrideParent="True" />
@@ -167,7 +167,7 @@
 			<group name="ui_info">
 				<locstring name="screen_name" value="3013" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="screen_name_short" value="3013" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
-				<file name="icon_name" value="races\common\units\scout" overrideParent="True" />
+				<file name="icon_name" value="chagatai\upgrades\horse_hp_3" overrideParent="True" />
 				<locstring name="help_text" value="3113" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="extra_text" value="7417" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="brief_text" value="0" overrideParent="True" />

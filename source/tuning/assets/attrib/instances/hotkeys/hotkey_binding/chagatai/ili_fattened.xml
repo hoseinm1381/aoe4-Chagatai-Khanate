@@ -1,7 +1,7 @@
 <instance version="4" description="" template="hotkeys\hotkey_binding">
 	<uniqueid name="pbgid" value="1073765434" />
 	<group name="hotkey_binding">
-		<string name="combo_primary" value="X" />
+		<string name="combo_primary" value="R" />
 		<locstring name="ui_name" value="5060" mod="ac8da4d112bf433c888433228510b447" />
 		<bool name="allow_repeats" value="False" />
 		<string name="combo_secondary" value="" />

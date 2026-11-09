@@ -1,4 +1,4 @@
-"""Rebase only building owner cloth to the working unit's red dye convention.
+"""Remove baked hue from cloth selected by the native owner-color mask.
 
 Source atlases remain immutable. Native texture cooking regenerates compressed
 sRGB mip chains; unmasked source texels and alpha are preserved before cooking.
@@ -7,11 +7,25 @@ import json
 from pathlib import Path
 import numpy as np
 from PIL import Image
-from native_materials import mv
-from garrison_shared import rrtex_decoder
+
+
+def neutral_cloth(original, owner_mask):
+    mask = owner_mask.astype(float) / 255
+    assert original.shape[:2] == mask.shape
+    rgb = original[:, :, :3].astype(float)
+    luminance = rgb @ np.array([.2126, .7152, .0722])
+    dye = np.clip(luminance * .68, 18, 140)[:, :, None]
+    changed = original.copy()
+    changed[:, :, :3] = np.rint(rgb * (1-mask[:, :, None]) + dye * mask[:, :, None]).astype(np.uint8)
+    assert np.array_equal(changed[mask == 0], original[mask == 0])
+    assert np.array_equal(changed[:, :, 3], original[:, :, 3])
+    return changed
 
 
 def prepare_textures(visuals, work):
+    from native_materials import mv
+    from garrison_shared import rrtex_decoder
+
     work.mkdir(parents=True, exist_ok=True)
     root = visuals / 'art'
     seen, records = set(), []
@@ -28,16 +42,8 @@ def prepare_textures(visuals, work):
             rrtex_decoder.decode_rrtex(root / member, dds, validate_stream=True)
             decoded[k] = np.array(Image.open(dds).convert('RGBA'))
         original = decoded['albedoTexture']
-        mask = decoded['patternTex'][:, :, 0].astype(np.float32) / 255
-        assert original.shape[:2] == mask.shape
-        rgb = original[:, :, :3].astype(np.float32)
-        # The owner-tested unit's saturated red cloth supplies the dye basis.
-        # Retain cloth highlights/shadows through its maximum channel value.
-        dye = np.max(rgb, axis=2)[:, :, None] * np.array([1.0, .30, .28])
-        changed = original.copy()
-        changed[:, :, :3] = np.rint(rgb * (1-mask[:, :, None]) + dye * mask[:, :, None]).astype(np.uint8)
-        assert np.array_equal(changed[mask == 0], original[mask == 0])
-        assert np.array_equal(changed[:, :, 3], original[:, :, 3])
+        mask = decoded['patternTex'][:, :, 0]
+        changed = neutral_cloth(original, mask)
         im = Image.fromarray(changed)
         target = work / 'source' / Path(name).with_suffix('.png')
         target.parent.mkdir(parents=True, exist_ok=True)

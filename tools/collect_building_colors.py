@@ -10,14 +10,13 @@ from build import ROOT, SOURCE, TEMP_ROOT, stock_game, sha
 from garrison_shared import rrtex_decoder as decoder
 
 
-def collect(archive):
+def collect(archive, work):
     root = SOURCE / 'visuals'
     dest = root / 'building-colors-native'
     dest.mkdir(exist_ok=True)
     TEMP_ROOT.mkdir(parents=True, exist_ok=True)
     extracted = TEMP_ROOT / ('chagatai-colors-' + uuid.uuid4().hex)
     stock_game.current().archiver.run(['extract', str(archive), str(extracted), '--filter', 'art/'])
-    work = ROOT / 'authoring/building-colors-0.1.10'
     rows = json.loads((work / 'verification.json').read_bytes())
     for row in rows:
         member = row['member']
@@ -42,4 +41,4 @@ def collect(archive):
 
 
 if __name__ == '__main__':
-    collect(Path(sys.argv[1]))
+    collect(Path(sys.argv[1]), Path(sys.argv[2]))

@@ -1,4 +1,5 @@
 """Export a rigid building through the unit shader's one-bone skin stream."""
+import os
 import re
 
 import bpy
@@ -13,6 +14,13 @@ ROOT_RIG = (
 
 
 def export_static_skin(levels, output):
+    if os.environ.get("CK_REVERSE_BUILDING_FACING") == "1":
+        # Rotate the mesh in Blender world space around the building origin.
+        # Keep the exported rig, named selectors and native footprint aligned to the site.
+        yaw = Matrix.Diagonal((-1, -1, 1, 1))
+        for mesh in levels:
+            world = mesh.matrix_world
+            mesh.data.transform(world.inverted() @ yaw @ world)
     armature = bpy.data.armatures.new("Building root")
     rig = bpy.data.objects.new("Building root", armature)
     bpy.context.scene.collection.objects.link(rig)

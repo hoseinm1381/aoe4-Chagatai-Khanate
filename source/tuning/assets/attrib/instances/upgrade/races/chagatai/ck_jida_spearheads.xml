@@ -61,7 +61,7 @@
 		<group name="ui_info">
 			<locstring name="screen_name" value="3070" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="screen_name_short" value="3070" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
-			<file name="icon_name" value="races\common\units\spearman_2" overrideParent="True" />
+			<file name="icon_name" value="chagatai\upgrades\jida_spearheads" overrideParent="True" />
 			<locstring name="help_text" value="3170" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="extra_text" value="7496" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<string name="hotkey_name" value="C" overrideParent="True" />

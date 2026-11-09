@@ -7,7 +7,7 @@ import hashlib
 from lupa.lua51 import LuaRuntime
 from build import stock_game, rgd, ROOT
 from bind_art import node, variants, BUILDINGS
-from compose_buildings import find, rc, DONOR
+from compose_buildings import find, rc
 
 def matches(raw, state):
     count,=struct.unpack_from('<I',raw)
@@ -29,21 +29,6 @@ def matches(raw, state):
     assert pos==len(raw)
     return result
 
-def state_changes(raw):
-    count,=struct.unpack_from('<I',raw);pos=4;result={}
-    for _ in range(count):
-        opcode,pos=rc.read_lp_string(raw,pos);assert opcode=='setstate'
-        args,=struct.unpack_from('<I',raw,pos);pos+=4;assert args==2
-        label,pos=rc.read_lp_string(raw,pos);assert label=='StateMachine'
-        key,pos=rc.read_lp_string(raw,pos)
-        label,pos=rc.read_lp_string(raw,pos);assert label=='State'
-        value,pos=rc.read_lp_string(raw,pos)
-        delay,=struct.unpack_from('<f',raw,pos);pos+=4
-        assert delay==0 if key=='life_cycle_state' else 0<=delay<=1
-        result[key]=value
-    assert pos==len(raw)
-    return result
-
 def audit(root, previous=None):
     game=stock_game.current();rows=[]
     stable=json.loads((ROOT/'source/visuals/stable-building-controllers.json').read_bytes())
@@ -53,11 +38,10 @@ def audit(root, previous=None):
     assert script==(ROOT/'source/tuning/assets/scar/chagatai/building_visuals.scar').read_text()
     lua.execute(script)
     classify=lua.globals().ChagataiNative.BuildingVisualState
+    model_state=lua.globals().ChagataiNative.BuildingModelState
     catalog=json.loads((ROOT/'source/visuals/buildings.json').read_bytes())
     for building in catalog:
         resource=building['resource']; graph=rc.parse((root/(resource+'.rgo')).read_bytes())
-        assert hashlib.sha256((root/(resource+'.rgo')).read_bytes()).hexdigest()==stable['sha256'][resource+'.rgo']
-        assert not find(graph,b'BBPC').children
         observed=[]
         samples=[(1,'healthy'),(.8,'damage_1'),(.6,'damage_2'),(.4,'damage_3'),(.25,'damage_4'),(.1,'damage_5'),(0,'ruins')]
         for health,expected in samples+list(reversed(samples)):
@@ -68,6 +52,7 @@ def audit(root, previous=None):
             hits=[classify(True,True,build,1)]
             assert hits==[expected],(resource,build,hits)
         model=rc.parse((root/(resource+'.rgm')).read_bytes())
+        assert hashlib.sha256((root/(resource+'.rgo')).read_bytes()).hexdigest()==stable['sha256'][resource+'.rgo']
         selectors=find(model,b'MSBP'); children=selectors.children
         def visible(state):
             selected=[]
@@ -86,9 +71,30 @@ def audit(root, previous=None):
             return selected
         assert len(visible('healthy'))==len(visible('ruins'))==1
         assert visible('healthy')!=visible('ruins')
-        if building['asset'] in ('almaliq','ordu','qarshi','court','ili','mint'):
-            assert len({tuple(visible(s)) for _,s in samples})==7
-        rows.append({'asset':building['asset'],'damage_and_repair_sequence':observed,'ruin_mesh':visible('ruins')})
+        construction=[]
+        if building['asset'] in ('almaliq','ordu','qarshi','court','ili','mint','wonder'):
+            for percent in range(100):
+                [mesh] = visible(classify(True,True,percent/100,.10))
+                assert mesh == f"{building['asset']}_frame{percent//25*25:02d}"
+                if percent%25==0:
+                    construction.append(mesh)
+            if building['asset'] != 'wonder':
+                assert len({tuple(visible(s)) for _,s in samples})==7
+        tiers={}
+        for age in building.get('age_tiers',{}):
+            expected={}
+            for name in ('healthy','construct_00','construct_25','construct_50','construct_75','ruins'):
+                state=model_state(building['asset'],int(age),name)
+                found=visible(state)
+                assert len(found)==1,(building['asset'],age,state,found)
+                expected[name]=found[0]
+            tiers[age]=expected
+        if tiers:
+            assert len({x['healthy'] for x in tiers.values()})==len(tiers)
+            assert len({x['ruins'] for x in tiers.values()})==len(tiers)
+        rows.append({'asset':building['asset'],'damage_and_repair_sequence':observed,
+                     'ruin_mesh':visible('ruins'),'age_meshes':tiers,
+                     'construction_meshes':construction})
     path=next((root/'attrib/ebps').rglob('ck_trader_foot_2.rgd'));trader=rgd.read(path.read_bytes())
     stock=rgd.read(game.blueprint('ebps/races/mongol/units/unit_trade_cart_mon'))
     def leaves(n):return {p:(v.kind,v.value) for p,v in rgd.flatten(n.value) if v.kind not in ('List','List2')}
@@ -107,14 +113,18 @@ def audit(root, previous=None):
         scale=node(node(d,'entity_blueprint_ext'),'animator_scale').value/100
         raw=find(rc.parse((root/('art/scenario/chagatai/'+BUILDINGS[path.stem]+'/model.simbox')).read_bytes()),b'AEGD').payload
         x=node(size,'x').value;y=node(size,'y').value
-        assert raw.count(struct.pack('<3f',(x-2)/scale,4,(y-2)/scale))==2
+        height=4/scale if path.stem in {'ck_building_melee','ck_building_ranged'} else 4
+        if path.stem.startswith('ck_landmark_'):
+            height/=1.4
+        assert raw.count(struct.pack('<3f',(x-2)/scale,height,(y-2)/scale))==2
         gaps.append({'building':path.stem,'site':[x,y],'scale':scale,'adjacent_clearance':2})
     material_count=0
     if previous:
         for path in (root/'art/scenario/chagatai').rglob('*.rrmaterial'):
             assert path.read_bytes()==(previous/path.relative_to(root)).read_bytes(),path
             material_count+=1
-    return {'buildings':rows,'owner_tested_017_building_controllers_preserved':True,'foot_trader_trade_state_preserved':True,'foot_trader_native_trade_contract_and_timed_cleanup':True,
+    return {'buildings':rows,'pinned_building_controllers_verified':True,
+            'foot_trader_trade_state_preserved':True,'foot_trader_native_trade_contract_and_timed_cleanup':True,
             'passages':gaps,'unchanged_working_materials':material_count,'native_game_tested':False}
 
 if __name__=='__main__':

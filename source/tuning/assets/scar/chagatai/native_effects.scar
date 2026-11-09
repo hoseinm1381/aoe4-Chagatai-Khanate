@@ -6,7 +6,7 @@ local mountedTraining={
     religious={train_religious='religious'},market={train_trader='trader'},almaliq={train_trader='trader'},
     town_center={train_scout='scout'},town_center_capital={train_scout='scout'},qarshi={train_scout='scout'},
 }
-local nativeMountedCards={melee=true,ordu=true,ranged=true}
+local nativeMountedCards={melee=true,ordu=true,ranged=true,market=true}
 N.recipients={}
 function N.ClearEffectModifiers(fx)
 
@@ -126,7 +126,7 @@ function N.BuildingButtons(p,b,entity,now)
     local desired={}
     if N.Functioning(entity) then
         if b.role=='court' and now>=b.court.readyAt then desired.court=true
-        elseif b.role=='ili' and now>=p.ili.readyAt then desired[p.ili.mode=='war' and 'ili_fattened' or 'ili_war']=true
+        elseif b.role=='ili' then desired.ili_war=true;desired.ili_fattened=true
         elseif b.role=='mint' then
             desired.withdraw=true
             desired[b.autoMint and 'mint_auto_stop' or 'mint_auto_start']=true

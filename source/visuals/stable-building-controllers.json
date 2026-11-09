@@ -4,8 +4,8 @@
   "sha256": {
     "art/scenario/chagatai/pasture/model.rgo": "9fe1454682269027a085c2af1a97a74ac89bdee6237da72f06aa7cc31c03e99f",
     "art/scenario/chagatai/steppe_hearth/model.rgo": "9fe1454682269027a085c2af1a97a74ac89bdee6237da72f06aa7cc31c03e99f",
-    "art/scenario/chagatai/melee/model.rgo": "7695305b77c3d9de60211a64746ac61a2061d175a8909f00b30fa72f2bae42bd",
-    "art/scenario/chagatai/ranged/model.rgo": "7695305b77c3d9de60211a64746ac61a2061d175a8909f00b30fa72f2bae42bd",
+    "art/scenario/chagatai/melee/model.rgo": "4541249bb643c814a4df7716acef55d68833c9be336b84b4d86124507780b4c6",
+    "art/scenario/chagatai/ranged/model.rgo": "d98196b32ed0ab2d57d3b1c512196c49e5f458a0d8621e85f6c1623a1c4d09b7",
     "art/scenario/chagatai/almaliq/model.rgo": "0d81cb8053508d28d3a698461d838cc3732e261e4ef24e2bc7c0b2c14c813782",
     "art/scenario/chagatai/ordu/model.rgo": "0d81cb8053508d28d3a698461d838cc3732e261e4ef24e2bc7c0b2c14c813782",
     "art/scenario/chagatai/qarshi/model.rgo": "0d81cb8053508d28d3a698461d838cc3732e261e4ef24e2bc7c0b2c14c813782",
@@ -13,5 +13,13 @@
     "art/scenario/chagatai/ili/model.rgo": "0d81cb8053508d28d3a698461d838cc3732e261e4ef24e2bc7c0b2c14c813782",
     "art/scenario/chagatai/mint/model.rgo": "0d81cb8053508d28d3a698461d838cc3732e261e4ef24e2bc7c0b2c14c813782",
     "art/scenario/chagatai/wonder/model.rgo": "9fe1454682269027a085c2af1a97a74ac89bdee6237da72f06aa7cc31c03e99f"
+  },
+  "updated_controllers": {
+    "version": "0.2.1",
+    "assets": [
+      "melee",
+      "ranged"
+    ],
+    "selection": "One lifecycle state enum with age-specific values."
   }
 }

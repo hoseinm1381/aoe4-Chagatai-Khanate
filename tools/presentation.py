@@ -31,15 +31,12 @@ def banner():
         for y in (53, height-53):
             draw.polygon([(x-8,y),(x,y-5),(x+8,y),(x,y+5)], fill="#b28a51")
     cx, cy = width // 2, height // 2
-    # Original badge inspired by a steppe horse standard and stamped coinwork.
-    draw.ellipse((cx-142,cy-142,cx+142,cy+142), outline="#cb9d57", width=10)
-    draw.ellipse((cx-124,cy-124,cx+124,cy+124), outline="#ad8348", width=3)
-    draw.polygon([(cx-66,cy+74),(cx-19,cy+4),(cx-28,cy-34),(cx+26,cy-72),
-                  (cx+20,cy-109),(cx+44,cy-88),(cx+54,cy-67),(cx+100,cy-28),
-                  (cx+86,cy+6),(cx+46,cy-4),(cx+9,cy+25),(cx+28,cy+74)],
-                 fill="#e4be77", outline="#ab7942", width=4)
-    draw.ellipse((cx+35,cy-55,cx+46,cy-44), fill="#254544")
-    draw.line([(cx-14,cy-29),(cx-2,cy-2),(cx-37,cy+56)], fill="#ae8249", width=4)
+    # Chaghatayid tamgha, Fedorov, ONS Newsletter 162, fig. 1.7.
+    # The textile and coin border are original UI treatments.
+    draw.ellipse((cx-143,cy-143,cx+143,cy+143),outline="#c59c58",width=5)
+    draw.ellipse((cx-88,cy-94,cx+88,cy+23),outline="#edcb89",width=17)
+    draw.line((cx,cy-100,cx,cy+101),fill="#edcb89",width=17)
+    draw.line((cx-32,cy+97,cx+32,cy+97),fill="#edcb89",width=13)
     return image
 
 def render(target):
@@ -48,7 +45,13 @@ def render(target):
     master = banner()
     master.save(target/"cover.png")
     for name, size in SIZES.items():
-        image = master.resize(size, Image.Resampling.LANCZOS).convert("RGBA")
+        # Crop the small badges around the mark. Keep the full cloth for banners.
+        art = master
+        if name in {"flag_list", "flag_list_small", "flag_secondary_small"}:
+            art = master.crop((240,145,960,535))
+        elif name == "flag_tile":
+            art = master.crop((295,8,905,672))
+        image = art.resize(size, Image.Resampling.LANCZOS).convert("RGBA")
         if name in {"flag_loading", "flag_background", "flag_fade", "flag_pattern"}:
             width, height = size
             curve = [round(239 * (1 - x / max(1, width-1))**1.8) for x in range(width)]
