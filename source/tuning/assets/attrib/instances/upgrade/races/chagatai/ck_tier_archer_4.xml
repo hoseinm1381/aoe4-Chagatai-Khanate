@@ -6,6 +6,7 @@
 			<int name="ui_position_row" value="3" overrideParent="True" />
 		</group>
 		<group name="ui_info">
+			<file name="icon_name" value="chagatai\upgrades\tier_archer_4" overrideParent="True" />
 			<locstring name="screen_name" value="6050" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="screen_name_short" value="6050" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="help_text" value="6051" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
@@ -28,6 +29,7 @@
 				<int name="ui_position_row" value="3" overrideParent="True" />
 			</group>
 			<group name="ui_info">
+				<file name="icon_name" value="chagatai\upgrades\tier_archer_4" overrideParent="True" />
 				<locstring name="screen_name" value="6050" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="screen_name_short" value="6050" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="help_text" value="6051" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />

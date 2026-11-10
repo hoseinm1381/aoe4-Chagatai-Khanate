@@ -16,11 +16,11 @@
 1210,,,Foundation buildings.,,,Horse Pasture
 1211,,,Foundation buildings.,,,"Automatically breeds Horses for mounts or Food.\r\n+ One Horse on completion, then one every 120s before upgrades."
 2000,,,Chagatai civilization.,,,Spearman
-2001,,,Chagatai civilization.,,,Chagatai Light Lancer
+2001,,,Chagatai civilization.,,,Jida Light Lancer
 2010,,,Chagatai civilization.,,,Nökör
 2011,,,Chagatai civilization.,,,Nökör Lancer
-2020,,,Chagatai civilization.,,,Chagatai Archer
-2021,,,Chagatai civilization.,,,Chagatai Horse Archer
+2020,,,Chagatai civilization.,,,Steppe Archer
+2021,,,Chagatai civilization.,,,Steppe Horse Archer
 2030,,,Chagatai civilization.,,,Crossbowman
 2031,,,Chagatai civilization.,,,Mounted Crossbowman
 2040,,,Chagatai civilization.,,,Handcannoneer
@@ -92,7 +92,7 @@
 5010,,,Chagatai civilization.,,,Dismount
 5011,,,Chagatai civilization.,,,Instantly dismount if there is clear space nearby. Shared conversion cooldown: 30s.
 5020,,,Chagatai civilization.,,,Fierce Assault
-5021,,,Chagatai civilization.,,,"Fierce Assault (15s): +50% damage, +15% speed, -2 armor. Cooldown: 60s."
+5021,,,Chagatai civilization.,,,"Fierce Assault (8s): +50% damage, +15% speed, -2 armor. Cooldown: 60s."
 5030,,,Chagatai civilization.,,,Guarded Retreat
 5031,,,Chagatai civilization.,,,"Guarded Retreat (15s): +2 ranged armor, -20% speed. Cooldown: 60s."
 5040,,,Chagatai civilization.,,,Muster the Ulus
@@ -110,7 +110,7 @@
 5100,,,Chagatai civilization.,,,Train Light Lancer
 5101,,,Chagatai civilization.,,,"Fast light cavalry.\r\nCharge recharges in 15s.\r\n+ Bonus damage against ranged units and siege.\r\n+ Double-damage charge.\r\n- Vulnerable to Spearmen.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
 5110,,,Chagatai civilization.,,,Train Nökör Lancer
-5111,,,Chagatai civilization.,,,"Heavy cavalry.\r\nFierce Assault (15s): +50% damage, +15% speed, -2 armor. Cooldown: 60s.\r\n- No charge attack.\r\n- Vulnerable to anti-cavalry weapons.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5111,,,Chagatai civilization.,,,"Heavy cavalry.\r\nFierce Assault (8s): +50% damage, +15% speed, -2 armor. Cooldown: 60s.\r\n- No charge attack.\r\n- Vulnerable to anti-cavalry weapons.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
 5120,,,Chagatai civilization.,,,Train Horse Archer
 5121,,,Chagatai civilization.,,,"Mobile ranged cavalry.\r\nGuarded Retreat (15s): +2 ranged armor, -20% speed. Cooldown: 60s.\r\n+ Fires while moving.\r\n- Shorter range than foot Archers.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
 5130,,,Chagatai civilization.,,,Train Mounted Crossbowman
@@ -123,24 +123,24 @@
 5161,,,Chagatai civilization.,,,"Heals nearby allies from horseback.\r\nCompassionate Care improves healing by 80%.\r\n+ Carries Relics and captures Sacred Sites.\r\n+ Mounted mobility.\r\n- Cannot attack.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
 5170,,,Chagatai civilization.,,,Train Mounted Trader
 5171,,,Chagatai civilization.,,,"Establishes trade routes to earn Gold.\r\n+ Greater health and mobility than the foot form.\r\n- Cannot attack.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
-6000,,,Chagatai civilization.,,,Shared tier 2: Spearman / Chagatai Light Lancer
+6000,,,Chagatai civilization.,,,Shared tier 2: Spearman / Jida Light Lancer
 6001,,,Chagatai civilization.,,,Improves both forms of this pair to tier 2. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
-6010,,,Chagatai civilization.,,,Shared tier 3: Spearman / Chagatai Light Lancer
+6010,,,Chagatai civilization.,,,Shared tier 3: Spearman / Jida Light Lancer
 6011,,,Chagatai civilization.,,,Improves both forms of this pair to tier 3. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
-6020,,,Chagatai civilization.,,,Shared tier 4: Spearman / Chagatai Light Lancer
+6020,,,Chagatai civilization.,,,Shared tier 4: Spearman / Jida Light Lancer
 6021,,,Chagatai civilization.,,,Improves both forms of this pair to tier 4. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
 6030,,,Chagatai civilization.,,,Shared tier 4: Nökör / Nökör Lancer
 6031,,,Chagatai civilization.,,,Improves both forms of this pair to tier 4. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
-6040,,,Chagatai civilization.,,,Shared tier 3: Chagatai Archer / Chagatai Horse Archer
+6040,,,Chagatai civilization.,,,Shared tier 3: Steppe Archer / Steppe Horse Archer
 6041,,,Chagatai civilization.,,,Improves both forms of this pair to tier 3. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
-6050,,,Chagatai civilization.,,,Shared tier 4: Chagatai Archer / Chagatai Horse Archer
+6050,,,Chagatai civilization.,,,Shared tier 4: Steppe Archer / Steppe Horse Archer
 6051,,,Chagatai civilization.,,,Improves both forms of this pair to tier 4. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
 6060,,,Chagatai civilization.,,,Shared tier 4: Crossbowman / Mounted Crossbowman
 6061,,,Chagatai civilization.,,,Improves both forms of this pair to tier 4. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
 2200,,,Chagatai civilization.,,,Light melee infantry.\r\n+ Bonus damage against cavalry and Elephants.\r\n+ Braces to stop cavalry charges.\r\n- Vulnerable to ranged infantry.
 2201,,,Chagatai civilization.,,,"Fast light cavalry.\r\nCharge recharges in 15s.\r\n+ Bonus damage against ranged units and siege.\r\n+ Double-damage charge.\r\n- Vulnerable to Spearmen.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
 2210,,,Chagatai civilization.,,,"Heavy melee infantry.\r\nFormation: +1 ranged armor per 10 nearby foot Nökör within 8m, up to +3.\r\n- Vulnerable to anti-heavy weapons."
-2211,,,Chagatai civilization.,,,"Heavy cavalry.\r\nFierce Assault (15s): +50% damage, +15% speed, -2 armor. Cooldown: 60s.\r\n- No charge attack.\r\n- Vulnerable to anti-cavalry weapons.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+2211,,,Chagatai civilization.,,,"Heavy cavalry.\r\nFierce Assault (8s): +50% damage, +15% speed, -2 armor. Cooldown: 60s.\r\n- No charge attack.\r\n- Vulnerable to anti-cavalry weapons.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
 2220,,,Chagatai civilization.,,,Light ranged infantry.\r\n+ Effective against light infantry.\r\n- Moves 10% slower than an ordinary Archer.
 2221,,,Chagatai civilization.,,,"Mobile ranged cavalry.\r\nGuarded Retreat (15s): +2 ranged armor, -20% speed. Cooldown: 60s.\r\n+ Fires while moving.\r\n- Shorter range than foot Archers.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
 2230,,,Chagatai civilization.,,,Crossbow infantry.\r\n+ Bonus damage against heavy units.\r\n- Vulnerable to light cavalry.
@@ -174,22 +174,22 @@
 7001,,,Chagatai unit presentation.,,,Hardened Spearman
 7002,,,Chagatai unit presentation.,,,Veteran Spearman
 7003,,,Chagatai unit presentation.,,,Elite Spearman
-7004,,,Chagatai unit presentation.,,,Early Chagatai Light Lancer
-7005,,,Chagatai unit presentation.,,,Chagatai Light Lancer
-7006,,,Chagatai unit presentation.,,,Veteran Chagatai Light Lancer
-7007,,,Chagatai unit presentation.,,,Elite Chagatai Light Lancer
+7004,,,Chagatai unit presentation.,,,Early Jida Light Lancer
+7005,,,Chagatai unit presentation.,,,Jida Light Lancer
+7006,,,Chagatai unit presentation.,,,Veteran Jida Light Lancer
+7007,,,Chagatai unit presentation.,,,Elite Jida Light Lancer
 7008,,,Chagatai unit presentation.,,,Nökör
 7009,,,Chagatai unit presentation.,,,Veteran Nökör
 7010,,,Chagatai unit presentation.,,,Elite Nökör
 7011,,,Chagatai unit presentation.,,,Nökör Lancer
 7012,,,Chagatai unit presentation.,,,Veteran Nökör Lancer
 7013,,,Chagatai unit presentation.,,,Elite Nökör Lancer
-7014,,,Chagatai unit presentation.,,,Chagatai Archer
-7015,,,Chagatai unit presentation.,,,Veteran Chagatai Archer
-7016,,,Chagatai unit presentation.,,,Elite Chagatai Archer
-7017,,,Chagatai unit presentation.,,,Chagatai Horse Archer
-7018,,,Chagatai unit presentation.,,,Veteran Chagatai Horse Archer
-7019,,,Chagatai unit presentation.,,,Elite Chagatai Horse Archer
+7014,,,Chagatai unit presentation.,,,Steppe Archer
+7015,,,Chagatai unit presentation.,,,Veteran Steppe Archer
+7016,,,Chagatai unit presentation.,,,Elite Steppe Archer
+7017,,,Chagatai unit presentation.,,,Steppe Horse Archer
+7018,,,Chagatai unit presentation.,,,Veteran Steppe Horse Archer
+7019,,,Chagatai unit presentation.,,,Elite Steppe Horse Archer
 7020,,,Chagatai unit presentation.,,,Crossbowman
 7021,,,Chagatai unit presentation.,,,Elite Crossbowman
 7022,,,Chagatai unit presentation.,,,Mounted Crossbowman
@@ -333,10 +333,10 @@
 7490,,,Chagatai unit presentation.,,,Increases the movement speed of affected siege engines.
 7491,,,Chagatai unit presentation.,,,Improves the durability of affected siege engines.
 7492,,,Chagatai unit presentation.,,,Increases Villager movement speed and resource carrying capacity.
-7493,,,Chagatai unit presentation.,,,Increases Villager maximum health.
+7493,,,Chagatai unit presentation.,,,Villagers gain +25 maximum health in either form. Horse health is unchanged.
 5222,,,Chagatai unit presentation.,,,Last dismount: mount ready in
 7494,,,Chagatai influence.,,,Each completed Horse Pasture you own within 1 tile grants this building +15% unit production speed. Bonuses add together.
 7495,,,Chagatai influence.,,,"Each completed Horse Pasture grants +15% unit production speed to your Melee Encampments, Ranged Encampments, and Ordu of Almaliq within their influence."
 3070,,,Chagatai civilization.,,,Jida Spearheads
-3170,,,Chagatai civilization.,,,Spearmen and Chagatai Light Lancers gain +3 base weapon damage. Bonus damage against specific targets stays the same.
+3170,,,Chagatai civilization.,,,Spearmen and Jida Light Lancers gain +3 base weapon damage. Bonus damage against specific targets stays the same.
 7496,,,Chagatai civilization.,,,Unique Melee Technology

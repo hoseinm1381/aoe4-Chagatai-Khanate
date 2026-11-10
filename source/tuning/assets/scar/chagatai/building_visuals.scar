@@ -2,13 +2,20 @@
 local N=ChagataiNative
 local custom={pasture=true,steppe_hearth=true,melee=true,ranged=true,wonder=true,
     almaliq=true,ordu=true,qarshi=true,court=true,ili=true,mint=true}
+local landmark={almaliq=true,ordu=true,qarshi=true,court=true,ili=true,mint=true}
+local landmarkConstruction={'construct_00','damage_5','damage_4','damage_3','damage_2','damage_1'}
 
-function N.BuildingVisualState(alive,underConstruction,progress,health)
-    if not alive or health<=0 then return 'ruins' end
+function N.BuildingVisualState(alive,underConstruction,progress,health,role)
+    if not alive then return 'ruins' end
     if underConstruction then
+        if landmark[role] then
+            local index=math.min(#landmarkConstruction,1+math.floor(math.max(0,progress)*#landmarkConstruction))
+            return landmarkConstruction[index]
+        end
         local stage=math.min(19,math.max(0,math.floor(progress*20)))*5
         return string.format('construct_%02d',stage)
     end
+    if health<=0 then return 'ruins' end
     -- Same health bands as the official Forbidden Palace lifecycle.
     if health>=0.85 then return 'healthy'
     elseif health>=0.68 then return 'damage_1'
@@ -40,7 +47,7 @@ function N.BuildingVisual(b,entity,now)
     local health=Entity_GetHealthPercentage(entity)
     local constructing=alive and Entity_IsUnderConstruction(entity)
     local progress=constructing and Entity_GetBuildingProgress(entity) or 1
-    local state=N.BuildingVisualState(alive,constructing,progress,health)
+    local state=N.BuildingVisualState(alive,constructing,progress,health,b.role)
     if encampmentStartAge[b.role] then
         local owner=N.Owner(entity)
         if owner and alive then b.visualAge=Player_GetCurrentAge(owner) end

@@ -47,6 +47,26 @@ class BuildingVisuals(unittest.TestCase):
             actor.valid=true;n.ended=true;n.BuildingVisual(building,actor,6)
             assert(#calls==2)
         ''')
+
+    def test_each_landmark_builds_through_damage_meshes(self):
+        self.lua.execute('''
+            local n=ChagataiNative
+            for _,role in ipairs({'almaliq','ordu','qarshi','court','ili','mint'}) do
+                calls={}
+                building={role=role}
+                actor.constructing=true
+                for i=0,5 do
+                    actor.progress=i/6
+                    actor.hp=.05
+                    n.BuildingVisual(building,actor,i*.25)
+                end
+                actor.constructing=false
+                actor.hp=1
+                n.BuildingVisual(building,actor,2)
+                assert(table.concat(calls,',')==
+                    'construct_00,damage_5,damage_4,damage_3,damage_2,damage_1,healthy')
+            end
+        ''')
     def test_encampment_switches_tier_and_keeps_age_on_destruction(self):
         self.lua.execute('''
             building.role='ranged'

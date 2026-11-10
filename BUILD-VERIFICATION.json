@@ -1,12 +1,12 @@
 {
   "owner": "ac8da4d112bf433c888433228510b447",
-  "members": 893,
+  "members": 907,
   "attributes": 328,
   "codex_groups": 21,
   "tuning_cook_owner": "ac8da4d112bf433c888433228510b447",
-  "archive_sha256": "27247c6f6f1f474a8d28745224347aaa78a7e2ed7da602a22b35e6e1e7a38ec0",
-  "zip_sha256": "f4cc09c11dde4cc98b0818f260921f17d4c4fd58173b71d43e6a1da257a4115d",
-  "zip": "release/Chagatai-Khanate-Garrison-0.2.4.zip",
+  "archive_sha256": "541361025e98a5f42ad4394fbf1dbd564f33d8abc7a8c3b44bb054dbbaedbbce",
+  "zip_sha256": "34214fed019951ec12a55340b4f96df84d2631746691c243d7d5c7989a6b1171",
+  "zip": "release/Chagatai-Khanate-Garrison-0.2.9.zip",
   "runtime_tested": false,
   "visual_receivers": {
     "ck_building_melee": "art/scenario/chagatai/melee/model",
@@ -175,7 +175,7 @@
     "unit_workshop_ram_3_mon"
   ],
   "carrier_sha256": "eb3bfdb1a005214c42e2fbbb6deadaad47e5cbc9b70d88f5ec7ecdf9102f0ac9",
-  "tuning_sha256": "547ea536d09357d95ff3709161522576235113ed93dc158eeae28e932730e0dd",
+  "tuning_sha256": "53c5a5c98c7c80e6da9e75e2a386686b22b7fedd3dff68d888a59520c2d02902",
   "visual_readback": {
     "zip_crc_verified": true,
     "sga_integrity_verified": true,
@@ -192,7 +192,7 @@
     "opening_regression": {
       "matched_release": "0.1.2",
       "members": 29,
-      "dispatcher_change_limited_to_building_visual_import": true,
+      "dispatcher_startup_matches_baseline": true,
       "scout_rig_and_material_verified_separately": true,
       "army_gameplay_digest_verified": true
     },
@@ -383,9 +383,11 @@
         "age_meshes": {},
         "construction_meshes": [
           "almaliq_frame00",
-          "almaliq_frame25",
-          "almaliq_frame50",
-          "almaliq_frame75"
+          "almaliq_damage_5",
+          "almaliq_damage_4",
+          "almaliq_damage_3",
+          "almaliq_damage_2",
+          "almaliq_damage_1"
         ]
       },
       {
@@ -412,9 +414,11 @@
         "age_meshes": {},
         "construction_meshes": [
           "ordu_frame00",
-          "ordu_frame25",
-          "ordu_frame50",
-          "ordu_frame75"
+          "ordu_damage_5",
+          "ordu_damage_4",
+          "ordu_damage_3",
+          "ordu_damage_2",
+          "ordu_damage_1"
         ]
       },
       {
@@ -441,9 +445,11 @@
         "age_meshes": {},
         "construction_meshes": [
           "qarshi_frame00",
-          "qarshi_frame25",
-          "qarshi_frame50",
-          "qarshi_frame75"
+          "qarshi_damage_5",
+          "qarshi_damage_4",
+          "qarshi_damage_3",
+          "qarshi_damage_2",
+          "qarshi_damage_1"
         ]
       },
       {
@@ -470,9 +476,11 @@
         "age_meshes": {},
         "construction_meshes": [
           "court_frame00",
-          "court_frame25",
-          "court_frame50",
-          "court_frame75"
+          "court_damage_5",
+          "court_damage_4",
+          "court_damage_3",
+          "court_damage_2",
+          "court_damage_1"
         ]
       },
       {
@@ -499,9 +507,11 @@
         "age_meshes": {},
         "construction_meshes": [
           "ili_frame00",
-          "ili_frame25",
-          "ili_frame50",
-          "ili_frame75"
+          "ili_damage_5",
+          "ili_damage_4",
+          "ili_damage_3",
+          "ili_damage_2",
+          "ili_damage_1"
         ]
       },
       {
@@ -528,9 +538,11 @@
         "age_meshes": {},
         "construction_meshes": [
           "mint_frame00",
-          "mint_frame25",
-          "mint_frame50",
-          "mint_frame75"
+          "mint_damage_5",
+          "mint_damage_4",
+          "mint_damage_3",
+          "mint_damage_2",
+          "mint_damage_1"
         ]
       },
       {
@@ -670,71 +682,173 @@
     "unchanged_working_materials": 0,
     "native_game_tested": false
   },
-  "landmark_and_market_readback": {
-    "qarshi_uses_town_center_textiles": true,
-    "qarshi_mounted_villager_slot": [
-      2,
-      1
-    ],
-    "market_mounted_trader_native_and_fallback_slot": [
-      1,
-      3
-    ],
-    "ili_herd_slots": {
-      "war": [
-        1,
-        3
-      ],
-      "fattened": [
-        1,
-        4
-      ]
-    },
-    "ili_shared_cooldown_seconds": 60,
-    "fattened_horse_food": 600,
-    "unchanged_0_2_4_art": true
-  },
-  "building_presentation_readback": {
-    "compared_to": "0.2.3",
-    "members": 893,
-    "changed_members": 43,
-    "rotated_custom_models": 11,
-    "ranged_visual_scale_percent": 140,
-    "ranged_world_space_blocker_preserved": true,
-    "unchanged_native_building_controllers": 11,
-    "era": "1227–1705 CE",
-    "cooked_healthy_lod1_owner_color_area": {
-      "melee": {
-        "melee_healthy": 0.0585,
-        "melee_m2_healthy": 0.1219,
-        "melee_m3_healthy": 0.2475,
-        "melee_m4_healthy": 0.2382
+  "icon_refresh": {
+    "base_zip": "release/Chagatai-Khanate-Garrison-0.2.8.zip",
+    "base_archive_sha256": "3126a56c7a2bdf6d5481a568890ac0625cdbd2bc033807ba134c7a99a494a5a0",
+    "texture_cook_sha256": "d268e81e55e37fe5c3ad2ec20f41220ebbacf7e9f65004b65970c0019b4ec8fb",
+    "byte_identical_non_icon_members": 880,
+    "textures": {
+      "ui/icons/chagatai/landmarks/almaliq.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 1.044,
+        "mean_visible_rgb_error": 0.857
       },
-      "ranged": {
-        "ranged_healthy": 0.2481,
-        "ranged_r3_healthy": 0.1402,
-        "ranged_r4_healthy": 0.1397
+      "ui/icons/chagatai/landmarks/court.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.894,
+        "mean_visible_rgb_error": 0.738
       },
-      "almaliq": {
-        "almaliq_healthy": 0.0809
+      "ui/icons/chagatai/landmarks/ili.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 1.062,
+        "mean_visible_rgb_error": 0.782
       },
-      "ordu": {
-        "ordu_healthy": 0.1768
+      "ui/icons/chagatai/landmarks/mint.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.914,
+        "mean_visible_rgb_error": 0.762
       },
-      "qarshi": {
-        "qarshi_healthy": 0.0527
+      "ui/icons/chagatai/landmarks/ordu.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 1.096,
+        "mean_visible_rgb_error": 0.697
       },
-      "court": {
-        "court_healthy": 0.119
+      "ui/icons/chagatai/landmarks/qarshi.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.905,
+        "mean_visible_rgb_error": 0.736
       },
-      "ili": {
-        "ili_healthy": 0.1788
+      "ui/icons/chagatai/upgrades/compassionate_care.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.586,
+        "mean_visible_rgb_error": 0.433
       },
-      "mint": {
-        "mint_healthy": 0.0551
+      "ui/icons/chagatai/upgrades/horse_hp_1.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.586,
+        "mean_visible_rgb_error": 0.37
       },
-      "wonder": {
-        "wonder_healthy": 0.0994
+      "ui/icons/chagatai/upgrades/horse_hp_2.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.685,
+        "mean_visible_rgb_error": 0.497
+      },
+      "ui/icons/chagatai/upgrades/horse_hp_3.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.561,
+        "mean_visible_rgb_error": 0.423
+      },
+      "ui/icons/chagatai/upgrades/jida_spearheads.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.984,
+        "mean_visible_rgb_error": 0.536
+      },
+      "ui/icons/chagatai/upgrades/lamellar_reinforcement.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.381,
+        "mean_visible_rgb_error": 0.432
+      },
+      "ui/icons/chagatai/upgrades/livestock_1.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 1.301,
+        "mean_visible_rgb_error": 0.67
+      },
+      "ui/icons/chagatai/upgrades/livestock_2.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.336,
+        "mean_visible_rgb_error": 0.233
+      },
+      "ui/icons/chagatai/upgrades/livestock_3.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.803,
+        "mean_visible_rgb_error": 0.506
+      },
+      "ui/icons/chagatai/upgrades/production_1.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.398,
+        "mean_visible_rgb_error": 0.322
+      },
+      "ui/icons/chagatai/upgrades/production_2.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.579,
+        "mean_visible_rgb_error": 0.513
+      },
+      "ui/icons/chagatai/upgrades/production_3.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.562,
+        "mean_visible_rgb_error": 0.462
+      },
+      "ui/icons/chagatai/upgrades/tier_archer_3.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.047,
+        "mean_visible_rgb_error": 0.058
+      },
+      "ui/icons/chagatai/upgrades/tier_archer_4.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.067,
+        "mean_visible_rgb_error": 0.04
+      },
+      "ui/icons/chagatai/upgrades/tier_crossbow_4.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.063,
+        "mean_visible_rgb_error": 0.045
+      },
+      "ui/icons/chagatai/upgrades/tier_nokor_3.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.088,
+        "mean_visible_rgb_error": 0.034
+      },
+      "ui/icons/chagatai/upgrades/tier_nokor_4.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.076,
+        "mean_visible_rgb_error": 0.039
+      },
+      "ui/icons/chagatai/upgrades/tier_spearman_2.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.068,
+        "mean_visible_rgb_error": 0.031
+      },
+      "ui/icons/chagatai/upgrades/tier_spearman_3.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.077,
+        "mean_visible_rgb_error": 0.057
+      },
+      "ui/icons/chagatai/upgrades/tier_spearman_4.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.115,
+        "mean_visible_rgb_error": 0.038
+      },
+      "ui/icons/chagatai/upgrades/yam_logistics.rrtex": {
+        "format": 28,
+        "mips": 1,
+        "mean_alpha_error": 0.622,
+        "mean_visible_rgb_error": 0.501
       }
     }
   }

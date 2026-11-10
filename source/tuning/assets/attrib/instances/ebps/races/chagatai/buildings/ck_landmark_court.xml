@@ -22,6 +22,7 @@
 			<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
 		</template_reference>
 		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="466870777" List.ParentItemID="466870777">
+			<file name="icon_name" value="chagatai\landmarks\court" overrideParent="True" />
 			<locstring name="screen_name" value="4230" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="help_text" value="4231" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="extra_text" value="1143" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
@@ -117,6 +118,7 @@
 				<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
 			</template_reference>
 			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="466870777" List.ParentItemID="466870777">
+				<file name="icon_name" value="chagatai\landmarks\court" overrideParent="True" />
 				<locstring name="screen_name" value="4230" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="help_text" value="4231" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="extra_text" value="1143" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />

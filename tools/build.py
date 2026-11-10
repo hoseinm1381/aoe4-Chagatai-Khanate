@@ -8,19 +8,18 @@ from pathlib import Path
 import re
 import subprocess
 import sys
-import tempfile
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "source"
-TEMP_ROOT = Path(os.environ.get("CK_SCRATCH", Path(tempfile.gettempdir()) / "chagatai-builds")).resolve()
+TEMP_ROOT = Path(os.environ.get("CK_SCRATCH", ROOT / ".build")).resolve()
 EXT = Path(os.environ.get("GARRISON_EXTENSION", Path(os.environ["APPDATA"]) /
     "Blender Foundation/Blender/5.2/extensions/raw_githubusercontent_com/garrison"))
 sys.path.insert(0, str(EXT))
 from garrison_shared import mod_bundle, rgd, stock_game
 
 DISPATCHER = "scar/garrison/chagatai/dispatcher.scar"
-VERSION = "0.2.4"
+VERSION = "0.2.9"
 SHARED_SQUADS_MARKER = "local sharedSquads = {} -- Filled by tools/build.py."
 ARCHETYPES = {
     "town_center":"town_center", "house":"steppe_hearth", "barracks":"melee",
@@ -76,8 +75,8 @@ def ucs(data):
 
 def build(args):
     work = args.work.resolve()
-    if not work.is_relative_to(TEMP_ROOT) or work == TEMP_ROOT:
-        raise ValueError("Build scratch must be a new directory under Temp_aoe4")
+    if not work.is_relative_to(ROOT) or not work.is_relative_to(TEMP_ROOT) or work == TEMP_ROOT:
+        raise ValueError("Build scratch must be a new directory inside the project scratch folder")
     work.mkdir()
     profile = read_json(SOURCE/"authoring-profile.json")
     owner = profile["owner"].replace("-","")
@@ -381,7 +380,7 @@ def build(args):
             "description":profile["description"],"author":"hosein81 and chilly5",
             "civilization":{"period":profile["period"],"difficulty":profile["difficulty"],
                             "tagline":profile["traits"],"bonuses":profile["bonuses"]},
-            "min_garrison":"0.1.16","updated":"2026-11-09","content_types":["civilization"],"cover":"cover.png"},
+            "min_garrison":"0.1.16","updated":"2026-11-10","content_types":["civilization"],"cover":"cover.png"},
         archives=[("chagatai","civilization",archive)],
         start_here=(ROOT/"START-HERE.md").read_text(encoding="utf-8"),
         cover=SOURCE/"presentation/cover.png")

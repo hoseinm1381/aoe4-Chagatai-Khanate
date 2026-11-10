@@ -3,7 +3,7 @@ param(
     [string]$Python = 'python'
 )
 $ErrorActionPreference = 'Stop'
-$scratch = 'F:\aoe_4_temp\Temp_aoe4'
+$scratch = Join-Path (Split-Path -Parent $PSScriptRoot) '.build'
 $work = Join-Path $scratch ('chagatai-ordu-' + [guid]::NewGuid().ToString('N'))
 $extension = Join-Path $env:APPDATA 'Blender Foundation\Blender\5.2\extensions\raw_githubusercontent_com\garrison'
 New-Item -ItemType Directory -Path "$work\temp" | Out-Null

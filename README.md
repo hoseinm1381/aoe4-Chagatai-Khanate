@@ -1,6 +1,12 @@
 # Chagatai Khanate for Garrison
 
-An independent Age of Empires IV civilization by hosein81 and chilly5. Import the 0.2.4 playable ZIP through Garrison and select Chagatai Khanate in Standard Skirmish with Tuning Pack None. See [START-HERE.md](START-HERE.md).
+An independent Age of Empires IV civilization by hosein81 and chilly5. Import the [0.2.9 playable ZIP](https://github.com/hoseinm1381/aoe4-Chagatai-Khanate/releases/tag/v0.2.9) through Garrison and select Chagatai Khanate in Standard Skirmish with Tuning Pack None. See [START-HERE.md](START-HERE.md).
+
+0.2.9 uses the approved gold landmark and upgrade icons, with detailed horse profiles and native age pips.
+
+0.2.8 gives Khan's Court and Fierce Assault native recharge timers, six landmark portraits, and individual technology emblems. Landmark construction advances from a foundation through the five damage meshes.
+
+0.2.7 restores the round Ordu of Almaliq with embroidered felt and a mounted muster yard. It has four construction meshes, five damage meshes, and a ruined state. Fierce Assault lasts 8 seconds, as in 0.2.6.
 
 0.2.4 turns all 11 custom structures by 180°, enlarges the Ranged Encampment by 40% visually, and uses the original material colors with player-color trim on nine structures. The era shown in Garrison and the game is 1227–1705 CE.
 
@@ -24,7 +30,7 @@ python -m pip install -r .tools/requirements-python313.txt
 ./Build.ps1 -Python python
 ```
 
-Pass `-Editor` to select a different model-capable editor and `-Scratch` to use a short local work path. The build generates fresh carrier and tuning cooks, assembles them with the retained art, checks the package, and writes the player ZIP to `release/`. See [BUILD-VERIFICATION.json](BUILD-VERIFICATION.json) for the package receipt.
+The build keeps scratch files under `.build/` and uses short names for Content Editor inputs. Pass `-Scratch` to select another directory inside the project or `-Editor` to select a different model-capable editor. The build cooks the carrier and tuning pack, assembles them with the retained art, checks the package, and writes the player ZIP to `release/`. Use `-VerifyOnly` to keep the verified ZIP in the run directory. See [BUILD-VERIFICATION.json](BUILD-VERIFICATION.json) for the delivered package receipt.
 
 ## Recook edited art
 

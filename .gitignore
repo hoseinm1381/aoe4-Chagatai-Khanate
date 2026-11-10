@@ -1,7 +1,13 @@
 /release/
 /output/
+/.build/
 /.tools/python313/
 __pycache__/
 *.pyc
 *.blend1
 *.blend2
+
+# Local design notes and rendered review images
+/authoring/design/
+/authoring/review/**/*.png
+/authoring/Ordu-preview.png

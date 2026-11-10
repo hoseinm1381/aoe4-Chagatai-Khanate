@@ -22,7 +22,7 @@
 		<list name="requirements_self_recharge" overrideParent="True" />
 		<float name="entity_busy_time" value="0" overrideParent="True" />
 		<float name="hold_period" value="0" overrideParent="True" />
-		<float name="recharge_time" value="0" overrideParent="True" />
+		<float name="recharge_time" value="180" overrideParent="True" />
 		<bool name="fire_and_forget" value="True" overrideParent="True" />
 		<bool name="range_ignore" value="True" overrideParent="True" />
 		<bool name="can_be_interrupted" value="False" overrideParent="True" />
@@ -38,7 +38,7 @@
 			<locstring name="extra_text" value="7403" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="brief_text" value="0" overrideParent="True" />
 			<string name="hotkey_name" value="Q" overrideParent="True" />
-			<file name="icon_name" value="races\mongols\buildings\building_wonder_age1_kurultai_mon" overrideParent="True" />
+			<file name="icon_name" value="chagatai\landmarks\court" overrideParent="True" />
 			<template_reference name="ui_info_extended" value="tables\ui_info_ext">
 				<template_reference name="command_card_info" value="ui_command_card_info">
 					<group name="ui_position">
@@ -75,7 +75,7 @@
 			<list name="requirements_self_recharge" overrideParent="True" />
 			<float name="entity_busy_time" value="0" overrideParent="True" />
 			<float name="hold_period" value="0" overrideParent="True" />
-			<float name="recharge_time" value="0" overrideParent="True" />
+			<float name="recharge_time" value="180" overrideParent="True" />
 			<bool name="fire_and_forget" value="True" overrideParent="True" />
 			<bool name="range_ignore" value="True" overrideParent="True" />
 			<bool name="can_be_interrupted" value="False" overrideParent="True" />
@@ -91,7 +91,7 @@
 				<locstring name="extra_text" value="7403" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="brief_text" value="0" overrideParent="True" />
 				<string name="hotkey_name" value="Q" overrideParent="True" />
-				<file name="icon_name" value="races\mongols\buildings\building_wonder_age1_kurultai_mon" overrideParent="True" />
+				<file name="icon_name" value="chagatai\landmarks\court" overrideParent="True" />
 				<template_reference name="ui_info_extended" value="tables\ui_info_ext">
 					<template_reference name="command_card_info" value="ui_command_card_info">
 						<group name="ui_position">

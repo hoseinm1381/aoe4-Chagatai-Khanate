@@ -6,7 +6,7 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 $root = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
-$scratch = 'F:\aoe_4_temp\Temp_aoe4'
+$scratch = Join-Path $root '.build'
 $run = Join-Path $scratch ('cklife-' + [guid]::NewGuid().ToString('N').Substring(0,8))
 $previous = @($env:CK_RUN, $env:TEMP, $env:TMP, $env:PYTHONDONTWRITEBYTECODE)
 New-Item -ItemType Directory -Path $run | Out-Null

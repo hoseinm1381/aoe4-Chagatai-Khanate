@@ -125,7 +125,7 @@ function N.BuildingButtons(p,b,entity,now)
     for _,pair in ipairs({'spearman','nokor','archer','crossbow','handcannon','scout','religious','trader'}) do actions[#actions+1]='train_'..pair end
     local desired={}
     if N.Functioning(entity) then
-        if b.role=='court' and now>=b.court.readyAt then desired.court=true
+        if b.role=='court' then desired.court=true
         elseif b.role=='ili' then desired.ili_war=true;desired.ili_fattened=true
         elseif b.role=='mint' then
             desired.withdraw=true

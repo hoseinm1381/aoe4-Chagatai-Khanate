@@ -102,6 +102,19 @@ function N.RecordWorkerHealth(p,e)
         fraction=Entity_GetHealthPercentage(e)}
 end
 
+local function applyWorkerTextiles(p,rider,e)
+    if not rider or rider.textilesApplied or not p.research.textiles then return end
+    -- Use the catalog's rider-only HP. Older saves can carry a native Textiles
+    -- bonus baked into the mounted actor's observed maximum.
+    local body=N.Unit('villager',rider.form,1,'ebps')
+    rider.textilesApplied=true
+    rider.baseRiderHP=body.riderHP+ChagataiConfig.research.textilesHP
+    rider.hp=Entity_GetHealth(e)
+    rider.maximum=Entity_GetHealthMax(e)
+    ChagataiHorse.SetRiderMaximum(p.horses,rider.id,rider.baseRiderHP)
+    N.Health(rider,e,rider.maximum,rider.hp)
+end
+
 function N.EnsureWorker(p,e)
 
     if N.Owner(e)~=p.id or not Entity_IsAlive(e) then return end
@@ -132,6 +145,7 @@ function N.EnsureWorker(p,e)
     -- Age-up can alter HP while a worker is gathering. Sample/repair before
     -- deferring blueprint work, so a busy worker cannot lose its old fraction.
     if needsConvert and not N.CanConvert(e,squad) then
+        applyWorkerTextiles(p,rider,e)
         N.RecordWorkerHealth(p,e)
         return
     end
@@ -144,7 +158,6 @@ function N.EnsureWorker(p,e)
             if N.entities[id] then N.entities[id].commandForm=nil end
         end
         if rider then
-            rider.riderMaximum=Entity_GetHealthMax(e)-(form=='mounted' and 60 or 0)
             rider.maximum=rider.riderMaximum+(horse and horse.maximum or 0)
             rider.hp=rider.maximum*fraction
             N.Health(rider,e,rider.maximum,rider.hp)
@@ -159,6 +172,7 @@ function N.EnsureWorker(p,e)
         rider=N.RegisterRider(p,e,body)
         if rider then N.SetHealth(e,fraction);rider.hp=Entity_GetHealth(e) end
     end
+    applyWorkerTextiles(p,rider,e)
     N.RecordWorkerHealth(p,e)
 end
 function N.ReconcileNativeUnit(p,e)

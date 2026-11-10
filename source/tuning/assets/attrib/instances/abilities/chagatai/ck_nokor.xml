@@ -22,7 +22,7 @@
 		<list name="requirements_self_recharge" overrideParent="True" />
 		<float name="entity_busy_time" value="0" overrideParent="True" />
 		<float name="hold_period" value="0" overrideParent="True" />
-		<float name="recharge_time" value="0" overrideParent="True" />
+		<float name="recharge_time" value="60" overrideParent="True" />
 		<bool name="fire_and_forget" value="True" overrideParent="True" />
 		<bool name="range_ignore" value="True" overrideParent="True" />
 		<bool name="can_be_interrupted" value="False" overrideParent="True" />
@@ -75,7 +75,7 @@
 			<list name="requirements_self_recharge" overrideParent="True" />
 			<float name="entity_busy_time" value="0" overrideParent="True" />
 			<float name="hold_period" value="0" overrideParent="True" />
-			<float name="recharge_time" value="0" overrideParent="True" />
+			<float name="recharge_time" value="60" overrideParent="True" />
 			<bool name="fire_and_forget" value="True" overrideParent="True" />
 			<bool name="range_ignore" value="True" overrideParent="True" />
 			<bool name="can_be_interrupted" value="False" overrideParent="True" />

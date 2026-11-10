@@ -11,7 +11,7 @@ function ChagataiEffects.ActivateMounted(rider, now)
 
     if not rider.alive or rider.hp <= 0 or rider.form ~= "mounted" or rider.garrisoned
         or (rider.pair ~= "nokor" and rider.pair ~= "archer") or now < rider.abilityReadyAt then return false end
-    rider.abilityUntil = now+ChagataiConfig.ability.duration
+    rider.abilityUntil = now+ChagataiConfig.ability.duration[rider.pair]
     rider.abilityReadyAt = now+ChagataiConfig.ability.cooldown
     return true
 end

@@ -2,6 +2,14 @@
 	<uniqueid name="pbgid" value="1073765395" />
 	<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_villager_health" />
 	<group name="upgrade_bag">
+		<group name="state_tree_references">
+			<template_reference name="on_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" overrideParent="True" />
+			</template_reference>
+			<template_reference name="on_action_entity_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" overrideParent="True" />
+			</template_reference>
+		</group>
 		<group name="ui_position">
 			<int name="ui_position_row" value="3" overrideParent="True" />
 			<int name="ui_position_column" value="1" overrideParent="True" />
@@ -26,6 +34,14 @@
 	</group>
 	<variant name="xp3">
 		<group name="upgrade_bag">
+			<group name="state_tree_references">
+				<template_reference name="on_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" overrideParent="True" />
+				</template_reference>
+				<template_reference name="on_action_entity_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" overrideParent="True" />
+				</template_reference>
+			</group>
 			<group name="ui_position">
 				<int name="ui_position_row" value="3" overrideParent="True" />
 				<int name="ui_position_column" value="1" overrideParent="True" />

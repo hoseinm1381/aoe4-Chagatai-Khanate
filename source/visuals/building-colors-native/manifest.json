@@ -94,21 +94,16 @@
   {
     "asset": "ordu",
     "member": "art/scenario/chagatai/ordu_healthy/ordu_healthy_albedo.rrtex",
-    "sha256": "172cf060dfcfc4455e1ed7f75749cc0f1c394d2129ca7bbee85dddd74e78733f",
+    "sha256": "b7584e37c92b6afa9c91d5b8cbf4306d5fcfa61743cfe044e6525df4c8608caf",
     "native_internal_format": 19,
-    "mips": 12,
-    "mean_compression_error": 1.173
+    "mips": 12
   },
   {
     "asset": "ordu",
     "member": "art/scenario/chagatai/ordu_healthy/ordu_healthy_pattern.rrtex",
-    "sha256": "95385b79d9ae5297971f614a1471bf67035cef251da6ae430b75168901961cb5",
+    "sha256": "e51943a3419dc869b1aea75356bb78d2f6e34824ab05f265ffa85240a4ff495d",
     "native_internal_format": 22,
-    "mips": 12,
-    "mean_compression_error": 0.0137,
-    "cooked_healthy_lod1_owner_color_area": {
-      "ordu_healthy": 0.1768
-    }
+    "mips": 12
   },
   {
     "asset": "qarshi",

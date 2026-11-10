@@ -250,9 +250,29 @@ function N.DestroySingleActor(entity)
     end
     Entity_Destroy(entity)
 end
+local horseSelectionLocks={}
+
+function N.LockHorseSelection(id,locked,restore)
+    if not id then return end
+    local tracked=N.entities[id]
+    local e=N.Entity(id)
+    locked=locked and e and tracked and Game_GetLocalPlayer()==tracked.player.id and N.Owner(e)==tracked.player.id
+    if not locked and not horseSelectionLocks[id] and not restore then return end
+    if not e or not Entity_IsAlive(e) then horseSelectionLocks[id]=nil;return end
+    local squad=Entity_GetSquad(e)
+    if not squad or squad==0 then return end
+    if restore and (not tracked or Game_GetLocalPlayer()~=tracked.player.id) then return end
+    if not restore and horseSelectionLocks[id]==squad and locked then return end
+    if locked and Misc_IsSquadSelected(squad) then Misc_SelectSquad(squad,false) end
+    -- Horses use squad_select. This is owner-side UI state only.
+    Misc_SetSquadSelectable(squad,not locked)
+    horseSelectionLocks[id]=locked and squad or nil
+end
+
 function N.ReleaseHorseAttachments(p,h,id,detachEvents)
 
     local tracked=id and N.entities[id]
+    N.LockHorseSelection(id,false)
     if tracked and tracked.blocks then N.RemoveMods(tracked.blocks);tracked.blocks=nil end
     if h and h.healthMod then Modifier_Remove(h.healthMod);h.healthMod=nil end
     local owner=p or tracked and tracked.player

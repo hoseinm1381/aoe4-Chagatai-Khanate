@@ -74,9 +74,14 @@ def audit(root, previous=None):
         construction=[]
         if building['asset'] in ('almaliq','ordu','qarshi','court','ili','mint','wonder'):
             for percent in range(100):
-                [mesh] = visible(classify(True,True,percent/100,.10))
-                assert mesh == f"{building['asset']}_frame{percent//25*25:02d}"
-                if percent%25==0:
+                role = building['asset']
+                [mesh] = visible(classify(True,True,percent/100,.10,role))
+                if role == 'wonder':
+                    state = f'frame{percent//25*25:02d}'
+                else:
+                    state = ('frame00','damage_5','damage_4','damage_3','damage_2','damage_1')[percent*6//100]
+                assert mesh == f'{role}_{state}'
+                if not construction or mesh != construction[-1]:
                     construction.append(mesh)
             if building['asset'] != 'wonder':
                 assert len({tuple(visible(s)) for _,s in samples})==7

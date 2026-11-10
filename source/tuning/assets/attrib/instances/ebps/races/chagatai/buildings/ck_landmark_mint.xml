@@ -25,6 +25,7 @@
 			<list name="standard_upgrades" removedIds="-1366590418, 55242854, 1176237618, 416734255, 117076607, -813025537, 1235499192, 810548941, -2079844179, 590205615, -956883269, -1441651290" />
 		</template_reference>
 		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="646243642" List.ParentItemID="646243642">
+			<file name="icon_name" value="chagatai\landmarks\mint" overrideParent="True" />
 			<locstring name="screen_name" value="4250" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="help_text" value="4251" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 			<locstring name="extra_text" value="1145" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
@@ -191,6 +192,7 @@
 				<list name="standard_upgrades" removedIds="-1366590418, 55242854, 1176237618, 416734255, 117076607, -813025537, 1235499192, 810548941, -2079844179, 590205615, -956883269" />
 			</template_reference>
 			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="646243642" List.ParentItemID="646243642">
+				<file name="icon_name" value="chagatai\landmarks\mint" overrideParent="True" />
 				<locstring name="screen_name" value="4250" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="help_text" value="4251" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />
 				<locstring name="extra_text" value="1145" overrideParent="True" mod="ac8da4d112bf433c888433228510b447" />

@@ -6,7 +6,7 @@ import re
 import struct
 import zipfile
 
-from build import child, locate_inventory, rgd, sha, stock_game, TEMP_ROOT
+from build import ROOT, child, locate_inventory, rgd, sha, stock_game, TEMP_ROOT
 from compose_buildings import ART, STATES, find, rc
 from repair_animators import HORSE, HORSE_IDLE, building_controller
 from native_visuals import SCOUT_MODEL, rig_donors, restore_rig, building_boxes, PASSAGE_WIDTH
@@ -153,9 +153,23 @@ def verify_opening(readback, visuals):
             return sha(rgd.write(doc))
         if member==dispatcher:
             statement=b'import("chagatai/building_visuals.scar")'
-            added=statement+(b'\r\n' if statement+b'\r\n' in raw else b'\n')
-            if raw.count(added)!=1:raise ValueError('Missing unique building visual import')
-            raw=raw.replace(added,b'',1)
+            eol=b'\r\n' if statement+b'\r\n' in raw else b'\n'
+            # Restore only re-applies local selection locks. Pin the rest of
+            # the dispatcher, including prematch and starting-army setup.
+            restore=b"""        for _,index in ipairs(native.Keys(native.players)) do
+            local horses=native.players[index].horses.horses
+            for _,id in ipairs(native.Keys(horses)) do
+                local horse=horses[id]
+                native.LockHorseSelection(horse.nativeID,horse.status=='mount',true)
+            end
+        end
+"""
+            import_line=statement+eol
+            restore_anchor=b'        pcall(native.RestoreHorseHUD)'+eol
+            restore_block=restore_anchor+restore.replace(b'\n',eol)
+            if raw.count(import_line)!=1 or raw.count(restore_block)!=1:
+                raise ValueError('Missing unique dispatcher addition')
+            raw=raw.replace(import_line,b'',1).replace(restore_block,restore_anchor,1)
         return sha(raw)
     mismatches = [member for member, digest in baseline["sha256"].items()
                   if member not in changed_scout and (not (readback / member).is_file() or original_digest(member) != digest)]
@@ -164,7 +178,7 @@ def verify_opening(readback, visuals):
     stock = stock_game.current().model_files(HORSE, required=(".rgo",))
     if HORSE_IDLE.encode("ascii") not in stock[".rgo"]:
         raise ValueError("The installed Horse animator lacks the opening idle binding")
-    return {"matched_release": baseline["observed_release"], "members": len(baseline["sha256"]) - len(changed_scout), "dispatcher_change_limited_to_building_visual_import": True, "scout_rig_and_material_verified_separately": True, "army_gameplay_digest_verified": True}
+    return {"matched_release": baseline["observed_release"], "members": len(baseline["sha256"]) - len(changed_scout), "dispatcher_startup_matches_baseline": True, "scout_rig_and_material_verified_separately": True, "army_gameplay_digest_verified": True}
 
 
 def main():
@@ -173,8 +187,8 @@ def main():
         parser.add_argument(name, type=Path)
     args = parser.parse_args()
     work = args.work.resolve()
-    if not work.is_relative_to(TEMP_ROOT) or work == TEMP_ROOT:
-        raise ValueError("Readback scratch must be inside Temp_aoe4")
+    if not work.is_relative_to(ROOT) or not work.is_relative_to(TEMP_ROOT) or work == TEMP_ROOT:
+        raise ValueError("Readback scratch must be inside the project scratch folder")
     work.mkdir()
     receipt = json.loads(args.receipt.read_bytes())
     if sha(args.zip.read_bytes()) != receipt["zip_sha256"]:

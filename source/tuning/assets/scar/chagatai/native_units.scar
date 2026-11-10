@@ -104,7 +104,10 @@ function N.RegisterRider(p,entity,meta,receipt)
     local id=Entity_GetID(entity);local rider
     local squad=Entity_GetSquad(entity)
     if not squad or squad==0 or N.Owner(entity)~=p.id then return end
-    local baselineMaximum=Entity_GetHealthMax(entity)-(meta.form=='mounted' and 60 or 0)
+    local baselineMaximum=meta.pair=='villager' and meta.riderHP
+        or Entity_GetHealthMax(entity)-(meta.form=='mounted' and ChagataiConfig.horse.baseHP or 0)
+    local textilesApplied=meta.pair=='villager' and p.research.textiles~=nil
+    if textilesApplied then baselineMaximum=baselineMaximum+ChagataiConfig.research.textilesHP end
     local riderMaximum=baselineMaximum*(p.research.lamellar and ChagataiConfig.pairs[meta.pair].lamellar and 1.2 or 1)
     if receipt then
         local entry=p.production.entries[receipt.id]
@@ -128,6 +131,7 @@ function N.RegisterRider(p,entity,meta,receipt)
         end
     end
     rider.tier=meta.tier;rider.baseRiderHP=baselineMaximum
+    rider.textilesApplied=textilesApplied
     rider.lamellarApplied=p.research.lamellar and ChagataiConfig.pairs[meta.pair].lamellar or false
     local tracked={player=p,record=meta,riderID=id};N.entities[id]=tracked
     local birth=N.births[id]
@@ -200,6 +204,7 @@ function N.DrainMountRequests(p,now)
                     local hs=he and N.Owner(he)==p.id and Entity_IsAlive(he) and Entity_GetSquad(he)
                     if not hs or hs==0 or not Squad_HasAcceptedCommands(hs) then
                         ChagataiHorse.CancelMount(p.horses,id,now,false)
+                        N.LockHorseSelection(currentHorse.nativeID,false)
                         if hs and hs~=0 then
                             if not N.HorseSettled(hs) then N.StopMove(he) end
                             currentHorse.failedStopAt=currentHorse.returnAt
@@ -208,7 +213,9 @@ function N.DrainMountRequests(p,now)
                 end
             end
             local req,reason=ChagataiHorse.RequestMount(p.horses,id,now,Player_GetCurrentAge(p.id))
-            if not req and not p.horses.requests[id] then
+            if req then
+                N.LockHorseSelection(p.horses.horses[req.horseID].nativeID,true)
+            elseif not p.horses.requests[id] then
                 if now<r.cooldownUntil then
                     N.LocalWarning(p.id,string.format('Mount cooldown: %ds remaining.',math.max(1,math.ceil(r.cooldownUntil-now))))
                 elseif reason=='no-horse' or reason=='horse-unavailable' then
@@ -290,7 +297,7 @@ function ChagataiNative_OnHorseOrder(context,data)
         or context.squad~=Entity_GetSquad(e) then return end
     if h.status=='mount' then
         local request=p.horses.requests[h.reservation]
-        if request and request.kind=='mount' and request.horseID==h.id and not request.issuingChase then
+        if request and request.kind=='mount' and request.horseID==h.id then
             -- The native command is still being dispatched. Let the
             -- simulation tick release this exact reservation in either phase.
             request.interrupted=true
@@ -312,15 +319,6 @@ function ChagataiNative_OnHorseAbility(context,data)
     local p=t.player;local h=p.horses.horses[t.horseID]
     if not N.IsPlaying(p) or not h or h.nativeID~=data.id then return end
     if N.Owner(N.Entity(data.id))~=p.id then return end
-    if action.action=='mount_chase' and h.status=='mount' then
-        local request=p.horses.requests[h.reservation]
-        if request and request.phase=='approach' and request.horseID==h.id and request.chaseCheckAt then
-            -- A cast can report before the Horse is in mount range. The tick
-            -- checks the live pair and distance before handing off to Mount.
-            request.chaseExecuted=true
-        end
-        return
-    end
     if action.action~='mint' or h.status~='loose' then return end
     if repeatedAbility(data.id,'mint',N.Now()) then return end
     local best,distance
@@ -376,18 +374,6 @@ function N.SpawnWorkerProbe(p,r)
     if Misc_IsEntitySelected(original) then Misc_SelectSquad(Entity_GetSquad(spawned),true) end
 end
 
-local function startMountChase(p,request,horseSquad,riderSquad,ability)
-    local casters=SGroup_CreateUniqueWithPrefix('ChagataiMountCaster')
-    local target=SGroup_CreateUniqueWithPrefix('ChagataiMountTarget')
-    SGroup_Add(casters,horseSquad)
-    SGroup_Add(target,riderSquad)
-    -- The order listener must distinguish this dispatch from a player order.
-    request.issuingChase=true
-    LocalCommand_SquadSquadAbility(p.id,casters,target,ability,false,false)
-    request.issuingChase=nil
-    SGroup_Destroy(target);SGroup_Destroy(casters)
-end
-
 function N.Conversion(p,r,now)
 
     if r.probeRequested and ChagataiConfig.workerMountProbe and r.pair=='villager' then
@@ -421,24 +407,22 @@ function N.Conversion(p,r,now)
     end
     if req.phase=='approach' then
         local nextCheck=req.chaseCheckAt
-        if nextCheck and not req.chaseExecuted and now<nextCheck then return end
-        req.chaseExecuted=nil
+        if nextCheck and now<nextCheck then return end
         if not ChagataiHorse.Approach(p.horses,r.id,now) then
             if p.horses.requests[r.id]==req then
                 req.chaseCheckAt=now+0.5
                 if not nextCheck then
-                    local ability=N.Ability('mount_chase')
-                    if Squad_HasAbility(hs,ability) then startMountChase(p,req,hs,squad,ability)
-                    else N.Move(he,r.position) end
+                    -- Use the simulation's movement path on every peer.
+                    N.Move(he,r.position)
                     req.chasePosition=N.Position(horse.position)
                     req.chaseRetryAt=now+1.5
                 elseif not req.chasePosition or N.Distance(horse.position,req.chasePosition)>=0.5 then
                     req.chasePosition=N.Position(horse.position)
                     req.chaseRetryAt=now+1.5
                 elseif now>=req.chaseRetryAt then
-                    -- Native follow can be accepted without moving the Horse.
-                    -- Use the existing Horse move path toward the current rider.
+                    -- Retry a stalled approach toward the current rider.
                     N.Move(he,r.position)
+                    req.chaseRetryAt=now+1.5
                     req.chaseRetryAt=now+1.5
                 end
             end
@@ -467,7 +451,7 @@ function N.Conversion(p,r,now)
     local h=p.horses.horses[req.horseID or r.horseID]
     if not plan then
         N.Block(p,r.id,false);if h and h.nativeID then N.Block(p,h.nativeID,false) end
-        ChagataiHorse.AbortConversion(p.horses,r.id,now);N.Notice(p,'conversion aborted '..tostring(reason));return
+        N.FailRider(p,r,now);N.Notice(p,'conversion aborted '..tostring(reason));return
     end
     local form=plan.kind=='mount' and 'mounted' or 'foot'
     local tier=math.max(r.tier,form=='mounted' and ChagataiConfig.pairs[r.pair].mountedAge or r.tier)
@@ -486,6 +470,9 @@ function N.Conversion(p,r,now)
         end
         replacement=N.Spawn(squadTarget.key,p.id,Entity_GetPosition(re),staged)
         newID=Entity_GetID(replacement);staged.id=newID
+        -- Conversion supplies the exact HP budget below. Do not let native
+        -- production's full-health birth handling run for this replacement.
+        N.births[newID]=nil
         if r.pair=='villager' then
             -- Keep the worker's carried resources across a form change.
             if not N.SameBP(Entity_GetBlueprint(replacement),target.bp) then Entity_ConvertBlueprint(replacement,target.bp) end
@@ -554,6 +541,7 @@ function N.Conversion(p,r,now)
     if r.pair=='villager' then
         p.workers[oldID]=nil;p.workers[newID]=true
         if p.workerHealth then p.workerHealth[oldID]=nil;p.workerHealth[newID]=nil end
+        N.RecordWorkerHealth(p,replacement)
     end
     if h.reservation==oldID then h.reservation=newID end
     -- With no old tracking entry/listener, retirement cannot count as a rider
@@ -578,6 +566,7 @@ function N.FailRider(p,r,now)
         else
             ChagataiHorse.AbortConversion(p.horses,r.id,now)
         end
+        if h then N.LockHorseSelection(h.nativeID,false) end
     end
 end
 
@@ -700,6 +689,7 @@ function N.RefreshHorses(p,now)
 
     for _,id in ipairs(N.Keys(p.horses.horses)) do
         local h=p.horses.horses[id];local e=N.Entity(h.nativeID)
+        N.LockHorseSelection(h.nativeID,h.status=='mount')
         if not h.alive and (not e or not N.corpses[h.nativeID] or not N.corpses[h.nativeID].pending) then
             p.horses.horses[id]=nil
         elseif h.status=='returning' then

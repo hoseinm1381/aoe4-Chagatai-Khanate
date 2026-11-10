@@ -15,6 +15,7 @@ ChagataiConfig = {
     start = {villagers = 6, footScouts = 1, horses = 5,
         food = 200, wood = 150, gold = 100, stone = 0},
     research = {
+        textilesHP = 25,
         production = {{wood=50,gold=100}, {wood=100,gold=200}, {wood=200,gold=300}},
         horseHP = {{food=100,wood=100}, {food=200,wood=200}, {food=300,wood=300}},
         livestock = {{food=50,gold=125}, {food=100,gold=250}, {food=200,gold=500}},
@@ -35,7 +36,7 @@ ChagataiConfig = {
         villager = {footAge=1,mountedAge=1}
     },
     pasture = {seconds=120,iliSeconds=45,qarshiFactor=1.25},
-    ability = {duration=15,cooldown=60,nokorDamage=1.5,nokorSpeed=1.15,
+    ability = {duration={nokor=8,archer=15},cooldown=60,nokorDamage=1.5,nokorSpeed=1.15,
         nokorArmorPenalty=2,archerArmor=2,archerSpeed=0.8},
     court = {range=40,duration=60,cooldown=180,healMissing=0.5,damage=1.5,speed=1.2},
     ili = {initialMode="fattened",cooldown=60},

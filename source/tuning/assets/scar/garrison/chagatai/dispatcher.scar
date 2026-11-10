@@ -76,6 +76,13 @@ function ChagataiIndependent_OnGameRestore()
             Rule_AddInterval(ChagataiNative_Tick,0.25)
         end
         pcall(native.RestoreHorseHUD)
+        for _,index in ipairs(native.Keys(native.players)) do
+            local horses=native.players[index].horses.horses
+            for _,id in ipairs(native.Keys(horses)) do
+                local horse=horses[id]
+                native.LockHorseSelection(horse.nativeID,horse.status=='mount',true)
+            end
+        end
     end
 end
 

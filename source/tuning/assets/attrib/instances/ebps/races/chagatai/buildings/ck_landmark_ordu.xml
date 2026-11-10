@@ -66,6 +66,7 @@
 			<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
 		</template_reference>
 		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-514641933" List.ParentItemID="-514641933">
+			<file name="icon_name" value="chagatai\landmarks\ordu" overrideParent="True" />
 			<list name="ui_extra_infos">
 				<template_reference name="ui_extra_info" value="info\ui_extra_info" List.ItemID="700478129" List.ListAction="Append">
 					<file name="icon" value="influence_buff" />
@@ -1345,6 +1346,7 @@
 				<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
 			</template_reference>
 			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-514641933" List.ParentItemID="-514641933">
+				<file name="icon_name" value="chagatai\landmarks\ordu" overrideParent="True" />
 				<list name="ui_extra_infos">
 					<template_reference name="ui_extra_info" value="info\ui_extra_info" List.ItemID="700478129" List.ListAction="Append">
 						<file name="icon" value="influence_buff" />
