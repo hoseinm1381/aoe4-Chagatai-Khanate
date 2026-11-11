@@ -1,4 +1,8 @@
-# Feudal landmark rebuild inputs
+# Landmark rebuild inputs
+
+For 0.3.0 Almaliq Market, Qarshi Palace, Khan’s Court, and Kebek’s Royal Mint, set CK_MASTER to the packed masters under authoring/review/approval/0.3.0. Set CK_REVERSE_BUILDING_FACING=1 for each. The shipped build retains the 0.2.9 lifecycle selectors and controller. The colour overlay supplies the cooked sRGB albedo and red-channel owner mask.
+
+## Earlier landmark masters
 
 For Ordu in 0.2.7, use the packed authoring/review/approval/ordu-of-almaliq/Chagatai-Ordu-Round.blend as CK_MASTER. The procedural master can be regenerated with authoring/rebuild_ordu.py in background Blender with authoring and .tools/python313 on sys.path, passing a fresh output directory after --. Set CK_REVERSE_BUILDING_FACING=1 when staging. Promote the composed .rgm, .rrgeom, .rrmaterial and textures, updating the two Ordu entries in the building-color overlay. Preserve the hash-pinned controller at source/visuals/art/art/scenario/chagatai/ordu/model.rgo. The earlier Kurultai-derived master is retained in the same authoring folder.
 

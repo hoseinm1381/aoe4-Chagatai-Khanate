@@ -75,21 +75,19 @@
   {
     "asset": "almaliq",
     "member": "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_albedo.rrtex",
-    "sha256": "15b1bad59ceb73cdf113af5327be808332b2ab8a3d8b040cb733911af9367863",
+    "sha256": "1e240ae960ba57de4d11d02f0f444c8295184b7579dcb9499332ec5846d4b0e6",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 1.0592
+    "mean_compression_error": 1.1153
   },
   {
     "asset": "almaliq",
     "member": "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_pattern.rrtex",
-    "sha256": "0a62bb89eef7a2dd7c84a58f6f1f6950200664b54fcc0ce14cf231bc606a701a",
+    "sha256": "185687bd1629c5600c05a822796f19e6edca227f79695ef687c6285d78801faf",
     "native_internal_format": 22,
     "mips": 12,
-    "mean_compression_error": 0.0056,
-    "cooked_healthy_lod1_owner_color_area": {
-      "almaliq_healthy": 0.0809
-    }
+    "mean_compression_error": 0.0117,
+    "cooked_mask_atlas_fraction": 0.05928
   },
   {
     "asset": "ordu",
@@ -108,40 +106,36 @@
   {
     "asset": "qarshi",
     "member": "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_albedo.rrtex",
-    "sha256": "a2777061713d6abc7df97e84c95ba56139fd544c82a044d5ef63245a3118014a",
+    "sha256": "454ad414d9caa16d5a1fba8dd20827f4cba5d374af5e596fb80f05fa1f84ff98",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 1.1221
+    "mean_compression_error": 0.9471
   },
   {
     "asset": "qarshi",
     "member": "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_pattern.rrtex",
-    "sha256": "24d2813511f2226b789736750c9df3bab4dd5781cd68ed119e8f35d311dafe25",
+    "sha256": "7b3af474f4ba4573ced17b7cb66303a5831bf835b5903c6c4e81c9fd691b86d4",
     "native_internal_format": 22,
     "mips": 12,
-    "mean_compression_error": 0.0334,
-    "cooked_healthy_lod1_owner_color_area": {
-      "qarshi_healthy": 0.0527
-    }
+    "mean_compression_error": 0.0259,
+    "cooked_mask_atlas_fraction": 0.11348
   },
   {
     "asset": "court",
     "member": "art/scenario/chagatai/court_healthy/court_healthy_albedo.rrtex",
-    "sha256": "7cbbef2cb6b80b2930412912111271bc11847b9c907183480acc498a99c322f7",
+    "sha256": "3410690d9b1e03d93c1bb9a5925aab4ca685ea9890257095758960a4e165e614",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.7266
+    "mean_compression_error": 0.8654
   },
   {
     "asset": "court",
     "member": "art/scenario/chagatai/court_healthy/court_healthy_pattern.rrtex",
-    "sha256": "390eb56a7cc6a779b1fb5c1ddbcef2b1aeac4a4f8318244e906c40334abc8308",
+    "sha256": "ccf14bfccade400fe08f496edba5438ebf5ce9a30b7ce317ccde419b4a8e1df6",
     "native_internal_format": 22,
     "mips": 12,
-    "mean_compression_error": 0.0253,
-    "cooked_healthy_lod1_owner_color_area": {
-      "court_healthy": 0.119
-    }
+    "mean_compression_error": 0.0256,
+    "cooked_mask_atlas_fraction": 0.07359
   },
   {
     "asset": "ili",
@@ -165,21 +159,19 @@
   {
     "asset": "mint",
     "member": "art/scenario/chagatai/mint_healthy/mint_healthy_albedo.rrtex",
-    "sha256": "3f5b93cada8ad4e916713510096ee54af2129e1f1e0369c293eecc188c1bd1b1",
+    "sha256": "8b811f8c197456890d7040b3593ab853a331ee5b280a1784d577aab58471beb0",
     "native_internal_format": 19,
     "mips": 12,
-    "mean_compression_error": 0.7275
+    "mean_compression_error": 0.8672
   },
   {
     "asset": "mint",
     "member": "art/scenario/chagatai/mint_healthy/mint_healthy_pattern.rrtex",
-    "sha256": "0db5ccb99c58838545780ba51e7c1343d4a695368813ac4a0e238a67a315a22d",
+    "sha256": "e5546b73fd7615960921e161a97b89bebe10988377c7bb819f7e77ee047e5aa9",
     "native_internal_format": 22,
     "mips": 12,
-    "mean_compression_error": 0.0216,
-    "cooked_healthy_lod1_owner_color_area": {
-      "mint_healthy": 0.0551
-    }
+    "mean_compression_error": 0.0272,
+    "cooked_mask_atlas_fraction": 0.07369
   },
   {
     "asset": "wonder",

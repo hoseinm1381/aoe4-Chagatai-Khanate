@@ -1,4 +1,6 @@
-# Chagatai Khanate 0.2.9
+# Chagatai Khanate 0.3.0
+
+Check player colour on Almaliq Market’s entrance arch, both Qarshi Palace awnings, Khan’s Court’s stair runner, and Kebek’s Royal Mint’s chimney cap. Each landmark also has player-coloured banners.
 
 Khan's Court and Fierce Assault stay on the command card during recharge. Check the 180-second Court cooldown and 60-second Fierce Assault cooldown.
 

@@ -1,6 +1,8 @@
 # Chagatai Khanate for Garrison
 
-An independent Age of Empires IV civilization by hosein81 and chilly5. Import the [0.2.9 playable ZIP](https://github.com/hoseinm1381/aoe4-Chagatai-Khanate/releases/tag/v0.2.9) through Garrison and select Chagatai Khanate in Standard Skirmish with Tuning Pack None. See [START-HERE.md](START-HERE.md).
+An independent Age of Empires IV civilization by hosein81 and chilly5. Import the [0.3.0 playable ZIP](https://github.com/hoseinm1381/aoe4-Chagatai-Khanate/releases/tag/v0.3.0) through Garrison and select Chagatai Khanate in Standard Skirmish with Tuning Pack None. See [START-HERE.md](START-HERE.md).
+
+0.3.0 redesigns Almaliq Market, Qarshi Palace, Khan’s Court, and Kebek’s Royal Mint. The entrance arch, both palace awnings, the stair runner, and the chimney cap follow player colour alongside the banners. Ordu of Almaliq and Ili Royal Pastures use their 0.2.9 assets.
 
 0.2.9 uses the approved gold landmark and upgrade icons, with detailed horse profiles and native age pips.
 

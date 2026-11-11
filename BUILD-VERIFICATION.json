@@ -4,9 +4,9 @@
   "attributes": 328,
   "codex_groups": 21,
   "tuning_cook_owner": "ac8da4d112bf433c888433228510b447",
-  "archive_sha256": "541361025e98a5f42ad4394fbf1dbd564f33d8abc7a8c3b44bb054dbbaedbbce",
-  "zip_sha256": "34214fed019951ec12a55340b4f96df84d2631746691c243d7d5c7989a6b1171",
-  "zip": "release/Chagatai-Khanate-Garrison-0.2.9.zip",
+  "archive_sha256": "fc0b8d2664968b4f8508f91705f9730e252af7c9fa2b05c1aa038e6cfc2a9bbd",
+  "zip_sha256": "70b9309eeda85d8baf7f0577212b6c0c973e9ae7608fec28f425e95bb1314a6f",
+  "zip": "release/Chagatai-Khanate-Garrison-0.3.0.zip",
   "runtime_tested": false,
   "visual_receivers": {
     "ck_building_melee": "art/scenario/chagatai/melee/model",
@@ -851,5 +851,117 @@
         "mean_visible_rgb_error": 0.501
       }
     }
+  },
+  "landmark_refresh": {
+    "base_zip": "release/Chagatai-Khanate-Garrison-0.2.9.zip",
+    "base_archive_sha256": "541361025e98a5f42ad4394fbf1dbd564f33d8abc7a8c3b44bb054dbbaedbbce",
+    "asset_cook_sha256": "fca318241fa163983df0437639b81664e30df2d30d9bd5d1e76f5b77e8fb12dd",
+    "assets": [
+      "almaliq",
+      "qarshi",
+      "court",
+      "mint"
+    ],
+    "updated_native_members": [
+      "art/scenario/chagatai/almaliq/model.rgm",
+      "art/scenario/chagatai/almaliq/model.rrgeom",
+      "art/scenario/chagatai/almaliq_healthy/10773144524121583122_packed.rrtex",
+      "art/scenario/chagatai/almaliq_healthy/16478854394400764397_packed.rrtex",
+      "art/scenario/chagatai/almaliq_healthy/5634618904842415774_packed.rrtex",
+      "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_albedo.rrtex",
+      "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_pattern.rrtex",
+      "art/scenario/chagatai/court/model.rgm",
+      "art/scenario/chagatai/court/model.rrgeom",
+      "art/scenario/chagatai/court_healthy/12375286154481162986_packed.rrtex",
+      "art/scenario/chagatai/court_healthy/15055848849790194814_packed.rrtex",
+      "art/scenario/chagatai/court_healthy/5656648178967791028_packed.rrtex",
+      "art/scenario/chagatai/court_healthy/court_healthy_albedo.rrtex",
+      "art/scenario/chagatai/court_healthy/court_healthy_pattern.rrtex",
+      "art/scenario/chagatai/mint/model.rgm",
+      "art/scenario/chagatai/mint/model.rrgeom",
+      "art/scenario/chagatai/mint_healthy/12320202629403716180_packed.rrtex",
+      "art/scenario/chagatai/mint_healthy/15628879115785369429_packed.rrtex",
+      "art/scenario/chagatai/mint_healthy/4600881548062024112_packed.rrtex",
+      "art/scenario/chagatai/mint_healthy/mint_healthy_albedo.rrtex",
+      "art/scenario/chagatai/mint_healthy/mint_healthy_pattern.rrtex",
+      "art/scenario/chagatai/qarshi/model.rgm",
+      "art/scenario/chagatai/qarshi/model.rrgeom",
+      "art/scenario/chagatai/qarshi_healthy/1103176252468628779_packed.rrtex",
+      "art/scenario/chagatai/qarshi_healthy/17952293839979670200_packed.rrtex",
+      "art/scenario/chagatai/qarshi_healthy/2420791737473029824_packed.rrtex",
+      "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_albedo.rrtex",
+      "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_pattern.rrtex"
+    ],
+    "byte_identical_members": 879,
+    "preserved_landmarks": [
+      "ordu",
+      "ili"
+    ],
+    "textures": {
+      "almaliq": {
+        "albedoTexture": {
+          "native_internal_format": 19,
+          "mips": 12,
+          "mean_compression_error": 1.1153
+        },
+        "patternTex": {
+          "native_internal_format": 22,
+          "mips": 12,
+          "mean_compression_error": 0.0117,
+          "cooked_mask_atlas_fraction": 0.05928
+        }
+      },
+      "qarshi": {
+        "albedoTexture": {
+          "native_internal_format": 19,
+          "mips": 12,
+          "mean_compression_error": 0.9471
+        },
+        "patternTex": {
+          "native_internal_format": 22,
+          "mips": 12,
+          "mean_compression_error": 0.0259,
+          "cooked_mask_atlas_fraction": 0.11348
+        }
+      },
+      "court": {
+        "albedoTexture": {
+          "native_internal_format": 19,
+          "mips": 12,
+          "mean_compression_error": 0.8654
+        },
+        "patternTex": {
+          "native_internal_format": 22,
+          "mips": 12,
+          "mean_compression_error": 0.0256,
+          "cooked_mask_atlas_fraction": 0.07359
+        }
+      },
+      "mint": {
+        "albedoTexture": {
+          "native_internal_format": 19,
+          "mips": 12,
+          "mean_compression_error": 0.8672
+        },
+        "patternTex": {
+          "native_internal_format": 22,
+          "mips": 12,
+          "mean_compression_error": 0.0272,
+          "cooked_mask_atlas_fraction": 0.07369
+        }
+      }
+    },
+    "editable_masters": {
+      "authoring/review/approval/0.3.0/almaliq-030.blend": "0d0756ebf2771d5748b59eb040e8fa9a48ae0d0859507f55c143931ef4a8d65e",
+      "authoring/review/approval/0.3.0/qarshi-030.blend": "0f10dee4fe9641122c2fff3e2af2abdbd958ed57bc2feb06a85520c38e1e909e",
+      "authoring/review/approval/0.3.0/court-030.blend": "114d32d57a5143e3554a97a2e2cfae2a57ec2a19d830dd24d1b63f80738185cf",
+      "authoring/review/approval/0.3.0/mint-030.blend": "ada3970d90aede23e8e38878d0be56938d14b3b47622196b79d8ec6245bc5a83"
+    }
+  },
+  "source_rebuild": {
+    "verified_native_members": 907,
+    "byte_identical_zip_members": 4,
+    "zip_members": 4,
+    "archive_sha256": "fc0b8d2664968b4f8508f91705f9730e252af7c9fa2b05c1aa038e6cfc2a9bbd"
   }
 }
