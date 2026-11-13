@@ -1,0 +1,119 @@
+<instance version="6" template="abilities">
+	<uniqueid name="pbgid" value="1073741980" />
+	<instance_reference name="parent_pbg" value="abilities\timed_abilities\civ_core\core_unit_death" />
+	<group name="ability_bag">
+		<template_reference name="channeling" value="options\abilities\channeling_option">
+			<state_tree_node name="statetree_node_prereq_stop_self_requirement" value="" overrideParent="True" />
+			<state_tree_node name="statetree_node_prereq_stop_target_requirement" value="" overrideParent="True" />
+		</template_reference>
+		<state_tree_node name="entity_tree" value="" overrideParent="True" />
+		<state_tree_node name="squad_tree" value="" overrideParent="True" />
+		<state_tree_node name="statetree_node_prereq_self_requirement" value="" overrideParent="True" />
+		<state_tree_node name="statetree_node_prereq_target_requirement" value="" overrideParent="True" />
+		<state_tree_node name="statetree_node_prereq_self_recharge_requirement" value="" overrideParent="True" />
+		<group name="ability_active_state_tree_group">
+			<state_tree_node name="ability_activate_squad_tree" value="" overrideParent="True" />
+			<state_tree_node name="ability_activate_entity_tree" value="" overrideParent="True" />
+			<state_tree_node name="ability_activate_deferred_tree" value="" overrideParent="True" />
+		</group>
+		<state_tree_node name="global_tree" value="" overrideParent="True" />
+		<list name="requirements" overrideParent="True" />
+		<list name="requirements_target" overrideParent="True" />
+		<list name="requirements_self_recharge" overrideParent="True" />
+		<float name="entity_busy_time" value="0" overrideParent="True" />
+		<float name="hold_period" value="0" overrideParent="True" />
+		<float name="recharge_time" value="0" overrideParent="True" />
+		<bool name="fire_and_forget" value="True" overrideParent="True" />
+		<bool name="range_ignore" value="True" overrideParent="True" />
+		<bool name="can_be_interrupted" value="False" overrideParent="True" />
+		<bool name="validate_actions" value="False" overrideParent="True" />
+		<bool name="enable_in_building" value="False" overrideParent="True" />
+		<bool name="enable_in_vehicle" value="False" overrideParent="True" />
+		<bool name="ignore_teardown_on_convert" value="True" overrideParent="True" />
+		<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\chagatai\train_spearman" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+		<group name="ui_info">
+			<locstring name="screen_name" value="5100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="screen_name_short" value="5100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="help_text" value="5101" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="extra_text" value="7449" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="brief_text" value="0" overrideParent="True" />
+			<string name="hotkey_name" value="A" overrideParent="True" />
+			<file name="icon_name" value="chagatai\units\stock_based\light_lancer" overrideParent="True" />
+			<template_reference name="ui_info_extended" value="tables\ui_info_ext">
+				<template_reference name="command_card_info" value="ui_command_card_info">
+					<group name="ui_position">
+						<int name="ui_position_row" value="2" overrideParent="True" />
+						<int name="ui_position_column" value="1" overrideParent="True" />
+					</group>
+				</template_reference>
+			</template_reference>
+		</group>
+		<group name="ui_position">
+			<int name="ui_position_row" value="2" overrideParent="True" />
+			<int name="ui_position_column" value="1" overrideParent="True" />
+		</group>
+		<enum_table name="cost_to_player">
+			<float name="food" value="60" overrideParent="True" />
+		</enum_table>
+	</group>
+	<variant name="xp3">
+		<group name="ability_bag">
+			<template_reference name="channeling" value="options\abilities\channeling_option">
+				<state_tree_node name="statetree_node_prereq_stop_self_requirement" value="" overrideParent="True" />
+				<state_tree_node name="statetree_node_prereq_stop_target_requirement" value="" overrideParent="True" />
+			</template_reference>
+			<state_tree_node name="entity_tree" value="" overrideParent="True" />
+			<state_tree_node name="squad_tree" value="" overrideParent="True" />
+			<state_tree_node name="statetree_node_prereq_self_requirement" value="" overrideParent="True" />
+			<state_tree_node name="statetree_node_prereq_target_requirement" value="" overrideParent="True" />
+			<state_tree_node name="statetree_node_prereq_self_recharge_requirement" value="" overrideParent="True" />
+			<group name="ability_active_state_tree_group">
+				<state_tree_node name="ability_activate_squad_tree" value="" overrideParent="True" />
+				<state_tree_node name="ability_activate_entity_tree" value="" overrideParent="True" />
+				<state_tree_node name="ability_activate_deferred_tree" value="" overrideParent="True" />
+			</group>
+			<state_tree_node name="global_tree" value="" overrideParent="True" />
+			<list name="requirements" overrideParent="True">
+				</list>
+			<list name="requirements_target" overrideParent="True" />
+			<list name="requirements_self_recharge" overrideParent="True" />
+			<float name="entity_busy_time" value="0" overrideParent="True" />
+			<float name="hold_period" value="0" overrideParent="True" />
+			<float name="recharge_time" value="0" overrideParent="True" />
+			<bool name="fire_and_forget" value="True" overrideParent="True" />
+			<bool name="range_ignore" value="True" overrideParent="True" />
+			<bool name="can_be_interrupted" value="False" overrideParent="True" />
+			<bool name="validate_actions" value="False" overrideParent="True" />
+			<bool name="enable_in_building" value="False" overrideParent="True" />
+			<bool name="enable_in_vehicle" value="False" overrideParent="True" />
+			<bool name="ignore_teardown_on_convert" value="True" overrideParent="True" />
+			<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\chagatai\train_spearman" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<group name="ui_info">
+				<locstring name="screen_name" value="5100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="screen_name_short" value="5100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="help_text" value="5101" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="extra_text" value="7449" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="brief_text" value="0" overrideParent="True" />
+				<string name="hotkey_name" value="A" overrideParent="True" />
+				<file name="icon_name" value="chagatai\units\stock_based\light_lancer" overrideParent="True" />
+				<template_reference name="ui_info_extended" value="tables\ui_info_ext">
+					<template_reference name="command_card_info" value="ui_command_card_info">
+						<group name="ui_position">
+							<int name="ui_position_row" value="2" overrideParent="True" />
+							<int name="ui_position_column" value="1" overrideParent="True" />
+						</group>
+					</template_reference>
+				</template_reference>
+			</group>
+			<group name="ui_position">
+				<int name="ui_position_row" value="2" overrideParent="True" />
+				<int name="ui_position_column" value="1" overrideParent="True" />
+			</group>
+			<enum_table name="cost_to_player">
+				<float name="food" value="60" overrideParent="True" />
+			</enum_table>
+		</group>
+		<uniqueid name="pbgid" value="1073741980" />
+		<instance_reference name="parent_pbg" value="abilities\timed_abilities\civ_core\core_unit_death" />
+	</variant>
+</instance>

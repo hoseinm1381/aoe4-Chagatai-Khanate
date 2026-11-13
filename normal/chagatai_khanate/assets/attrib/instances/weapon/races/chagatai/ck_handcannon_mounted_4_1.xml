@@ -1,0 +1,28 @@
+<instance version="6" template="weapon">
+	<uniqueid name="pbgid" value="1073741925" />
+	<instance_reference name="parent_pbg" value="weapon\races\common\ranged\weapon_handcannon_4_leadshot" />
+	<group name="weapon_bag">
+		<group name="range">
+			<float name="max" value="12.8" overrideParent="True" />
+		</group>
+		<group name="fire">
+			<float name="wind_up" value="0.0" overrideParent="True" />
+			<float name="wind_down" value="0.5625" overrideParent="True" />
+		</group>
+		<group name="aim">
+			<group name="fire_aim_time">
+				<float name="max" value="0.28125" overrideParent="True" />
+				<float name="min" value="0.28125" overrideParent="True" />
+			</group>
+		</group>
+		<group name="reload">
+			<group name="duration">
+				<float name="max" value="1.40625" overrideParent="True" />
+				<float name="min" value="1.40625" overrideParent="True" />
+			</group>
+		</group>
+		<group name="moving">
+			<bool name="can_fire_while_moving" value="False" overrideParent="True" />
+		</group>
+	</group>
+</instance>

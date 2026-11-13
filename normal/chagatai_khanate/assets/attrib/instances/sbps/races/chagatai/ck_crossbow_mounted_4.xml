@@ -1,0 +1,112 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073741872" />
+	<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_horsearcher_4_mon" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="706311447" List.ParentItemID="706311447">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="-233034852" List.ParentItemID="-233034852">
+					<instance_reference name="type" value="ebps\races\chagatai\units\ck_crossbow_mounted_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="1250368617" List.ParentItemID="1250368617">
+			<list name="requirement_table" overrideParent="True">
+				<template_reference name="required" value="requirements\required_population" List.ItemID="-791780807">
+					<enum name="reason" value="display" />
+					<group name="free_pop">
+						<float name="medic" value="0" />
+						<float name="personnel" value="0" />
+						<float name="vehicle" value="1" />
+					</group>
+				</template_reference>
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-1909548164">
+					<enum name="reason" value="usage_and_display" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="True" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_crossbow_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+			</list>
+			<state_tree_node name="requirement_statetree" value="" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="1317901561" List.ParentItemID="1317901561">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="1182808320" List.ParentItemID="1182808320">
+					<group name="info">
+						<locstring name="screen_name" value="7023" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="help_text" value="2231" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="extra_text" value="7107" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="brief_text" value="0" overrideParent="True" />
+						<file name="icon_name" value="chagatai\units\stock_based\crossbow_mounted_age4" overrideParent="True" />
+						<file name="portrait_name" value="chagatai\units\stock_based\crossbow_mounted" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="True" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="706311447" List.ParentItemID="706311447">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="-233034852" List.ParentItemID="-233034852">
+						<instance_reference name="type" value="ebps\races\chagatai\units\ck_crossbow_mounted_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="1250368617" List.ParentItemID="1250368617">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_population" List.ItemID="-791780807">
+						<enum name="reason" value="display" />
+						<group name="free_pop">
+							<float name="medic" value="0" />
+							<float name="personnel" value="0" />
+							<float name="vehicle" value="1" />
+						</group>
+					</template_reference>
+					<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1518186082">
+						<enum name="reason" value="usage_and_display" />
+						<locstring name="ui_name" value="0" />
+						<bool name="is_present" value="True" />
+						<int name="max_completed" value="100" />
+						<int name="min_completed" value="1" />
+						<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_crossbow_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<bool name="include_queued" value="False" />
+						<group name="include_pbg_parenting">
+							<bool name="include_child_pbgs" value="False" />
+							<bool name="include_parent_pbgs" value="False" />
+						</group>
+						<bool name="include_completed" value="True" />
+					</template_reference>
+				</list>
+				<state_tree_node name="requirement_statetree" value="" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="1317901561" List.ParentItemID="1317901561">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="1182808320" List.ParentItemID="1182808320">
+						<group name="info">
+							<locstring name="screen_name" value="7023" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="help_text" value="2231" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="extra_text" value="7107" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="brief_text" value="0" overrideParent="True" />
+							<file name="icon_name" value="chagatai\units\stock_based\crossbow_mounted_age4" overrideParent="True" />
+							<file name="portrait_name" value="chagatai\units\stock_based\crossbow_mounted" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="True" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741872" />
+		<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_horsearcher_4_mon" />
+	</variant>
+</instance>

@@ -1,0 +1,58 @@
+{
+  "archive_sha256": "afd202f66b192789d3883613336f80553f5bed23966f45eb7c3c2eaaef49446d",
+  "members": 412,
+  "hp": {
+    "ck_nokor_foot_2": {
+      "default": 135.0,
+      "xp3": 135.0
+    },
+    "ck_nokor_foot_3": {
+      "default": 170.0,
+      "xp3": 170.0
+    },
+    "ck_nokor_foot_4": {
+      "default": 195.0,
+      "xp3": 195.0
+    },
+    "ck_nokor_mounted_2": {
+      "default": 195.0,
+      "xp3": 195.0
+    },
+    "ck_nokor_mounted_3": {
+      "default": 230.0,
+      "xp3": 230.0
+    },
+    "ck_nokor_mounted_4": {
+      "default": 255.0,
+      "xp3": 255.0
+    }
+  },
+  "upgrades": {
+    "default": [
+      "upgrade_siege_roller_trigger_mon",
+      "upgrade_siege_roller_trigger_improved_mon",
+      "upgrade_siege_adjustable_crossbar_mon",
+      "upgrade_siege_weapon_speed_mon",
+      "upgrade_siege_weapon_speed_improved_mon",
+      "upgrade_siege_mathematics_mon",
+      "upgrade_siege_mathematics_improved_mon",
+      "upgrade_ram_scaling_mon",
+      "upgrade_ram_scaling_improved_mon"
+    ],
+    "xp3": [
+      "upgrade_siege_roller_trigger_mon",
+      "upgrade_siege_roller_trigger_improved_mon",
+      "upgrade_siege_adjustable_crossbar_mon",
+      "upgrade_siege_adjustable_crossbar_improved_mon",
+      "upgrade_siege_weapon_speed_mon",
+      "upgrade_siege_weapon_speed_improved_mon",
+      "upgrade_siege_mathematics_mon",
+      "upgrade_siege_mathematics_improved_mon",
+      "upgrade_ram_scaling_mon",
+      "upgrade_ram_scaling_improved_mon"
+    ]
+  },
+  "zip": "release/Chagatai-Khanate-Normal-0.4.0.zip",
+  "zip_sha256": "654fd6b62ef833dee592a581f32a93cac4d1d3cd58cd073e8546d32aa275b7d0",
+  "runtime_tested": false
+}

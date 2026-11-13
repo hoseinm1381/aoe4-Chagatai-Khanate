@@ -1,6 +1,6 @@
 -- Presentation only. Keep the owner-tested native render/controller resources.
 local N=ChagataiNative
-local custom={pasture=true,steppe_hearth=true,melee=true,ranged=true,wonder=true,
+local custom={pasture=true,steppe_hearth=true,melee=true,ranged=true,
     almaliq=true,ordu=true,qarshi=true,court=true,ili=true,mint=true}
 local landmark={almaliq=true,ordu=true,qarshi=true,court=true,ili=true,mint=true}
 local landmarkConstruction={'construct_00','damage_5','damage_4','damage_3','damage_2','damage_1'}

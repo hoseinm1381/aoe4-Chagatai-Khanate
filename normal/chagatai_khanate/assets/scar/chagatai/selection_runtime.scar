@@ -1,0 +1,177 @@
+-- Registered by the entry before StandardMode. Engine calls are confined here.
+ChagataiModeState = {started=false,ending=false,selection=nil,networkRegistered=false,standardResources=true,
+    held=false,ai={},popup=false,choiceSent=false,civilizations={}}
+local state = ChagataiModeState
+local holdReason = "ChagataiOpeningSelection"
+local prefix = "$9fb54312599d47218eef70ad08c75e33:"
+local chooseEvent = "ChagataiMode_NetChoose"
+
+function ChagataiSelectionRuntime_OnGameSetup()
+    local options={}
+    Setup_GetWinConditionOptions(options)
+    local starting=options.section_starting_conditions
+    local resources=starting and starting.option_resources
+    local items=resources and resources.enum_items
+    state.standardResources=not items or resources.enum_value==nil or resources.enum_value==items.resources_standard
+end
+
+local function loc(id)
+
+    return Loc_GetString(prefix .. tostring(id))
+end
+
+local function releaseHold()
+
+    if not state.held then return end
+    state.held = false
+    for _, player in ipairs(PLAYERS) do
+        Player_SetAllCommandAvailability(player.id,ITEM_DEFAULT,holdReason)
+        if state.ai[player.index] ~= nil and Player_IsAlive(player.id) then
+            AI_Enable(player.id,state.ai[player.index])
+        end
+    end
+    state.ai = {}
+end
+
+local function closePopup()
+
+    if state.popup then
+        state.popup,state.choiceSent = false,true
+        pcall(UI_MessageBoxHide,DB_Button1)
+    end
+end
+
+function ChagataiMode_NetChoose(sender, message)
+
+    if state.ending or state.selection == nil or state.selection.closed then return end
+    local player = Core_GetPlayersTableEntry(sender)
+    if player == nil or not player.isHuman or not Player_IsAlive(player.id) then return end
+    local accepted=ChagataiSelection.Choose(state.selection,player.index,message,World_GetGameTime())
+    ChagataiNative.Log('CHAGATAI_SELECTION_RECEIVED player='..player.index..' choice='..tostring(message)..' accepted='..tostring(accepted))
+end
+
+local function sendChoice(result)
+
+    if state.ending or state.choiceSent or state.selection == nil or state.selection.closed then return end
+    if result ~= DB_Button1 and result ~= DB_Button2 then return end
+    local player = Core_GetPlayersTableEntry(Game_GetLocalPlayer())
+    if player == nil or state.selection.players[player.index] == nil then return end
+    local sent=pcall(Network_CallEvent,chooseEvent,result==DB_Button2 and "chagatai" or "mongol")
+    state.choiceSent,state.popup = sent,false
+end
+
+function ChagataiMode_DialogChoice(result)
+    pcall(sendChoice,result)
+end
+
+local function finishSelection()
+
+    ChagataiSelection.Close(state.selection)
+    releaseHold()
+    for _, index in ipairs(state.selection.order) do
+        local record, player = state.selection.players[index], Core_GetPlayersTableEntryFromIndex(index)
+        state.civilizations[index] = "mongol"
+        ChagataiNative.Log('CHAGATAI_SELECTION_RESULT player='..index..' choice='..tostring(record.choice))
+        if player and record.choice == "chagatai" and not record.dropped and Player_IsAlive(player.id) then
+            -- Initializer must preflight the complete starting transaction and
+            -- report failure; a partial mutation is never labelled Mongols.
+            local ok, applied, reason = pcall(ChagataiReadiness.initializer,player)
+            state.civilizations[index] = ok and applied and "chagatai" or "initialization_failed"
+            if state.civilizations[index] == "initialization_failed" then
+                local failure=tostring(ok and (reason or 'initializer returned false') or applied)
+                state.initializationFailures=state.initializationFailures or {};state.initializationFailures[index]=failure
+                ChagataiNative.Log("CHAGATAI_INITIALIZATION_FAILED player="..tostring(index).." reason="..failure)
+                ChagataiNative.LocalWarning(player.id,'Chagatai could not be activated. Details: '..failure)
+            end
+        end
+    end
+    Rule_Remove(ChagataiMode_Tick)
+    if state.networkRegistered then
+        Network_RemoveEvent(chooseEvent)
+        state.networkRegistered = false
+    end
+    ChagataiNative.Log("CHAGATAI_SELECTION_COMPLETE")
+    closePopup()
+end
+
+local function showPopup()
+    if UI_IsReplay() then return end
+    local player = Core_GetPlayersTableEntry(Game_GetLocalPlayer())
+    local record = player and state.selection.players[player.index]
+    if record and record.choice == nil and not state.popup and not state.choiceSent then
+        UI_MessageBoxReset()
+        UI_MessageBoxSetText(loc(1000),loc(1001))
+        UI_MessageBoxSetButton(DB_Button1,loc(1002),loc(1002),"",true)
+        UI_MessageBoxSetButton(DB_Button2,loc(1003),loc(1004),"",true)
+        UI_MessageBoxShow(DC_Default,ChagataiMode_DialogChoice)
+        state.popup = not state.choiceSent
+    end
+end
+
+function ChagataiMode_Tick()
+
+    if state.ending or state.selection == nil or state.selection.closed then return end
+    for _, index in ipairs(state.selection.order) do
+        local player=Core_GetPlayersTableEntryFromIndex(index)
+        if not player or not Player_IsAlive(player.id) or player.isEliminated then ChagataiSelection.Drop(state.selection,index) end
+    end
+    if ChagataiSelection.Tick(state.selection,World_GetGameTime()) then finishSelection(); return end
+    pcall(showPopup)
+end
+
+function ChagataiSelectionRuntime_OnInit()
+
+    if state.started then return end
+    state.started = true
+    if not ChagataiReadiness.Available() then
+        state.developmentUnavailable=true
+        return
+    end
+    if Setup_GetIsNomadStart and Setup_GetIsNomadStart() then return end
+    local eligible = {}
+    for _, player in ipairs(PLAYERS) do
+        if player.isHuman and Player_IsAlive(player.id) and Player_GetRaceName(player.id)=="mongol" then
+            table.insert(eligible,player.index)
+        end
+    end
+    if #eligible == 0 then return end
+    state.selection = ChagataiSelection.New(eligible,World_GetGameTime())
+    Network_RegisterEvent(chooseEvent)
+    state.networkRegistered,state.held = true,true
+    for _, player in ipairs(PLAYERS) do
+        Player_SetAllCommandAvailability(player.id,ITEM_LOCKED,holdReason)
+        if not player.isHuman then
+            state.ai[player.index] = AI_IsEnabled(player.id)
+            AI_Enable(player.id,false)
+        end
+    end
+    Rule_AddInterval(ChagataiMode_Tick,0.25)
+end
+
+function ChagataiSelectionRuntime_Start()
+
+    if state.held then ChagataiMode_Tick() end
+end
+
+function ChagataiSelectionRuntime_OnRestore()
+    state.popup,state.choiceSent=false,false
+    if state.ending or not state.selection or state.selection.closed then return end
+    -- Official network.scar owns the event index and its broadcast listener.
+    if not network_events or not network_events[chooseEvent] then Network_RegisterEvent(chooseEvent) end
+    state.networkRegistered=true
+    if not Rule_Exists(ChagataiMode_Tick) then Rule_AddInterval(ChagataiMode_Tick,0.25) end
+end
+
+function ChagataiSelectionRuntime_OnGameOver()
+
+    if state.ending then return end
+    state.ending = true
+    if state.selection then ChagataiSelection.Close(state.selection) end
+    Rule_Remove(ChagataiMode_Tick)
+    if state.networkRegistered then
+        Network_RemoveEvent(chooseEvent)
+        state.networkRegistered = false
+    end
+    releaseHold()
+    closePopup()
+end

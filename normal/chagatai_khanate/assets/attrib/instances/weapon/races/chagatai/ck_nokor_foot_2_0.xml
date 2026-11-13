@@ -1,0 +1,32 @@
+<instance version="6" template="weapon">
+	<uniqueid name="pbgid" value="1073765401" />
+	<instance_reference name="parent_pbg" value="weapon\races\common\melee\weapon_manatarms_2" />
+	<group name="weapon_bag">
+		<group name="damage">
+			<float name="min" value="14" overrideParent="True" />
+			<float name="max" value="14" overrideParent="True" />
+		</group>
+		<group name="cooldown">
+			<group name="duration">
+				<float name="min" value="0.125" overrideParent="True" />
+				<float name="max" value="0.125" overrideParent="True" />
+			</group>
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="weapon_bag">
+			<group name="damage">
+				<float name="min" value="14" overrideParent="True" />
+				<float name="max" value="14" overrideParent="True" />
+			</group>
+			<group name="cooldown">
+				<group name="duration">
+					<float name="min" value="0.125" overrideParent="True" />
+					<float name="max" value="0.125" overrideParent="True" />
+				</group>
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073765401" />
+		<instance_reference name="parent_pbg" value="weapon\races\common\melee\weapon_manatarms_2" />
+	</variant>
+</instance>

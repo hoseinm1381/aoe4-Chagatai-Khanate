@@ -1,0 +1,46 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073741932" />
+	<instance_reference name="parent_pbg" value="upgrade\races\mongol\units\upgrade_unit_crossbowman_4_mon" />
+	<group name="upgrade_bag">
+		<group name="ui_position">
+			<int name="ui_position_row" value="3" overrideParent="True" />
+		</group>
+		<group name="ui_info">
+			<file name="icon_name" value="chagatai\upgrades\tier_crossbow_4" overrideParent="True" />
+			<locstring name="screen_name" value="6060" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="screen_name_short" value="6060" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="help_text" value="6061" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="extra_text" value="7422" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="brief_text" value="0" overrideParent="True" />
+			<bool name="is_unique_to_race" value="True" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="876009635" List.ParentItemID="876009635">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_crossbow_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</template_reference>
+		</list>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<group name="ui_position">
+				<int name="ui_position_row" value="3" overrideParent="True" />
+			</group>
+			<group name="ui_info">
+				<file name="icon_name" value="chagatai\upgrades\tier_crossbow_4" overrideParent="True" />
+				<locstring name="screen_name" value="6060" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="screen_name_short" value="6060" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="help_text" value="6061" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="extra_text" value="7422" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="brief_text" value="0" overrideParent="True" />
+				<bool name="is_unique_to_race" value="True" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="876009635" List.ParentItemID="876009635">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_crossbow_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</template_reference>
+			</list>
+		</group>
+		<uniqueid name="pbgid" value="1073741932" />
+		<instance_reference name="parent_pbg" value="upgrade\races\mongol\units\upgrade_unit_crossbowman_4_mon" />
+	</variant>
+</instance>

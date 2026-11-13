@@ -1,0 +1,68 @@
+-- Standalone extension and game-mode entry, editor GUID preserved.
+import("cardinal.scar")
+Core_RegisterModule("ChagataiMode")
+import("gamemodes/standard_mode.scar")
+import("network.scar")
+import("chagatai/config.scar")
+import("chagatai/selection_core.scar")
+import("chagatai/horse_core.scar")
+import("chagatai/economy_core.scar")
+import("chagatai/production_core.scar")
+import("chagatai/effects_core.scar")
+import("chagatai/readiness.scar")
+import("chagatai/catalog.scar")
+import("chagatai/native_world.scar")
+import("chagatai/building_visuals.scar")
+import("chagatai/native_units.scar")
+import("chagatai/native_economy.scar")
+import("chagatai/native_effects.scar")
+import("chagatai/native_runtime.scar")
+import("chagatai/horse_hud.scar")
+import("chagatai/selection_runtime.scar")
+
+
+-- Framework callbacks stay visible at the registered entry point.
+function ChagataiMode_OnGameSetup()
+    ChagataiSelectionRuntime_OnGameSetup()
+end
+
+function ChagataiMode_PreGameOver(reason)
+
+    -- Official Core invokes PreGameOver before World_SetGameOver.
+    ChagataiSelectionRuntime_OnGameOver()
+    ChagataiNative_Stop()
+end
+
+function ChagataiMode_OnInit()
+
+    ChagataiSelectionRuntime_OnInit()
+end
+
+function ChagataiMode_Start()
+
+    ChagataiSelectionRuntime_Start()
+end
+
+function ChagataiMode_OnGameOver()
+
+    ChagataiSelectionRuntime_OnGameOver()
+    ChagataiNative_Stop()
+end
+
+function ChagataiMode_OnGameRestore()
+    ChagataiSelectionRuntime_OnRestore()
+    if ChagataiNative.running and not ChagataiNative.ended and not Rule_Exists(ChagataiNative_Tick) then
+        Rule_AddInterval(ChagataiNative_Tick,0.25)
+    end
+    pcall(ChagataiNative.RestoreHorseHUD)
+    local native=ChagataiNative
+    if native.running and not native.ended then
+        for _,index in ipairs(native.Keys(native.players)) do
+            local horses=native.players[index].horses.horses
+            for _,id in ipairs(native.Keys(horses)) do
+                local horse=horses[id]
+                native.LockHorseSelection(horse.nativeID,horse.status=='mount',true)
+            end
+        end
+    end
+end

@@ -1,0 +1,38 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073765360" />
+	<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_ram_scaling" />
+	<group name="upgrade_bag">
+		<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_lightweight_beams_mon" overrideParent="True" />
+		<group name="ui_position">
+			<int name="ui_position_row" value="2" overrideParent="True" />
+			<int name="ui_position_column" value="4" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="2007725643" List.ParentItemID="2007725643">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_ram_scaling" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</template_reference>
+		</list>
+		<group name="ui_info">
+			<locstring name="help_text" value="7483" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_siege_workshop\tech_lightweight_beams" overrideParent="True" />
+			<group name="ui_position">
+				<int name="ui_position_row" value="2" overrideParent="True" />
+				<int name="ui_position_column" value="4" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="2007725643" List.ParentItemID="2007725643">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_ram_scaling" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</template_reference>
+			</list>
+			<group name="ui_info">
+				<locstring name="help_text" value="7483" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073765360" />
+		<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_ram_scaling" />
+	</variant>
+</instance>

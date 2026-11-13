@@ -1,6 +1,12 @@
-# Chagatai Khanate for Garrison
+# Chagatai Khanate 0.4.0
 
-An independent Age of Empires IV civilization by hosein81 and chilly5. Import the [0.3.0 playable ZIP](https://github.com/hoseinm1381/aoe4-Chagatai-Khanate/releases/tag/v0.3.0) through Garrison and select Chagatai Khanate in Standard Skirmish with Tuning Pack None. See [START-HERE.md](START-HERE.md).
+An independent Age of Empires IV civilization by hosein81 and chilly5. Import the [0.4.0 Garrison ZIP](https://github.com/hoseinm1381/aoe4-Chagatai-Khanate/releases/tag/v0.4.0) through Garrison and select Chagatai Khanate in Standard Skirmish with Tuning Pack None. See [START-HERE.md](START-HERE.md).
+
+0.4.0 restores the Siege Workshop's stock upgrade list and gives foot and mounted Nökör +15 base HP in Feudal, Castle, and Imperial.
+
+Download the Normal ZIP from the same release for base Age of Empires IV. See [Normal installation and source builds](normal/README.md).
+
+0.3.2 uses the stock Mongol Wonder. It retains the 0.3.1 building detail and cloth updates and refines Almaliq Market's shelter roofs and pennants.
 
 0.3.0 redesigns Almaliq Market, Qarshi Palace, Khan’s Court, and Kebek’s Royal Mint. The entrance arch, both palace awnings, the stair runner, and the chimney cap follow player colour alongside the banners. Ordu of Almaliq and Ili Royal Pastures use their 0.2.9 assets.
 

@@ -1,0 +1,123 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073741856" />
+	<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_archer_3_mon" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="-1479400647" List.ParentItemID="-1479400647">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="920605018" List.ParentItemID="920605018">
+					<instance_reference name="type" value="ebps\races\chagatai\units\ck_archer_foot_3" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="1598045404" List.ParentItemID="1598045404">
+			<list name="requirement_table" overrideParent="True">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1609053778">
+					<enum name="reason" value="usage_and_display" overrideParent="True" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="True" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_archer_3" mod="9fb54312599d47218eef70ad08c75e33" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1654111277">
+					<enum name="reason" value="usage_and_display" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="False" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_archer_4" mod="9fb54312599d47218eef70ad08c75e33" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+			</list>
+			<state_tree_node name="requirement_statetree" value="" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="71247335" List.ParentItemID="71247335">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="1131010880" List.ParentItemID="1131010880">
+					<group name="info">
+						<locstring name="screen_name" value="7015" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="help_text" value="2220" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="extra_text" value="7104" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="brief_text" value="0" overrideParent="True" />
+						<file name="icon_name" value="races\common\units\archer_3" overrideParent="True" />
+						<file name="portrait_name" value="" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="True" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="-1479400647" List.ParentItemID="-1479400647">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="920605018" List.ParentItemID="920605018">
+						<instance_reference name="type" value="ebps\races\chagatai\units\ck_archer_foot_3" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="1598045404" List.ParentItemID="1598045404">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-752336666">
+						<enum name="reason" value="usage_and_display" overrideParent="True" />
+						<locstring name="ui_name" value="0" />
+						<bool name="is_present" value="True" />
+						<int name="max_completed" value="100" />
+						<int name="min_completed" value="1" />
+						<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_archer_3" mod="9fb54312599d47218eef70ad08c75e33" />
+						<bool name="include_queued" value="False" />
+						<group name="include_pbg_parenting">
+							<bool name="include_child_pbgs" value="False" />
+							<bool name="include_parent_pbgs" value="False" />
+						</group>
+						<bool name="include_completed" value="True" />
+					</template_reference>
+					<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-588308304">
+						<enum name="reason" value="usage_and_display" />
+						<locstring name="ui_name" value="0" />
+						<bool name="is_present" value="False" />
+						<int name="max_completed" value="100" />
+						<int name="min_completed" value="1" />
+						<instance_reference name="upgrade_name" value="upgrade\races\chagatai\ck_tier_archer_4" mod="9fb54312599d47218eef70ad08c75e33" />
+						<bool name="include_queued" value="False" />
+						<group name="include_pbg_parenting">
+							<bool name="include_child_pbgs" value="False" />
+							<bool name="include_parent_pbgs" value="False" />
+						</group>
+						<bool name="include_completed" value="True" />
+					</template_reference>
+				</list>
+				<state_tree_node name="requirement_statetree" value="" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="71247335" List.ParentItemID="71247335">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="1131010880" List.ParentItemID="1131010880">
+						<group name="info">
+							<locstring name="screen_name" value="7015" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="help_text" value="2220" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="extra_text" value="7104" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="brief_text" value="0" overrideParent="True" />
+							<file name="icon_name" value="races\common\units\archer_3" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="True" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741856" />
+		<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_archer_3_mon" />
+	</variant>
+</instance>

@@ -9,7 +9,7 @@
 			<float name="death_seconds" value="19" overrideParent="True" />
 			<bool name="delete_when_dead" value="True" />
 			<bool name="force_attacker_memory" value="False" />
-			<float name="hitpoints" value="155.0" overrideParent="True" />
+			<float name="hitpoints" value="170.0" overrideParent="True" />
 			<bool name="is_invincible" value="False" />
 			<bool name="is_salvagable_wreck" value="False" />
 			<instance_reference name="rebuilt_entity" value="" />
@@ -125,7 +125,7 @@
 				<float name="death_seconds" value="19" overrideParent="True" />
 				<bool name="delete_when_dead" value="True" />
 				<bool name="force_attacker_memory" value="False" />
-				<float name="hitpoints" value="155.0" overrideParent="True" />
+				<float name="hitpoints" value="170.0" overrideParent="True" />
 				<bool name="is_invincible" value="False" />
 				<bool name="is_salvagable_wreck" value="False" />
 				<instance_reference name="rebuilt_entity" value="" />

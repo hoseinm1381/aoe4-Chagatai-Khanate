@@ -1,6 +1,10 @@
-# Chagatai Khanate 0.3.0
+# Chagatai Khanate 0.4.0
 
-Check player colour on Almaliq Market’s entrance arch, both Qarshi Palace awnings, Khan’s Court’s stair runner, and Kebek’s Royal Mint’s chimney cap. Each landmark also has player-coloured banners.
+The Siege Workshop inherits the stock upgrade list and order. Foot and mounted Nökör gain 15 base HP in Feudal, Castle, and Imperial.
+
+The Wonder uses the original Mongol Wonder model. Check both Almaliq Market shelter roofs and the saffron pennants with pink and blue owners.
+
+Check player colour on Almaliq Market’s entrance arch, both Qarshi Palace awnings, Khan’s Court’s stair runner, Khan’s Court’s embroidered ridge, and Kebek’s Royal Mint’s awnings and chimney cap. Each landmark also has player-coloured banners.
 
 Khan's Court and Fierce Assault stay on the command card during recharge. Check the 180-second Court cooldown and 60-second Fierce Assault cooldown.
 

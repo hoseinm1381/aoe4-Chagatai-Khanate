@@ -1,0 +1,211 @@
+<instance version="6" template="ebps">
+	<uniqueid name="pbgid" value="1073741947" />
+	<instance_reference name="parent_pbg" value="ebps\races\mongol\buildings\building_tech_unit_infantry_mon" />
+	<list name="extensions" removedIds="-1333903162, 702976148">
+		<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="-769801208" List.ParentItemID="-769801208">
+			<list name="abilities" removedIds="-1569086234, 783921606, 1718009018" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="-1798353110" List.ParentItemID="-1798353110">
+			<list name="unit_type_list" removedIds="221674047" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\action_apply_ext" List.ItemID="-1566784400" List.ParentItemID="-1566784400">
+			<list name="action_state_trees" removedIds="1589332447" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\construction_ext" List.ItemID="1970437960" List.ParentItemID="1970437960">
+			<state_tree_node name="can_be_cancelled_state_tree_conditions" value="" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\action_tree_ext" List.ItemID="1509755434" List.ParentItemID="1509755434">
+			<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-1946099574" List.ParentItemID="-1946099574">
+			<locstring name="screen_name" value="4020" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="help_text" value="4021" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="extra_text" value="7408" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<list name="ui_extra_infos" removedIds="1723746647" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\upgrade_ext" List.ItemID="-1768352645" List.ParentItemID="-1768352645" overrideParent="True">
+			<bool name="must_be_in_supply" value="False" />
+			<float name="number_of_standard_slots" value="-1" />
+			<list name="standard_upgrades" overrideParent="True">
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_damage_i" overrideParent="True" List.ItemID="1823907100" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_damage_ii" overrideParent="True" List.ItemID="1934983818" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_damage_iii" overrideParent="True" List.ItemID="-1736076728" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_armor_i" overrideParent="True" List.ItemID="-1339135018" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_armor_ii" overrideParent="True" List.ItemID="-1123936016" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_armor_iii" overrideParent="True" List.ItemID="2053635055" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_siege_engineers" List.ItemID="-2083592315" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_armor_i" List.ItemID="-1605857836" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_armor_ii" List.ItemID="-1563382480" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_armor_iii" List.ItemID="1985755275" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_damage_i" List.ItemID="-876849540" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_damage_ii" List.ItemID="241441735" />
+				<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_damage_iii" List.ItemID="-559418969" />
+				<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_yam_logistics" overrideParent="True" List.ItemID="-1350965097" mod="9fb54312599d47218eef70ad08c75e33" />
+			</list>
+			<int name="max_queue_size_override" value="-1" />
+			<state_tree_node name="production_item_completed_openingbranch" value="" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="1480586557" overrideParent="True" List.ParentItemID="1480586557">
+			<bool name="can_repair" value="True" />
+			<bool name="cuttable" value="False" />
+			<string name="death_event_name" value="death" />
+			<float name="death_seconds" value="-1" />
+			<bool name="delete_when_dead" value="False" />
+			<bool name="force_attacker_memory" value="False" />
+			<float name="hitpoints" value="1500" />
+			<bool name="is_invincible" value="False" />
+			<bool name="is_salvagable_wreck" value="False" />
+			<instance_reference name="rebuilt_entity" value="" />
+			<instance_reference name="rebuilt_squad" value="" />
+			<bool name="rebuilt_use_wreck_owner" value="False" />
+			<bool name="receive_weapon_cover_modifiers" value="False" />
+			<float name="regeneration" value="0" />
+			<bool name="regeneration_disabled" value="True" />
+			<bool name="remove_from_pathfinding_on_death" value="False" />
+			<bool name="reveal_to_all_on_death" value="False" />
+			<bool name="ui_can_scuttle" value="True" />
+			<float name="target_size" value="5" />
+			<float name="weapon_priority" value="80" />
+			<template_reference name="wreck_entity_option" value="options\none">
+      </template_reference>
+			<enum name="armor_type" value="None" />
+			<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+				<float name="armor" value="1" />
+			</template_reference>
+			<enum name="allegiance_override" value="none" />
+			<bool name="not_default_attackable" value="False" />
+			<enum_table name="armor_scaler_by_damage_type">
+				<float name="True Damage" value="0" />
+				<float name="Melee" value="0" />
+				<float name="Ranged" value="50" />
+				<float name="Fire" value="0" />
+			</enum_table>
+			<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<state_tree_node name="death_action_tree" value="building_death_actions\buildings\blacksmith_death_actions" />
+			<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+			<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+			<bool name="can_be_damaged_by_ally" value="False" />
+			<enum_table name="percentage_reduction_armor_by_damage_type">
+				<float name="True Damage" value="0" />
+				<float name="Melee" value="0" />
+				<float name="Ranged" value="0" />
+				<float name="Fire" value="0" />
+			</enum_table>
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions" removedIds="-1333903162, 702976148">
+			<template_reference name="exts" value="ebpextensions\ability_ext" List.ItemID="-769801208" List.ParentItemID="-769801208">
+				<list name="abilities" removedIds="-1569086234, 783921606, 1718009018" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="-1798353110" List.ParentItemID="-1798353110">
+				<list name="unit_type_list" removedIds="221674047" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\construction_ext" List.ItemID="1970437960" List.ParentItemID="1970437960">
+				<state_tree_node name="can_be_cancelled_state_tree_conditions" value="" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\action_tree_ext" List.ItemID="1509755434" List.ParentItemID="1509755434">
+				<state_tree_node name="fallback_default_move_command_conditions" value="" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-1946099574" List.ParentItemID="-1946099574">
+				<locstring name="screen_name" value="4020" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="help_text" value="4021" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="extra_text" value="7408" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<list name="ui_extra_infos" removedIds="1723746647" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\upgrade_ext" List.ItemID="-1768352645" List.ParentItemID="-1768352645" overrideParent="True">
+				<bool name="must_be_in_supply" value="False" />
+				<float name="number_of_standard_slots" value="-1" />
+				<list name="standard_upgrades" overrideParent="True">
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_damage_i" overrideParent="True" List.ItemID="1897650006" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_damage_ii" overrideParent="True" List.ItemID="-1745109567" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_damage_iii" overrideParent="True" List.ItemID="1502831605" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_armor_i" overrideParent="True" List.ItemID="1786181619" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_armor_ii" overrideParent="True" List.ItemID="-1906128182" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_melee_armor_iii" overrideParent="True" List.ItemID="1171706978" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_siege_engineers" List.ItemID="1062949928" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_armor_i" List.ItemID="1760461568" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_armor_ii" List.ItemID="741268153" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_armor_iii" List.ItemID="2134769212" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_damage_i" List.ItemID="2104226524" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_damage_ii" List.ItemID="-469865388" />
+					<instance_reference name="upgrade" value="upgrade\races\common\research\upgrade_ranged_damage_iii" List.ItemID="210669509" />
+					<instance_reference name="upgrade" value="upgrade\races\chagatai\ck_yam_logistics" overrideParent="True" List.ItemID="1131489958" mod="9fb54312599d47218eef70ad08c75e33" />
+				</list>
+				<int name="max_queue_size_override" value="-1" />
+				<state_tree_node name="production_item_completed_openingbranch" value="" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="1480586557" overrideParent="True" List.ParentItemID="1480586557">
+				<bool name="can_repair" value="True" />
+				<bool name="cuttable" value="False" />
+				<string name="death_event_name" value="death" />
+				<float name="death_seconds" value="-1" />
+				<bool name="delete_when_dead" value="False" />
+				<bool name="force_attacker_memory" value="False" />
+				<float name="hitpoints" value="1500" />
+				<bool name="is_invincible" value="False" />
+				<bool name="is_salvagable_wreck" value="False" />
+				<instance_reference name="rebuilt_entity" value="" />
+				<instance_reference name="rebuilt_squad" value="" />
+				<bool name="rebuilt_use_wreck_owner" value="False" />
+				<bool name="receive_weapon_cover_modifiers" value="False" />
+				<float name="regeneration" value="0" />
+				<bool name="regeneration_disabled" value="True" />
+				<bool name="remove_from_pathfinding_on_death" value="False" />
+				<bool name="reveal_to_all_on_death" value="False" />
+				<bool name="ui_can_scuttle" value="True" />
+				<float name="target_size" value="5" />
+				<float name="weapon_priority" value="80" />
+				<template_reference name="wreck_entity_option" value="options\none">
+        </template_reference>
+				<enum name="armor_type" value="None" />
+				<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+					<float name="armor" value="1" />
+				</template_reference>
+				<enum name="allegiance_override" value="none" />
+				<bool name="not_default_attackable" value="False" />
+				<enum_table name="armor_scaler_by_damage_type">
+					<float name="True Damage" value="0" />
+					<float name="Melee" value="0" />
+					<float name="Ranged" value="50" />
+					<float name="Fire" value="0" />
+				</enum_table>
+				<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<state_tree_node name="death_action_tree" value="xp3_building_death_actions\buildings\blacksmith_death_actions" />
+				<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+				<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+				<bool name="can_be_damaged_by_ally" value="False" />
+				<enum_table name="percentage_reduction_armor_by_damage_type">
+					<float name="True Damage" value="0" />
+					<float name="Melee" value="0" />
+					<float name="Ranged" value="0" />
+					<float name="Fire" value="0" />
+				</enum_table>
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741947" />
+		<instance_reference name="parent_pbg" value="ebps\races\mongol\buildings\building_tech_unit_infantry_mon" />
+	</variant>
+</instance>

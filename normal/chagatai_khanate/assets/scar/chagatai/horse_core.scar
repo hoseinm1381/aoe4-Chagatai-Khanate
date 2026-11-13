@@ -1,0 +1,278 @@
+-- Engine-independent Horse state and conversion policy.
+-- This is NOT a replacement cap/counter. Native admission is an adapter contract.
+ChagataiHorse = {}
+local config = ChagataiConfig.horse
+
+local function copy(source)
+
+    local result = {}
+    for key, value in pairs(source) do
+        if type(value) == "table" then result[key] = copy(value) else result[key] = value end
+    end
+    return result
+end
+
+local function squaredDistance(a, b)
+
+    return (a.x-b.x)^2 + (a.z-b.z)^2
+end
+
+function ChagataiHorse.Profile(mode, imported, almaliq)
+
+    assert(mode == "baseline" or mode == "war" or mode == "fattened", "Unknown herd mode")
+    return {mode=mode,warFactor=mode=="war" and 1.4 or 1,
+        food=mode=="war" and 300 or (mode=="fattened" and 600 or config.baseFood),
+        importBonus=imported and almaliq and 10 or 0}
+end
+
+function ChagataiHorse.Maximum(profile, tier)
+
+    assert(tier >= 0 and tier <= 3 and tier == math.floor(tier), "Invalid Horse-HP tier")
+    return config.baseHP * (1 + 0.20*tier) * profile.warFactor + profile.importBonus
+end
+
+function ChagataiHorse.Rescale(current, oldMaximum, newMaximum)
+
+    assert(oldMaximum > 0 and newMaximum > 0 and current >= 0, "Invalid health")
+    return math.min(current / oldMaximum, 1) * newMaximum
+end
+
+function ChagataiHorse.New(owner)
+
+    return {owner=owner,horses={},riders={},requests={},horseTier=0}
+end
+
+function ChagataiHorse.AddHorse(state, id, profile, currentHP, position)
+
+    assert(state.horses[id] == nil, "Duplicate Horse identity")
+    local maximum = ChagataiHorse.Maximum(profile,state.horseTier)
+    assert(currentHP > 0 and currentHP <= maximum, "Invalid living Horse HP")
+    state.horses[id] = {id=id,owner=state.owner,profile=copy(profile),hp=currentHP,
+        maximum=maximum,position=copy(position),status="loose",alive=true}
+    return state.horses[id]
+end
+
+function ChagataiHorse.AddRider(state, id, pair, currentHP, maximum, position)
+
+    assert(ChagataiConfig.pairs[pair] ~= nil and state.riders[id] == nil, "Invalid rider")
+    assert(currentHP > 0 and currentHP <= maximum, "Invalid rider HP")
+    state.riders[id] = {id=id,pair=pair,owner=state.owner,hp=currentHP,riderMaximum=maximum,
+        maximum=maximum,position=copy(position),form="foot",cooldownUntil=0,alive=true,
+        garrisoned=false,abilityUntil=0,abilityReadyAt=0}
+    return state.riders[id]
+end
+
+-- Only the adapter updates positions/HP/alive/garrisoned from native observations.
+-- Coordinates here are planar metres, normalized by that adapter.
+function ChagataiHorse.NearestFree(state, position, maximumDistance)
+
+    local best, bestDistance
+    for id, horse in pairs(state.horses) do
+        if horse.alive and horse.hp > 0 and horse.owner == state.owner and horse.status == "loose" then
+            local distance = squaredDistance(position,horse.position)
+            if (maximumDistance == nil or distance <= maximumDistance^2)
+                and (best == nil or distance < bestDistance or (distance == bestDistance and id < best.id)) then
+                best, bestDistance = horse, distance
+            end
+        end
+    end
+    return best
+end
+
+function ChagataiHorse.Reserve(state, horseID, kind, reservationID)
+
+    local horse = state.horses[horseID]
+    assert(kind == "mount" or kind == "production" or kind == "mint", "Invalid reservation kind")
+    if horse == nil or not horse.alive or horse.hp <= 0 or horse.owner ~= state.owner
+        or horse.status ~= "loose" then return false end
+    horse.status, horse.reservation = kind, reservationID
+    horse.returnAt = nil
+    return true
+end
+
+function ChagataiHorse.Release(state, horseID, kind, reservationID)
+
+    local horse = state.horses[horseID]
+    if horse == nil or horse.status ~= kind or horse.reservation ~= reservationID then return false end
+    horse.status, horse.reservation = horse.alive and "loose" or "dead", nil
+    return true
+end
+
+local function eligible(state, riderID, form, now)
+
+    local rider = state.riders[riderID]
+    return rider ~= nil and rider.alive and rider.hp > 0 and rider.owner == state.owner
+        and rider.form == form and not rider.garrisoned and now >= rider.cooldownUntil
+        and state.requests[riderID] == nil
+end
+
+function ChagataiHorse.RequestMount(state, riderID, now, age, previousOrders)
+
+    if not eligible(state,riderID,"foot",now) then return nil,"rider-unavailable" end
+    local rider = state.riders[riderID]
+    if age < ChagataiConfig.pairs[rider.pair].mountedAge then return nil,"age-locked" end
+    local horse = ChagataiHorse.NearestFree(state,rider.position,nil)
+    if horse == nil then return nil,"no-horse" end
+    if not ChagataiHorse.Reserve(state,horse.id,"mount",riderID) then return nil,"horse-unavailable" end
+    local request = {kind="mount",phase="approach",horseID=horse.id,deadline=now+config.approachSeconds,
+        previousOrders=copy(previousOrders or {}),newOrders=nil}
+    state.requests[riderID] = request
+    return request
+end
+
+function ChagataiHorse.FailMount(state, riderID, now, explicitHorseOrder)
+
+    local request = state.requests[riderID]
+    if request == nil or request.kind ~= "mount" then return false end
+    local released = ChagataiHorse.Release(state,request.horseID,"mount",riderID)
+    local horse = state.horses[request.horseID]
+    if released and horse.alive and not explicitHorseOrder then horse.returnAt = now+config.failedReturnDelay end
+    state.requests[riderID] = nil
+    return true
+end
+
+function ChagataiHorse.CancelMount(state, riderID, now, explicitHorseOrder)
+
+    local request = state.requests[riderID]
+    if request == nil or request.phase ~= "approach" then return false end
+    return ChagataiHorse.FailMount(state,riderID,now,explicitHorseOrder)
+end
+
+function ChagataiHorse.Approach(state, riderID, now)
+
+    local request = state.requests[riderID]
+    if request == nil or request.kind ~= "mount" or request.phase ~= "approach" then return false end
+    local rider, horse = state.riders[riderID], state.horses[request.horseID]
+    if not rider.alive or rider.hp <= 0 or rider.garrisoned or not horse.alive or horse.hp <= 0
+        or horse.status ~= "mount" or horse.reservation ~= riderID or now >= request.deadline then
+        ChagataiHorse.FailMount(state,riderID,now,false)
+        return false
+    end
+    if squaredDistance(rider.position,horse.position) <= config.mountRange^2 then
+        request.phase, request.completeAt = "execution", now+config.executionSeconds
+        return true -- No timed hold; adapter commits after native commands drain.
+    end
+    return false
+end
+
+function ChagataiHorse.RequestDismount(state, riderID, now, previousOrders)
+
+    if not eligible(state,riderID,"mounted",now) then return nil,"rider-unavailable" end
+    local request = {kind="dismount",phase="execution",completeAt=now+config.executionSeconds,
+        previousOrders=copy(previousOrders or {}),newOrders=nil}
+    state.requests[riderID] = request
+    return request
+end
+
+function ChagataiHorse.RecordOrder(state, riderID, order, queued)
+
+    local request = state.requests[riderID]
+    if request == nil or request.phase ~= "execution" then return false end
+    if not queued then request.newOrders = {} end
+    if request.newOrders == nil then request.newOrders = copy(request.previousOrders) end
+    table.insert(request.newOrders,copy(order))
+    return true
+end
+
+-- Prepare does not mutate the native world or consume the cooldown.
+function ChagataiHorse.PrepareConversion(state, riderID, now, spawnPosition)
+
+    local request, rider = state.requests[riderID], state.riders[riderID]
+    if request == nil or request.phase ~= "execution" or now < request.completeAt then return nil,"not-ready" end
+    if not rider.alive or rider.hp <= 0 or rider.garrisoned then return nil,"rider-invalid" end
+    if request.kind == "mount" then
+        local horse = state.horses[request.horseID]
+        if not horse.alive or horse.hp <= 0 or horse.status ~= "mount" or horse.reservation ~= riderID then
+            return nil,"horse-invalid"
+        end
+        request.prepared = {kind="mount",horseID=horse.id,maximum=rider.riderMaximum+horse.maximum,
+            hp=rider.hp+horse.hp,sourceHP=rider.hp,sourceHorseHP=horse.hp,
+            sourceMaximum=rider.maximum,sourceHorseMaximum=horse.maximum,
+            orders=copy(request.newOrders or request.previousOrders)}
+        return request.prepared
+    end
+    if spawnPosition == nil or squaredDistance(rider.position,spawnPosition) > config.mountRange^2 then
+        return nil,"no-nearby-horse-position"
+    end
+    local horse = state.horses[rider.horseID]
+    request.prepared = {kind="dismount",horseID=horse.id,maximum=rider.riderMaximum,
+        hp=rider.hp*rider.riderMaximum/rider.maximum,
+        horseHP=rider.hp*horse.maximum/rider.maximum,position=copy(spawnPosition),
+        sourceHP=rider.hp,sourceHorseHP=horse.hp,sourceMaximum=rider.maximum,sourceHorseMaximum=horse.maximum,
+        orders=copy(request.newOrders or request.previousOrders)}
+    return request.prepared
+end
+
+-- Call only after an adapter completed the corresponding native transaction.
+-- Stable rider/Horse IDs below are logical IDs, NOT replaceable engine handles.
+function ChagataiHorse.CommitConversion(state, riderID, now, plan, nativeCommitted)
+
+    if nativeCommitted ~= true then return false end
+    local request, rider = state.requests[riderID], state.riders[riderID]
+    if request == nil or request.prepared ~= plan or now < request.completeAt or request.kind ~= plan.kind
+        or (request.horseID or rider.horseID) ~= plan.horseID then return false end
+    local horse = state.horses[plan.horseID]
+    if not rider.alive or rider.hp <= 0 or rider.garrisoned or not horse.alive
+        or rider.hp ~= plan.sourceHP or horse.hp ~= plan.sourceHorseHP
+        or rider.maximum ~= plan.sourceMaximum or horse.maximum ~= plan.sourceHorseMaximum then return false end
+    rider.hp, rider.maximum, rider.cooldownUntil = plan.hp, plan.maximum, now+config.conversionCooldown
+    if plan.kind == "mount" then
+        rider.form, rider.horseID = "mounted", horse.id
+        horse.status, horse.reservation = "mounted", riderID
+    else
+        rider.form, rider.horseID = "foot", nil
+        horse.hp, horse.position = plan.horseHP, copy(plan.position)
+        horse.status, horse.reservation = "loose", nil
+    end
+    state.requests[riderID] = nil
+    return true
+end
+
+function ChagataiHorse.AbortConversion(state, riderID, now)
+
+    local request = state.requests[riderID]
+    if request == nil then return false end
+    if request.kind == "mount" then return ChagataiHorse.FailMount(state,riderID,now,false) end
+    state.requests[riderID] = nil
+    return true
+end
+
+function ChagataiHorse.SetHorseTier(state, tier)
+
+    assert(tier >= state.horseTier and tier <= 3 and tier == math.floor(tier), "Non-monotonic Horse research")
+    for _, horse in pairs(state.horses) do
+        if horse.alive then
+            local maximum = ChagataiHorse.Maximum(horse.profile,math.max(tier,horse.minimumTier or 0))
+            horse.hp = ChagataiHorse.Rescale(horse.hp,horse.maximum,maximum)
+            horse.maximum = maximum
+        end
+    end
+    for _, rider in pairs(state.riders) do
+        if rider.alive and rider.form == "mounted" then
+            local maximum = rider.riderMaximum+state.horses[rider.horseID].maximum
+            rider.hp = ChagataiHorse.Rescale(rider.hp,rider.maximum,maximum)
+            rider.maximum = maximum
+        end
+    end
+    state.horseTier = tier
+end
+
+function ChagataiHorse.SetRiderMaximum(state, riderID, maximum)
+
+    local rider = state.riders[riderID]
+    local total = maximum + (rider.form=="mounted" and state.horses[rider.horseID].maximum or 0)
+    rider.hp = ChagataiHorse.Rescale(rider.hp,rider.maximum,total)
+    rider.riderMaximum, rider.maximum = maximum, total
+end
+
+function ChagataiHorse.Carcass(profile, mountedDeath, alliedKill)
+
+    return {food=profile.food*(mountedDeath and 0.5 or 1),decay=(mountedDeath or not alliedKill) and 4 or 0}
+end
+
+function ChagataiHorse.DecayCarcass(carcass, seconds, gathered)
+
+    assert(seconds >= 0 and gathered >= 0, "Invalid carcass update")
+    carcass.food = math.max(0,carcass.food-carcass.decay*seconds-gathered)
+    return carcass.food == 0
+end

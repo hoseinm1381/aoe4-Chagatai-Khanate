@@ -103,7 +103,7 @@ def verify_model(root, resource, building, dds):
             if offset != len(payload):
                 raise ValueError(f"Unexpected lifecycle bytes in {resource}")
         meshes = [c for c in find(geometry, b"RRGO").children if c.tag == b"MESH"]
-        if len(meshes) != len(rows) or any(sum(c.tag == b"GOHD" for c in rc.walk([m])) != 3 for m in meshes):
+        if len(meshes) != len(rows) or any(sum(c.tag == b"GOHD" for c in rc.walk([m])) != building["lods"] for m in meshes):
             raise ValueError(f"Missing building geometry in {resource}")
     else:
         find(model, b"SKLN")
@@ -281,7 +281,8 @@ def main():
     # native units. The editable/cooked inputs remain available to future builds.
     alternates = {ART + f"{name}/{name}" for name in
                   ("handcannon_mounted_4_2", "religious_mounted_3_2")}
-    if observed | alternates != buildings.keys() | units or observed & alternates:
+    inactive = {"art/scenario/chagatai/wonder/model"}
+    if observed | alternates != (buildings.keys() - inactive) | units or observed & (alternates | inactive):
         raise ValueError("Unexpected coverage of the custom model inventory")
     opening = verify_opening(readback, args.visuals)
     game = stock_game.current()

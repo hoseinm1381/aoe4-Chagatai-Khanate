@@ -1,0 +1,98 @@
+-- Deterministic effect lifetimes; adapter applies verified native modifiers.
+ChagataiEffects = {}
+
+function ChagataiEffects.FormationArmor(eligibleCount)
+
+    return math.min(ChagataiConfig.formation.maximum,
+        math.floor(eligibleCount/ChagataiConfig.formation.threshold))
+end
+
+function ChagataiEffects.ActivateMounted(rider, now)
+
+    if not rider.alive or rider.hp <= 0 or rider.form ~= "mounted" or rider.garrisoned
+        or (rider.pair ~= "nokor" and rider.pair ~= "archer") or now < rider.abilityReadyAt then return false end
+    rider.abilityUntil = now+ChagataiConfig.ability.duration[rider.pair]
+    rider.abilityReadyAt = now+ChagataiConfig.ability.cooldown
+    return true
+end
+
+function ChagataiEffects.MountedFactors(rider, now, baseMeleeArmor, baseRangedArmor)
+
+    local result = {unitDamage=1,speed=1,meleeArmor=baseMeleeArmor,rangedArmor=baseRangedArmor,buildingDamage=1}
+    if rider.form ~= "mounted" or now >= rider.abilityUntil then return result end
+    if rider.pair == "nokor" then
+        result.unitDamage,result.speed = ChagataiConfig.ability.nokorDamage,ChagataiConfig.ability.nokorSpeed
+        result.buildingDamage = result.unitDamage
+        result.meleeArmor = math.max(0,baseMeleeArmor-ChagataiConfig.ability.nokorArmorPenalty)
+        result.rangedArmor = math.max(0,baseRangedArmor-ChagataiConfig.ability.nokorArmorPenalty)
+    elseif rider.pair == "archer" then
+        result.speed,result.rangedArmor = ChagataiConfig.ability.archerSpeed,baseRangedArmor+ChagataiConfig.ability.archerArmor
+    end
+    return result
+end
+
+function ChagataiEffects.NewCourt()
+
+    return {readyAt=0,serial=0,activations={}}
+end
+
+-- eligibleIDs are a native snapshot already filtered for allied military,
+-- Scouts/siege, alive, and <=40 metres. No later entrant is added here.
+function ChagataiEffects.ActivateCourt(state, now, functioning, eligibleIDs)
+
+    if not functioning or now < state.readyAt then return nil end
+    state.serial = state.serial+1
+    local activation = {id=state.serial,expires=now+ChagataiConfig.court.duration,recipients={},order={}}
+    for _, id in ipairs(eligibleIDs) do
+        if not activation.recipients[id] then
+            activation.recipients[id] = true
+            table.insert(activation.order,id)
+        end
+    end
+    table.sort(activation.order)
+    state.activations[state.serial] = activation
+    state.readyAt = now+ChagataiConfig.court.cooldown
+    return activation
+end
+
+function ChagataiEffects.CourtFactors(courts, riderID, now)
+
+    local damage,speed = 1,1
+    for _, court in ipairs(courts) do
+        for _, activation in pairs(court.activations) do
+            if now < activation.expires and activation.recipients[riderID] then
+                damage,speed = damage*ChagataiConfig.court.damage,speed*ChagataiConfig.court.speed
+            end
+        end
+    end
+    return damage,speed -- All attack targets, per owner amendment of 2026-11-02.
+end
+
+function ChagataiEffects.PruneCourt(state, now)
+
+    local expired = {}
+    for id, activation in pairs(state.activations) do
+        if now >= activation.expires then table.insert(expired,id) end
+    end
+    table.sort(expired)
+    for _, id in ipairs(expired) do state.activations[id] = nil end
+    return expired
+end
+
+function ChagataiEffects.CourtHeal(current, maximum)
+
+    return current+(maximum-current)*ChagataiConfig.court.healMissing
+end
+
+function ChagataiEffects.NewIli()
+
+    return {mode=ChagataiConfig.ili.initialMode,readyAt=0}
+end
+
+function ChagataiEffects.SwitchIli(state, mode, now, functioning)
+
+    if not functioning or now < state.readyAt or mode == state.mode
+        or (mode ~= "war" and mode ~= "fattened") then return false end
+    state.mode,state.readyAt = mode,now+ChagataiConfig.ili.cooldown
+    return true
+end

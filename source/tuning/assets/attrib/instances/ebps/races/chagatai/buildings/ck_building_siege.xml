@@ -389,18 +389,6 @@
 			<bool name="always_use_economic_rally_points" value="False" />
 			<bool name="use_alternative_rally_point_system" value="False" />
 		</template_reference>
-		<template_reference name="exts" value="ebpextensions\upgrade_ext" List.ItemID="2110079480" List.ParentItemID="2110079480" overrideParent="True">
-			<bool name="must_be_in_supply" value="False" />
-			<float name="number_of_standard_slots" value="-1" />
-			<list name="standard_upgrades" overrideParent="True">
-				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_siege_roller_trigger" List.ItemID="-2113264578" mod="ac8da4d112bf433c888433228510b447" />
-				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_siege_adjustable_crossbar" List.ItemID="-1623678009" mod="ac8da4d112bf433c888433228510b447" />
-				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_siege_weapon_speed" List.ItemID="1000261649" mod="ac8da4d112bf433c888433228510b447" />
-				<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_ram_scaling" overrideParent="True" List.ItemID="1548476802" mod="ac8da4d112bf433c888433228510b447" />
-			</list>
-			<int name="max_queue_size_override" value="-1" />
-			<state_tree_node name="production_item_completed_openingbranch" value="" />
-		</template_reference>
 		<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="-2055174168" overrideParent="True" List.ParentItemID="-2055174168">
 			<bool name="can_repair" value="True" />
 			<bool name="cuttable" value="False" />
@@ -845,18 +833,6 @@
 				<bool name="economic_rally_points_allowed" value="False" />
 				<bool name="always_use_economic_rally_points" value="False" />
 				<bool name="use_alternative_rally_point_system" value="False" />
-			</template_reference>
-			<template_reference name="exts" value="ebpextensions\upgrade_ext" List.ItemID="2110079480" List.ParentItemID="2110079480" overrideParent="True">
-				<bool name="must_be_in_supply" value="False" />
-				<float name="number_of_standard_slots" value="-1" />
-				<list name="standard_upgrades" overrideParent="True">
-					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_siege_roller_trigger" List.ItemID="1209311949" mod="ac8da4d112bf433c888433228510b447" />
-					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_siege_adjustable_crossbar" List.ItemID="389884252" mod="ac8da4d112bf433c888433228510b447" />
-					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_siege_weapon_speed" List.ItemID="239984109" mod="ac8da4d112bf433c888433228510b447" />
-					<instance_reference name="upgrade" value="upgrade\races\chagatai\baseline\ck_upgrade_ram_scaling" overrideParent="True" List.ItemID="26237310" mod="ac8da4d112bf433c888433228510b447" />
-				</list>
-				<int name="max_queue_size_override" value="-1" />
-				<state_tree_node name="production_item_completed_openingbranch" value="" />
 			</template_reference>
 			<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="-2055174168" overrideParent="True" List.ParentItemID="-2055174168">
 				<bool name="can_repair" value="True" />

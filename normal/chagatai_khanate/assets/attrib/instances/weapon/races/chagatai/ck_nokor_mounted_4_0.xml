@@ -1,0 +1,34 @@
+<instance version="6" template="weapon">
+	<uniqueid name="pbgid" value="1073765411" />
+	<instance_reference name="parent_pbg" value="weapon\races\mongol\melee\weapon_lancer_4_mon" />
+	<group name="weapon_bag">
+		<group name="damage">
+			<float name="min" value="24" overrideParent="True" />
+			<float name="max" value="24" overrideParent="True" />
+			<list name="on_penetrated_state_trees" removedIds="-648145146" />
+		</group>
+		<group name="cooldown">
+			<group name="duration">
+				<float name="min" value="0.875" overrideParent="True" />
+				<float name="max" value="0.875" overrideParent="True" />
+			</group>
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="weapon_bag">
+			<group name="damage">
+				<float name="min" value="24" overrideParent="True" />
+				<float name="max" value="24" overrideParent="True" />
+				<list name="on_penetrated_state_trees" removedIds="-648145146" />
+			</group>
+			<group name="cooldown">
+				<group name="duration">
+					<float name="min" value="0.875" overrideParent="True" />
+					<float name="max" value="0.875" overrideParent="True" />
+				</group>
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073765411" />
+		<instance_reference name="parent_pbg" value="weapon\races\mongol\melee\weapon_lancer_4_mon" />
+	</variant>
+</instance>

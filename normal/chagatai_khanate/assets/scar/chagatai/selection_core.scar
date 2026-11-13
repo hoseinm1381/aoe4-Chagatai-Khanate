@@ -1,0 +1,53 @@
+-- Deterministic policy only. Sender identity must come from Network_*.
+ChagataiSelection = {}
+
+function ChagataiSelection.New(indices, now)
+
+    local state = {players={},order={},deadline=now+ChagataiConfig.selectionSeconds,closed=false}
+    for _, index in ipairs(indices) do
+        if state.players[index] == nil then
+            state.players[index] = {choice=nil,dropped=false}
+            table.insert(state.order,index)
+        end
+    end
+    table.sort(state.order)
+    return state
+end
+
+function ChagataiSelection.Choose(state, index, choice, now)
+
+    local player = state.players[index]
+    if state.closed or now >= state.deadline or player == nil or player.dropped
+        or player.choice ~= nil or (choice ~= "mongol" and choice ~= "chagatai") then
+        return false
+    end
+    player.choice = choice
+    return true
+end
+
+function ChagataiSelection.Drop(state, index)
+
+    if state.closed then return end
+    local player = state.players[index]
+    if player ~= nil then
+        player.dropped = true
+        if player.choice == nil then player.choice = "mongol" end
+    end
+end
+
+function ChagataiSelection.Tick(state, now)
+
+    if state.closed then return false end
+    local ready = true
+    for _, index in ipairs(state.order) do
+        local player = state.players[index]
+        if now >= state.deadline and player.choice == nil then player.choice = "mongol" end
+        if player.choice == nil then ready = false end
+    end
+    return ready
+end
+
+function ChagataiSelection.Close(state)
+
+    state.closed = true
+end

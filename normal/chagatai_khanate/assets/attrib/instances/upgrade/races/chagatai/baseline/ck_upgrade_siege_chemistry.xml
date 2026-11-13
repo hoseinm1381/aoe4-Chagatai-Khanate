@@ -1,0 +1,38 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073765352" />
+	<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_siege_chemistry" />
+	<group name="upgrade_bag">
+		<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_chemistry_mon" overrideParent="True" />
+		<group name="ui_position">
+			<int name="ui_position_row" value="1" overrideParent="True" />
+			<int name="ui_position_column" value="4" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="474962270" List.ParentItemID="474962270">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_siege_chemistry" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</template_reference>
+		</list>
+		<group name="ui_info">
+			<locstring name="help_text" value="7488" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_blacksmith\tech_upgrade_chemistry_mon" overrideParent="True" />
+			<group name="ui_position">
+				<int name="ui_position_row" value="3" overrideParent="True" />
+				<int name="ui_position_column" value="3" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="474962270" List.ParentItemID="474962270">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_siege_chemistry" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</template_reference>
+			</list>
+			<group name="ui_info">
+				<locstring name="help_text" value="7488" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073765352" />
+		<instance_reference name="parent_pbg" value="upgrade\races\common\research\upgrade_siege_chemistry" />
+	</variant>
+</instance>

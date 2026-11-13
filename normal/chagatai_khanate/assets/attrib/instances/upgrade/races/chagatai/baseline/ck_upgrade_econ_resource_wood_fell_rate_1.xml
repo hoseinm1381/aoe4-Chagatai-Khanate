@@ -1,0 +1,32 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073765361" />
+	<instance_reference name="parent_pbg" value="upgrade\races\common\research\economy\upgrade_econ_resource_wood_fell_rate_1" />
+	<group name="upgrade_bag">
+		<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_ger\tech_forestry_mon" overrideParent="True" />
+		<group name="ui_position">
+			<int name="ui_position_row" value="2" overrideParent="True" />
+			<int name="ui_position_column" value="1" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="529294436" List.ParentItemID="529294436">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_wood_fell_rate_1" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</template_reference>
+		</list>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_ger\tech_forestry_mon" overrideParent="True" />
+			<group name="ui_position">
+				<int name="ui_position_row" value="2" overrideParent="True" />
+				<int name="ui_position_column" value="1" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="529294436" List.ParentItemID="529294436">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_wood_fell_rate_1" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</template_reference>
+			</list>
+		</group>
+		<uniqueid name="pbgid" value="1073765361" />
+		<instance_reference name="parent_pbg" value="upgrade\races\common\research\economy\upgrade_econ_resource_wood_fell_rate_1" />
+	</variant>
+</instance>

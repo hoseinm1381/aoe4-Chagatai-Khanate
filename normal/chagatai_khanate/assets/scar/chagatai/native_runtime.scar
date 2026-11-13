@@ -1,0 +1,503 @@
+local N=ChagataiNative
+local pastureInfluenceBonus=ChagataiCatalog['ebps/races/chagatai/buildings/ck_building_pasture'].influenceProductionSpeedBonus
+function N.AdoptRider(previous,rider,entity,now)
+
+    local owner=N.Owner(entity);if not owner then return end
+    if owner==previous.id then return previous end
+    local info=Core_GetPlayersTableEntry(owner)
+    local tracked=N.entities[rider.id]
+    if not info or not tracked or tracked.player~=previous or previous.horses.riders[rider.id]~=rider then return end
+    local horse=rider.horseID and previous.horses.horses[rider.horseID]
+    if rider.horseID and not horse then return end
+    local p=N.players[info.index]
+    if not p then
+        -- Converted units retain their physical mount and commands. Their new
+        -- owner does not receive Chagatai buildings, economy, housing or traits.
+        p={id=owner,index=info.index,auxiliary=true,horses=ChagataiHorse.New(info.index),research={},tiers={},buildings={},
+            workers={},completed={},economy=ChagataiEconomy.New(now),production=ChagataiProduction.New(),last=now,ili=ChagataiEffects.NewIli()}
+        N.players[info.index]=p
+    end
+    N.FailRider(previous,rider,now)
+    if previous.yamUnits and previous.yamUnits[rider.id] then
+        Modifier_Remove(previous.yamUnits[rider.id]);previous.yamUnits[rider.id]=nil
+    end
+    previous.horses.riders[rider.id]=nil;p.horses.riders[rider.id]=rider;rider.owner=p.index
+    previous.workers[rider.id]=nil
+    if previous.workerHealth then previous.workerHealth[rider.id]=nil end
+    if rider.pair=='villager' and not p.auxiliary then p.workers[rider.id]=true end
+    if horse then
+        previous.horses.horses[horse.id]=nil;p.horses.horses[horse.id]=horse;horse.owner=p.index
+        horse.minimumTier=math.max(horse.minimumTier or 0,previous.horses.horseTier)
+    end
+    tracked.player=p
+    if p.research.lamellar and ChagataiConfig.pairs[rider.pair].lamellar and not rider.lamellarApplied then
+        rider.lamellarApplied=true;ChagataiHorse.SetRiderMaximum(p.horses,rider.id,rider.riderMaximum*1.2)
+        N.Health(rider,entity,rider.maximum,rider.hp)
+    end
+    N.Buttons(p,rider.id)
+    return p
+end
+function N.RegisterBuilding(p,entity,meta)
+
+    local id=Entity_GetID(entity)
+    local b={id=id,role=meta.role,record=meta,queue={},position=Entity_GetPosition(entity),fraction=1}
+    p.buildings[id]=b;N.entities[id]={player=p,record=meta,buildingID=id}
+    if b.role=='court' then b.court=ChagataiEffects.NewCourt();N.courts[#N.courts+1]=b.court end
+    Rule_AddEntityEvent(ChagataiNative_OnBuildingAbility,entity,GE_AbilityExecuted,{id=id})
+    return b
+end
+function ChagataiNative_OnConstruction(context)
+
+    if N.ended or not context then return end
+    local info=context.player and Core_GetPlayersTableEntry(context.player)
+    local p=info and N.players[info.index];local e=context.entity
+    if not N.IsPlaying(p) or p.auxiliary or not e or e==0 or not Entity_IsValid(Entity_GetID(e)) or N.Owner(e)~=p.id then return end
+    local meta=N.Record(e);if not meta or not meta.role then return end
+    local id=Entity_GetID(e);local b=p.buildings[id] or N.RegisterBuilding(p,e,meta)
+    N.Flags(p)
+    if b.role=='pasture' or b.role=='ili' then N.Pasture(p,b,e,0,N.Now()) end
+end
+function N.Flags(p)
+
+    p.almaliq=false;p.qarshi=false;p.iliActive=false
+    for _,id in ipairs(N.Keys(p.buildings)) do
+        local b=p.buildings[id];local e=N.Entity(id)
+        if e and N.Owner(e)==p.id and N.Functioning(e) then
+            if b.role=='almaliq' then p.almaliq=true
+            elseif b.role=='qarshi' then p.qarshi=true
+            elseif b.role=='ili' then p.iliActive=true end
+        end
+    end
+    if p.economy.almaliq~=p.almaliq then ChagataiEconomy.SetAlmaliq(p.economy,p.almaliq,N.Now()) end
+    N.SyncImportPrice(p)
+end
+function ChagataiNative_OnSpawn(context,data)
+
+    if N.ended or not context or not data then return end
+    local e=context.entity;local p=N.players[data.playerIndex]
+    if not e or e==0 or not Entity_IsValid(Entity_GetID(e)) or not N.IsPlaying(p)
+        or N.Owner(e)~=p.id or Entity_IsBuilding(e) or Entity_IsOfType(e,'animal_corpse') then return end
+    local candidate=Entity_IsOfType(e,'villager') or N.Record(e)~=nil
+    if not candidate then
+        local s=Entity_GetSquad(e)
+        local name=s and s~=0 and BP_GetName(Squad_GetBlueprint(s))
+        if name then
+            name=name:match('[^:]+$')
+            for _,key in ipairs(N.Keys(ChagataiCatalog)) do
+                if ChagataiCatalog[key].nativeName==name then candidate=true;break end
+            end
+        end
+    end
+    if candidate then
+        local id=Entity_GetID(e)
+        if N.retirements[id] or N.entities[id] or N.births[id] or not Entity_IsAlive(e)
+            or Entity_IsInHold(e) or Entity_GetHealthMax(e)<=0 then return end
+        N.births[id]={fraction=1,seenAt=N.Now()}
+        if Entity_GetHealthPercentage(e)<0.9999 then N.SetHealth(e,1) end
+    end
+end
+function N.RecordWorkerHealth(p,e)
+    p.workerHealth=p.workerHealth or {}
+    p.workerHealth[Entity_GetID(e)]={maximum=Entity_GetHealthMax(e),hp=Entity_GetHealth(e),
+        fraction=Entity_GetHealthPercentage(e)}
+end
+
+local function applyWorkerTextiles(p,rider,e)
+    if not rider or rider.textilesApplied or not p.research.textiles then return end
+    -- Use the catalog's rider-only HP. Older saves can carry a native Textiles
+    -- bonus baked into the mounted actor's observed maximum.
+    local body=N.Unit('villager',rider.form,1,'ebps')
+    rider.textilesApplied=true
+    rider.baseRiderHP=body.riderHP+ChagataiConfig.research.textilesHP
+    rider.hp=Entity_GetHealth(e)
+    rider.maximum=Entity_GetHealthMax(e)
+    ChagataiHorse.SetRiderMaximum(p.horses,rider.id,rider.baseRiderHP)
+    N.Health(rider,e,rider.maximum,rider.hp)
+end
+
+function N.EnsureWorker(p,e)
+
+    if N.Owner(e)~=p.id or not Entity_IsAlive(e) then return end
+    local id=Entity_GetID(e);local squad=Entity_GetSquad(e)
+    if not squad or squad==0 then return end
+    local rider=p.horses.riders[id]
+    local tracked=N.entities[id]
+    if tracked and tracked.riderID and tracked.player~=p then
+        rider=tracked.player.horses.riders[id]
+        if not rider or N.AdoptRider(tracked.player,rider,e,N.Now())~=p then return end
+    end
+    local meta=N.Record(e)
+    local form=rider and rider.form or meta and meta.form or 'foot'
+    local horse=rider and rider.horseID and p.horses.horses[rider.horseID]
+    if rider and form=='mounted' and not horse then return end
+    local body=N.Unit('villager',form,1,'ebps');local sbp=N.Unit('villager',form,1,'sbps')
+    local needsConvert=not N.SameBP(Entity_GetBlueprint(e),body.bp) or not N.SameBP(Squad_GetBlueprint(squad),sbp.bp)
+    local birth=N.births[id]
+    local previous=p.workerHealth and p.workerHealth[id]
+    local maximum,hp=Entity_GetHealthMax(e),Entity_GetHealth(e)
+    local fraction=birth and birth.fraction or Entity_GetHealthPercentage(e)
+    -- Preserve percentage when native research leaves the old absolute HP.
+    -- Do not overwrite damage or HP that the engine already adjusted.
+    if not birth and previous and maximum~=previous.maximum and math.abs(hp-previous.hp)<0.001 then
+        fraction=previous.fraction;N.SetHealth(e,fraction)
+
+    end
+    -- Age-up can alter HP while a worker is gathering. Sample/repair before
+    -- deferring blueprint work, so a busy worker cannot lose its old fraction.
+    if needsConvert and not N.CanConvert(e,squad) then
+        applyWorkerTextiles(p,rider,e)
+        N.RecordWorkerHealth(p,e)
+        return
+    end
+    if not N.SameBP(Entity_GetBlueprint(e),body.bp) or not N.SameBP(Squad_GetBlueprint(squad),sbp.bp) then
+
+        if rider and rider.healthMod then Modifier_Remove(rider.healthMod);rider.healthMod=nil end
+        if not N.SameBP(Entity_GetBlueprint(e),body.bp) then Entity_ConvertBlueprint(e,body.bp) end
+        if not N.SameBP(Squad_GetBlueprint(squad),sbp.bp) then
+            Squad_ConvertBlueprint(squad,sbp.bp)
+            if N.entities[id] then N.entities[id].commandForm=nil end
+        end
+        if rider then
+            rider.maximum=rider.riderMaximum+(horse and horse.maximum or 0)
+            rider.hp=rider.maximum*fraction
+            N.Health(rider,e,rider.maximum,rider.hp)
+            N.entities[id].record=body
+        end
+        N.SetHealth(e,fraction)
+
+    end
+    if birth then N.SetHealth(e,fraction);N.births[id]=nil end
+    p.workers[id]=true
+    if not rider then
+        rider=N.RegisterRider(p,e,body)
+        if rider then N.SetHealth(e,fraction);rider.hp=Entity_GetHealth(e) end
+    end
+    applyWorkerTextiles(p,rider,e)
+    N.RecordWorkerHealth(p,e)
+end
+function N.ReconcileNativeUnit(p,e)
+
+    local s=Entity_GetSquad(e);if not s or s==0 then return end
+    if N.Lookup(Squad_GetBlueprint(s),'sbps') then return end
+    local bp=Squad_GetBlueprint(s)
+    if not bp or bp==0 then return end
+    local name=BP_GetName(bp)
+    if type(name)~='string' then return end
+    name=name:match('[^:]+$')
+    local tracked=N.entities[Entity_GetID(e)];local desired
+    if tracked and tracked.riderID then
+        local rider=tracked.player.horses.riders[tracked.riderID]
+        if rider then desired=N.Unit(rider.pair,rider.form,rider.tier,'sbps') end
+    else
+        local distance
+        for _,receipt in ipairs(p.completed) do
+            local meta=N.Lookup(receipt.bp,'sbps')
+            if meta and meta.nativeName==name then
+                local d=receipt.position and N.Distance(Entity_GetPosition(e),receipt.position) or math.huge
+                if not desired or d<distance then desired=meta;distance=d end
+            end
+        end
+        if not desired then
+            for _,key in ipairs(N.Keys(ChagataiCatalog)) do
+                local meta=ChagataiCatalog[key]
+                if meta.category=='sbps' and meta.pair and meta.form=='foot' and meta.nativeName==name then desired=meta;break end
+            end
+        end
+    end
+    if desired then
+        if not N.CanConvert(e,s) then return end
+        local body=N.Get(desired.entity);local fraction=Entity_GetHealthPercentage(e)
+        if not N.SameBP(Entity_GetBlueprint(e),body.bp) then Entity_ConvertBlueprint(e,body.bp) end
+        Squad_ConvertBlueprint(s,desired.bp)
+        if tracked then tracked.commandForm=nil end
+        N.SetHealth(e,fraction)
+    end
+end
+function N.RegisterHorseBirth(p,e,record)
+    if not e or e==0 or not Entity_IsAlive(e) or N.Owner(e)~=p.id then return end
+    local id=Entity_GetID(e)
+    if N.retirements[id] then return end
+    local tracked=N.entities[id]
+    if tracked then return tracked.player==p and tracked.horseID and p.horses.horses[tracked.horseID] or nil end
+    local birth=N.births[id]
+    record=birth and birth.horseRecord or record or N.Record(e)
+    if not record or (record.kind~='horse' and record.kind~='import' and record.kind~='ili') then return end
+    local squad=Entity_GetSquad(e)
+    if not squad or squad==0 or Squad_Count(squad)~=1 then return end
+    local sbp=N.Lookup(Squad_GetBlueprint(squad),'sbps')
+    -- Native production may still expose the official parent squad while the
+    -- body is already our private Horse. Preserve that accepted birth path;
+    -- normalization is deferred while it is in a hold or has pending commands.
+    local productionSquad=sbp or N.Get(record.key:gsub('^ebps/','sbps/'))
+    local receipt=birth and birth.horseReceipt or N.TakeCompletion(p,productionSquad,Entity_GetPosition(e))
+    local profile,tx
+    if record.kind=='import' then
+        if not receipt or not receipt.importID then return end
+        tx=p.economy.transactions[receipt.importID]
+        if not tx or tx.status~='active' then return end
+        profile=tx.profile
+    end
+    local ok,horse=pcall(N.NewHorse,p,e,profile or N.Profile(p,false,record.kind=='ili'))
+    if not ok then
+        local partial=N.entities[id]
+        if partial and partial.horseID then
+            N.ReleaseHorseAttachments(p,p.horses.horses[partial.horseID],id,true)
+            p.horses.horses[partial.horseID]=nil;N.entities[id]=nil
+        end
+        N.births[id]={horseRecord=record,horseReceipt=receipt,player=p}
+        N.Notice(p,'Native Horse birth registration deferred: '..tostring(horse))
+        return
+    end
+    if tx then
+        -- The observed native actor authorizes the locked import profile.
+        tx.completeAt=nil
+        ChagataiEconomy.Complete(p.economy,receipt.importID,N.Now())
+        p.economy.transactions[receipt.importID]=nil
+    end
+    if receipt and receipt.pastureBirth and not Entity_IsInHold(e) then
+        horse.rallyProducer=receipt.producer
+    end
+    return horse
+end
+local function hasPendingMountedOrder(p,sbp)
+    for _,building in pairs(p.buildings) do
+        for _,entry in ipairs(building.queue) do
+            if entry.id and N.SameBP(entry.bp,sbp.bp) then return true end
+        end
+    end
+    return false
+end
+
+function N.Scan(p,buildingsOnly)
+
+    local ids=N.Entities(p.id)
+    -- Buildings and landmark flags are established before assigning birth profiles.
+    for _,id in ipairs(ids) do
+        local e=not N.retirements[id] and N.Entity(id);local record=e and N.Record(e)
+        if record and record.role and not p.buildings[id] and N.Owner(e)==p.id then N.RegisterBuilding(p,e,record) end
+    end
+    N.Flags(p)
+    if buildingsOnly then return end
+    for _,id in ipairs(ids) do
+        local e=not N.retirements[id] and N.Entity(id)
+        if e and N.Owner(e)==p.id and not Entity_IsOfType(e,'animal_corpse') and Entity_IsAlive(e) then
+            local tracked=N.entities[id]
+            if tracked and tracked.riderID and tracked.player~=p then
+                local previous=tracked.player
+                local rider=previous.horses.riders[id]
+                if rider then N.AdoptRider(previous,rider,e,N.Now()) end
+                tracked=N.entities[id]
+            end
+            local worker=tracked and tracked.riderID and tracked.player.horses.riders[id]
+            if not worker or worker.pair~='villager' then N.ReconcileNativeUnit(p,e) end
+            local record=N.Record(e)
+            -- Stock age-up scripts can replace the SBP and native producers
+            -- can select a racial Villager. Reconcile every owned worker,
+            -- including already tracked workers, without respawning it.
+            if Entity_IsOfType(e,'villager') then N.EnsureWorker(p,e);record=N.Record(e) end
+            local squad=Entity_GetSquad(e)
+            local sbp=squad and squad~=0 and N.Lookup(Squad_GetBlueprint(squad),'sbps')
+            -- EnsureWorker owns Villager reconciliation, including HP when
+            -- a native age-up or a legacy save supplies a different body.
+            if sbp and sbp.kind~='villager' and sbp.entity and (not record or record.key~=sbp.entity)
+                and N.CanConvert(e,squad) then
+                local body=N.Get(sbp.entity);local fraction=Entity_GetHealthPercentage(e)
+
+                Entity_ConvertBlueprint(e,body.bp);record=body
+                N.SetHealth(e,fraction)
+
+            end
+            if record and record.category=='ebps' then
+                if record.kind=='villager' then
+                    p.workers[id]=true
+                    if not p.horses.riders[id] then N.RegisterRider(p,e,record) end
+                elseif record.kind=='horse' or record.kind=='import' or record.kind=='ili' then
+                    if not N.entities[id] then N.RegisterHorseBirth(p,e,record) end
+                elseif record.pair and not p.horses.riders[id] and squad and squad~=0 then
+                    -- A private mounted squad with the matching body is already
+                    -- a rider even when the producer no longer has a receipt.
+                    if record.form=='foot' or sbp and sbp.entity==record.key then
+                        local receipt=sbp and N.TakeCompletion(p,sbp,Entity_GetPosition(e))
+                        -- Spawn can precede the native queue update. Wait for
+                        -- the paid Horse before adopting a receiptless rider.
+                        if receipt or record.form=='foot' or not hasPendingMountedOrder(p,sbp) then
+                            N.RegisterRider(p,e,record,receipt)
+                        end
+                    end
+                end
+            end
+            -- Yam affects all owned land units, including workers and ordinary
+            -- Mongol siege. Riders combine it with their individual effects.
+            -- Player_GetAllEntities also includes attached weapon entities.
+            -- Apply movement only to the actual squad body, never a weapon
+            -- child that lacks modifier_ext (observed TC arrow failure).
+            if p.research.yam and squad and squad~=0
+                and not Entity_IsBuilding(e) and not Entity_IsOfType(e,'ship') then
+                local tracked=N.entities[id]
+                local primary=Squad_GetFirstEntity(squad)
+                if primary and primary~=0 and Entity_GetID(primary)==id and (not tracked or not tracked.riderID or tracked.record.pair=='villager') then
+                    p.yamUnits=p.yamUnits or {}
+                    if not p.yamUnits[id] then p.yamUnits[id]=N.Mod(e,'speed_maximum_modifier',1.05) end
+                end
+            end
+        end
+    end
+end
+local function pastureProductionFactor(position,pastures,halfFootprint)
+    -- Match the district's one-tile (4 m) expansion around the building.
+    -- Count a pasture if its 4 m half-footprint overlaps on both axes.
+    local reach=4+halfFootprint+4
+    local count=0
+    for _,pasture in ipairs(pastures) do
+        if math.abs(position.x-pasture.x)<reach and math.abs(position.z-pasture.z)<reach then
+            count=count+1
+        end
+    end
+    return 1+pastureInfluenceBonus*count
+end
+
+function N.Step(p,now)
+
+    local dt=math.max(0,now-p.last);p.last=now
+    if p.auxiliary then
+        N.RefreshHorses(p,now)
+        N.DrainMountRequests(p,now)
+        for _,id in ipairs(N.Keys(p.horses.riders)) do N.RefreshRider(p,p.horses.riders[id],now) end
+        return
+    end
+    for key,value in pairs({khan_spawning_enabled=false,first_khan_spawned=true,
+        district_spec_outpost_archery_attack_speed_mon=false,district_spec_khanless_raiding_mon=false,district_spec_faster_raiding_mon=false}) do
+        if Player_GetStateModelBool(p.id,key)~=value then Player_SetStateModelBool(p.id,key,value) end
+    end
+    for key,value in pairs({raid_bounty_food_mon=0,raid_bounty_gold_mon=0,raid_bounty_stone_mon=0,ortoo_speed_bonus_mon=1}) do
+        if Player_GetStateModelFloat(p.id,key)~=value then Player_SetStateModelFloat(p.id,key,value) end
+    end
+    N.Scan(p,true);N.RefreshHorses(p,now)
+    for _,id in ipairs(N.Keys(p.horses.riders)) do
+        local r=p.horses.riders[id]
+        local e=N.Entity(r.id)
+        if e and Entity_IsAlive(e) then
+            local owner=N.Owner(e)
+            if owner==p.id then
+                r.hp=Entity_GetHealth(e);r.position=Entity_GetPosition(e);r.garrisoned=Entity_IsInHold(e)
+            elseif owner then N.AdoptRider(p,r,e,now) end
+        end
+    end
+    N.DrainMountRequests(p,now)
+    N.Research(p);ChagataiEconomy.Advance(p.economy,now);N.SyncImportPrice(p)
+    local buildingIDs=N.Keys(p.buildings)
+    local pastures={}
+    for _,id in ipairs(buildingIDs) do
+        if p.buildings[id].role=='pasture' then
+            local e=N.Entity(id)
+            if e and N.Owner(e)==p.id and N.Functioning(e) then
+                pastures[#pastures+1]=Entity_GetPosition(e)
+            end
+        end
+    end
+    for _,id in ipairs(buildingIDs) do
+        local b=p.buildings[id];local e=N.Entity(id)
+        local alive=e and Entity_IsAlive(e)
+        local owned=alive and N.Owner(e)==p.id
+        if not owned then
+            if b.pastureInfluence then N.ReplaceMod(b,'pastureInfluence',e,'spawn_production_speed_modifier',1) end
+            if b.training then N.ReplaceMod(b,'training',e,'spawn_production_speed_modifier',1) end
+        end
+        if not alive then
+            b.active=false;b.mintWasActive=false
+            if not b.destroyed then
+                b.destroyed=true
+                for _,entry in ipairs(b.queue) do N.Refund(p,entry,now,true) end
+                b.queue={}
+                if b.court then b.court.retired=true end
+            end
+            if not e then N.entities[id]=nil;p.buildings[id]=nil end
+        elseif owned then
+            b.position=Entity_GetPosition(e)
+            local active=N.Functioning(e)
+            if active then b.destroyed=false end
+            if b.active and not active and b.record.age then b.closeQueue=true end
+            b.active=active
+            if b.role=='ordu' then
+                local factor=active and 1.25*pastureProductionFactor(b.position,pastures,8) or 1
+                N.ReplaceMod(b,'training',e,'spawn_production_speed_modifier',factor)
+            elseif b.role=='melee' or b.role=='ranged' then
+                local factor=active and pastureProductionFactor(b.position,pastures,6) or 1
+                N.ReplaceMod(b,'pastureInfluence',e,'spawn_production_speed_modifier',factor)
+            end
+            N.PollQueue(p,b,e,now)
+            if b.closeQueue then
+                if active or #b.queue==0 then b.closeQueue=nil
+                else
+                    for index=#b.queue,1,-1 do
+                        if not N.CancelQueueEntry(p,b,e,index,now) then break end
+                    end
+                end
+            end
+            if b.role=='pasture' or b.role=='ili' then N.Pasture(p,b,e,dt,now)
+            elseif b.role=='mint' then N.Mint(p,b,e,now) end
+            N.BuildingVisual(b,e,now)
+            N.BuildingButtons(p,b,e,now)
+        end
+    end
+    N.Scan(p,false)
+    for _,id in ipairs(N.Keys(p.yamUnits or {})) do
+        local e=N.Entity(id)
+        if not e or not Entity_IsAlive(e) or N.Owner(e)~=p.id then
+            Modifier_Remove(p.yamUnits[id]);p.yamUnits[id]=nil
+        end
+    end
+    for index=#p.completed,1,-1 do
+        local receipt=p.completed[index]
+        if receipt.expiresAt and now>=receipt.expiresAt then
+            table.remove(p.completed,index)
+            N.Refund(p,receipt,now)
+        end
+    end
+    for _,id in ipairs(N.Keys(p.horses.riders)) do N.RefreshRider(p,p.horses.riders[id],now) end
+end
+function ChagataiNative_Tick()
+
+    if N.ended then return end
+    local now=N.Now()
+    for _,id in ipairs(N.Keys(N.retirements)) do N.RetireActor(id) end
+    N.PrunePlayers()
+    if N.running and not next(N.players) then ChagataiNative_Stop();return end
+    N.DrainTransitions(now)
+
+    for _,index in ipairs(N.Keys(N.players)) do
+        local p=N.players[index]
+        if N.IsPlaying(p) then
+            N.Step(p,now)
+
+        end
+    end
+    N.Effects(now)
+    for _,id in ipairs(N.Keys(N.births)) do
+        local birth=N.births[id];local entity=N.Entity(id)
+        if not entity or birth.horseRecord and (not Entity_IsAlive(entity) or N.Owner(entity)~=birth.player.id)
+            or birth.seenAt and now-birth.seenAt>=5 then
+            if birth.horseReceipt and birth.horseReceipt.importID then
+                birth.player.economy.transactions[birth.horseReceipt.importID]=nil
+            end
+            N.births[id]=nil
+        end
+    end
+
+    for _,id in ipairs(N.Keys(N.corpses)) do
+        local c=N.corpses[id];local e=N.Entity(id)
+        if not e or c.pending and now-c.last>=5 and not Entity_IsOfType(e,'animal_corpse') then
+            N.corpses[id]=nil;N.entities[id]=nil;N.lastAbilityDispatched[id]=nil
+        elseif not c.pending then
+            local food=Entity_GetRemainingResourceDepositAmount(e)
+            food=math.max(0,food-c.decay*(now-c.last));c.last=now
+            Entity_SetRemainingResourceDepositAmount(e,food)
+            if food<=0 then Entity_Destroy(e);N.corpses[id]=nil;N.entities[id]=nil;N.lastAbilityDispatched[id]=nil end
+        end
+    end
+    if N.UpdateHorseHUD then pcall(N.UpdateHorseHUD) end
+end
+
+-- Source completeness is independent of editor/cook and in-game acceptance.
+ChagataiReadiness.initializer=ChagataiNative_Initialize
+for key in pairs(ChagataiReadiness.gates) do ChagataiReadiness.gates[key]=true end

@@ -1,0 +1,946 @@
+local N=ChagataiNative
+
+function N.CommandsIdle(squad)
+
+    if not squad or squad==0 then return false end
+    for _,action in ipairs({'mount','dismount','mount_trader','dismount_trader','nokor','archer','mint','mount_chase'}) do
+        local bp=N.Ability(action)
+        if Squad_HasAbility(squad,bp) and Squad_IsAbilityActive_CS(squad,bp) then
+
+            return false
+        end
+    end
+    return true
+end
+
+function N.CanConvert(entity,squad)
+    return not Entity_IsInHold(entity) and N.CommandsIdle(squad) and N.CommandsSettled(squad)
+end
+
+-- Ability activity alone does not establish that native commands have drained.
+function N.CommandsSettled(squad)
+    return squad and squad~=0 and not Squad_HasActiveCommand(squad)
+        and not Squad_HasAcceptedCommands(squad) and not Squad_IsMoving(squad)
+end
+
+-- Herdable actors retain a native idle command. Official command.scar's
+-- arrival/deletion manager tests destination and accepted commands instead.
+-- Keep the stricter actor check for riders and all existing conversion paths.
+function N.HorseSettled(squad)
+    return squad and squad~=0 and not Squad_HasDestination(squad)
+        and not Squad_HasAcceptedCommands(squad) and not Squad_IsMoving(squad)
+        and N.CommandsIdle(squad)
+end
+
+function N.Buttons(p,id)
+
+    local e=N.Entity(id);if not e then return end
+    local r=p.horses.riders[id];local s=Entity_GetSquad(e)
+    if not r or not s or s==0 then return end
+    local tracked=N.entities[id];if not tracked then return end
+    if r.pair=='spearman' then
+        local form=r.form
+        tracked.spearmanAbilities=tracked.spearmanAbilities or {}
+        if r.nativeAbilityForm~=form then
+            for _,name in ipairs({'military_charge','military_spearwall','spearman_spearwall'}) do
+                local bp=N.Get('abilities/always_on_abilities/core/'..name).bp
+                local wanted=name=='military_charge' and form=='mounted' or name~='military_charge' and form=='foot'
+                if not wanted and tracked.spearmanAbilities[name] and Squad_HasAbility(s,bp) and not Squad_IsAbilityActive_CS(s,bp) then
+                    Squad_RemoveAbility(s,bp);tracked.spearmanAbilities[name]=nil
+                elseif wanted then
+                    if not Squad_HasAbility(s,bp) then Squad_AddAbility(s,bp) end
+                    tracked.spearmanAbilities[name]=true
+                end
+            end
+            if r.chargeRecharge then Modifier_Remove(r.chargeRecharge);r.chargeRecharge=nil end
+            if form=='mounted' then r.chargeRecharge=Modify_AbilityRechargeTime(s,N.Get('abilities/always_on_abilities/core/military_charge').bp,15,MUT_Set) end
+            r.nativeAbilityForm=form
+        end
+        for _,name in ipairs({'military_charge','military_spearwall','spearman_spearwall'}) do
+            local wanted=name=='military_charge' and r.form=='mounted' or name~='military_charge' and r.form=='foot'
+            local bp=N.Get('abilities/always_on_abilities/core/'..name).bp
+            if wanted and not Squad_HasAbility(s,bp) then
+                Squad_AddAbility(s,bp);tracked.spearmanAbilities[name]=true
+            end
+        end
+    end
+    -- Install commands once on this actor/form. Never add/remove an ability at
+    -- cooldown expiry, while garrisoning, or while a Mount request is active.
+    -- RequestMount/RequestDismount and ActivateMounted enforce eligibility.
+    local desired={};tracked.buttons=tracked.buttons or {}
+    if r.form=='mounted' then
+        desired.dismount=true
+        if r.pair=='nokor' or r.pair=='archer' then desired[r.pair]=true end
+    else desired.mount=true end
+    if ChagataiConfig.workerMountProbe and r.pair=='villager' then
+        desired.dismount=nil
+    end
+    if tracked.commandForm==r.form then
+        local intact=true
+        for _,action in ipairs({'mount','dismount','nokor','archer'}) do
+            local key=r.pair=='trader' and (action=='mount' or action=='dismount') and action..'_trader' or action
+            if desired[action] and not Squad_HasAbility(s,N.Ability(key)) then intact=false;break end
+        end
+        if intact then return end
+    end
+    for _,action in ipairs({'mount','dismount','nokor','archer'}) do
+        if desired[action] then
+            local key=r.pair=='trader' and (action=='mount' or action=='dismount') and action..'_trader' or action
+            local bp=N.Ability(key)
+            if not Squad_HasAbility(s,bp) then Squad_AddAbility(s,bp) end
+            tracked.buttons[action]=true
+        end
+    end
+    tracked.commandForm=r.form
+end
+function N.Block(p,id,enabled)
+
+    local tracked=N.entities[id];local e=N.Entity(id);if not tracked then return end
+    if not enabled then N.RemoveMods(tracked.blocks);tracked.blocks=nil;return end
+    if e and not tracked.blocks then tracked.blocks={N.Mod(e,'move_enable_modifier',0,MUT_Enable),N.Mod(e,'shoot_enable_modifier',0,MUT_Enable)} end
+end
+function N.RegisterRider(p,entity,meta,receipt)
+
+    local id=Entity_GetID(entity);local rider
+    local squad=Entity_GetSquad(entity)
+    if not squad or squad==0 or N.Owner(entity)~=p.id then return end
+    local baselineMaximum=meta.pair=='villager' and meta.riderHP
+        or Entity_GetHealthMax(entity)-(meta.form=='mounted' and ChagataiConfig.horse.baseHP or 0)
+    local textilesApplied=meta.pair=='villager' and p.research.textiles~=nil
+    if textilesApplied then baselineMaximum=baselineMaximum+ChagataiConfig.research.textilesHP end
+    local riderMaximum=baselineMaximum*(p.research.lamellar and ChagataiConfig.pairs[meta.pair].lamellar and 1.2 or 1)
+    if receipt then
+        local entry=p.production.entries[receipt.id]
+        if entry then
+            N.serial=N.serial+1;entry.newHorseID=-N.serial
+            rider=ChagataiProduction.Complete(p.production,p.horses,p.economy,receipt.id,id,meta.pair,riderMaximum,Entity_GetPosition(entity),N.Now())
+            if rider then
+                p.production.entries[receipt.id]=nil;p.economy.transactions[receipt.id]=nil
+            end
+        end
+    end
+    local completedTraining=rider~=nil
+    if not rider then
+        rider=ChagataiHorse.AddRider(p.horses,id,meta.pair,riderMaximum,riderMaximum,Entity_GetPosition(entity))
+        if meta.form=='mounted' then
+            N.serial=N.serial+1
+            local profile=N.Profile(p,false);local h=ChagataiHorse.AddHorse(p.horses,-N.serial,profile,ChagataiHorse.Maximum(profile,p.horses.horseTier),rider.position)
+            rider.form='mounted';rider.horseID=h.id;rider.maximum=rider.riderMaximum+h.maximum
+            rider.hp=rider.maximum;rider.cooldownUntil=N.Now()+ChagataiConfig.horse.conversionCooldown
+            h.status='mounted';h.reservation=id
+        end
+    end
+    rider.tier=meta.tier;rider.baseRiderHP=baselineMaximum
+    rider.textilesApplied=textilesApplied
+    rider.lamellarApplied=p.research.lamellar and ChagataiConfig.pairs[meta.pair].lamellar or false
+    local tracked={player=p,record=meta,riderID=id};N.entities[id]=tracked
+    local birth=N.births[id]
+    if birth and birth.hurt then rider.hp=rider.hp*birth.fraction
+    elseif meta.form=='mounted' and not completedTraining then rider.hp=rider.hp*Entity_GetHealthPercentage(entity) end
+    N.births[id]=nil
+    N.Health(rider,entity,rider.maximum,rider.hp)
+    Rule_AddSquadEvent(ChagataiNative_OnAbility,squad,GE_AbilityExecuted,{id=id})
+    -- Entity execution is a documented event surface too. Resolve the rider
+    -- from registration data even when the global event has no usable executer.
+    Rule_AddEntityEvent(ChagataiNative_OnAbility,entity,GE_AbilityExecuted,{id=id})
+    N.Buttons(p,id);return rider
+end
+
+N.lastAbilityDispatched = {}
+
+local function repeatedAbility(id,action,now)
+    local recent=N.lastAbilityDispatched[id] or {}
+    N.lastAbilityDispatched[id]=recent
+    if recent[action] and now-recent[action]<0.1 then return true end
+    recent[action]=now
+    return false
+end
+
+function ChagataiNative_OnAbilityGlobal(context)
+
+    if N.ended or not context or not context.ability then return end
+    local executer = context.executer;if not executer then return end
+    local entity
+    if scartype and ST_ENTITY and ST_SQUAD then
+        if scartype(executer) == ST_ENTITY then entity = executer
+        elseif scartype(executer) == ST_SQUAD then
+            if World_OwnsSquad(executer) then return end
+            entity = Squad_GetFirstEntity(executer)
+        else return end
+    elseif executer.squad ~= nil or executer.meta ~= nil then
+        entity = executer
+    elseif executer.entities ~= nil then
+        if World_OwnsSquad(executer) then return end
+        entity = Squad_GetFirstEntity(executer)
+    else return end
+    if not entity or entity == 0 or not Entity_IsValid(Entity_GetID(entity)) or not Entity_IsAlive(entity) then return end
+    local id = Entity_GetID(entity)
+    local tracked = N.entities[id];if not tracked or not tracked.player then return end
+    local p = tracked.player
+    if not N.IsPlaying(p) or N.Owner(entity) ~= p.id then return end
+    if tracked.riderID then ChagataiNative_OnAbility(context, {id = id})
+    elseif tracked.horseID then ChagataiNative_OnHorseAbility(context, {id = id}) end
+end
+
+function N.DrainMountRequests(p,now)
+    local pending=p.pendingMounts
+    if not pending then return end
+    p.pendingMounts=nil
+    -- A group click may report several riders through multiple event surfaces.
+    -- The same riders must reserve Horses in the same order on every peer.
+    for _,id in ipairs(N.Keys(pending)) do
+        local r=p.horses.riders[id]
+        local e=N.Entity(id)
+        if r==pending[id] and e and N.Owner(e)==p.id and Entity_IsAlive(e) and not Entity_IsInHold(e) then
+            local existing=p.horses.requests[id]
+            if existing and existing.interrupted then
+                N.FailRider(p,r,now);existing=nil
+            end
+            if existing and existing.phase=='approach' then
+                local currentHorse=p.horses.horses[existing.horseID]
+                local candidate=ChagataiHorse.NearestFree(p.horses,r.position,nil)
+                if candidate and currentHorse and N.Distance(r.position,candidate.position)+0.5<N.Distance(r.position,currentHorse.position) then
+                    local he=existing.chaseCheckAt and N.Entity(currentHorse.nativeID)
+                    local hs=he and N.Owner(he)==p.id and Entity_IsAlive(he) and Entity_GetSquad(he)
+                    if not hs or hs==0 or not Squad_HasAcceptedCommands(hs) then
+                        ChagataiHorse.CancelMount(p.horses,id,now,false)
+                        N.LockHorseSelection(currentHorse.nativeID,false)
+                        if hs and hs~=0 then
+                            if not N.HorseSettled(hs) then N.StopMove(he) end
+                            currentHorse.failedStopAt=currentHorse.returnAt
+                        end
+                    end
+                end
+            end
+            local req,reason=ChagataiHorse.RequestMount(p.horses,id,now,Player_GetCurrentAge(p.id))
+            if req then
+                N.LockHorseSelection(p.horses.horses[req.horseID].nativeID,true)
+            elseif not p.horses.requests[id] then
+                if now<r.cooldownUntil then
+                    N.LocalWarning(p.id,string.format('Mount cooldown: %ds remaining.',math.max(1,math.ceil(r.cooldownUntil-now))))
+                elseif reason=='no-horse' or reason=='horse-unavailable' then
+                    N.LocalWarning(p.id,'No free Horse available to mount.')
+                elseif reason=='age-locked' then
+                    N.LocalWarning(p.id,'This unit cannot mount in the current Age.')
+                end
+            end
+        end
+    end
+end
+
+function ChagataiNative_OnAbility(context,data)
+
+    if N.ended or not context or not data then return end
+    local tracked=N.entities[data.id];if not tracked then return end
+    local p=tracked.player;local r=p.horses.riders[data.id];if not r then return end
+    local entity=N.Entity(data.id)
+    local owner=N.Owner(entity);if not owner then return end
+    if owner~=p.id then p=N.AdoptRider(p,r,entity,N.Now()) end
+    if not N.IsPlaying(p) or not Entity_IsAlive(entity) or Entity_IsInHold(entity) then return end
+    local action=N.Lookup(context.ability,'abilities');if not action or not action.action then return end
+    if action.action=='mount_trader' then action={action='mount'}
+    elseif action.action=='dismount_trader' then action={action='dismount'} end
+    local now=N.Now()
+    if action.action~='mount' and action.action~='dismount' and action.action~='nokor' and action.action~='archer' then return end
+    if repeatedAbility(data.id,action.action,now) then return end
+    if action.action=='mount' then
+        if ChagataiConfig.workerMountProbe and r.pair=='villager' then
+            if not p.workerProbeID and r.form=='foot' then r.probeRequested=true end
+        else
+            p.pendingMounts=p.pendingMounts or {}
+            p.pendingMounts[r.id]=r
+        end
+    elseif action.action=='dismount' then
+        if r.form~='mounted' or not r.alive or r.garrisoned or p.horses.requests[r.id] then return end
+        if now<r.cooldownUntil then
+            N.LocalWarning(p.id,string.format('Dismount cooldown: %ds remaining.',math.max(1,math.ceil(r.cooldownUntil-now))))
+            return
+        end
+        local e=N.Entity(r.id)
+        if e and Entity_IsValid(r.id) and Entity_IsAlive(e) then
+            local currentPos=Entity_GetPosition(e)
+            r.position=N.Position(currentPos)
+            local g=N.SquadGroup(e);Cmd_Stop(g);SGroup_Destroy(g)
+            local pos=N.Passable(p.id,currentPos,e)
+            if pos and N.Distance(pos,currentPos)<=6 then
+                local req=ChagataiHorse.RequestDismount(p.horses,r.id,now)
+                if req then
+                    req.spawnPosition=pos
+                    req.stopIssuedAt=now
+                end
+            else
+                N.LocalWarning(p.id,'No clear space nearby to dismount.')
+            end
+        end
+    elseif action.action=='nokor' or action.action=='archer' then ChagataiEffects.ActivateMounted(r,now) end
+    -- Native dispatch still owns the executing command. Reconcile buttons
+    -- on a later tick after the command is idle, not from this callback.
+end
+
+function N.ResetMintTravel(h)
+    h.mintProgressPosition=nil;h.mintProgressAt=nil;h.mintLastOrderAt=nil
+end
+
+function N.ReleaseMintTrip(p,h)
+    ChagataiHorse.Release(p.horses,h.id,'mint',h.reservation)
+    h.mintID=nil;h.autoMint=nil;h.wasInHold=false
+    N.ResetMintTravel(h)
+end
+
+function ChagataiNative_OnHorseOrder(context,data)
+
+    if N.ended or not context or context.command==nil or not data then return end
+    local tracked=N.entities[data.id];if not tracked or not tracked.horseID then return end
+    local p=tracked.player;local h=p.horses.horses[tracked.horseID]
+    local e=N.Entity(data.id)
+    if not N.IsPlaying(p) or not h or h.nativeID~=data.id or N.Owner(e)~=p.id
+        or context.squad~=Entity_GetSquad(e) then return end
+    if h.status=='mount' then
+        local request=p.horses.requests[h.reservation]
+        if request and request.kind=='mount' and request.horseID==h.id then
+            -- The native command is still being dispatched. Let the
+            -- simulation tick release this exact reservation in either phase.
+            request.interrupted=true
+        end
+        return
+    end
+    h.rallyProducer=nil
+    if h.status=='mint' then
+        if h.autoMint then h.autoMintBlocked=h.mintID end
+        N.ReleaseMintTrip(p,h)
+    end
+    h.returnAt=nil
+end
+function ChagataiNative_OnHorseAbility(context,data)
+
+    if N.ended or not context or not data then return end
+    local action=N.Lookup(context.ability,'abilities')
+    local t=N.entities[data.id];if not t or not t.horseID or not action then return end
+    local p=t.player;local h=p.horses.horses[t.horseID]
+    if not N.IsPlaying(p) or not h or h.nativeID~=data.id then return end
+    if N.Owner(N.Entity(data.id))~=p.id then return end
+    if action.action~='mint' or h.status~='loose' then return end
+    if repeatedAbility(data.id,'mint',N.Now()) then return end
+    local best,distance
+    for _,id in ipairs(N.Keys(p.buildings)) do
+        local b=p.buildings[id];local e=N.Entity(id)
+        if b.role=='mint' and e and N.Owner(e)==p.id and N.Functioning(e) then
+            local d=N.Distance(h.position,Entity_GetPosition(e));if not best or d<distance then best,distance=id,d end
+        end
+    end
+    if best and ChagataiHorse.Reserve(p.horses,h.id,'mint',best) then
+        h.mintID=best;h.wasInHold=false;h.autoMint=nil
+        N.ResetMintTravel(h)
+    end
+end
+
+-- Diagnostic control: create the target worker while retaining every original
+-- actor and its resources. Work is deferred until the native command is idle.
+-- This deliberately bypasses reservation, cargo transfer and both retirements.
+function N.SpawnWorkerProbe(p,r)
+    local original=N.Entity(r.id)
+    if p.workerProbeID or not original or not Entity_IsAlive(original)
+        or N.Owner(original)~=p.id or Entity_IsInHold(original) or r.form~='foot' then
+        r.probeRequested=nil;return
+    end
+    if not N.CommandsIdle(Entity_GetSquad(original)) then return end
+    r.probeRequested=nil
+    local receipt={};local spawned
+    local ok,reason=pcall(function()
+        -- Use the base loadout, so this control needs no researched-body morph.
+        local meta=N.Unit('villager','mounted',1,'ebps')
+        spawned=N.Spawn(N.Unit('villager','mounted',1,'sbps').key,p.id,
+            N.Around(Entity_GetPosition(original),3,0),receipt)
+        assert(N.SameBP(Entity_GetBlueprint(spawned),meta.bp),'Worker probe body rejected')
+        local rider=N.RegisterRider(p,spawned,meta)
+        p.workerProbeID=rider.id
+        p.workers[rider.id]=true
+    end)
+    if not ok then
+        spawned=spawned or receipt.entity
+        if spawned and spawned~=0 then
+            local id=Entity_GetID(spawned);local probe=p.horses.riders[id]
+            if probe then
+                N.ReleaseRiderAttachments(p,probe,id,true)
+                if probe.horseID then p.horses.horses[probe.horseID]=nil end
+                p.horses.riders[id]=nil
+            end
+            N.entities[id]=nil;N.births[id]=nil;p.workers[id]=nil
+            N.DestroySingleActor(spawned)
+        end
+        N.Notice(p,'worker spawn probe failed '..tostring(reason));return
+    end
+    -- Local selection is presentation only. The original stays alive and idle.
+    if Misc_IsEntitySelected(original) then Misc_SelectSquad(Entity_GetSquad(spawned),true) end
+end
+
+function N.Conversion(p,r,now)
+
+    if r.probeRequested and ChagataiConfig.workerMountProbe and r.pair=='villager' then
+        N.SpawnWorkerProbe(p,r);return
+    end
+
+    local req=p.horses.requests[r.id];if not req then return end
+    if req.interrupted or not r.alive then N.FailRider(p,r,now);return end
+    if req.phase=='approach' and now>=req.deadline then N.FailRider(p,r,now);return end
+    if req.phase=='execution' and now>req.completeAt+30 then N.FailRider(p,r,now);return end
+    local re=N.Entity(r.id)
+    if not re or Entity_IsOfType(re,'animal_corpse') or not Entity_IsAlive(re)
+        or N.Owner(re)~=p.id or Entity_IsInHold(re) then N.FailRider(p,r,now);return end
+    local current=N.Lookup(Entity_GetBlueprint(re),'ebps')
+    if not current or current.pair~=r.pair or current.form~=r.form then N.FailRider(p,r,now);return end
+    local squad=Entity_GetSquad(re)
+    if not squad or squad==0 then N.FailRider(p,r,now);return end
+    local horse=p.horses.horses[req.horseID or r.horseID]
+    if not horse then N.FailRider(p,r,now);return end
+    local he,hs
+    if req.kind=='mount' then
+        if not horse.alive or horse.deathPending then N.FailRider(p,r,now);return end
+        he=N.Entity(horse.nativeID)
+        if not he then N.LostHorse(p,horse,now);return end
+        if Entity_IsOfType(he,'animal_corpse') then N.HorseCarcass(p,horse,he,now);N.FailRider(p,r,now);return end
+        hs=Entity_GetSquad(he)
+        if not Entity_IsAlive(he) or N.Owner(he)~=p.id or Entity_IsInHold(he) or not hs or hs==0 then
+            N.FailRider(p,r,now);return
+        end
+        if Squad_HasAcceptedCommands(hs) or (not req.chaseCheckAt and not N.CommandsIdle(hs)) then return end
+    end
+    if req.phase=='approach' then
+        local nextCheck=req.chaseCheckAt
+        if nextCheck and now<nextCheck then return end
+        if not ChagataiHorse.Approach(p.horses,r.id,now) then
+            if p.horses.requests[r.id]==req then
+                req.chaseCheckAt=now+0.5
+                if not nextCheck then
+                    -- Use the simulation's movement path on every peer.
+                    N.Move(he,r.position)
+                    req.chasePosition=N.Position(horse.position)
+                    req.chaseRetryAt=now+1.5
+                elseif not req.chasePosition or N.Distance(horse.position,req.chasePosition)>=0.5 then
+                    req.chasePosition=N.Position(horse.position)
+                    req.chaseRetryAt=now+1.5
+                elseif now>=req.chaseRetryAt then
+                    -- Retry a stalled approach toward the current rider.
+                    N.Move(he,r.position)
+                    req.chaseRetryAt=now+1.5
+                    req.chaseRetryAt=now+1.5
+                end
+            end
+            return
+        end
+    end
+    if now<req.completeAt then return end
+    if not N.CommandsIdle(squad) then return end
+    -- Submit Stop at most once, then wait across updates. Final retirement must
+    -- not enqueue another command against the actor it is about to destroy.
+    if not N.CommandsSettled(squad) or hs and not N.HorseSettled(hs) then
+        if not req.stopIssuedAt then
+            if not N.CommandsSettled(squad) then
+                local g=N.SquadGroup(re);Cmd_Stop(g);SGroup_Destroy(g)
+            end
+            if hs and not N.HorseSettled(hs) then N.StopMove(he) end
+            req.stopIssuedAt=now
+        end
+        return
+    end
+    if req.chaseCheckAt and N.Distance(Entity_GetPosition(re),Entity_GetPosition(he))>ChagataiConfig.horse.mountRange then
+        N.FailRider(p,r,now);return
+    end
+    local position=req.kind=='dismount' and N.Passable(p.id,req.spawnPosition or r.position,re) or nil
+    local plan,reason=ChagataiHorse.PrepareConversion(p.horses,r.id,now,position)
+    local h=p.horses.horses[req.horseID or r.horseID]
+    if not plan then
+        N.Block(p,r.id,false);if h and h.nativeID then N.Block(p,h.nativeID,false) end
+        N.FailRider(p,r,now);N.Notice(p,'conversion aborted '..tostring(reason));return
+    end
+    local form=plan.kind=='mount' and 'mounted' or 'foot'
+    local tier=math.max(r.tier,form=='mounted' and ChagataiConfig.pairs[r.pair].mountedAge or r.tier)
+    local target=N.Unit(r.pair,form,tier,'ebps')
+    local squadTarget=N.Unit(r.pair,form,tier,'sbps')
+    -- A fresh target actor follows the same spawn path as directly trained
+    -- mounted units. Do not transplant infantry/cavalry state-tree contexts.
+    local replacement,spawned,newID,stagedRider
+    local staged,horseStage={},{}
+    local original={form=r.form,horseID=r.horseID,maximum=r.maximum,hp=r.hp,cooldownUntil=r.cooldownUntil}
+    local horseOriginal={hp=h.hp,position=h.position,status=h.status,reservation=h.reservation}
+    local ok,failure=pcall(function()
+        if plan.kind=='dismount' then
+            spawned=N.Spawn('sbps/races/chagatai/animals/ck_horse',p.id,position,horseStage)
+            horseStage.id=Entity_GetID(spawned)
+        end
+        replacement=N.Spawn(squadTarget.key,p.id,Entity_GetPosition(re),staged)
+        newID=Entity_GetID(replacement);staged.id=newID
+        -- Conversion supplies the exact HP budget below. Do not let native
+        -- production's full-health birth handling run for this replacement.
+        N.births[newID]=nil
+        if r.pair=='villager' then
+            -- Keep the worker's carried resources across a form change.
+            if not N.SameBP(Entity_GetBlueprint(replacement),target.bp) then Entity_ConvertBlueprint(replacement,target.bp) end
+            for _,resource in ipairs({RT_Food,RT_Wood,RT_Gold,RT_Stone}) do
+                local amount=Entity_GetResource(re,resource)
+                assert(type(amount)=='number' and amount>=0 and amount==amount,'Invalid worker cargo')
+                Entity_SetResource(replacement,resource,amount)
+            end
+        end
+        assert(N.SameBP(Entity_GetBlueprint(replacement),target.bp),'Replacement body rejected')
+        N.Health(staged,replacement,plan.maximum,plan.hp)
+        local replacementSquad=Entity_GetSquad(replacement)
+        assert(replacementSquad and replacementSquad~=0,'Replacement squad unavailable')
+        Rule_AddSquadEvent(ChagataiNative_OnAbility,replacementSquad,GE_AbilityExecuted,{id=newID})
+        Rule_AddEntityEvent(ChagataiNative_OnAbility,replacement,GE_AbilityExecuted,{id=newID})
+        assert(ChagataiHorse.CommitConversion(p.horses,r.id,now,plan,true),'Horse conversion commit disagreed with native transaction')
+        stagedRider={}
+        for key,value in pairs(r) do stagedRider[key]=value end
+        stagedRider.id,stagedRider.tier,stagedRider.position=newID,tier,Entity_GetPosition(replacement)
+        stagedRider.healthMod,stagedRider.chargeRecharge,stagedRider.nativeAbilityForm=staged.healthMod,nil,nil
+        p.horses.riders[newID]=stagedRider
+        N.entities[newID]={player=p,record=target,riderID=newID}
+        N.Buttons(p,newID)
+        if plan.kind=='mount' then
+            assert(N.RetireHorse(h),'Horse command still active during conversion')
+        else
+            N.NewHorse(p,spawned,h.profile,plan.horseHP,h.id)
+        end
+    end)
+    if not ok then
+        if newID then
+            N.ReleaseRiderAttachments(p,stagedRider or staged,newID,true)
+            N.entities[newID]=nil;p.horses.riders[newID]=nil
+        elseif staged.healthMod then Modifier_Remove(staged.healthMod) end
+        if horseStage.id and N.entities[horseStage.id] then
+            N.ReleaseHorseAttachments(p,h,horseStage.id,true)
+            N.entities[horseStage.id]=nil;h.nativeID=nil
+        end
+        for key,value in pairs(horseOriginal) do h[key]=value end
+        r.form,r.horseID,r.maximum,r.hp,r.cooldownUntil=original.form,original.horseID,original.maximum,original.hp,original.cooldownUntil
+        p.horses.requests[r.id]=req
+        N.DiscardSpawn(staged);N.DiscardSpawn(horseStage)
+        N.FailRider(p,r,now)
+        N.Notice(p,'conversion aborted '..tostring(failure))
+        return
+    end
+    local oldID=r.id
+    local selectionOK,selected=pcall(function()
+        return Game_GetLocalPlayer()==p.id and Misc_IsEntitySelected(re)
+    end)
+    N.ReleaseRiderAttachments(p,r,oldID,true)
+    -- Court activations follow the logical rider across its new physical ID.
+    for _,court in ipairs(N.courts) do
+        for _,activation in pairs(court.activations) do
+            if activation.recipients[oldID] then
+                activation.recipients[oldID]=nil;activation.recipients[newID]=true
+                for i,id in ipairs(activation.order) do if id==oldID then activation.order[i]=newID end end
+                table.sort(activation.order)
+            end
+        end
+    end
+    p.horses.riders[oldID]=nil;p.horses.riders[newID]=r
+    N.entities[oldID]=nil;N.births[oldID]=nil;N.births[newID]=nil
+    r.id,r.tier,r.position=newID,stagedRider.tier,stagedRider.position
+    r.healthMod,r.chargeRecharge,r.nativeAbilityForm=stagedRider.healthMod,stagedRider.chargeRecharge,stagedRider.nativeAbilityForm
+    if r.pair=='villager' then
+        p.workers[oldID]=nil;p.workers[newID]=true
+        if p.workerHealth then p.workerHealth[oldID]=nil;p.workerHealth[newID]=nil end
+        N.RecordWorkerHealth(p,replacement)
+    end
+    if h.reservation==oldID then h.reservation=newID end
+    -- With no old tracking entry/listener, retirement cannot count as a rider
+    -- combat death, consume another Horse, or create a mounted-death carcass.
+    N.lastAbilityDispatched[oldID]=nil
+    N.RetireActor(oldID)
+    if selectionOK and selected then
+        pcall(function() Misc_SelectSquad(Entity_GetSquad(replacement),true) end)
+    end
+end
+
+function N.FailRider(p,r,now)
+
+    N.Block(p,r.id,false)
+    local request=p.horses.requests[r.id]
+    if request then
+        local h=request.horseID and p.horses.horses[request.horseID]
+        if h and h.nativeID then N.Block(p,h.nativeID,false) end
+        if request.interrupted then
+            if h and h.reservation==r.id then h.rallyProducer=nil end
+            ChagataiHorse.FailMount(p.horses,r.id,now,true)
+        else
+            ChagataiHorse.AbortConversion(p.horses,r.id,now)
+        end
+        if h then N.LockHorseSelection(h.nativeID,false) end
+    end
+end
+
+-- Physical disappearance is not the normal mounted/production state, whose
+-- logical Horse intentionally has no nativeID. Retire only a missing actor.
+function N.LostHorse(p,h,now)
+
+    local oldID=h.nativeID
+    if oldID then
+        N.ReleaseHorseAttachments(p,h,oldID,true)
+        N.pendingCarcasses[oldID]=nil
+        N.entities[oldID]=nil;N.births[oldID]=nil
+    elseif h.healthMod then Modifier_Remove(h.healthMod);h.healthMod=nil end
+    h.alive=false;h.hp=0;h.status='dead';h.reservation=nil;h.nativeID=nil;h.pendingCanonicalBP=nil
+    for _,id in ipairs(N.Keys(p.horses.requests)) do
+        local req=p.horses.requests[id]
+        if req.horseID==h.id then N.FailRider(p,p.horses.riders[id],now) end
+    end
+end
+
+function N.RefreshRider(p,r,now)
+
+    local e=N.Entity(r.id)
+    if not e or not Entity_IsAlive(e) then
+        N.FailRider(p,r,now);r.alive=false
+        N.ReleaseRiderAttachments(p,r,r.id,true)
+        local horse=r.horseID and p.horses.horses[r.horseID]
+        if horse then p.horses.horses[horse.id]=nil end
+        p.horses.riders[r.id]=nil;p.workers[r.id]=nil
+        if p.workerHealth then p.workerHealth[r.id]=nil end
+        local tracked=N.entities[r.id]
+        if tracked and tracked.player==p then N.entities[r.id]=nil end
+        N.births[r.id]=nil;N.lastAbilityDispatched[r.id]=nil;N.pendingCleanup[r.id]=nil
+        return
+    end
+    local owner=N.Owner(e);if not owner then return end
+    if owner~=p.id then N.AdoptRider(p,r,e,now);return end
+    local horse=r.horseID and p.horses.horses[r.horseID]
+    if r.form=='mounted' and not horse then return end
+    r.position=Entity_GetPosition(e);r.garrisoned=Entity_IsInHold(e);r.hp=Entity_GetHealth(e)
+    local hp=Entity_GetHealthMax(e)
+    -- Preserve external/native maximum-health effects on the rider portion.
+    local desiredTier=p.tiers[r.pair] or r.tier
+    if desiredTier>r.tier then
+        local squad=Entity_GetSquad(e)
+        if not N.CanConvert(e,squad) then return end
+        local record=N.Unit(r.pair,r.form,desiredTier,'ebps');local fraction=Entity_GetHealthPercentage(e)
+        if r.healthMod then Modifier_Remove(r.healthMod);r.healthMod=nil end
+        Entity_ConvertBlueprint(e,record.bp);N.entities[r.id].record=record
+        Squad_ConvertBlueprint(squad,N.Unit(r.pair,r.form,desiredTier,'sbps').bp)
+        N.entities[r.id].buttons={};N.entities[r.id].spearmanAbilities={};N.entities[r.id].commandForm=nil;r.nativeAbilityForm=nil
+        r.tier=desiredTier;r.baseRiderHP=Entity_GetHealthMax(e)-(r.form=='mounted' and 60 or 0)
+        r.riderMaximum=r.baseRiderHP*(r.lamellarApplied and 1.2 or 1)
+        r.maximum=r.riderMaximum+(horse and horse.maximum or 0);r.hp=r.maximum*fraction
+        N.Health(r,e,r.maximum,r.hp)
+    elseif math.abs(hp-r.maximum)>0.001 then r.maximum=hp;r.riderMaximum=hp-(horse and horse.maximum or 0) end
+    N.Conversion(p,r,now)
+    N.Buttons(p,r.id)
+end
+
+local function mintApproach(p,h,e,mint)
+    local center=Entity_GetPosition(mint)
+    local range=ChagataiConfig.horse.mintRange
+    local distance=N.Distance(h.position,center)
+    if distance<=range then return true end
+    -- The Stupa footprint can stop a Horse outside the centre radius. Use a
+    -- nearby passable point to recognize arrival without loading from afar.
+    local side=N.Around(center,(h.position.x-center.x)*range/distance,(h.position.z-center.z)*range/distance)
+    local edge=N.Passable(p.id,side,e)
+    if not edge or N.Distance(edge,center)>2*range then return false end
+    return distance<=2*range and N.Distance(h.position,edge)<=range,edge
+end
+
+local function advanceMintTrip(p,h,e,mint,now)
+    local squad=Entity_GetSquad(e)
+    if not h.mintProgressPosition or N.Distance(h.position,h.mintProgressPosition)>=0.5 then
+        h.mintProgressPosition=N.Position(h.position);h.mintProgressAt=now
+    end
+    local stalledFor=now-h.mintProgressAt
+    if h.autoMint and stalledFor>=ChagataiConfig.horse.mintStallSeconds then
+        local issued=h.mintLastOrderAt
+        h.autoMintRetryAt=now+ChagataiConfig.horse.mintStallSeconds
+        N.ReleaseMintTrip(p,h)
+        if issued and squad and squad~=0 then N.StopMove(e) end
+        return
+    end
+    if not squad or squad==0 then return end
+    if h.mintLastOrderAt and (now-h.mintLastOrderAt<2 or Entity_IsMoving(e) and stalledFor<2) then return end
+    if not N.CommandsIdle(squad) then return end
+    local held=SGroup_Create('ChagataiMintHolds');Entity_GetSquadsHeld(mint,held)
+    local count=SGroup_Count(held);SGroup_Destroy(held)
+    if count>=ChagataiConfig.horse.mintCapacity then return end
+    -- Ordinary native Load paths to the hold itself. Checked instant loading
+    -- still handles a nearby Horse that cannot reach the usual entrance.
+    local instant,edge=mintApproach(p,h,e,mint)
+    local canLoad=Entity_CanLoadSquad(mint,squad,false,false)
+    if not instant and edge and (not canLoad or h.mintLastOrderAt and stalledFor>=2) then
+        N.Move(e,edge);h.mintLastOrderAt=now
+        return
+    end
+    if not canLoad then return end
+    local from=N.SquadGroup(e);local to=EGroup_Create('ChagataiMintTarget');EGroup_Add(to,mint)
+    Rule_RemoveSquadEvent(ChagataiNative_OnHorseOrder,squad)
+    Cmd_Garrison(from,to,false,false,instant)
+    SGroup_Destroy(from);EGroup_Destroy(to)
+    Rule_AddSquadEvent(ChagataiNative_OnHorseOrder,squad,GE_SquadCommandIssued,{id=h.nativeID})
+    h.mintLastOrderAt=now
+end
+
+local function queueLooseHorseCarcass(p,h,id,position,now,alliedKill)
+    if not h.alive then return end
+    h.alive=false;h.status='dead';h.hp=0
+    local carcass=ChagataiHorse.Carcass(h.profile,false,alliedKill)
+    carcass.player=p.id;carcass.position=position;carcass.expiresAt=now+5
+    N.pendingCarcasses[id]=carcass
+    N.pendingCleanup[id]={kind='horse',player=p,horse=h}
+end
+
+function N.RefreshHorses(p,now)
+
+    for _,id in ipairs(N.Keys(p.horses.horses)) do
+        local h=p.horses.horses[id];local e=N.Entity(h.nativeID)
+        N.LockHorseSelection(h.nativeID,h.status=='mount')
+        if not h.alive and (not e or not N.corpses[h.nativeID] or not N.corpses[h.nativeID].pending) then
+            p.horses.horses[id]=nil
+        elseif h.status=='returning' then
+            N.RestoreHorse(p,h,h.restorePosition)
+        elseif not e and h.nativeID and h.alive then
+            N.LostHorse(p,h,now)
+        elseif e and Entity_IsOfType(e,'animal_corpse') then
+            N.HorseCarcass(p,h,e,now)
+        elseif e and h.alive then
+            if not Entity_IsAlive(e) then
+                queueLooseHorseCarcass(p,h,h.nativeID,N.Position(Entity_GetPosition(e)),now,h.alliedDamage)
+            elseif Entity_GetHealthPercentage(e)<=0.000011 then
+                -- Damage events may run before the final native health update.
+                -- The tiny slaughter floor prevents native death, so observe
+                -- its settled value here too, for damage from any attacker.
+                -- Queue the existing deferred death; never kill while polling.
+                if not h.deathPending then
+                    h.deathPending=true;h.hp=0
+                    N.pendingDeaths[h.nativeID]={player=p,horse=h}
+                end
+            else
+                -- Pasture livestock is tagged against herding capture in XML;
+                -- retain the original owner even when native livestock becomes
+                -- world-owned. Only this player's already tracked Horses enter here.
+                if N.Owner(e)~=p.id then
+                    local squad=Entity_GetSquad(e)
+                    if squad and squad~=0 then Squad_SetPlayerOwner(squad,p.id) end
+                end
+                h.position=Entity_GetPosition(e)
+                local hp=Entity_GetHealth(e)
+                -- Loose Horses cannot receive healing. Research is applied
+                -- explicitly before this observation and updates the snapshot.
+                if hp>h.hp+0.001 then N.SetHealth(e,h.hp/h.maximum) else h.hp=hp end
+                if h.pendingCanonicalBP and N.NormalizeHorseBlueprint(h,e) then
+                    if p.yamUnits and p.yamUnits[h.nativeID] then
+                        Modifier_Remove(p.yamUnits[h.nativeID])
+                        p.yamUnits[h.nativeID]=N.Mod(e,'speed_maximum_modifier',1.05)
+                    end
+                    N.Health(h,e,h.maximum,h.hp)
+                    Entity_SetInvulnerableMinCap(e,0.00001,-1)
+                    Entity_SetRemainingResourceDepositAmount(e,h.profile.food)
+                    local hs=Entity_GetSquad(e)
+                    if hs and hs~=0 and not Squad_HasAbility(hs,N.Ability('mint')) then
+                        Squad_AddAbility(hs,N.Ability('mint'))
+                    end
+                end
+                local inHold=Entity_IsInHold(e)
+                if h.rallyProducer then
+                    local producer=N.Entity(h.rallyProducer)
+                    h.rallyProducer=nil
+                    local squad=Entity_GetSquad(e)
+                    -- Give the engine an update to issue its own rally before
+                    -- supplying a positional route for an idle newborn Horse.
+                    if h.status=='loose' and not inHold and producer and N.Owner(producer)==p.id
+                        and N.Functioning(producer) and N.HorseSettled(squad) then
+                        N.RallyHorse(e,producer)
+                    end
+                end
+                if inHold and h.status=='loose' then h.status='mint';h.reservation='native_hold';h.wasInHold=true end
+                if h.status=='mint' then
+                    local mint=N.Entity(h.mintID)
+                    if inHold then
+                        h.wasInHold=true;h.autoMint=nil
+                        N.ResetMintTravel(h)
+                    elseif h.wasInHold then
+                        N.ReleaseMintTrip(p,h)
+                    elseif not mint or N.Owner(mint)~=p.id or not N.Functioning(mint) then
+                        local squad=Entity_GetSquad(e)
+                        if h.mintLastOrderAt and squad and squad~=0 then N.StopMove(e) end
+                        N.ReleaseMintTrip(p,h)
+                    else
+                        advanceMintTrip(p,h,e,mint,now)
+                    end
+                elseif h.wasInHold then h.wasInHold=false
+                elseif h.returnAt and h.status=='loose' then
+                    local squad=Entity_GetSquad(e)
+                    if squad and squad~=0 and not Squad_HasAcceptedCommands(squad) then
+                        if now<h.returnAt then
+                            if h.failedStopAt~=h.returnAt then N.StopMove(e);h.failedStopAt=h.returnAt end
+                        else
+                            h.returnAt=nil;local best,dist
+                            for _,ally in ipairs(PLAYERS) do
+                                if N.Friendly(p.id,ally.id) then
+                                    for _,eid in ipairs(N.Entities(ally.id)) do
+                                        local b=N.Entity(eid)
+                                        if b and Entity_IsBuilding(b) and N.Functioning(b) then
+                                            local d=N.Distance(h.position,Entity_GetPosition(b));if not best or d<dist then best,dist=b,d end
+                                        end
+                                    end
+                                end
+                            end
+                            if best then N.Move(e,Entity_GetPosition(best)) end
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+function N.HorseCarcass(p,h,entity,now)
+
+    -- Compatibility for an already-converted stock carcass in older state.
+    local id=Entity_GetID(entity)
+    if N.corpses[id] and N.corpses[id].repaired then return end
+
+    local carcass=N.corpses[id] or ChagataiHorse.Carcass(h.profile,false,h.alliedDamage)
+    local food=carcass.food
+    local body=N.Get(N.CorpseKey('ebps',food))
+    local squadBP=N.Get(N.CorpseKey('sbps',food))
+    -- Detach live-unit modifiers and callbacks BEFORE converting to a resource
+    -- carcass that lacks health_ext and moving_ext.
+    N.ReleaseHorseAttachments(p,h,id,true)
+    local squad=Entity_GetSquad(entity)
+    if squad and squad~=0 then
+        Squad_ConvertBlueprint(squad,squadBP.bp)
+    end
+    Entity_ConvertBlueprint(entity,body.bp)
+    Entity_SetRemainingResourceDepositAmount(entity,food)
+    h.alive=false;h.status='dead';h.hp=0;h.pendingCanonicalBP=nil
+    N.entities[id]={player=p,record=body,corpseID=id}
+    N.corpses[id]={food=food,decay=carcass.decay,last=now,repaired=true}
+
+end
+
+function ChagataiNative_OnDamage(context)
+
+    if N.ended or not context then return end
+    if not context.victim or Entity_IsOfType(context.victim,'animal_corpse') then return end
+    local tracked=N.entities[Entity_GetID(context.victim)]
+    local building=tracked and tracked.buildingID and tracked.player.buildings[tracked.buildingID]
+    if building then N.BuildingVisual(building,context.victim,N.Now()) end
+    if context.isRepairing or not context.victim then return end
+    local id=Entity_GetID(context.victim)
+    if N.healthWrites and N.healthWrites[id] then return end
+    local birth=N.births[id]
+    if birth and context.attacker then birth.hurt=true;birth.fraction=Entity_GetHealthPercentage(context.victim) end
+    local t=N.Tracked(context.victim);if not t or not t.horseID then return end
+    local h=t.player.horses.horses[t.horseID]
+    if not h or not h.alive or h.deathPending or not N.IsPlaying(t.player) then return end
+    local attacker=N.Owner(context.attacker)
+    h.alliedDamage=attacker~=nil and N.Friendly(t.player.id,attacker)
+    if attacker==t.player.id
+        and Entity_IsOfType(context.attacker,'villager') then
+        h.butcherHits=(h.butcherHits or 0)+1
+        if h.butcherHits>=2 and Entity_IsAlive(context.victim) then
+            h.deathPending=true;h.hp=0
+            N.pendingDeaths[id]={player=t.player,horse=h}
+        else
+            h.hp=math.max(h.maximum*0.00001,h.hp*0.5);N.SetHealth(context.victim,h.hp/h.maximum)
+        end
+    elseif Entity_GetHealthPercentage(context.victim)<=0.000011 then
+        h.deathPending=true;h.hp=0
+        N.pendingDeaths[id]={player=t.player,horse=h}
+    else h.hp=math.min(h.hp,Entity_GetHealth(context.victim))
+    end
+end
+function ChagataiNative_OnKilled(context)
+
+    if N.ended or not context then return end
+    if not context.victim then return end
+    local id=Entity_GetID(context.victim)
+    local birth=N.births[id]
+    if birth and birth.horseReceipt and birth.horseReceipt.importID then
+        birth.player.economy.transactions[birth.horseReceipt.importID]=nil
+    end
+    N.births[id]=nil
+    local t=N.entities[id];if not t then return end
+    if t.consuming then return end
+    if t.deathHandled then return end;t.deathHandled=true
+    local p=t.player;local position=Entity_GetPosition(context.victim)
+    if t.horseID then
+        local h=p.horses.horses[t.horseID];if not h then return end
+        local alliedKill=h.alliedDamage
+        if not h.deathPending and context.killer then
+            local killer=context.killerOwner
+            alliedKill=context.killer~=context.victim and killer~=nil and N.Friendly(p.id,killer)
+        end
+        queueLooseHorseCarcass(p,h,id,N.Position(position),N.Now(),alliedKill)
+    elseif t.riderID then
+        local r=p.horses.riders[id];if not r then return end
+        r.alive=false;r.hp=0
+        N.pendingCleanup[id]={kind='rider',player=p,rider=r}
+        local h=r.form=='mounted' and p.horses.horses[r.horseID]
+        if h then
+            h.alive=false;h.status='dead';h.hp=0
+            local c=ChagataiHorse.Carcass(h.profile,true)
+            c.player=p.id;c.position=N.Position(position);c.expiresAt=N.Now()+5;N.pendingCarcasses[id]=c
+        end
+    end
+end
+
+-- Native callbacks only record transitions. Queue mutations, spawning, killing,
+-- and modifier/event disposal are drained in deterministic order on tick.
+function N.DrainTransitions(now)
+
+    if N.ended then return end
+    local actions=N.pendingBuildingActions;N.pendingBuildingActions={}
+    for _,item in ipairs(actions) do
+        if N.ExecuteBuildingAbility then N.ExecuteBuildingAbility(item,now) end
+    end
+    local deaths=N.pendingDeaths;N.pendingDeaths={}
+    for _,id in ipairs(N.Keys(deaths)) do
+        local e=N.Entity(id);local pending=deaths[id]
+        local tracked=N.entities[id]
+        if e and pending.horse.alive and tracked and tracked.horseID and tracked.player==pending.player
+            and tracked.player.horses.horses[tracked.horseID]==pending.horse
+            and not Entity_IsOfType(e,'animal_corpse') and Entity_IsAlive(e) then
+            local position=N.Position(Entity_GetPosition(e))
+            -- Retire while the slaughter floor is still active. Entity_Kill
+            -- runs native livestock death effects and can add a Sheep Carcass
+            -- even though we supply the Horse's drop ourselves.
+            tracked.consuming=true
+            N.RetireActor(id)
+            if N.retirements[id]=='submitted' or not N.Entity(id) then
+                queueLooseHorseCarcass(pending.player,pending.horse,id,position,now,pending.horse.alliedDamage)
+            else
+                tracked.consuming=nil
+                -- Keep this queue as the only owner of retries and the drop.
+                N.retirements[id]=nil
+                N.pendingDeaths[id]=pending
+            end
+        end
+    end
+    local corpses=N.pendingCarcasses;N.pendingCarcasses={}
+    for _,id in ipairs(N.Keys(corpses)) do
+        local c=corpses[id]
+        N.Log('CHAGATAI corpse spawn begin source='..id)
+        local staged={}
+        local ok,cid=pcall(function()
+            local corpse=N.Spawn(N.CorpseKey('sbps',c.food),c.player,c.position,staged)
+            Entity_SetRemainingResourceDepositAmount(corpse,c.food)
+            return Entity_GetID(corpse)
+        end)
+        if ok then
+            N.corpses[cid]={food=c.food,decay=c.decay,last=now,repaired=true}
+            N.Log('CHAGATAI corpse spawn complete source='..id..' entity='..cid)
+        else
+            N.DiscardSpawn(staged)
+            if now<(c.expiresAt or now) then N.pendingCarcasses[id]=c end
+        end
+    end
+    local cleanup=N.pendingCleanup;N.pendingCleanup={}
+    for _,id in ipairs(N.Keys(cleanup)) do
+        local item=cleanup[id]
+        if item.kind=='horse' then
+            N.ReleaseHorseAttachments(item.player,item.horse,id,true)
+            N.entities[id]=nil;N.lastAbilityDispatched[id]=nil
+        elseif item.kind=='rider' then
+            N.FailRider(item.player,item.rider,now)
+            N.ReleaseRiderAttachments(item.player,item.rider,id,true)
+        end
+    end
+end

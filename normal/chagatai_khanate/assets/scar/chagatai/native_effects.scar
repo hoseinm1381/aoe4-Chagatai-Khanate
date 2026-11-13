@@ -1,0 +1,227 @@
+local N=ChagataiNative
+local mountedTraining={
+    melee={train_spearman='spearman',train_nokor='nokor',train_scout_melee='scout'},
+    ordu={train_spearman_ordu='spearman',train_nokor_ordu='nokor',train_scout_ordu='scout'},
+    ranged={train_archer='archer',train_crossbow='crossbow',train_handcannon='handcannon'},
+    religious={train_religious='religious'},market={train_trader='trader'},almaliq={train_trader='trader'},
+    town_center={train_scout='scout'},town_center_capital={train_scout='scout'},qarshi={train_scout='scout'},
+}
+local nativeMountedCards={melee=true,ordu=true,ranged=true,market=true}
+N.recipients={}
+function N.ClearEffectModifiers(fx)
+
+    N.RemoveMods(fx.damageMods);fx.damageMods=nil;fx.damageFactor=nil
+    for _,field in ipairs({'speed','melee','ranged','jidaDamage'}) do
+        if fx[field] then Modifier_Remove(fx[field]) end
+        fx[field]=nil;fx[field..'Value']=nil
+    end
+end
+function N.Court(p,b,entity,now)
+
+    local recipients={};local center=Entity_GetPosition(entity)
+    for _,ally in ipairs(PLAYERS) do
+        if Player_IsAlive(ally.id) and not ally.isEliminated and N.Friendly(p.id,ally.id) then
+            for _,id in ipairs(N.Entities(ally.id)) do
+                local e=N.Entity(id)
+                if e and Entity_IsAlive(e) and not Entity_IsBuilding(e) and not Entity_IsInHold(e)
+                    and (Entity_IsOfType(e,'military') or Entity_IsOfType(e,'scout') or Entity_IsOfType(e,'siege'))
+                    and N.Distance(center,Entity_GetPosition(e))<=40 then recipients[#recipients+1]=id end
+            end
+        end
+    end
+    local activation=ChagataiEffects.ActivateCourt(b.court,now,N.Functioning(entity),recipients)
+    if not activation then return end
+    for _,id in ipairs(activation.order) do
+        local e=N.Entity(id)
+        if e and Entity_IsAlive(e) then
+            local maximum=Entity_GetHealthMax(e)
+            if maximum>0 then
+                local current=Entity_GetHealth(e)
+                N.SetHealth(e,math.min(1,ChagataiEffects.CourtHeal(current,maximum)/maximum))
+                N.recipients[id]=N.recipients[id] or {}
+            end
+        end
+    end
+end
+function ChagataiNative_OnBuildingAbility(context,data)
+
+    if N.ended or not context or not data then return end
+    local t=N.entities[data.id];if not t then return end
+    local p=t.player;local b=p.buildings[data.id];local e=N.Entity(data.id)
+    local action=N.Lookup(context.ability,'abilities');if not b or not e or not action then return end
+    if not N.IsPlaying(p) or N.Owner(e)~=p.id then return end
+    if action.action=='import_horse' then N.QueueImport(p,b,e,N.Now());return end
+    local item={buildingID=data.id,ability=context.ability}
+    if action.action:sub(1,6)=='train_' then
+        -- GE_AbilityExecuted follows native payment. Keep the charged quote
+        -- with the action in case the producer is lost before the next tick.
+        local ok,food=pcall(function() return Player_GetAbilityBPCost(p.id,context.ability).food end)
+        if not ok or type(food)~='number' or food~=food or food<0 then
+            N.Notice(p,'Mounted order declined: native Food cost unavailable')
+            return
+        end
+        item.payer=p.id;item.foodPaid=food
+    end
+    N.pendingBuildingActions[#N.pendingBuildingActions+1]=item
+end
+function N.ExecuteBuildingAbility(item,now)
+
+    if N.ended then return end
+    local t=N.entities[item.buildingID];local p=t and t.player
+    local b=p and p.buildings[item.buildingID];local e=N.Entity(item.buildingID)
+    local action=N.Lookup(item.ability,'abilities')
+    if p and not N.IsPlaying(p) then return end
+    if not b or not e or not action or (item.payer and item.payer~=p.id)
+        or N.Owner(e)~=p.id or not Entity_IsAlive(e) then
+        if item.payer and N.IsPlaying({id=item.payer}) then N.CreditTrainingFood(item.payer,item.foodPaid) end
+        return
+    end
+    if action.action:sub(1,6)=='train_' then
+        local commands=mountedTraining[b.role]
+        local pair=commands and commands[action.action]
+        local settled=pair and N.Functioning(e) and select(2,N.TrainMounted(p,b,e,pair,now,item.foodPaid))
+        if not settled then N.CreditTrainingFood(item.payer,item.foodPaid) end
+    elseif action.action=='cancel_horse_order' or action.action=='cancel_all_horse_orders' then
+        if not Entity_HasProductionQueue(e) then return end
+        N.PollQueue(p,b,e,now)
+        local cancelAll=action.action=='cancel_all_horse_orders'
+        local hasMounted=false
+        for _,entry in ipairs(b.queue) do if entry.id then hasMounted=true;break end end
+        -- Commit descending queue removals as one adapter operation. Native
+        -- completion callbacks must not reconcile a half-updated receipt list.
+        for index=#b.queue,1,-1 do
+            local entry=b.queue[index];local meta=N.Lookup(entry.bp,'sbps')
+            if entry.id or not cancelAll and not hasMounted and (entry.importID or meta and meta.kind=='import') then
+                if not N.CancelQueueEntry(p,b,e,index,now) or not cancelAll then break end
+            end
+        end
+    elseif not N.Functioning(e) then return
+    elseif action.action=='mint_auto_start' and b.role=='mint' then
+        b.autoMint=true;b.autoMintNext=nil
+        for _,h in pairs(p.horses.horses) do
+            if h.autoMintBlocked==b.id then h.autoMintBlocked=nil end
+        end
+    elseif action.action=='mint_auto_stop' and b.role=='mint' then N.StopAutoMint(p,b)
+    elseif action.action=='court' and b.role=='court' then N.Court(p,b,e,now)
+    elseif (action.action=='ili_war' or action.action=='ili_fattened') and b.role=='ili' then
+        ChagataiEffects.SwitchIli(p.ili,action.action=='ili_war' and 'war' or 'fattened',now,true)
+    elseif action.action=='withdraw' and b.role=='mint' then
+        local held=SGroup_Create('ChagataiMintWithdraw');Entity_GetSquadsHeld(e,held)
+        for i=1,SGroup_Count(held) do
+            local he=Squad_GetFirstEntity(SGroup_GetSquadAt(held,i));local h=N.Tracked(he)
+            if h and h.player==p and h.horseID then
+                local horse=p.horses.horses[h.horseID]
+                N.ReleaseMintTrip(p,horse);horse.autoMintBlocked=b.id
+            end
+        end
+        SGroup_Destroy(held);Entity_UnloadAllFromHold(e)
+    end
+end
+function N.BuildingButtons(p,b,entity,now)
+
+    local actions={'court','ili_war','ili_fattened','withdraw','mint_auto_start','mint_auto_stop',
+        'cancel_horse_order','cancel_all_horse_orders','import_horse','train_scout_melee',
+        'train_spearman_ordu','train_nokor_ordu','train_scout_ordu'}
+    for _,pair in ipairs({'spearman','nokor','archer','crossbow','handcannon','scout','religious','trader'}) do actions[#actions+1]='train_'..pair end
+    local desired={}
+    if N.Functioning(entity) then
+        if b.role=='court' then desired.court=true
+        elseif b.role=='ili' then desired.ili_war=true;desired.ili_fattened=true
+        elseif b.role=='mint' then
+            desired.withdraw=true
+            desired[b.autoMint and 'mint_auto_stop' or 'mint_auto_start']=true
+        end
+        if b.role=='market' or b.role=='almaliq' then desired.import_horse=true end
+        -- Native production cards handle multi-selection and Shift batching.
+        -- At the Horse cap only the scripted card can retire a nearby Horse
+        -- before asking the engine to admit the replacement queue entry.
+        local commands=mountedTraining[b.role]
+        if commands then
+            local fallback=not nativeMountedCards[b.role]
+                or Player_GetCurrentPopulation(p.id,CT_Vehicle)>=Player_GetCurrentPopulationCap(p.id,CT_Vehicle)
+            local age=Player_GetCurrentAge(p.id)
+            for action,pair in pairs(commands) do
+                if fallback or age<ChagataiConfig.pairs[pair].mountedAge then desired[action]=true end
+            end
+        end
+    end
+    for _,entry in ipairs(b.queue) do
+        local m=N.Lookup(entry.bp,'sbps')
+        if entry.id then desired.cancel_horse_order=true;desired.cancel_all_horse_orders=true
+        elseif entry.importID or m and m.kind=='import' then desired.cancel_horse_order=true end
+    end
+    b.buttons=b.buttons or {}
+    for _,action in ipairs(actions) do
+        if b.buttons[action]~=desired[action] or desired[action] and not Entity_HasAbility(entity,N.Ability(action)) then
+            if desired[action] then Entity_AddAbility(entity,N.Ability(action)) else Entity_RemoveAbility(entity,N.Ability(action)) end
+            b.buttons[action]=desired[action]
+        end
+    end
+end
+function N.Effects(now)
+
+    for index=#N.courts,1,-1 do
+        local court=N.courts[index]
+        ChagataiEffects.PruneCourt(court,now)
+        if court.retired and not next(court.activations) then table.remove(N.courts,index) end
+    end
+    local all={};for id in pairs(N.recipients) do all[id]=true end
+    for _,p in pairs(N.players) do for id,r in pairs(p.horses.riders) do if r.alive then all[id]=true end end end
+    for _,id in ipairs(N.Keys(all)) do
+        local e=N.Entity(id)
+        if e and Entity_IsAlive(e) then
+            local courtDamage,courtSpeed=ChagataiEffects.CourtFactors(N.courts,id,now)
+            local tracked=N.entities[id];local r=tracked and tracked.riderID and tracked.player.horses.riders[id]
+            local damage,speed=courtDamage,courtSpeed;local melee,ranged=0,0
+            if r then
+                local meta=tracked.record
+                local factors=ChagataiEffects.MountedFactors(r,now,meta.melee,meta.ranged)
+                damage=damage*factors.unitDamage
+                speed=speed*factors.speed*(tracked.player.research.yam and r.pair~='villager' and 1.05 or 1)
+                melee=factors.meleeArmor-meta.melee;ranged=factors.rangedArmor-meta.ranged
+                if r.pair=='nokor' and r.form=='foot' then
+                    local nearby=0
+                    for _,other in pairs(tracked.player.horses.riders) do
+                        if other.alive and other.pair=='nokor' and other.form=='foot' and N.Distance(r.position,other.position)<=8 then nearby=nearby+1 end
+                    end
+                    ranged=ranged+ChagataiEffects.FormationArmor(nearby)
+                end
+                if r.pair=='religious' and r.form=='mounted' and tracked.player.research.care then Entity_SetStateModelFloat(e,'monk_heal_rate',12.6) end
+            end
+            local fx=N.recipients[id] or {};N.recipients[id]=fx
+            local blueprint=BP_GetName(Entity_GetBlueprint(e))
+            if fx.blueprint~=blueprint then N.ClearEffectModifiers(fx);fx.blueprint=blueprint end
+            local jidaDamage=0
+            if r and r.pair=='spearman' and tracked.player.research.jida and N.Owner(e)==tracked.player.id then
+                jidaDamage=3
+            end
+            N.ReplaceMod(fx,'jidaDamage',e,'damage_weapon_modifier',jidaDamage,MUT_Addition,MAT_Weapon,'hardpoint_01')
+            if fx.damageFactor~=damage then
+                N.RemoveMods(fx.damageMods);fx.damageMods=nil;fx.damageFactor=damage
+                local hasWeapons,count
+                if damage~=1 then hasWeapons,count=pcall(Entity_GetWeaponHardpointCount,e) end
+                if hasWeapons and type(count)=='number' and count>0 then
+                    -- Official rogue_rounds.scar pattern, including bonus damage.
+                    -- Owner approved all targets on 2026-11-02. No cloned
+                    -- weapon/body blueprints or damage-event emulation.
+                    local applied={}
+                    local ok=pcall(function()
+                        applied[1]=N.Mod(e,'damage_weapon_modifier',damage,MUT_Multiplication,MAT_Weapon,e)
+                        applied[2]=N.Mod(e,'weapon_damage_per_unit_type_modifier',damage,MUT_Multiplication,MAT_Weapon,e)
+                    end)
+                    if ok then fx.damageMods=applied else N.RemoveMods(applied) end
+                end
+            end
+            N.ReplaceMod(fx,'speed',e,'speed_maximum_modifier',speed)
+            N.ReplaceMod(fx,'melee',e,'armor_scalar_for_melee_damage',melee,MUT_Addition)
+            N.ReplaceMod(fx,'ranged',e,'armor_scalar_for_ranged_damage',ranged,MUT_Addition)
+            if damage==1 and not r then
+                N.ClearEffectModifiers(fx)
+                N.recipients[id]=nil
+            end
+        else
+            local fx=N.recipients[id]
+            if fx then N.ClearEffectModifiers(fx);N.recipients[id]=nil end
+        end
+    end
+end

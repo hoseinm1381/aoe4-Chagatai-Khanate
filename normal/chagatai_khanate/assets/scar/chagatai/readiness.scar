@@ -1,0 +1,16 @@
+-- The complete civilization is the release target. Do not offer a partial army
+-- under the Chagatai name while required native data/contracts are absent.
+ChagataiReadiness = {
+    gates = {blueprints=false,startingArmy=false,nativeHorseCounter=false,
+        conversion=false,production=false,economy=false,roster=false,
+        technology=false,landmarks=false,navy=false},
+    initializer = nil
+}
+
+function ChagataiReadiness.Available()
+
+    for _, ready in pairs(ChagataiReadiness.gates) do
+        if ready ~= true then return false end
+    end
+    return type(ChagataiReadiness.initializer) == "function"
+end

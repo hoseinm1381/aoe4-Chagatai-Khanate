@@ -41,6 +41,8 @@ def audit(root, previous=None):
     model_state=lua.globals().ChagataiNative.BuildingModelState
     catalog=json.loads((ROOT/'source/visuals/buildings.json').read_bytes())
     for building in catalog:
+        if building['asset'] == 'wonder':
+            continue
         resource=building['resource']; graph=rc.parse((root/(resource+'.rgo')).read_bytes())
         observed=[]
         samples=[(1,'healthy'),(.8,'damage_1'),(.6,'damage_2'),(.4,'damage_3'),(.25,'damage_4'),(.1,'damage_5'),(0,'ruins')]

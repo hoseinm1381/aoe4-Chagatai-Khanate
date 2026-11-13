@@ -1,0 +1,101 @@
+-- Pure transaction policy. The adapter owns actual resources/native queues.
+ChagataiEconomy = {}
+local C = ChagataiConfig.horse
+
+local function clone(source)
+
+    local result = {}
+    for key, value in pairs(source) do result[key] = value end
+    return result
+end
+
+function ChagataiEconomy.New(now)
+
+    return {price=C.minimumPrice,lastRecovery=now,recoveryProgress=0,
+        almaliq=false,transactions={}}
+end
+
+function ChagataiEconomy.Advance(state, now)
+
+    assert(now >= state.lastRecovery, "Simulation time moved backwards")
+    local interval = state.almaliq and C.almaliqRecoverySeconds or C.recoverySeconds
+    state.recoveryProgress = state.recoveryProgress+(now-state.lastRecovery)/interval
+    local ticks = math.floor(state.recoveryProgress+1e-10)
+    state.recoveryProgress = math.max(0,state.recoveryProgress-ticks)
+    state.price = math.max(C.minimumPrice,state.price-ticks)
+    state.lastRecovery = now
+end
+
+function ChagataiEconomy.SetAlmaliq(state, functioning, now)
+
+    ChagataiEconomy.Advance(state,now) -- Settle elapsed time under the old rate first.
+    state.almaliq = functioning
+end
+
+function ChagataiEconomy.Quote(state)
+
+    return state.almaliq and math.floor(state.price*0.8+0.5) or state.price
+end
+
+-- Called after native command payment and queue admission. Optional lockedGold
+-- is the displayed price actually paid; native production owns completion.
+function ChagataiEconomy.StartImport(state, transactionID, now, profile, nativePaid, lockedGold)
+
+    if state.transactions[transactionID] ~= nil or nativePaid ~= true then return nil end
+    ChagataiEconomy.Advance(state,now)
+    local receipt = {kind="import",gold=lockedGold or ChagataiEconomy.Quote(state),profile=clone(profile),
+        startedAt=now,completeAt=now+C.importSeconds,status="active"}
+    state.transactions[transactionID] = receipt
+    state.price = state.price+1
+    return receipt
+end
+
+function ChagataiEconomy.StartFallback(state, transactionID, now, profile, nativePaid)
+
+    if state.transactions[transactionID] ~= nil or nativePaid ~= true then return nil end
+    ChagataiEconomy.Advance(state,now)
+    local receipt = {kind="fallback",gold=C.fallbackGold,profile=clone(profile),status="active"}
+    state.transactions[transactionID] = receipt
+    state.price = state.price+1
+    return receipt
+end
+
+function ChagataiEconomy.Cancel(state, transactionID, now)
+
+    local receipt = state.transactions[transactionID]
+    if receipt == nil or receipt.status ~= "active" then return nil end
+    ChagataiEconomy.Advance(state,now)
+    receipt.status = "cancelled"
+    state.price = math.max(C.minimumPrice,state.price-1)
+    return receipt.gold -- Full originally paid amount; not the current quote.
+end
+
+function ChagataiEconomy.Complete(state, transactionID, now)
+
+    local receipt = state.transactions[transactionID]
+    if receipt == nil or receipt.status ~= "active"
+        or (receipt.completeAt ~= nil and now < receipt.completeAt) then return nil end
+    receipt.status = "complete"
+    return clone(receipt.profile)
+end
+
+-- Arithmetic only; native state-tree production/cap ordering remains authoritative.
+function ChagataiEconomy.BirthInterval(tier, qarshi, ili)
+
+    assert(tier >= 0 and tier <= 3 and tier == math.floor(tier), "Invalid production tier")
+    local base = ili and ChagataiConfig.pasture.iliSeconds or ChagataiConfig.pasture.seconds
+    return base/((1+0.1*tier)*(qarshi and ChagataiConfig.pasture.qarshiFactor or 1))
+end
+
+function ChagataiEconomy.RemainingAfterRateChange(completedFraction, newInterval)
+
+    assert(completedFraction >= 0 and completedFraction <= 1 and newInterval > 0, "Invalid production progress")
+    return (1-completedFraction)*newInterval
+end
+
+function ChagataiEconomy.RiderPayment(cost, ordu)
+
+    local result = {}
+    for resource, amount in pairs(cost) do result[resource] = amount*(ordu and 0.9 or 1) end
+    return result -- Resource rounding must match native cost behavior, not a guessed rule.
+end

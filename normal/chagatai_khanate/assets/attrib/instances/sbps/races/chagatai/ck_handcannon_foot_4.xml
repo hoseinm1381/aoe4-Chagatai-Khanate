@@ -1,0 +1,95 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073741874" />
+	<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_handcannon_4_mon" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="-945597977" List.ParentItemID="-945597977">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="1457497328" List.ParentItemID="1457497328">
+					<instance_reference name="type" value="ebps\races\chagatai\units\ck_handcannon_foot_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="-493400043" List.ParentItemID="-493400043">
+			<list name="requirement_table" overrideParent="True">
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1526578231">
+					<enum name="reason" value="usage" />
+					<locstring name="ui_name" value="0" />
+					<bool name="is_present" value="True" />
+					<int name="max_completed" value="100" />
+					<int name="min_completed" value="1" />
+					<instance_reference name="upgrade_name" value="upgrade\dev\ages\imperial_age" overrideParent="True" />
+					<bool name="include_queued" value="False" />
+					<group name="include_pbg_parenting">
+						<bool name="include_child_pbgs" value="False" />
+						<bool name="include_parent_pbgs" value="False" />
+					</group>
+					<bool name="include_completed" value="True" />
+				</template_reference>
+			</list>
+			<state_tree_node name="requirement_statetree" value="" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="1985189745" List.ParentItemID="1985189745">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="-636411081" List.ParentItemID="-636411081">
+					<group name="info">
+						<locstring name="screen_name" value="7024" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="help_text" value="2240" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="extra_text" value="7108" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="brief_text" value="0" overrideParent="True" />
+						<file name="icon_name" value="races\common\units\handcannon" overrideParent="True" />
+						<file name="portrait_name" value="" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="False" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="-945597977" List.ParentItemID="-945597977">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="1457497328" List.ParentItemID="1457497328">
+						<instance_reference name="type" value="ebps\races\chagatai\units\ck_handcannon_foot_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" overrideParent="True" List.ItemID="-493400043" List.ParentItemID="-493400043">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="1252490243">
+						<enum name="reason" value="usage" />
+						<locstring name="ui_name" value="0" />
+						<bool name="is_present" value="True" />
+						<int name="max_completed" value="100" />
+						<int name="min_completed" value="1" />
+						<instance_reference name="upgrade_name" value="upgrade\dev\ages\imperial_age" overrideParent="True" />
+						<bool name="include_queued" value="False" />
+						<group name="include_pbg_parenting">
+							<bool name="include_child_pbgs" value="False" />
+							<bool name="include_parent_pbgs" value="False" />
+						</group>
+						<bool name="include_completed" value="True" />
+					</template_reference>
+				</list>
+				<state_tree_node name="requirement_statetree" value="" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="1985189745" List.ParentItemID="1985189745">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="-636411081" List.ParentItemID="-636411081">
+						<group name="info">
+							<locstring name="screen_name" value="7024" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="help_text" value="2240" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="extra_text" value="7108" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="brief_text" value="0" overrideParent="True" />
+							<file name="icon_name" value="races\common\units\handcannon" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="False" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741874" />
+		<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_handcannon_4_mon" />
+	</variant>
+</instance>

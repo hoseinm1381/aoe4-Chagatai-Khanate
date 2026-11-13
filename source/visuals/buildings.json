@@ -13,7 +13,7 @@
       "pasture_ruins"
     ],
     "resource": "art/scenario/chagatai/pasture/model",
-    "lods": 3
+    "lods": 1
   },
   {
     "asset": "steppe_hearth",
@@ -29,7 +29,7 @@
       "steppe_hearth_ruins"
     ],
     "resource": "art/scenario/chagatai/steppe_hearth/model",
-    "lods": 3
+    "lods": 1
   },
   {
     "asset": "melee",
@@ -60,7 +60,7 @@
       "melee_m4_ruins"
     ],
     "resource": "art/scenario/chagatai/melee/model",
-    "lods": 3,
+    "lods": 1,
     "state_groups": {
       "healthy": [
         "healthy",
@@ -209,7 +209,7 @@
       "ranged_r4_ruins"
     ],
     "resource": "art/scenario/chagatai/ranged/model",
-    "lods": 3,
+    "lods": 1,
     "state_groups": {
       "healthy": [
         "healthy",
@@ -325,7 +325,7 @@
       "almaliq_ruins"
     ],
     "resource": "art/scenario/chagatai/almaliq/model",
-    "lods": 3
+    "lods": 1
   },
   {
     "asset": "ordu",
@@ -343,7 +343,7 @@
       "ordu_ruins"
     ],
     "resource": "art/scenario/chagatai/ordu/model",
-    "lods": 3
+    "lods": 1
   },
   {
     "asset": "qarshi",
@@ -361,7 +361,7 @@
       "qarshi_ruins"
     ],
     "resource": "art/scenario/chagatai/qarshi/model",
-    "lods": 3
+    "lods": 1
   },
   {
     "asset": "court",
@@ -379,7 +379,7 @@
       "court_ruins"
     ],
     "resource": "art/scenario/chagatai/court/model",
-    "lods": 3
+    "lods": 1
   },
   {
     "asset": "ili",
@@ -397,7 +397,7 @@
       "ili_ruins"
     ],
     "resource": "art/scenario/chagatai/ili/model",
-    "lods": 3
+    "lods": 1
   },
   {
     "asset": "mint",
@@ -415,7 +415,7 @@
       "mint_ruins"
     ],
     "resource": "art/scenario/chagatai/mint/model",
-    "lods": 3
+    "lods": 1
   },
   {
     "asset": "wonder",
@@ -431,6 +431,6 @@
       "wonder_ruins"
     ],
     "resource": "art/scenario/chagatai/wonder/model",
-    "lods": 3
+    "lods": 1
   }
 ]

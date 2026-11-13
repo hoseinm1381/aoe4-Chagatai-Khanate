@@ -1,0 +1,2356 @@
+<instance version="6" template="sbps" description="Chagatai foundation">
+	<uniqueid name="pbgid" value="1073741830" />
+	<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_villager_1_mon" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="-634721594" List.ParentItemID="-634721594">
+			<list name="abilities" removedIds="-1621238487" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="1426203860" List.ParentItemID="1426203860">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="-1525643966" List.ParentItemID="-1525643966">
+					<instance_reference name="type" value="ebps\races\chagatai\units\ck_unit_villager" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="443384137" List.ParentItemID="443384137">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="422230052" List.ParentItemID="422230052">
+					<group name="info">
+						<locstring name="help_text" value="5602" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="screen_name" value="7040" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="extra_text" value="7116" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<file name="icon_name" value="races\mongols\units\villager" overrideParent="True" />
+						<file name="portrait_name" value="" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="False" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_engineer_ext" overrideParent="True" List.ItemID="851310113" List.ParentItemID="851310113">
+			<float name="construction_rate_multiplier" value="1" />
+			<list name="construction_groups" overrideParent="True">
+				<group name="construction_group" comment="Age 1" List.ItemID="-36987879">
+					<instance_reference name="construction_menu" value="menu\mon_age1" />
+					<list name="construction_items" overrideParent="True">
+						<group name="construction_item" comment="Pasture" List.ItemID="-1210354616">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_pasture" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="2" overrideParent="True" />
+								<int name="ui_position_column" value="1" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_pasture" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="1" overrideParent="True" />
+										<int name="ui_position_column" value="5" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+									<int name="nominal_index" value="8" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Outpost" List.ItemID="-814486740">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_outpost" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="3" overrideParent="True" />
+								<int name="ui_position_column" value="1" overrideParent="True" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_outpost" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="2" overrideParent="True" />
+										<int name="ui_position_column" value="1" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Military" overrideParent="True" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" overrideParent="True" />
+									<int name="nominal_index" value="15" overrideParent="True" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Ger" List.ItemID="499148217">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_steppe_hearth" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" overrideParent="True" />
+								<int name="ui_position_column" value="1" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_ger" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="1" overrideParent="True" />
+										<int name="ui_position_column" value="1" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="" overrideParent="True">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info" overrideParent="True">
+									<enum name="quick_commands_hotkey" value="x_quick_command_hold_x" />
+									<int name="quick_commands_priority" value="5" />
+									<int name="quick_commands_slot_index" value="5" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+									<int name="nominal_index" value="7" overrideParent="True" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Barracks" List.ItemID="922458264">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_melee" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="2" overrideParent="True" />
+								<int name="ui_position_column" value="2" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_barracks" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="1" overrideParent="True" />
+										<int name="ui_position_column" value="1" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="" overrideParent="True">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Military" overrideParent="True" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+									<int name="nominal_index" value="0" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Dock" List.ItemID="-1602572864">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_dock" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="2" overrideParent="True" />
+								<int name="ui_position_column" value="3" overrideParent="True" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_dock" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="1" overrideParent="True" />
+										<int name="ui_position_column" value="2" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Military" overrideParent="True" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" overrideParent="True" />
+									<int name="nominal_index" value="10" overrideParent="True" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Palisade" List.ItemID="-1188809250" overrideParent="True">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_palisade" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="3" overrideParent="True" />
+								<int name="ui_position_column" value="2" overrideParent="True" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_palisade" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="3" overrideParent="True" />
+										<int name="ui_position_column" value="2" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Military" overrideParent="True" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_defensive" overrideParent="True" />
+									<int name="nominal_index" value="4" overrideParent="True" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+						</group>
+						<group name="construction_item" comment="Palisade Gate" List.ItemID="281038439" overrideParent="True">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_palisade_gate" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="3" overrideParent="True" />
+								<int name="ui_position_column" value="3" overrideParent="True" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_palisade_gate" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="3" overrideParent="True" />
+										<int name="ui_position_column" value="3" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Military" overrideParent="True" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_defensive" overrideParent="True" />
+									<int name="nominal_index" value="3" overrideParent="True" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+						</group>
+					</list>
+					<enum name="construction_type" value="tp_construction_base" />
+				</group>
+				<group name="construction_group" comment="Age 1 - Landmarks" List.ItemID="226534771">
+					<instance_reference name="construction_menu" value="menu\mon_age1_wonders" />
+					<list name="construction_items" overrideParent="True">
+						<group name="construction_item" List.ItemID="1753198947">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_ordu" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" />
+								<int name="ui_position_column" value="1" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_1" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="">
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="">
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" List.ItemID="841910666">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_almaliq" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="2" />
+								<int name="ui_position_column" value="1" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_2" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="">
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="">
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+					</list>
+					<enum name="construction_type" value="tp_construction_base" />
+				</group>
+				<group name="construction_group" comment="Age 2" List.ItemID="900039335">
+					<instance_reference name="construction_menu" value="menu\mon_age2" />
+					<list name="construction_items" overrideParent="True">
+						<group name="construction_item" comment="Blacksmith " List.ItemID="385338294">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_blacksmith" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" />
+								<int name="ui_position_column" value="1" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_blacksmith" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="2" overrideParent="True" />
+										<int name="ui_position_column" value="1" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+									<int name="nominal_index" value="2" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Archery Range" List.ItemID="-1706549637">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_ranged" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="2" />
+								<int name="ui_position_column" value="1" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_archery_range" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="1" overrideParent="True" />
+										<int name="ui_position_column" value="3" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Military" overrideParent="True" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+									<int name="nominal_index" value="4" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Market" List.ItemID="-873220690">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_market" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" />
+								<int name="ui_position_column" value="2" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_market" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="2" overrideParent="True" />
+										<int name="ui_position_column" value="2" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+									<int name="nominal_index" value="12" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Town Center" List.ItemID="-358692947">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_town_center" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" />
+								<int name="ui_position_column" value="3" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_town_center" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="2" overrideParent="True" />
+										<int name="ui_position_column" value="3" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+									<int name="nominal_index" value="10" overrideParent="True" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Town Center Capital" List.ItemID="-1540635200">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_town_center_capital" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" />
+								<int name="ui_position_column" value="3" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="">
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+									<int name="nominal_index" value="10" overrideParent="True" />
+									<int name="priority" value="100" overrideParent="True" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+					</list>
+					<enum name="construction_type" value="tp_construction_base" />
+				</group>
+				<group name="construction_group" comment="Age 2 - Landmarks" List.ItemID="-599313447">
+					<instance_reference name="construction_menu" value="menu\mon_age2_wonders" />
+					<list name="construction_items" overrideParent="True">
+						<group name="construction_item" List.ItemID="1141498428">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_court" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" />
+								<int name="ui_position_column" value="1" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_1" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="">
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="">
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" List.ItemID="-1399475887">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_qarshi" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="2" />
+								<int name="ui_position_column" value="1" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_2" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="">
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="">
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+					</list>
+					<enum name="construction_type" value="tp_construction_base" />
+				</group>
+				<group name="construction_group" comment="Age 3" List.ItemID="-1885429756">
+					<instance_reference name="construction_menu" value="menu\mon_age3" />
+					<list name="construction_items" overrideParent="True">
+						<group name="construction_item" comment="Siege Workshop" List.ItemID="-1880450302">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_siege" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="2" />
+								<int name="ui_position_column" value="1" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_3\build_siege_workshop" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="1" overrideParent="True" />
+										<int name="ui_position_column" value="5" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Military" overrideParent="True" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+									<int name="nominal_index" value="12" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="Monastery" List.ItemID="-57016742">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_religious" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" overrideParent="True" />
+								<int name="ui_position_column" value="1" overrideParent="True" />
+							</group>
+							<list name="associated_ebps" overrideParent="True">
+								</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_3\build_monastery" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements" overrideParent="True" />
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="2" overrideParent="True" />
+										<int name="ui_position_column" value="5" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+									<int name="nominal_index" value="6" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" comment="University" List.ItemID="826824468" overrideParent="True">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_university" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" overrideParent="True" />
+								<int name="ui_position_column" value="3" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_4\build_university" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="1" overrideParent="True" />
+										<int name="ui_position_column" value="3" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" overrideParent="True" />
+									<int name="nominal_index" value="14" overrideParent="True" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+						</group>
+					</list>
+					<enum name="construction_type" value="tp_construction_base" />
+				</group>
+				<group name="construction_group" comment="Age 3 - Landmarks" List.ItemID="-664008091">
+					<instance_reference name="construction_menu" value="menu\mon_age3_wonders" />
+					<list name="construction_items" overrideParent="True">
+						<group name="construction_item" List.ItemID="1238453434">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_ili" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="1" />
+								<int name="ui_position_column" value="1" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_1" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="">
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="">
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+						<group name="construction_item" List.ItemID="913722172">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_mint" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="2" />
+								<int name="ui_position_column" value="1" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_2" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="">
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="">
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+					</list>
+					<enum name="construction_type" value="tp_construction_base" />
+				</group>
+				<group name="construction_group" comment="Imperial Age" List.ItemID="1460206863">
+					<instance_reference name="construction_menu" value="menu\mon_age4" overrideParent="True" />
+					<list name="construction_items" overrideParent="True">
+						<group name="construction_item" overrideParent="True" List.ItemID="1465741212">
+							<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_wonder" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<group name="ui_position">
+								<int name="ui_position_row" value="3" overrideParent="True" />
+								<int name="ui_position_column" value="1" overrideParent="True" />
+							</group>
+							<list name="associated_ebps">
+							</list>
+							<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_4\build_wonder" overrideParent="True" />
+							<list name="alternate_ebps">
+							</list>
+							<list name="additional_requirements">
+							</list>
+							<state_tree_node name="additional_requirement_statetree" value="" />
+							<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+								<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+									<group name="ui_position">
+										<int name="ui_position_row" value="3" overrideParent="True" />
+										<int name="ui_position_column" value="5" overrideParent="True" />
+									</group>
+									<int name="command_card_priority" value="1" overrideParent="True" />
+								</template_reference>
+								<template_reference name="quick_abilities_info" value="">
+								</template_reference>
+								<template_reference name="quick_commands_info" value="">
+								</template_reference>
+								<template_reference name="quick_formation_info" value="">
+								</template_reference>
+								<template_reference name="ping_menu_info" value="">
+								</template_reference>
+								<enum name="category" value="Economic" />
+								<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+									<enum name="quick_commands_hotkey" value="" />
+									<int name="quick_commands_priority" value="-1" />
+									<int name="quick_commands_slot_index" value="-1" />
+									<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+								</template_reference>
+								<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+									<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+									<int name="nominal_index" value="14" />
+									<int name="priority" value="0" />
+									<instance_reference name="linked" value="" />
+								</template_reference>
+								<enum name="observer_type" value="Disabled" />
+								<group name="issuable_info">
+									<bool name="is_secondary" value="False" />
+									<instance_reference name="secondary_issuable" value="" />
+								</group>
+							</template_reference>
+							<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							<float name="construction_range" value="0" />
+							<instance_reference name="construction_range_reticule" value="" />
+						</group>
+					</list>
+					<enum name="construction_type" value="tp_construction_base" />
+				</group>
+			</list>
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="-634721594" List.ParentItemID="-634721594">
+				<list name="abilities" removedIds="-1621238487" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="1426203860" List.ParentItemID="1426203860">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="-1525643966" List.ParentItemID="-1525643966">
+						<instance_reference name="type" value="ebps\races\chagatai\units\ck_unit_villager" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="443384137" List.ParentItemID="443384137">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="422230052" List.ParentItemID="422230052">
+						<group name="info">
+							<locstring name="help_text" value="5602" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="screen_name" value="7040" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="extra_text" value="7116" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<file name="icon_name" value="races\mongols\units\villager" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="False" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_engineer_ext" overrideParent="True" List.ItemID="851310113" List.ParentItemID="851310113">
+				<float name="construction_rate_multiplier" value="1" />
+				<list name="construction_groups" overrideParent="True">
+					<group name="construction_group" comment="Age 1" List.ItemID="1828592259">
+						<instance_reference name="construction_menu" value="menu\mon_age1" />
+						<list name="construction_items" overrideParent="True">
+							<group name="construction_item" comment="Pasture" List.ItemID="1809612">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_pasture" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="2" overrideParent="True" />
+									<int name="ui_position_column" value="1" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_pasture" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="1" overrideParent="True" />
+											<int name="ui_position_column" value="5" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+										<int name="nominal_index" value="8" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Outpost" List.ItemID="-671751733">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_outpost" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="3" overrideParent="True" />
+									<int name="ui_position_column" value="1" overrideParent="True" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_outpost" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="2" overrideParent="True" />
+											<int name="ui_position_column" value="1" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Military" overrideParent="True" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" overrideParent="True" />
+										<int name="nominal_index" value="15" overrideParent="True" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Ger" List.ItemID="781724866">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_steppe_hearth" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" overrideParent="True" />
+									<int name="ui_position_column" value="1" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_ger" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="1" overrideParent="True" />
+											<int name="ui_position_column" value="1" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="" overrideParent="True">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info" overrideParent="True">
+										<enum name="quick_commands_hotkey" value="x_quick_command_hold_x" />
+										<int name="quick_commands_priority" value="5" />
+										<int name="quick_commands_slot_index" value="5" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+										<int name="nominal_index" value="7" overrideParent="True" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Barracks" List.ItemID="-73332248">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_melee" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="2" overrideParent="True" />
+									<int name="ui_position_column" value="2" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_barracks" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="1" overrideParent="True" />
+											<int name="ui_position_column" value="1" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="" overrideParent="True">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Military" overrideParent="True" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+										<int name="nominal_index" value="0" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Dock" List.ItemID="1177649558">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_dock" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="2" overrideParent="True" />
+									<int name="ui_position_column" value="3" overrideParent="True" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_dock" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="1" overrideParent="True" />
+											<int name="ui_position_column" value="2" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Military" overrideParent="True" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" overrideParent="True" />
+										<int name="nominal_index" value="10" overrideParent="True" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Palisade" List.ItemID="-1978638803" overrideParent="True">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_palisade" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="3" overrideParent="True" />
+									<int name="ui_position_column" value="2" overrideParent="True" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_palisade" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="3" overrideParent="True" />
+											<int name="ui_position_column" value="2" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Military" overrideParent="True" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_defensive" overrideParent="True" />
+										<int name="nominal_index" value="4" overrideParent="True" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							</group>
+							<group name="construction_item" comment="Palisade Gate" List.ItemID="-785799109" overrideParent="True">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_palisade_gate" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="3" overrideParent="True" />
+									<int name="ui_position_column" value="3" overrideParent="True" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_1\build_palisade_gate" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="3" overrideParent="True" />
+											<int name="ui_position_column" value="3" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Military" overrideParent="True" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_defensive" overrideParent="True" />
+										<int name="nominal_index" value="3" overrideParent="True" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							</group>
+						</list>
+						<enum name="construction_type" value="tp_construction_base" />
+					</group>
+					<group name="construction_group" comment="Age 1 - Landmarks" List.ItemID="-1503787864">
+						<instance_reference name="construction_menu" value="menu\mon_age1_wonders" />
+						<list name="construction_items" overrideParent="True">
+							<group name="construction_item" List.ItemID="-1916927938">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_ordu" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" />
+									<int name="ui_position_column" value="1" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_1" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="">
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="">
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" List.ItemID="130654078">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_almaliq" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="2" />
+									<int name="ui_position_column" value="1" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_2" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="">
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="">
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+						</list>
+						<enum name="construction_type" value="tp_construction_base" />
+					</group>
+					<group name="construction_group" comment="Age 2" List.ItemID="-922716298">
+						<instance_reference name="construction_menu" value="menu\mon_age2" />
+						<list name="construction_items" overrideParent="True">
+							<group name="construction_item" comment="Blacksmith " List.ItemID="1160423302">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_blacksmith" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" />
+									<int name="ui_position_column" value="1" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_blacksmith" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="2" overrideParent="True" />
+											<int name="ui_position_column" value="1" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+										<int name="nominal_index" value="2" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Archery Range" List.ItemID="-1675747072">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_ranged" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="2" />
+									<int name="ui_position_column" value="1" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_archery_range" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="1" overrideParent="True" />
+											<int name="ui_position_column" value="3" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Military" overrideParent="True" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+										<int name="nominal_index" value="4" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Market" List.ItemID="-112459930">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_market" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" />
+									<int name="ui_position_column" value="2" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_market" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="2" overrideParent="True" />
+											<int name="ui_position_column" value="2" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+										<int name="nominal_index" value="12" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Town Center" List.ItemID="2118572048">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_town_center" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" />
+									<int name="ui_position_column" value="3" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_2\build_town_center" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="2" overrideParent="True" />
+											<int name="ui_position_column" value="3" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+										<int name="nominal_index" value="10" overrideParent="True" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Town Center Capital" List.ItemID="-368954579">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_town_center_capital" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" />
+									<int name="ui_position_column" value="3" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="">
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+										<int name="nominal_index" value="10" overrideParent="True" />
+										<int name="priority" value="100" overrideParent="True" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+						</list>
+						<enum name="construction_type" value="tp_construction_base" />
+					</group>
+					<group name="construction_group" comment="Age 2 - Landmarks" List.ItemID="-1518303554">
+						<instance_reference name="construction_menu" value="menu\mon_age2_wonders" />
+						<list name="construction_items" overrideParent="True">
+							<group name="construction_item" List.ItemID="1869804722">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_court" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" />
+									<int name="ui_position_column" value="1" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_1" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="">
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="">
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" List.ItemID="-2004820769">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_qarshi" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="2" />
+									<int name="ui_position_column" value="1" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_2" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="">
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="">
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+						</list>
+						<enum name="construction_type" value="tp_construction_base" />
+					</group>
+					<group name="construction_group" comment="Age 3" List.ItemID="395316882">
+						<instance_reference name="construction_menu" value="menu\mon_age3" />
+						<list name="construction_items" overrideParent="True">
+							<group name="construction_item" comment="Siege Workshop" List.ItemID="-1761499125">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_siege" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="2" />
+									<int name="ui_position_column" value="1" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_3\build_siege_workshop" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="1" overrideParent="True" />
+											<int name="ui_position_column" value="5" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Military" overrideParent="True" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+										<int name="nominal_index" value="12" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="Monastery" List.ItemID="-561848752">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_religious" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" overrideParent="True" />
+									<int name="ui_position_column" value="1" overrideParent="True" />
+								</group>
+								<list name="associated_ebps" overrideParent="True">
+									</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_3\build_monastery" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="2" overrideParent="True" />
+											<int name="ui_position_column" value="5" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" />
+										<int name="nominal_index" value="6" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" comment="University" List.ItemID="-1907207278" overrideParent="True">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_university" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" overrideParent="True" />
+									<int name="ui_position_column" value="3" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_4\build_university" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="1" overrideParent="True" />
+											<int name="ui_position_column" value="3" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_military" overrideParent="True" />
+										<int name="nominal_index" value="14" overrideParent="True" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+							</group>
+						</list>
+						<enum name="construction_type" value="tp_construction_base" />
+					</group>
+					<group name="construction_group" comment="Age 3 - Landmarks" List.ItemID="-1505965548">
+						<instance_reference name="construction_menu" value="menu\mon_age3_wonders" />
+						<list name="construction_items" overrideParent="True">
+							<group name="construction_item" List.ItemID="-1413210527">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_ili" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="1" />
+									<int name="ui_position_column" value="1" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_1" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="">
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="">
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+							<group name="construction_item" List.ItemID="-529306758">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_landmark_mint" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="2" />
+									<int name="ui_position_column" value="1" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\modal_issuables\modal_issuable_2" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="">
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="">
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+						</list>
+						<enum name="construction_type" value="tp_construction_base" />
+					</group>
+					<group name="construction_group" comment="Imperial Age" List.ItemID="-1028668548">
+						<instance_reference name="construction_menu" value="menu\mon_age4" overrideParent="True" />
+						<list name="construction_items" overrideParent="True">
+							<group name="construction_item" overrideParent="True" List.ItemID="-372881155">
+								<instance_reference name="ebp" value="ebps\races\chagatai\buildings\ck_building_wonder" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+								<group name="ui_position">
+									<int name="ui_position_row" value="3" overrideParent="True" />
+									<int name="ui_position_column" value="1" overrideParent="True" />
+								</group>
+								<list name="associated_ebps">
+								</list>
+								<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\villager_build_menu\age_4\build_wonder" overrideParent="True" />
+								<list name="alternate_ebps">
+								</list>
+								<list name="additional_requirements">
+								</list>
+								<state_tree_node name="additional_requirement_statetree" value="" />
+								<template_reference name="ui_info_extended" value="tables\ui_info_ext" overrideParent="True">
+									<template_reference name="command_card_info" value="ui_command_card_info" overrideParent="True">
+										<group name="ui_position">
+											<int name="ui_position_row" value="3" overrideParent="True" />
+											<int name="ui_position_column" value="5" overrideParent="True" />
+										</group>
+										<int name="command_card_priority" value="1" overrideParent="True" />
+									</template_reference>
+									<template_reference name="quick_abilities_info" value="">
+									</template_reference>
+									<template_reference name="quick_commands_info" value="">
+									</template_reference>
+									<template_reference name="quick_formation_info" value="">
+									</template_reference>
+									<template_reference name="ping_menu_info" value="">
+									</template_reference>
+									<enum name="category" value="Economic" />
+									<template_reference name="quick_commands_launch_hud_info" value="ui_quick_commands_launch_hud_info">
+										<enum name="quick_commands_hotkey" value="" />
+										<int name="quick_commands_priority" value="-1" />
+										<int name="quick_commands_slot_index" value="-1" />
+										<enum name="quick_commands_hold_time" value="quick_command_hold_time" />
+									</template_reference>
+									<template_reference name="relic_radial_menu_info" value="relic_radial_menu\relic_radial_menu_info" overrideParent="True">
+										<instance_reference name="menu" value="relic_radial_menu\relic_radial_menu\villager_economy" />
+										<int name="nominal_index" value="14" />
+										<int name="priority" value="0" />
+										<instance_reference name="linked" value="" />
+									</template_reference>
+									<enum name="observer_type" value="Disabled" />
+									<group name="issuable_info">
+										<bool name="is_secondary" value="False" />
+										<instance_reference name="secondary_issuable" value="" />
+									</group>
+								</template_reference>
+								<bool name="do_requirement_check_for_construction_on_existing_item" value="False" />
+								<float name="construction_range" value="0" />
+								<instance_reference name="construction_range_reticule" value="" />
+							</group>
+						</list>
+						<enum name="construction_type" value="tp_construction_base" />
+					</group>
+				</list>
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741830" />
+		<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_villager_1_mon" />
+	</variant>
+</instance>

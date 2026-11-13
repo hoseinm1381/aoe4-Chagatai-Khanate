@@ -19,7 +19,7 @@ sys.path.insert(0, str(EXT))
 from garrison_shared import mod_bundle, rgd, stock_game
 
 DISPATCHER = "scar/garrison/chagatai/dispatcher.scar"
-VERSION = "0.3.0"
+VERSION = "0.4.0"
 SHARED_SQUADS_MARKER = "local sharedSquads = {} -- Filled by tools/build.py."
 ARCHETYPES = {
     "town_center":"town_center", "house":"steppe_hearth", "barracks":"melee",
@@ -380,7 +380,7 @@ def build(args):
             "description":profile["description"],"author":"hosein81 and chilly5",
             "civilization":{"period":profile["period"],"difficulty":profile["difficulty"],
                             "tagline":profile["traits"],"bonuses":profile["bonuses"]},
-            "min_garrison":"0.1.16","updated":"2026-11-11","content_types":["civilization"],"cover":"cover.png"},
+            "min_garrison":"0.1.16","updated":"2026-11-14","content_types":["civilization"],"cover":"cover.png"},
         archives=[("chagatai","civilization",archive)],
         start_here=(ROOT/"START-HERE.md").read_text(encoding="utf-8"),
         cover=SOURCE/"presentation/cover.png")

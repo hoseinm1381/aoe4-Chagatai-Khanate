@@ -1,0 +1,52 @@
+<instance version="6" template="upgrade">
+	<uniqueid name="pbgid" value="1073765365" />
+	<instance_reference name="parent_pbg" value="upgrade\races\common\research\economy\upgrade_econ_resource_gold_harvest_rate_4" />
+	<group name="upgrade_bag">
+		<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_ger\tech_mining_gather_technology_mon" overrideParent="True" />
+		<group name="ui_position">
+			<int name="ui_position_row" value="1" overrideParent="True" />
+			<int name="ui_position_column" value="3" overrideParent="True" />
+		</group>
+		<list name="requirements">
+			<template_reference name="required" value="requirements\required_any_in_list" List.ItemID="-1592798027" List.ParentItemID="-1592798027">
+				<list name="requirements">
+					<template_reference name="requirement" value="requirements\required_player_upgrade" List.ItemID="-283692388" List.ParentItemID="-283692388">
+						<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_3" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</template_reference>
+				</list>
+			</template_reference>
+			<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-1115332155" List.ParentItemID="-1115332155">
+				<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</template_reference>
+		</list>
+		<group name="ui_info">
+			<locstring name="help_text" value="7482" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+		</group>
+	</group>
+	<variant name="xp3">
+		<group name="upgrade_bag">
+			<instance_reference name="hotkey_binding" value="hotkeys\hotkey_binding\building_ger\tech_mining_gather_technology_mon" overrideParent="True" />
+			<group name="ui_position">
+				<int name="ui_position_row" value="1" overrideParent="True" />
+				<int name="ui_position_column" value="3" overrideParent="True" />
+			</group>
+			<list name="requirements">
+				<template_reference name="required" value="requirements\required_any_in_list" List.ItemID="-1592798027" List.ParentItemID="-1592798027">
+					<list name="requirements">
+						<template_reference name="requirement" value="requirements\required_player_upgrade" List.ItemID="-283692388" List.ParentItemID="-283692388">
+							<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_3" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						</template_reference>
+					</list>
+				</template_reference>
+				<template_reference name="required" value="requirements\required_player_upgrade" List.ItemID="-1115332155" List.ParentItemID="-1115332155">
+					<instance_reference name="upgrade_name" value="upgrade\races\chagatai\baseline\ck_upgrade_econ_resource_gold_harvest_rate_4" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</template_reference>
+			</list>
+			<group name="ui_info">
+				<locstring name="help_text" value="7482" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</group>
+		</group>
+		<uniqueid name="pbgid" value="1073765365" />
+		<instance_reference name="parent_pbg" value="upgrade\races\common\research\economy\upgrade_econ_resource_gold_harvest_rate_4" />
+	</variant>
+</instance>

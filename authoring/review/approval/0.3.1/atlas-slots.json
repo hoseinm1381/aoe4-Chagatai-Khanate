@@ -1,0 +1,462 @@
+{
+  "court": {
+    "grid": 5,
+    "tiles": {
+      "030 Scuffed Mongol structural timber": [
+        0,
+        0
+      ],
+      "030 Scuffed Mongol structural timber / charred": [
+        1,
+        0
+      ],
+      "030 Scuffed Mongol structural timber / scorched": [
+        2,
+        0
+      ],
+      "030 Tarmashirin embroidered audience felt": [
+        3,
+        0
+      ],
+      "030 Tarmashirin embroidered audience felt / charred": [
+        4,
+        0
+      ],
+      "030 Warm undecorated felt": [
+        0,
+        1
+      ],
+      "030 Weathered audience dais brick": [
+        1,
+        1
+      ],
+      "030 mon_tc / roof / dyed felt": [
+        2,
+        1
+      ],
+      "030 mon_tc / roof / dyed felt / scorched": [
+        3,
+        1
+      ],
+      "Baked brick with exposed mortar / scorched": [
+        4,
+        1
+      ],
+      "Court dark walnut eave timber": [
+        0,
+        2
+      ],
+      "Court gold and ivory embroidered ridge": [
+        1,
+        2
+      ],
+      "Court ivory border on burgundy felt": [
+        2,
+        2
+      ],
+      "Court ochre gilding": [
+        3,
+        2
+      ],
+      "Oiled brass fittings": [
+        4,
+        2
+      ],
+      "Owner dye on 030 Tarmashirin embroidered audience felt": [
+        0,
+        3
+      ],
+      "Slate water in the crocks": [
+        1,
+        3
+      ],
+      "Smoke-dark earthenware": [
+        2,
+        3
+      ],
+      "Tarmashirin embroidered audience felt": [
+        3,
+        3
+      ],
+      "Weathered copper finial": [
+        4,
+        3
+      ]
+    }
+  },
+  "mint": {
+    "grid": 5,
+    "tiles": {
+      "030 Royal treasury stamped and woven silk": [
+        0,
+        0
+      ],
+      "030 Scuffed imperial metal fittings": [
+        1,
+        0
+      ],
+      "030 Scuffed imperial metal fittings / scorched": [
+        2,
+        0
+      ],
+      "030 Weathered regional baked brick": [
+        3,
+        0
+      ],
+      "030 Weathered regional baked brick / charred": [
+        4,
+        0
+      ],
+      "030 Weathered regional baked brick / scorched": [
+        0,
+        1
+      ],
+      "030 Weathered regional glazed roof tiles / player dye": [
+        1,
+        1
+      ],
+      "030 Weathered regional glazed roof tiles / player dye / charred": [
+        2,
+        1
+      ],
+      "030 Worked weathered split timber": [
+        3,
+        1
+      ],
+      "030 Worked weathered split timber / charred": [
+        4,
+        1
+      ],
+      "030 Worked weathered split timber / scorched": [
+        0,
+        2
+      ],
+      "Live coals under the crucible": [
+        1,
+        2
+      ],
+      "Mint dark forged iron": [
+        2,
+        2
+      ],
+      "Mint hammered copper and oxide": [
+        3,
+        2
+      ],
+      "Mint smoke-blackened throat": [
+        4,
+        2
+      ],
+      "Native coat / mon_horse_scout_age01-albedoTexture.png": [
+        0,
+        3
+      ],
+      "Native coat / woven-felt-albedo.png": [
+        1,
+        3
+      ],
+      "Owner dye on Mint hammered copper and oxide": [
+        2,
+        3
+      ],
+      "Rawhide ties at the intake": [
+        3,
+        3
+      ],
+      "Rawhide ties at the intake / scorched": [
+        4,
+        3
+      ],
+      "Royal treasury stamped and woven silk": [
+        0,
+        4
+      ],
+      "Soot-dark cast iron": [
+        1,
+        4
+      ],
+      "Worn hammered silver": [
+        2,
+        4
+      ],
+      "Worn hammered silver / scorched": [
+        3,
+        4
+      ]
+    }
+  },
+  "qarshi": {
+    "grid": 5,
+    "tiles": {
+      "030 Dusty baked-brick pavers": [
+        0,
+        0
+      ],
+      "030 Qarshi knotted palace textiles": [
+        1,
+        0
+      ],
+      "030 Regional turquoise glazed tile": [
+        2,
+        0
+      ],
+      "030 Scuffed Mongol structural timber": [
+        3,
+        0
+      ],
+      "030 Weathered baked brick": [
+        4,
+        0
+      ],
+      "030 Weathered baked brick / scorched": [
+        0,
+        1
+      ],
+      "030 Weathered regional glazed roof tiles / player dye": [
+        1,
+        1
+      ],
+      "030 Weathered regional glazed roof tiles / player dye / scorched": [
+        2,
+        1
+      ],
+      "030 abb_tc / main / native surface": [
+        3,
+        1
+      ],
+      "030 abb_tc / main / native surface / scorched": [
+        4,
+        1
+      ],
+      "Baked brick with exposed mortar / charred": [
+        0,
+        2
+      ],
+      "Baked brick with exposed mortar / scorched": [
+        1,
+        2
+      ],
+      "Dark oiled threshold": [
+        2,
+        2
+      ],
+      "Owner dye on 030 Qarshi knotted palace textiles": [
+        3,
+        2
+      ],
+      "Owner dye on 030 Qarshi knotted palace textiles / scorched": [
+        4,
+        2
+      ],
+      "Qarshi chased gilt": [
+        0,
+        3
+      ],
+      "Qarshi glazed turquoise relief": [
+        1,
+        3
+      ],
+      "Qarshi knotted palace textiles": [
+        2,
+        3
+      ],
+      "Qarshi pale sandstone": [
+        3,
+        3
+      ],
+      "Stock equine coat and tack / blue player-color preview": [
+        4,
+        3
+      ],
+      "Weathered copper finial": [
+        0,
+        4
+      ]
+    }
+  },
+  "almaliq": {
+    "grid": 7,
+    "tiles": {
+      "030 Almaliq striped trading silk": [
+        0,
+        0
+      ],
+      "030 Glazed slate-blue regional tile": [
+        1,
+        0
+      ],
+      "030 Glazed slate-blue regional tile / scorched": [
+        2,
+        0
+      ],
+      "030 Oiled clay cover above the caravan gallery": [
+        3,
+        0
+      ],
+      "030 Oiled clay cover above the caravan gallery / charred": [
+        4,
+        0
+      ],
+      "030 Oiled clay cover above the caravan gallery / scorched": [
+        5,
+        0
+      ],
+      "030 Scuffed Mongol worked timber": [
+        6,
+        0
+      ],
+      "030 Scuffed Mongol worked timber / charred": [
+        0,
+        1
+      ],
+      "030 Scuffed Mongol worked timber / scorched": [
+        1,
+        1
+      ],
+      "030 Weathered Almaliq fired brick": [
+        2,
+        1
+      ],
+      "030 Weathered Almaliq fired brick / charred": [
+        3,
+        1
+      ],
+      "030 Weathered Almaliq fired brick / scorched": [
+        4,
+        1
+      ],
+      "030 abb / main / native surface": [
+        5,
+        1
+      ],
+      "030 abb / main / native surface / charred": [
+        6,
+        1
+      ],
+      "030 abb / main / native surface / scorched": [
+        0,
+        2
+      ],
+      "030 market / roof / dyed felt": [
+        1,
+        2
+      ],
+      "030 market / roof / dyed felt / charred": [
+        2,
+        2
+      ],
+      "030 market / roof / dyed felt / scorched": [
+        3,
+        2
+      ],
+      "Almaliq pale fruit": [
+        4,
+        2
+      ],
+      "Almaliq pale fruit / charred": [
+        5,
+        2
+      ],
+      "Almaliq red fruit": [
+        6,
+        2
+      ],
+      "Almaliq red fruit / charred": [
+        0,
+        3
+      ],
+      "Almaliq striped trading silk": [
+        1,
+        3
+      ],
+      "Almaliq striped trading silk / charred": [
+        2,
+        3
+      ],
+      "Almaliq striped trading silk / scorched": [
+        3,
+        3
+      ],
+      "Caravan court paving": [
+        4,
+        3
+      ],
+      "Market rug red madder": [
+        5,
+        3
+      ],
+      "Market undyed rug": [
+        6,
+        3
+      ],
+      "Market yellow madder and gold weave": [
+        0,
+        4
+      ],
+      "Owner dye on 030 Weathered Almaliq fired brick": [
+        1,
+        4
+      ],
+      "Owner dye on 030 Weathered Almaliq fired brick / scorched": [
+        2,
+        4
+      ],
+      "Saffron market smoke-dark wool": [
+        3,
+        4
+      ],
+      "Smoke-darkened fallen brick / scorched": [
+        4,
+        4
+      ],
+      "Stock equine coat and tack / blue player-color preview": [
+        5,
+        4
+      ],
+      "Weathered copper finial": [
+        6,
+        4
+      ],
+      "Weathered copper finial / charred": [
+        0,
+        5
+      ],
+      "basket / main / native surface": [
+        1,
+        5
+      ],
+      "basket / main / native surface / charred": [
+        2,
+        5
+      ],
+      "basket / main / native surface / scorched": [
+        3,
+        5
+      ],
+      "cart / eng_gristmill_2_wheeled_cart / native surface": [
+        4,
+        5
+      ],
+      "cart / eng_gristmill_2_wheeled_cart / native surface / charred": [
+        5,
+        5
+      ],
+      "cart / eng_gristmill_2_wheeled_cart / native surface / scorched": [
+        6,
+        5
+      ],
+      "market / misc / native surface": [
+        0,
+        6
+      ],
+      "market / misc / native surface / charred": [
+        1,
+        6
+      ],
+      "market / misc / native surface / scorched": [
+        2,
+        6
+      ]
+    }
+  }
+}

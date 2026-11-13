@@ -1,0 +1,299 @@
+<instance version="6" description="" template="ebps">
+	<list name="extensions">
+		<template_reference name="exts" value="ebpextensions\entity_blueprint_ext" List.ItemID="1558009197" List.ParentItemID="1558009197">
+			<bool name="browsable_in_editor" value="True" overrideParent="True" />
+			<instance_reference name="animator_attachments" value="attachments\attachment_lists\gaia\animals\gaia_huntable_reindeer" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\type_ext" List.ItemID="-1869203610" List.ParentItemID="-1869203610">
+			<list name="unit_type_list">
+				<enum name="unit_type" value="pasture_sheep_mon" List.ItemID="-1629402668" List.ListAction="Append" />
+			</list>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\action_apply_ext" List.ItemID="-1385292626" List.ParentItemID="-1385292626">
+			<list name="action_state_trees" removedIds="-47318342" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\resource_deposit_ext" List.ItemID="1456212255" List.ParentItemID="1456212255">
+			<int name="num_gatherers_to_assign_by_ai" value="4" overrideParent="True" />
+			<int name="num_gatherers_to_assign_by_vps" value="4" overrideParent="True" />
+			<float name="initial_amount" value="600" overrideParent="True" />
+			<instance_reference name="resource_sub_type" value="resource_sub_type\herded_animal" overrideParent="True" />
+			<enum name="resource_gather_job" value="gather_herdable" overrideParent="True" />
+			<bool name="cannot_be_gathered_by_enemy" value="False" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\cost_ext" List.ItemID="1246151298" List.ParentItemID="1246151298">
+			<group name="time_cost">
+				<enum_table name="cost">
+					<float name="wood" value="0" overrideParent="True" />
+				</enum_table>
+				<float name="time_seconds" value="120" overrideParent="True" />
+			</group>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\population_ext" List.ItemID="-1673601377" List.ParentItemID="-1673601377">
+			<float name="vehicle_pop" value="1" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="416690282" List.ParentItemID="416690282" overrideParent="True">
+			<bool name="can_repair" value="False" />
+			<bool name="cuttable" value="False" />
+			<string name="death_event_name" value="Death" />
+			<float name="death_seconds" value="0" />
+			<bool name="delete_when_dead" value="True" overrideParent="True" />
+			<bool name="force_attacker_memory" value="False" />
+			<float name="hitpoints" value="60" overrideParent="True" />
+			<bool name="is_invincible" value="False" />
+			<bool name="is_salvagable_wreck" value="False" />
+			<instance_reference name="rebuilt_entity" value="" />
+			<instance_reference name="rebuilt_squad" value="" />
+			<bool name="rebuilt_use_wreck_owner" value="False" />
+			<bool name="receive_weapon_cover_modifiers" value="True" />
+			<float name="regeneration" value="0" />
+			<bool name="regeneration_disabled" value="True" />
+			<bool name="remove_from_pathfinding_on_death" value="True" />
+			<bool name="reveal_to_all_on_death" value="False" />
+			<bool name="ui_can_scuttle" value="False" />
+			<float name="target_size" value="1" />
+			<float name="weapon_priority" value="20" />
+			<template_reference name="wreck_entity_option" value="options\none">
+			</template_reference>
+			<enum name="armor_type" value="None" />
+			<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+				<float name="armor" value="1" />
+			</template_reference>
+			<enum name="allegiance_override" value="none" />
+			<bool name="not_default_attackable" value="False" />
+			<enum_table name="armor_scaler_by_damage_type">
+				<float name="True Damage" value="0" />
+				<float name="Melee" value="0" />
+				<float name="Ranged" value="0" />
+				<float name="Fire" value="0" />
+			</enum_table>
+			<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+				<state_tree_node name="ActionTree_OpeningBranch" value="" />
+				<bool name="start_suspended" value="False" />
+			</template_reference>
+			<state_tree_node name="death_action_tree" value="" />
+			<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+			<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+			<bool name="can_be_damaged_by_ally" value="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\holdable_ext" List.ItemID="-2007476420" overrideParent="True" List.ListAction="Append">
+			<enum name="holdable" value="hold_cattle" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-1873695945" List.ParentItemID="-1873695945">
+			<string name="selection_group" value="" overrideParent="True" />
+			<enum name="targeting_and_bandbox_selection_priority" value="high" overrideParent="True" />
+			<enum name="decorator_visibility" value="visible" overrideParent="True" />
+			<locstring name="screen_name" value="1100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="help_text" value="1101" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<locstring name="extra_text" value="5201" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			<file name="icon_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+			<file name="portrait_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+			<enum name="selection_type" value="squad_select" overrideParent="True" />
+			<enum name="selection_method" value="obb_size" overrideParent="True" />
+			<bool name="is_unique_to_race" value="True" overrideParent="True" />
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\moving_ext" List.ItemID="-667453017" List.ParentItemID="-667453017">
+			<enum_table name="speed_levels">
+				<float name="speed_level_0" value="4.0" overrideParent="True" />
+				<float name="speed_level_1" value="4.0" overrideParent="True" />
+				<float name="speed_level_2" value="4.0" overrideParent="True" />
+				<float name="speed_level_3" value="4.0" overrideParent="True" />
+				<float name="speed_level_4" value="4.0" overrideParent="True" />
+			</enum_table>
+			<enum_table name="speed_scaling_table">
+				<float name="default_speed" value="4.0" overrideParent="True" />
+				<float name="max_speed" value="4.0" overrideParent="True" />
+			</enum_table>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\stimulus_perception_ext" List.ItemID="489897005" List.ParentItemID="489897005">
+			<enum_table name="stimulus_perception_info">
+				<group name="herding_interest">
+					<bool name="enable_perception" value="False" overrideParent="True" />
+					<template_reference name="perception_requirement" value="" overrideParent="True">
+					</template_reference>
+				</group>
+			</enum_table>
+		</template_reference>
+		<template_reference name="exts" value="ebpextensions\sight_ext" List.ItemID="-2069506225" List.ParentItemID="-2069506225">
+			<group name="sight_package">
+				<float name="inner_radius" value="8" overrideParent="True" />
+				<float name="outer_radius" value="8" overrideParent="True" />
+			</group>
+		</template_reference>
+	</list>
+	<uniqueid name="pbgid" value="1073741823" />
+	<instance_reference name="parent_pbg" value="ebps\gaia\animals\gaia_herdable_sheep" />
+	<variant name="campaign">
+		<list name="extensions">
+			<template_reference name="exts" value="ebpextensions\entity_blueprint_ext" List.ItemID="-1205669822" List.ParentItemID="-1205669822">
+				<bool name="browsable_in_editor" value="True" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\action_apply_ext" List.ItemID="-1314854102" List.ParentItemID="-1314854102">
+				<list name="action_state_trees" removedIds="-1211809395" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\resource_deposit_ext" List.ItemID="-2064220913" List.ParentItemID="-2064220913">
+				<int name="num_gatherers_to_assign_by_ai" value="4" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\cost_ext" List.ItemID="908488424" List.ParentItemID="908488424">
+				<group name="time_cost">
+					<enum_table name="cost">
+						<float name="wood" value="0" overrideParent="True" />
+					</enum_table>
+					<float name="time_seconds" value="90" overrideParent="True" />
+				</group>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\population_ext" List.ItemID="-530290206" List.ParentItemID="-530290206">
+				<float name="vehicle_pop" value="1" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\stimulus_perception_ext" List.ItemID="1600859347" List.ParentItemID="1600859347">
+				<enum_table name="stimulus_perception_info">
+					<group name="herding_interest">
+						<bool name="enable_perception" value="False" overrideParent="True" />
+						<template_reference name="perception_requirement" value="" overrideParent="True">
+						</template_reference>
+					</group>
+				</enum_table>
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741823" />
+		<instance_reference name="parent_pbg" value="ebps\gaia\animals\gaia_herdable_sheep" />
+	</variant>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="exts" value="ebpextensions\entity_blueprint_ext" List.ItemID="1558009197" List.ParentItemID="1558009197">
+				<bool name="browsable_in_editor" value="True" overrideParent="True" />
+				<instance_reference name="animator_attachments" value="attachments\attachment_lists\gaia\animals\gaia_huntable_reindeer" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\action_apply_ext" List.ItemID="-1385292626" List.ParentItemID="-1385292626">
+				<list name="action_state_trees" removedIds="-47318342" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\resource_deposit_ext" List.ItemID="1456212255" List.ParentItemID="1456212255">
+				<int name="num_gatherers_to_assign_by_ai" value="4" overrideParent="True" />
+				<int name="num_gatherers_to_assign_by_vps" value="4" overrideParent="True" />
+				<float name="initial_amount" value="600" overrideParent="True" />
+				<instance_reference name="resource_sub_type" value="resource_sub_type\herded_animal" overrideParent="True" />
+				<enum name="resource_gather_job" value="gather_herdable" overrideParent="True" />
+				<bool name="cannot_be_gathered_by_enemy" value="False" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\cost_ext" List.ItemID="1246151298" List.ParentItemID="1246151298">
+				<group name="time_cost">
+					<enum_table name="cost">
+						<float name="wood" value="0" overrideParent="True" />
+					</enum_table>
+					<float name="time_seconds" value="120" overrideParent="True" />
+				</group>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\population_ext" List.ItemID="-1673601377" List.ParentItemID="-1673601377">
+				<float name="vehicle_pop" value="1" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\health_ext" List.ItemID="416690282" List.ParentItemID="416690282" overrideParent="True">
+				<bool name="can_repair" value="False" />
+				<bool name="cuttable" value="False" />
+				<string name="death_event_name" value="Death" />
+				<float name="death_seconds" value="0" />
+				<bool name="delete_when_dead" value="True" overrideParent="True" />
+				<bool name="force_attacker_memory" value="False" />
+				<float name="hitpoints" value="60" overrideParent="True" />
+				<bool name="is_invincible" value="False" />
+				<bool name="is_salvagable_wreck" value="False" />
+				<instance_reference name="rebuilt_entity" value="" />
+				<instance_reference name="rebuilt_squad" value="" />
+				<bool name="rebuilt_use_wreck_owner" value="False" />
+				<bool name="receive_weapon_cover_modifiers" value="True" />
+				<float name="regeneration" value="0" />
+				<bool name="regeneration_disabled" value="True" />
+				<bool name="remove_from_pathfinding_on_death" value="True" />
+				<bool name="reveal_to_all_on_death" value="False" />
+				<bool name="ui_can_scuttle" value="False" />
+				<float name="target_size" value="1" />
+				<float name="weapon_priority" value="20" />
+				<template_reference name="wreck_entity_option" value="options\none">
+				</template_reference>
+				<enum name="armor_type" value="None" />
+				<template_reference name="armor_layout_option" value="options\ebpextensions\healthext\armor_layouts\armor_layout_uniform">
+					<float name="armor" value="1" />
+				</template_reference>
+				<enum name="allegiance_override" value="none" />
+				<bool name="not_default_attackable" value="False" />
+				<enum_table name="armor_scaler_by_damage_type">
+					<float name="True Damage" value="0" />
+					<float name="Melee" value="0" />
+					<float name="Ranged" value="0" />
+					<float name="Fire" value="0" />
+				</enum_table>
+				<template_reference name="self_destruct_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="rebuilt_entity_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<template_reference name="on_received_damage_action_tree" value="state_tree_reference_info">
+					<state_tree_node name="ActionTree_OpeningBranch" value="" />
+					<bool name="start_suspended" value="False" />
+				</template_reference>
+				<state_tree_node name="death_action_tree" value="" />
+				<state_tree_node name="on_reach_invulnerable_min_cap_entity_state_tree_ref" value="" />
+				<state_tree_node name="on_reach_max_health_entity_state_tree_ref" value="" />
+				<bool name="can_be_damaged_by_ally" value="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\holdable_ext" List.ItemID="1558141386" overrideParent="True" List.ListAction="Append">
+				<enum name="holdable" value="hold_cattle" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\ui_ext" List.ItemID="-1873695945" List.ParentItemID="-1873695945">
+				<string name="selection_group" value="" overrideParent="True" />
+				<enum name="targeting_and_bandbox_selection_priority" value="high" overrideParent="True" />
+				<enum name="decorator_visibility" value="visible" overrideParent="True" />
+				<enum name="selection_type" value="squad_select" overrideParent="True" />
+				<enum name="selection_method" value="obb_size" overrideParent="True" />
+				<locstring name="screen_name" value="1100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="help_text" value="1101" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<locstring name="extra_text" value="5201" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				<file name="icon_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+				<file name="portrait_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+				<bool name="is_unique_to_race" value="True" overrideParent="True" />
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\moving_ext" List.ItemID="-667453017" List.ParentItemID="-667453017">
+				<enum_table name="speed_levels">
+					<float name="speed_level_0" value="4.0" overrideParent="True" />
+					<float name="speed_level_1" value="4.0" overrideParent="True" />
+					<float name="speed_level_2" value="4.0" overrideParent="True" />
+					<float name="speed_level_3" value="4.0" overrideParent="True" />
+					<float name="speed_level_4" value="4.0" overrideParent="True" />
+				</enum_table>
+				<enum_table name="speed_scaling_table">
+					<float name="default_speed" value="4.0" overrideParent="True" />
+					<float name="max_speed" value="4.0" overrideParent="True" />
+				</enum_table>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\stimulus_perception_ext" List.ItemID="489897005" List.ParentItemID="489897005">
+				<enum_table name="stimulus_perception_info">
+					<group name="herding_interest">
+						<bool name="enable_perception" value="False" overrideParent="True" />
+						<template_reference name="perception_requirement" value="" overrideParent="True">
+						</template_reference>
+					</group>
+				</enum_table>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\sight_ext" List.ItemID="-2069506225" List.ParentItemID="-2069506225">
+				<group name="sight_package">
+					<float name="inner_radius" value="8" overrideParent="True" />
+					<float name="outer_radius" value="8" overrideParent="True" />
+				</group>
+			</template_reference>
+			<template_reference name="exts" value="ebpextensions\animation_action_tree_ext" List.ItemID="-1404324279" List.ParentItemID="-1404324279">
+				<state_tree_node name="ActionTree_OpeningBranch" value="gaia_animal" overrideParent="True" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741823" />
+		<instance_reference name="parent_pbg" value="ebps\gaia\animals\gaia_herdable_sheep" />
+	</variant>
+</instance>

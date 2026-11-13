@@ -75,7 +75,7 @@
   {
     "asset": "almaliq",
     "member": "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_albedo.rrtex",
-    "sha256": "1e240ae960ba57de4d11d02f0f444c8295184b7579dcb9499332ec5846d4b0e6",
+    "sha256": "377a12a197019191c976aafdc1e3b93f503944e2bc9b0e66ba40429559dad5b1",
     "native_internal_format": 19,
     "mips": 12,
     "mean_compression_error": 1.1153
@@ -83,7 +83,7 @@
   {
     "asset": "almaliq",
     "member": "art/scenario/chagatai/almaliq_healthy/almaliq_healthy_pattern.rrtex",
-    "sha256": "185687bd1629c5600c05a822796f19e6edca227f79695ef687c6285d78801faf",
+    "sha256": "9f97b09f9035ab830f89d30af99b3d486fa6990e7c3dce100ba4a38dcce51503",
     "native_internal_format": 22,
     "mips": 12,
     "mean_compression_error": 0.0117,
@@ -106,35 +106,31 @@
   {
     "asset": "qarshi",
     "member": "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_albedo.rrtex",
-    "sha256": "454ad414d9caa16d5a1fba8dd20827f4cba5d374af5e596fb80f05fa1f84ff98",
+    "sha256": "77bcf695c34b4702096ac8b9fa200891cc65ab8115ebf21982b5a069450edc1b",
     "native_internal_format": 19,
-    "mips": 12,
-    "mean_compression_error": 0.9471
+    "mips": 12
   },
   {
     "asset": "qarshi",
     "member": "art/scenario/chagatai/qarshi_healthy/qarshi_healthy_pattern.rrtex",
-    "sha256": "7b3af474f4ba4573ced17b7cb66303a5831bf835b5903c6c4e81c9fd691b86d4",
+    "sha256": "5d88e93ec8dea0cb94b092076afbea9cde34010622321fb6405a2305f7640568",
     "native_internal_format": 22,
     "mips": 12,
-    "mean_compression_error": 0.0259,
     "cooked_mask_atlas_fraction": 0.11348
   },
   {
     "asset": "court",
     "member": "art/scenario/chagatai/court_healthy/court_healthy_albedo.rrtex",
-    "sha256": "3410690d9b1e03d93c1bb9a5925aab4ca685ea9890257095758960a4e165e614",
+    "sha256": "7593ae35774adc18a901c4f1fd58d8478e7f464203b6bac9788001bd5088171f",
     "native_internal_format": 19,
-    "mips": 12,
-    "mean_compression_error": 0.8654
+    "mips": 12
   },
   {
     "asset": "court",
     "member": "art/scenario/chagatai/court_healthy/court_healthy_pattern.rrtex",
-    "sha256": "ccf14bfccade400fe08f496edba5438ebf5ce9a30b7ce317ccde419b4a8e1df6",
+    "sha256": "d48701d865c4cc208708d4b9099d3bc7f764611822573f3b188e9ec935dcfd52",
     "native_internal_format": 22,
     "mips": 12,
-    "mean_compression_error": 0.0256,
     "cooked_mask_atlas_fraction": 0.07359
   },
   {
@@ -159,18 +155,16 @@
   {
     "asset": "mint",
     "member": "art/scenario/chagatai/mint_healthy/mint_healthy_albedo.rrtex",
-    "sha256": "8b811f8c197456890d7040b3593ab853a331ee5b280a1784d577aab58471beb0",
+    "sha256": "ff80389756b885b010721439c575d44f8c768b5f2eda99602440894ad53553f5",
     "native_internal_format": 19,
-    "mips": 12,
-    "mean_compression_error": 0.8672
+    "mips": 12
   },
   {
     "asset": "mint",
     "member": "art/scenario/chagatai/mint_healthy/mint_healthy_pattern.rrtex",
-    "sha256": "e5546b73fd7615960921e161a97b89bebe10988377c7bb819f7e77ee047e5aa9",
+    "sha256": "e6cf24be80cb9049be17597985b0cfc4c90dd7c798bcade1a7c7d58cd834711a",
     "native_internal_format": 22,
     "mips": 12,
-    "mean_compression_error": 0.0272,
     "cooked_mask_atlas_fraction": 0.07369
   },
   {

@@ -1,0 +1,342 @@
+﻿ID,Pipeline,PipelineStage,Notes,TranslationNotes,Tags,Text
+1,,,Mod name.,,,Chagatai Khanate - Playtest
+2,,,Mod description.,,,"Chagatai Khanate has paired foot and mounted units, a physical Horse supply and six landmarks. Choose Mongols in the lobby, then choose Chagatai at match start."
+3,,,,,,Chagatai Khanate - Playtest
+1000,,,Chagatai development source.,,,Choose your civilization
+1001,,,Chagatai development source.,,,Choose Mongols or Chagatai. The shared choice window closes after 30 seconds; no choice retains Mongols.
+1002,,,Chagatai development source.,,,Mongols
+1003,,,Chagatai development source.,,,Chagatai Khanate
+1004,,,Chagatai development source.,,,A pastoral civilization built around physical Horses and paired foot/mounted units.
+1005,,,Chagatai development source.,,,Chagatai first playable source. Build and in-game acceptance are separate validation steps.
+1006,,,Chagatai development source.,,,"Human Mongol players can choose Chagatai during the shared 30-second opening window. Choose the starting age, resources, map reveal and victory conditions in the lobby. Nomad and AI use their original civilization."
+1100,,,Horse foundation.,,,Horse
+1101,,,Horse foundation.,,,Provides mounts or Food.\r\n+ Normal Horses: 400 Food.\r\n+ War Horses: +40% Horse health and 300 Food.\r\n+ Fattened Horses: 600 Food.\r\n- Cannot attack or be healed while loose.
+1200,,,Foundation buildings.,,,Steppe Hearth
+1201,,,Foundation buildings.,,,"Resource drop-off and economic research building.\r\n+ Accepts Food, Wood, Gold and Stone.\r\n+ Provides 10 population space."
+1210,,,Foundation buildings.,,,Horse Pasture
+1211,,,Foundation buildings.,,,"Automatically breeds Horses for mounts or Food.\r\n+ One Horse on completion, then one every 120s before upgrades."
+2000,,,Chagatai civilization.,,,Spearman
+2001,,,Chagatai civilization.,,,Jida Light Lancer
+2010,,,Chagatai civilization.,,,Nökör
+2011,,,Chagatai civilization.,,,Nökör Lancer
+2020,,,Chagatai civilization.,,,Steppe Archer
+2021,,,Chagatai civilization.,,,Steppe Horse Archer
+2030,,,Chagatai civilization.,,,Crossbowman
+2031,,,Chagatai civilization.,,,Mounted Crossbowman
+2040,,,Chagatai civilization.,,,Handcannoneer
+2041,,,Chagatai civilization.,,,Mounted Handcannoneer
+2050,,,Chagatai civilization.,,,Foot Scout
+2051,,,Chagatai civilization.,,,Mounted Scout
+2060,,,Chagatai civilization.,,,Sufi
+2061,,,Chagatai civilization.,,,Mounted Sufi
+2070,,,Chagatai civilization.,,,Foot Trader
+2071,,,Chagatai civilization.,,,Mounted Trader
+3001,,,Chagatai civilization.,,,Horse Husbandry I
+3101,,,Chagatai civilization.,,,Increases Horse production rate to +10% total. Preserves completed production progress.
+3002,,,Chagatai civilization.,,,Horse Husbandry II
+3102,,,Chagatai civilization.,,,Increases Horse production rate to +20% total. Preserves completed production progress.
+3003,,,Chagatai civilization.,,,Horse Husbandry III
+3103,,,Chagatai civilization.,,,Increases Horse production rate to +30% total. Preserves completed production progress.
+3011,,,Chagatai civilization.,,,Selective Breeding I
+3111,,,Chagatai civilization.,,,Increases Horse maximum health to +20% total. Preserves health percentage in all Horse states.
+3012,,,Chagatai civilization.,,,Selective Breeding II
+3112,,,Chagatai civilization.,,,Increases Horse maximum health to +40% total. Preserves health percentage in all Horse states.
+3013,,,Chagatai civilization.,,,Selective Breeding III
+3113,,,Chagatai civilization.,,,Increases Horse maximum health to +60% total. Preserves health percentage in all Horse states.
+3021,,,Chagatai civilization.,,,Livestock Management I
+3121,,,Chagatai civilization.,,,Increases foot and mounted Villager gathering speed from all Food sources by 15% total.
+3022,,,Chagatai civilization.,,,Livestock Management II
+3122,,,Chagatai civilization.,,,Increases foot and mounted Villager gathering speed from all Food sources by 30% total.
+3023,,,Chagatai civilization.,,,Livestock Management III
+3123,,,Chagatai civilization.,,,Increases foot and mounted Villager gathering speed from all Food sources by 45% total.
+3040,,,Chagatai civilization.,,,Yam Logistics
+3140,,,Chagatai civilization.,,,Increases the movement speed of all land units by 5%.
+3050,,,Chagatai civilization.,,,Compassionate Care
+3150,,,Chagatai civilization.,,,Increases healing rate by 80% for both religious forms.
+3060,,,Chagatai civilization.,,,Lamellar Reinforcement
+3160,,,Chagatai civilization.,,,Increases rider maximum health by 20% for the five military pairs. Preserves health percentage.
+4000,,,Chagatai civilization.,,,Melee Encampment
+4001,,,Chagatai civilization.,,,"Trains Scouts, Spearmen, Light Lancers and both Nökör forms.\r\n+ Shared age upgrades improve both foot and mounted forms."
+4010,,,Chagatai civilization.,,,Ranged Encampment
+4011,,,Chagatai civilization.,,,Trains ranged infantry and their mounted forms.\r\n+ Shared age upgrades improve both foot and mounted forms.
+4020,,,Chagatai civilization.,,,Blacksmith
+4021,,,Chagatai civilization.,,,Researches weapon and armor improvements for your army.
+4030,,,Chagatai civilization.,,,University
+4031,,,Chagatai civilization.,,,Researches advanced military improvements.
+4040,,,Chagatai civilization.,,,Monastery
+4041,,,Chagatai civilization.,,,Trains Sufis and Mounted Sufis and researches religious improvements.
+4050,,,Chagatai civilization.,,,Market
+4051,,,Chagatai civilization.,,,"Trains Traders, establishes trade routes and exchanges resources."
+4060,,,Chagatai civilization.,,,Dock
+4061,,,Chagatai civilization.,,,Builds and upgrades ships. Fishing Boats deliver Food here.
+4070,,,Chagatai civilization.,,,Siege Workshop
+4071,,,Chagatai civilization.,,,Builds siege engines for attacking armies and fortifications.
+4080,,,Chagatai civilization.,,,Outpost
+4081,,,Chagatai civilization.,,,Defensive tower with garrison space and weapon upgrades.
+4090,,,Chagatai civilization.,,,Wonder
+4091,,,Chagatai civilization.,,,Build and defend this monument to win a Wonder victory.\r\n- Requires Wonder victory to be enabled.
+4200,,,Chagatai civilization.,,,Almaliq Market
+4201,,,Chagatai civilization.,,,Feudal Market landmark specialising in Horse imports.\r\n+ Horse import costs -20%.\r\n+ Imported Horse birth health +10.\r\n+ Faster import price recovery.
+4210,,,Chagatai civilization.,,,Ordu of Almaliq
+4211,,,Chagatai civilization.,,,Feudal landmark that trains melee units and Scouts.\r\n+ Rider costs -10%.\r\n+ Training time -20%.\r\n- Horse payments are unchanged.
+4220,,,Chagatai civilization.,,,Qarshi Palace
+4221,,,Chagatai civilization.,,,Castle Age landmark that functions as a Town Center.\r\n+ Global Horse Pasture production rate +25%.\r\n+ Provides 10 population space.
+4230,,,Chagatai civilization.,,,Khan's Court
+4231,,,Chagatai civilization.,,,Support landmark with Muster the Ulus.\r\nAffects allied military within 40m when activated.\r\n+ Restores half their missing health.\r\n+ Grants +50% damage and +20% speed for 60s.\r\n- Cooldown: 180s.
+4240,,,Chagatai civilization.,,,Ili Royal Pastures
+4241,,,Chagatai civilization.,,,"Imperial landmark that breeds specialised Horse herds.\r\n+ One Horse on completion, then one every 45s before upgrades.\r\n+ War Herds: +40% Horse health and 300 Food.\r\n+ Fattened Herds: 600 Food."
+4250,,,Chagatai civilization.,,,Kebek's Royal Mint
+4251,,,Chagatai civilization.,,,Imperial landmark that exchanges Horses for Gold.\r\n+ Holds up to 40 owned Horses.\r\n+ Sells one Horse every 6s for 50 Gold.\r\n+ Unsold Horses can leave.
+5000,,,Chagatai civilization.,,,Mount
+5001,,,Chagatai civilization.,,,Instantly mount when a free owned Horse reaches this unit. Shared conversion cooldown: 30s.
+5010,,,Chagatai civilization.,,,Dismount
+5011,,,Chagatai civilization.,,,Instantly dismount if there is clear space nearby. Shared conversion cooldown: 30s.
+5020,,,Chagatai civilization.,,,Fierce Assault
+5021,,,Chagatai civilization.,,,"Fierce Assault (8s): +50% damage, +15% speed, -2 armor. Cooldown: 60s."
+5030,,,Chagatai civilization.,,,Guarded Retreat
+5031,,,Chagatai civilization.,,,"Guarded Retreat (15s): +2 ranged armor, -20% speed. Cooldown: 60s."
+5040,,,Chagatai civilization.,,,Muster the Ulus
+5041,,,Chagatai civilization.,,,Heal nearby allies and grant +50% damage and +20% speed for 60s. Cooldown: 180s.
+5050,,,Chagatai civilization.,,,War Herds
+5051,,,Chagatai civilization.,,,Future Horses have +40% health and 300 Food. Existing profiles stay unchanged. Free switch; 60-second shared cooldown.
+5060,,,Chagatai civilization.,,,Fattened Herds
+5061,,,Chagatai civilization.,,,Future Horses have normal health and 600 Food. Existing profiles stay unchanged. Free switch; 60-second shared cooldown.
+5070,,,Chagatai civilization.,,,Go to Royal Mint
+5071,,,Chagatai civilization.,,,"Send this owned, unreserved Horse to an owned Royal Mint. It waits if the Mint is full. A new direct order cancels the trip."
+5080,,,Chagatai civilization.,,,Withdraw Horses
+5081,,,Chagatai civilization.,,,"Unload all unconsumed Horses from this Royal Mint, preserving their health and birth profiles."
+5090,,,Chagatai civilization.,,,Cancel Latest Horse Order
+5091,,,Chagatai civilization.,,,"Cancel the latest queued mounted unit at this building. If none are queued, cancel the latest Horse import instead. Refunds all paid resources and restores a reserved Horse."
+5100,,,Chagatai civilization.,,,Train Light Lancer
+5101,,,Chagatai civilization.,,,"Fast light cavalry.\r\nCharge recharges in 15s.\r\n+ Bonus damage against ranged units and siege.\r\n+ Double-damage charge.\r\n- Vulnerable to Spearmen.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5110,,,Chagatai civilization.,,,Train Nökör Lancer
+5111,,,Chagatai civilization.,,,"Heavy cavalry.\r\nFierce Assault (8s): +50% damage, +15% speed, -2 armor. Cooldown: 60s.\r\n- No charge attack.\r\n- Vulnerable to anti-cavalry weapons.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5120,,,Chagatai civilization.,,,Train Horse Archer
+5121,,,Chagatai civilization.,,,"Mobile ranged cavalry.\r\nGuarded Retreat (15s): +2 ranged armor, -20% speed. Cooldown: 60s.\r\n+ Fires while moving.\r\n- Shorter range than foot Archers.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5130,,,Chagatai civilization.,,,Train Mounted Crossbowman
+5131,,,Chagatai civilization.,,,"Mounted crossbow unit.\r\n+ Bonus damage against heavy units.\r\n- Must stop to fire.\r\n- Shorter range and slower firing than foot Crossbowmen.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5140,,,Chagatai civilization.,,,Train Mounted Handcannoneer
+5141,,,Chagatai civilization.,,,"Mounted gunpowder unit.\r\n+ High damage and mounted mobility.\r\n- Must stop to fire.\r\n- Shorter range and slower firing than foot Handcannoneers.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5150,,,Chagatai civilization.,,,Train Mounted Scout
+5151,,,Chagatai civilization.,,,"Mounted scout with extended vision.\r\n+ Sees into Stealth Forests.\r\n+ Greater health and mobility than the foot form.\r\n- Weak in combat.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5160,,,Chagatai civilization.,,,Train Mounted Sufi
+5161,,,Chagatai civilization.,,,"Heals nearby allies from horseback.\r\nCompassionate Care improves healing by 80%.\r\n+ Carries Relics and captures Sacred Sites.\r\n+ Mounted mobility.\r\n- Cannot attack.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5170,,,Chagatai civilization.,,,Train Mounted Trader
+5171,,,Chagatai civilization.,,,"Establishes trade routes to earn Gold.\r\n+ Greater health and mobility than the foot form.\r\n- Cannot attack.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+6000,,,Chagatai civilization.,,,Shared tier 2: Spearman / Jida Light Lancer
+6001,,,Chagatai civilization.,,,Improves both forms of this pair to tier 2. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
+6010,,,Chagatai civilization.,,,Shared tier 3: Spearman / Jida Light Lancer
+6011,,,Chagatai civilization.,,,Improves both forms of this pair to tier 3. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
+6020,,,Chagatai civilization.,,,Shared tier 4: Spearman / Jida Light Lancer
+6021,,,Chagatai civilization.,,,Improves both forms of this pair to tier 4. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
+6030,,,Chagatai civilization.,,,Shared tier 4: Nökör / Nökör Lancer
+6031,,,Chagatai civilization.,,,Improves both forms of this pair to tier 4. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
+6040,,,Chagatai civilization.,,,Shared tier 3: Steppe Archer / Steppe Horse Archer
+6041,,,Chagatai civilization.,,,Improves both forms of this pair to tier 3. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
+6050,,,Chagatai civilization.,,,Shared tier 4: Steppe Archer / Steppe Horse Archer
+6051,,,Chagatai civilization.,,,Improves both forms of this pair to tier 4. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
+6060,,,Chagatai civilization.,,,Shared tier 4: Crossbowman / Mounted Crossbowman
+6061,,,Chagatai civilization.,,,Improves both forms of this pair to tier 4. One payment upgrades existing and future units. Horse-component health is researched separately at Horse Pastures.
+2200,,,Chagatai civilization.,,,Light melee infantry.\r\n+ Bonus damage against cavalry and Elephants.\r\n+ Braces to stop cavalry charges.\r\n- Vulnerable to ranged infantry.
+2201,,,Chagatai civilization.,,,"Fast light cavalry.\r\nCharge recharges in 15s.\r\n+ Bonus damage against ranged units and siege.\r\n+ Double-damage charge.\r\n- Vulnerable to Spearmen.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+2210,,,Chagatai civilization.,,,"Heavy melee infantry.\r\nFormation: +1 ranged armor per 10 nearby foot Nökör within 8m, up to +3.\r\n- Vulnerable to anti-heavy weapons."
+2211,,,Chagatai civilization.,,,"Heavy cavalry.\r\nFierce Assault (8s): +50% damage, +15% speed, -2 armor. Cooldown: 60s.\r\n- No charge attack.\r\n- Vulnerable to anti-cavalry weapons.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+2220,,,Chagatai civilization.,,,Light ranged infantry.\r\n+ Effective against light infantry.\r\n- Moves 10% slower than an ordinary Archer.
+2221,,,Chagatai civilization.,,,"Mobile ranged cavalry.\r\nGuarded Retreat (15s): +2 ranged armor, -20% speed. Cooldown: 60s.\r\n+ Fires while moving.\r\n- Shorter range than foot Archers.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+2230,,,Chagatai civilization.,,,Crossbow infantry.\r\n+ Bonus damage against heavy units.\r\n- Vulnerable to light cavalry.
+2231,,,Chagatai civilization.,,,"Mounted crossbow unit.\r\n+ Bonus damage against heavy units.\r\n- Must stop to fire.\r\n- Shorter range and slower firing than foot Crossbowmen.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+2240,,,Chagatai civilization.,,,Gunpowder infantry.\r\n+ High damage against armored targets.\r\n- Vulnerable to ranged units.
+2241,,,Chagatai civilization.,,,"Mounted gunpowder unit.\r\n+ High damage and mounted mobility.\r\n- Must stop to fire.\r\n- Shorter range and slower firing than foot Handcannoneers.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+2250,,,Chagatai civilization.,,,Infantry scout with extended vision.\r\n+ Sees into Stealth Forests.\r\n- Weak in combat.
+2251,,,Chagatai civilization.,,,"Mounted scout with extended vision.\r\n+ Sees into Stealth Forests.\r\n+ Greater health and mobility than the foot form.\r\n- Weak in combat.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+2260,,,Chagatai civilization.,,,Heals nearby allies.\r\nCompassionate Care improves healing by 80%.\r\n+ Carries Relics and captures Sacred Sites.\r\n- Cannot attack.
+2261,,,Chagatai civilization.,,,"Heals nearby allies from horseback.\r\nCompassionate Care improves healing by 80%.\r\n+ Carries Relics and captures Sacred Sites.\r\n+ Mounted mobility.\r\n- Cannot attack.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+2270,,,Chagatai civilization.,,,Establishes trade routes to earn Gold.\r\n+ Lower cost than an ordinary Trader.\r\n- Slow and vulnerable.\r\n- Cannot attack.
+2271,,,Chagatai civilization.,,,"Establishes trade routes to earn Gold.\r\n+ Greater health and mobility than the foot form.\r\n- Cannot attack.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+1120,,,Chagatai civilization.,,,Import Horse
+1121,,,Chagatai civilization.,,,Horse import. Paid when queued; the displayed Gold price is locked. Training time: 15s.
+1130,,,Chagatai civilization.,,,Horse Carcass
+1131,,,Chagatai civilization.,,,Allied slaughter leaves full Food with no decay. Enemy kills leave full Food that decays at 4 Food/s. Mounted deaths leave half the Food and decay at 4 Food/s.
+1140,,,Chagatai civilization.,,,Economic Landmark
+1141,,,Chagatai civilization.,,,Military Landmark
+1142,,,Chagatai civilization.,,,Economic Landmark
+1143,,,Chagatai civilization.,,,Military Support Landmark
+1144,,,Chagatai civilization.,,,Livestock Landmark
+1145,,,Chagatai civilization.,,,Economic Landmark
+5600,,,Chagatai civilization.,,,Mounted Villager
+5601,,,Chagatai civilization.,,,"Mounted economic worker.\r\n+ Gathering and construction speed +15%.\r\n+ Greater health and mobility.\r\n- Weak in combat.\r\n- Uses an idle Horse within 32m, or costs 80 extra Gold."
+5610,,,Chagatai civilization.,,,Mount
+5611,,,Chagatai civilization.,,,Dismount
+6090,,,Chagatai civilization.,,,Veteran Nökör
+6091,,,Chagatai civilization.,,,Upgrades existing and future Nökör and Nökör Lancers to their Veteran Castle Age statistics. Horse health is researched separately.
+5602,,,Chagatai unit presentation.,,,"Economic worker.\r\n+ Gathers, builds and repairs.\r\n- Weak in combat."
+7000,,,Chagatai unit presentation.,,,Spearman
+7001,,,Chagatai unit presentation.,,,Hardened Spearman
+7002,,,Chagatai unit presentation.,,,Veteran Spearman
+7003,,,Chagatai unit presentation.,,,Elite Spearman
+7004,,,Chagatai unit presentation.,,,Early Jida Light Lancer
+7005,,,Chagatai unit presentation.,,,Jida Light Lancer
+7006,,,Chagatai unit presentation.,,,Veteran Jida Light Lancer
+7007,,,Chagatai unit presentation.,,,Elite Jida Light Lancer
+7008,,,Chagatai unit presentation.,,,Nökör
+7009,,,Chagatai unit presentation.,,,Veteran Nökör
+7010,,,Chagatai unit presentation.,,,Elite Nökör
+7011,,,Chagatai unit presentation.,,,Nökör Lancer
+7012,,,Chagatai unit presentation.,,,Veteran Nökör Lancer
+7013,,,Chagatai unit presentation.,,,Elite Nökör Lancer
+7014,,,Chagatai unit presentation.,,,Steppe Archer
+7015,,,Chagatai unit presentation.,,,Veteran Steppe Archer
+7016,,,Chagatai unit presentation.,,,Elite Steppe Archer
+7017,,,Chagatai unit presentation.,,,Steppe Horse Archer
+7018,,,Chagatai unit presentation.,,,Veteran Steppe Horse Archer
+7019,,,Chagatai unit presentation.,,,Elite Steppe Horse Archer
+7020,,,Chagatai unit presentation.,,,Crossbowman
+7021,,,Chagatai unit presentation.,,,Elite Crossbowman
+7022,,,Chagatai unit presentation.,,,Mounted Crossbowman
+7023,,,Chagatai unit presentation.,,,Elite Mounted Crossbowman
+7024,,,Chagatai unit presentation.,,,Handcannoneer
+7025,,,Chagatai unit presentation.,,,Mounted Handcannoneer
+7026,,,Chagatai unit presentation.,,,Foot Scout
+7027,,,Chagatai unit presentation.,,,Mounted Scout
+7028,,,Chagatai unit presentation.,,,Sufi
+7029,,,Chagatai unit presentation.,,,Mounted Sufi
+7030,,,Chagatai unit presentation.,,,Foot Trader
+7031,,,Chagatai unit presentation.,,,Mounted Trader
+7040,,,Chagatai unit presentation.,,,Villager
+7041,,,Chagatai unit presentation.,,,Mounted Villager
+7100,,,Chagatai unit presentation.,,,Light Melee Infantry
+7101,,,Chagatai unit presentation.,,,Light Melee Cavalry
+7102,,,Chagatai unit presentation.,,,Heavy Melee Infantry
+7103,,,Chagatai unit presentation.,,,Heavy Melee Cavalry
+7104,,,Chagatai unit presentation.,,,Light Ranged Infantry
+7105,,,Chagatai unit presentation.,,,Light Ranged Cavalry
+7106,,,Chagatai unit presentation.,,,Light Ranged Infantry
+7107,,,Chagatai unit presentation.,,,Light Ranged Cavalry
+7108,,,Chagatai unit presentation.,,,Ranged Gunpowder Infantry
+7109,,,Chagatai unit presentation.,,,Ranged Gunpowder Cavalry
+7110,,,Chagatai unit presentation.,,,Infantry Scout
+7111,,,Chagatai unit presentation.,,,Cavalry Scout
+7112,,,Chagatai unit presentation.,,,Religious Infantry
+7113,,,Chagatai unit presentation.,,,Religious Cavalry
+7114,,,Chagatai unit presentation.,,,Trader
+7115,,,Chagatai unit presentation.,,,Mounted Trader
+7116,,,Chagatai unit presentation.,,,Worker
+7117,,,Chagatai unit presentation.,,,Mounted Worker
+7300,,,Chagatai unit presentation.,,,Trains Villagers and Scouts and accepts gathered resources.\r\n+ Provides 10 population space.
+7301,,,Chagatai unit presentation.,,,Wooden wall that blocks enemy movement.\r\n+ Select an unfinished wall segment to convert it into a gate.\r\n- Vulnerable to siege.
+7302,,,Chagatai unit presentation.,,,Defensive gate for a Chagatai Palisade Wall.\r\n+ Place it on an owned wall segment to let friendly units through.\r\n- Vulnerable to siege.
+5180,,,Chagatai civilization.,,,Cancel All Mounted Orders
+5181,,,Chagatai civilization.,,,"Cancel all queued mounted units at this building. Refunds rider resources and each reserved Horse or extra Gold. Keeps foot units, research and Horse imports queued."
+5190,,,Chagatai civilization.,,,Mount
+5191,,,Chagatai civilization.,,,Instantly mount when a free owned Horse reaches this Trader. Shared cooldown: 30s.
+5192,,,Chagatai civilization.,,,Dismount
+5193,,,Chagatai civilization.,,,Instantly dismount if there is clear space nearby. Shared cooldown: 30s.
+5194,,,Chagatai civilization.,,,Import Horse
+5195,,,Chagatai civilization.,,,Queues a Horse in the Trader queue. Pays and locks the displayed Gold price immediately. Price rises by 1 per purchase and recovers over time; Almaliq imports cost 20% less.
+5196,,,Chagatai civilization.,,,Train Mounted Scout
+5197,,,Chagatai civilization.,,,Trains a Mounted Scout. Uses a free Horse within 32m or costs 80 extra Gold.
+5198,,,Chagatai civilization.,,,Horse Import
+5199,,,Chagatai civilization.,,,Military Production Building
+5200,,,Chagatai civilization.,,,Economic Building
+5201,,,Chagatai civilization.,,,Livestock
+5202,,,Chagatai civilization.,,,Start Auto-Garrison
+5203,,,Chagatai civilization.,,,Send your idle Horses within 32 metres to this Royal Mint while it has room.
+5204,,,Chagatai civilization.,,,Stop Auto-Garrison
+5205,,,Chagatai civilization.,,,Stop attracting Horses and cancel automatic trips still in progress. Horses inside the Mint stay garrisoned.
+5206,,,Chagatai civilization.,,,HORSES
+5207,,,Chagatai civilization.,,,IDLE
+5208,,,Chagatai civilization.,,,MILITARY
+5209,,,Chagatai civilization.,,,Cycle through horses and mounted units
+5210,,,Chagatai civilization.,,,Cycle through idle loose horses
+5211,,,Chagatai civilization.,,,Cycle through mounted military units
+5300,,,Chagatai lobby option.,,,Starting Conditions
+5301,,,Chagatai lobby option.,,,Starting Age
+5302,,,Chagatai lobby option.,,,Choose the age every player starts in.
+5303,,,Chagatai lobby option.,,,Dark Age
+5304,,,Chagatai lobby option.,,,Feudal Age
+5305,,,Chagatai lobby option.,,,Castle Age
+5306,,,Chagatai lobby option.,,,Imperial Age
+5307,,,Chagatai lobby option.,,,Starting Resources
+5308,,,Chagatai lobby option.,,,Choose a starting resource preset. Standard gives Chagatai its usual starting stockpile.
+5309,,,Chagatai lobby option.,,,Standard
+5310,,,Chagatai lobby option.,,,High
+5311,,,Chagatai lobby option.,,,Very High
+5312,,,Chagatai lobby option.,,,Maximum
+5313,,,Chagatai lobby option.,,,Map Reveal
+5314,,,Chagatai lobby option.,,,Choose how much of the map is visible at the start.
+5315,,,Chagatai lobby option.,,,Concealed
+5316,,,Chagatai lobby option.,,,Explored
+5317,,,Chagatai lobby option.,,,Revealed
+5318,,,Chagatai lobby option.,,,Show Scores
+5319,,,Chagatai lobby option.,,,Display player scores during the match.
+5320,,,Chagatai lobby option.,,,Reveal Map on Elimination
+5321,,,Chagatai lobby option.,,,Reveal the map for players after they are eliminated.
+5322,,,Chagatai lobby option.,,,Victory Conditions
+5323,,,Chagatai lobby option.,,,Landmark Victory
+5324,,,Chagatai lobby option.,,,Win by destroying the enemy landmarks.
+5325,,,Chagatai lobby option.,,,Sacred Victory
+5326,,,Chagatai lobby option.,,,Win by holding the Sacred Sites.
+5327,,,Chagatai lobby option.,,,Wonder Victory
+5328,,,Chagatai lobby option.,,,Win by building and defending a Wonder.
+5329,,,Chagatai lobby option.,,,Regicide
+5330,,,Chagatai lobby option.,,,Protect your Monarch and defeat the enemy Monarchs.
+5220,,,Chagatai unit presentation.,,,Mount ready in
+5221,,,Chagatai unit presentation.,,,Dismount ready in
+7400,,,Chagatai unit presentation.,,,Mount Conversion
+7401,,,Chagatai unit presentation.,,,Dismount Conversion
+7402,,,Chagatai unit presentation.,,,Mounted Combat Ability
+7403,,,Chagatai unit presentation.,,,Military Support Ability
+7404,,,Chagatai unit presentation.,,,Horse Breeding Mode
+7405,,,Chagatai unit presentation.,,,Royal Mint Horse Command
+7406,,,Chagatai unit presentation.,,,Production Queue Command
+7407,,,Chagatai unit presentation.,,,Animal Food Source
+7408,,,Chagatai unit presentation.,,,Research Building
+7409,,,Chagatai unit presentation.,,,Naval Production Building
+7410,,,Chagatai unit presentation.,,,Trade Building
+7411,,,Chagatai unit presentation.,,,Defensive Building
+7412,,,Chagatai unit presentation.,,,Horse Production Building
+7413,,,Chagatai unit presentation.,,,Religious Production Building
+7414,,,Chagatai unit presentation.,,,Siege Production Building
+7415,,,Chagatai unit presentation.,,,Victory Monument
+7416,,,Chagatai unit presentation.,,,Horse Breeding Technology
+7417,,,Chagatai unit presentation.,,,Horse Health Technology
+7418,,,Chagatai unit presentation.,,,Food Gathering Technology
+7419,,,Chagatai unit presentation.,,,Land Movement Technology
+7420,,,Chagatai unit presentation.,,,Healing Technology
+7421,,,Chagatai unit presentation.,,,Rider Health Technology
+7422,,,Chagatai unit presentation.,,,Shared Unit Upgrade
+7440,,,Chagatai unit presentation.,,,"Base rider cost: 30 Food, 50 Wood."
+7441,,,Chagatai unit presentation.,,,"Base rider cost: 80 Food, 40 Gold."
+7442,,,Chagatai unit presentation.,,,"Base rider cost: 120 Food, 120 Gold."
+7443,,,Chagatai unit presentation.,,,"Base rider cost: 120 Food, 20 Gold."
+7444,,,Chagatai unit presentation.,,,"Ordu rider rate: 108 Food, 18 Gold. Base rider cost: 120 Food, 20 Gold."
+7445,,,Chagatai unit presentation.,,,Base rider cost: 150 Gold.
+7446,,,Chagatai unit presentation.,,,Base rider cost: 65 Food.
+7447,,,Chagatai unit presentation.,,,Base rider cost: 65 Food.
+7448,,,Chagatai unit presentation.,,,Ordu rider rate: 58.5 Food. Base rider cost: 65 Food.
+7449,,,Chagatai unit presentation.,,,"Base rider cost: 60 Food, 20 Wood."
+7450,,,Chagatai unit presentation.,,,"Ordu rider rate: 54 Food, 18 Wood. Base rider cost: 60 Food, 20 Wood."
+7451,,,Chagatai unit presentation.,,,"Base rider cost: 40 Wood, 40 Gold."
+7458,,,Chagatai unit presentation.,,,Base rider cost: 70 Food.
+7459,,,Chagatai unit presentation.,,,Base rider cost: 70 Food.
+7460,,,Chagatai unit presentation.,,,Ordu rider rate: 63 Food. Base rider cost: 70 Food.
+7480,,,Chagatai unit presentation.,,,Increases Villagers' Gold mining rate.
+7481,,,Chagatai unit presentation.,,,Further increases Villagers' Gold mining rate.
+7482,,,Chagatai unit presentation.,,,Further increases Villagers' Gold mining rate.
+7483,,,Chagatai unit presentation.,,,Improves Battering Ram attack speed and reduces their field construction time.
+7484,,,Chagatai unit presentation.,,,Increases attack range for affected foot and mounted Archers.
+7485,,,Chagatai unit presentation.,,,Increases damage dealt by affected ranged weapons.
+7486,,,Chagatai unit presentation.,,,Improves Handcannoneer damage against melee infantry and grants a brief speed boost after firing.
+7487,,,Chagatai unit presentation.,,,Improves Mangonel area attacks.
+7488,,,Chagatai unit presentation.,,,Increases the damage of affected gunpowder weapons.
+7489,,,Chagatai unit presentation.,,,Improves Springald attack speed.
+7490,,,Chagatai unit presentation.,,,Increases the movement speed of affected siege engines.
+7491,,,Chagatai unit presentation.,,,Improves the durability of affected siege engines.
+7492,,,Chagatai unit presentation.,,,Increases Villager movement speed and resource carrying capacity.
+7493,,,Chagatai unit presentation.,,,Villagers gain +25 maximum health in either form. Horse health is unchanged.
+5222,,,Chagatai unit presentation.,,,Last dismount: mount ready in
+7494,,,Chagatai influence.,,,Each completed Horse Pasture you own within 1 tile grants this building +15% unit production speed. Bonuses add together.
+7495,,,Chagatai influence.,,,"Each completed Horse Pasture grants +15% unit production speed to your Melee Encampments, Ranged Encampments, and Ordu of Almaliq within their influence."
+3070,,,Chagatai civilization.,,,Jida Spearheads
+3170,,,Chagatai civilization.,,,Spearmen and Jida Light Lancers gain +3 base weapon damage. Bonus damage against specific targets stays the same.
+7496,,,Chagatai civilization.,,,Unique Melee Technology

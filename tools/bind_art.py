@@ -7,7 +7,7 @@ from garrison_shared import derived_blueprints, mod_content, rgd
 from repair_animators import HORSE_IDLE, HORSE_SELECT
 
 BUILDINGS={
-    **{"ck_building_"+name:name for name in ("pasture","steppe_hearth","melee","ranged","wonder")},
+    **{"ck_building_"+name:name for name in ("pasture","steppe_hearth","melee","ranged")},
     **{"ck_landmark_"+name:name for name in ("almaliq","ordu","qarshi","court","ili","mint")},
 }
 

@@ -1,0 +1,56 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073741969" />
+	<instance_reference name="parent_pbg" value="sbps\races\chagatai\animals\ck_horse" mod="9fb54312599d47218eef70ad08c75e33" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="2110137992" List.ParentItemID="2110137992">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="388574672" List.ParentItemID="388574672">
+					<instance_reference name="type" value="ebps\races\chagatai\animals\ck_horse_ili" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="935165364" List.ParentItemID="935165364">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="1201806514" List.ParentItemID="1201806514">
+					<group name="info">
+						<locstring name="screen_name" value="1100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="help_text" value="1101" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="extra_text" value="5201" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<file name="icon_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+						<file name="portrait_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="True" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="2110137992" List.ParentItemID="2110137992">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="388574672" List.ParentItemID="388574672">
+						<instance_reference name="type" value="ebps\races\chagatai\animals\ck_horse_ili" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="935165364" List.ParentItemID="935165364">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="1201806514" List.ParentItemID="1201806514">
+						<group name="info">
+							<locstring name="screen_name" value="1100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="help_text" value="1101" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="extra_text" value="5201" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<file name="icon_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+							<file name="portrait_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="True" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741969" />
+		<instance_reference name="parent_pbg" value="sbps\races\chagatai\animals\ck_horse" mod="9fb54312599d47218eef70ad08c75e33" />
+	</variant>
+</instance>

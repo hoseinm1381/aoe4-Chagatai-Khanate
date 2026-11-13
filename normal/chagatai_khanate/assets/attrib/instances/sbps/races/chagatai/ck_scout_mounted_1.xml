@@ -1,0 +1,89 @@
+<instance version="6" template="sbps">
+	<uniqueid name="pbgid" value="1073741880" />
+	<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_scout_1_mon" />
+	<list name="extensions">
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="-1499754086" List.ParentItemID="-1499754086">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="621742525" List.ParentItemID="621742525">
+					<instance_reference name="type" value="ebps\races\chagatai\units\ck_scout_mounted_1" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" List.ItemID="980342444" List.ParentItemID="980342444" overrideParent="True">
+			<list name="requirement_table" overrideParent="True">
+				<template_reference name="required" value="requirements\required_population" List.ItemID="-275004229">
+					<enum name="reason" value="display" />
+					<group name="free_pop">
+						<float name="medic" value="0" />
+						<float name="personnel" value="0" />
+						<float name="vehicle" value="1" />
+					</group>
+				</template_reference>
+			</list>
+			<state_tree_node name="requirement_statetree" value="" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="995246363" List.ParentItemID="995246363">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="-604382318" List.ParentItemID="-604382318">
+					<group name="info">
+						<locstring name="screen_name" value="7027" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="help_text" value="2251" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="extra_text" value="7111" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="brief_text" value="0" overrideParent="True" />
+						<file name="icon_name" value="races\common\units\scout" overrideParent="True" />
+						<file name="portrait_name" value="" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="True" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="-271506405" List.ParentItemID="-271506405">
+			<list name="abilities" removedIds="76634319, -1712314238" />
+		</template_reference>
+	</list>
+	<variant name="xp3">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="-1499754086" List.ParentItemID="-1499754086">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="621742525" List.ParentItemID="621742525">
+						<instance_reference name="type" value="ebps\races\chagatai\units\ck_scout_mounted_1" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" List.ItemID="980342444" List.ParentItemID="980342444" overrideParent="True">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_population" List.ItemID="-275004229">
+						<enum name="reason" value="display" />
+						<group name="free_pop">
+							<float name="medic" value="0" />
+							<float name="personnel" value="0" />
+							<float name="vehicle" value="1" />
+						</group>
+					</template_reference>
+				</list>
+				<state_tree_node name="requirement_statetree" value="" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="995246363" List.ParentItemID="995246363">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="-604382318" List.ParentItemID="-604382318">
+						<group name="info">
+							<locstring name="screen_name" value="7027" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="help_text" value="2251" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="extra_text" value="7111" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="brief_text" value="0" overrideParent="True" />
+							<file name="icon_name" value="races\common\units\scout" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="True" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="-271506405" List.ParentItemID="-271506405">
+				<list name="abilities" removedIds="76634319, -1712314238" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741880" />
+		<instance_reference name="parent_pbg" value="sbps\races\mongol\unit_scout_1_mon" />
+	</variant>
+</instance>

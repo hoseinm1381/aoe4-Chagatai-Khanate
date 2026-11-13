@@ -1,0 +1,30 @@
+{
+  "court": {
+    "tinted_atlas_pixels_in_target_tiles": 153139,
+    "ordu_reference_luminance": 112.0,
+    "authored_tiles": [
+      "Court gold and ivory embroidered ridge"
+    ],
+    "mips_per_texture": 12
+  },
+  "mint": {
+    "tinted_atlas_pixels_in_target_tiles": 497807,
+    "ordu_reference_luminance": 112.0,
+    "authored_tiles": [
+      "030 Royal treasury stamped and woven silk",
+      "Royal treasury stamped and woven silk",
+      "Owner dye on Mint hammered copper and oxide"
+    ],
+    "mips_per_texture": 12
+  },
+  "qarshi": {
+    "tinted_atlas_pixels_in_target_tiles": 497831,
+    "ordu_reference_luminance": 112.0,
+    "authored_tiles": [
+      "030 Qarshi knotted palace textiles",
+      "Qarshi knotted palace textiles",
+      "Owner dye on 030 Qarshi knotted palace textiles"
+    ],
+    "mips_per_texture": 12
+  }
+}

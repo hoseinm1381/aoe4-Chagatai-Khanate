@@ -1,0 +1,28 @@
+-- The Normal archive binds the six private landmark controllers after cooking.
+local N=ChagataiNative
+local landmark={almaliq=true,ordu=true,qarshi=true,court=true,ili=true,mint=true}
+local construction={'construct_00','damage_5','damage_4','damage_3','damage_2','damage_1'}
+
+function N.BuildingVisual(b,entity,now)
+    if N.ended or not b or not landmark[b.role] or not entity then return end
+    if not Entity_IsValid(Entity_GetID(entity)) then return end
+    local health=Entity_GetHealthPercentage(entity)
+    local state
+    if not Entity_IsAlive(entity) then state='ruins'
+    elseif Entity_IsUnderConstruction(entity) then
+        local progress=Entity_GetBuildingProgress(entity)
+        local index=math.min(#construction,1+math.floor(math.max(0,progress)*#construction))
+        state=construction[index]
+    elseif health<=0 then state='ruins'
+    elseif health>=.85 then state='healthy'
+    elseif health>=.68 then state='damage_1'
+    elseif health>=.51 then state='damage_2'
+    elseif health>=.34 then state='damage_3'
+    elseif health>=.17 then state='damage_4'
+    else state='damage_5' end
+    if b.visualState~=state or not b.visualRefresh or now>=b.visualRefresh then
+        Entity_SetAnimatorState(entity,'life_cycle_state',state)
+        b.visualState=state;b.visualRefresh=now+2
+    end
+end
+

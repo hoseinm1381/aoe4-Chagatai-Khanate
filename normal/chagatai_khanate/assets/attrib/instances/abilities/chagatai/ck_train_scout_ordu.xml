@@ -1,0 +1,24 @@
+<instance version="6" template="abilities">
+	<uniqueid name="pbgid" value="1073765430" />
+	<instance_reference name="parent_pbg" value="abilities\chagatai\ck_train_scout_melee" mod="9fb54312599d47218eef70ad08c75e33" />
+	<group name="ability_bag">
+		<enum_table name="cost_to_player">
+			<float name="food" value="58.5" overrideParent="True" />
+		</enum_table>
+		<group name="ui_info">
+			<locstring name="extra_text" value="7448" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+		</group>
+	</group>
+	<variant name="xp3">
+		<uniqueid name="pbgid" value="1073765430" />
+		<instance_reference name="parent_pbg" value="abilities\chagatai\ck_train_scout_melee" mod="9fb54312599d47218eef70ad08c75e33" />
+		<group name="ability_bag">
+			<enum_table name="cost_to_player">
+				<float name="food" value="63" overrideParent="True" />
+			</enum_table>
+			<group name="ui_info">
+				<locstring name="extra_text" value="7460" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+			</group>
+		</group>
+	</variant>
+</instance>

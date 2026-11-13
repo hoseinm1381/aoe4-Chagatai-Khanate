@@ -1,0 +1,198 @@
+<instance version="6" description="" template="sbps">
+	<list name="extensions" removedIds="246597882">
+		<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="935165364" List.ParentItemID="935165364">
+			<list name="race_list">
+				<group name="race_data" List.ItemID="1201806514" List.ParentItemID="1201806514">
+					<group name="info">
+						<group name="stats_info">
+							<bool name="include_in_lifespan_stat" value="False" overrideParent="True" />
+						</group>
+						<locstring name="screen_name" value="1100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<locstring name="help_text" value="1101" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<file name="icon_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+						<string name="selection_group" value="chagatai_horse" overrideParent="True" />
+						<string name="selection_datatemplate" value="HerdableDepositTemplate" overrideParent="True" />
+						<enum name="decorator_visibility" value="visible" overrideParent="True" />
+						<enum name="ui_combine_type" value="intersection" overrideParent="True" />
+						<locstring name="extra_text" value="5201" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+						<file name="portrait_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+						<bool name="is_unique" value="False" overrideParent="True" />
+						<bool name="is_unique_to_race" value="True" overrideParent="True" />
+					</group>
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="2110137992" List.ParentItemID="2110137992">
+			<list name="unit_list">
+				<group name="loadout_data" List.ItemID="388574672" List.ParentItemID="388574672">
+					<instance_reference name="type" value="ebps\races\chagatai\animals\ck_horse" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+				</group>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" List.ItemID="409668920" List.ParentItemID="409668920">
+			<list name="requirement_table" overrideParent="True">
+				<template_reference name="required" value="requirements\required_population_cap" List.ItemID="-1823214577">
+					<enum name="reason" value="usage" />
+					<locstring name="ui_name" value="0" />
+					<enum name="comparison" value="greater_than_or_equal_to" />
+					<group name="population_cap">
+						<float name="medical" value="0" />
+						<float name="personnel" value="0" />
+						<float name="vehicle" value="0" />
+					</group>
+				</template_reference>
+				<template_reference name="required" value="requirements\required_population" List.ItemID="-1779703068">
+					<enum name="reason" value="usage" />
+					<group name="free_pop">
+						<float name="medic" value="0" overrideParent="True" />
+						<float name="personnel" value="0" overrideParent="True" />
+						<float name="vehicle" value="0" overrideParent="True" />
+					</group>
+				</template_reference>
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="970914405" List.ParentItemID="970914405">
+			<list name="abilities" overrideParent="True">
+				<instance_reference name="ability" value="abilities\chagatai\ck_mount_chase" List.ItemID="1759090895" mod="9fb54312599d47218eef70ad08c75e33" />
+			</list>
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_speech_ext" List.ItemID="1384585556" List.ParentItemID="1384585556">
+			<string name="squad_speaker_code" value="" overrideParent="True" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_blueprint_ext" List.ItemID="-219391414" List.ParentItemID="-219391414">
+			<bool name="browsable_in_editor" value="True" overrideParent="True" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_statemodel_ext" List.ItemID="1574610978" List.ParentItemID="1574610978">
+			<instance_reference name="schema" value="statemodel_schema\gaia_values" overrideParent="True" />
+		</template_reference>
+		<template_reference name="squadexts" value="sbpextensions\squad_holdable_ext" List.ItemID="621755835" List.ListAction="Append" overrideParent="True">
+			<list name="modifier_table">
+			</list>
+			<state_tree_node name="hold_target_requirement" value="" />
+		</template_reference>
+	</list>
+	<uniqueid name="pbgid" value="1073741824" />
+	<instance_reference name="parent_pbg" value="sbps\races\gaia\animals\gaia_herdable_sheep" />
+	<variant name="campaign">
+		<list name="extensions">
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="1461365293" List.ParentItemID="1461365293">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="-605163876" List.ParentItemID="-605163876">
+						<instance_reference name="type" value="ebps\races\chagatai\animals\ck_horse" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" List.ItemID="758549568" List.ParentItemID="758549568">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_population_cap" List.ItemID="-1702119798">
+						<enum name="reason" value="usage" />
+						<locstring name="ui_name" value="0" />
+						<enum name="comparison" value="greater_than_or_equal_to" />
+						<group name="population_cap">
+							<float name="medical" value="0" />
+							<float name="personnel" value="0" />
+							<float name="vehicle" value="0" />
+						</group>
+					</template_reference>
+					<template_reference name="required" value="requirements\required_population" List.ItemID="-1262826411">
+						<enum name="reason" value="usage" />
+						<group name="free_pop">
+							<float name="medic" value="0" overrideParent="True" />
+							<float name="personnel" value="0" overrideParent="True" />
+							<float name="vehicle" value="0" overrideParent="True" />
+						</group>
+					</template_reference>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="-772900983" List.ParentItemID="-772900983">
+				<list name="abilities" overrideParent="True">
+					<instance_reference name="ability" value="abilities\chagatai\ck_mount_chase" List.ItemID="1100753169" mod="9fb54312599d47218eef70ad08c75e33" />
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_speech_ext" List.ItemID="-398175651" List.ParentItemID="-398175651">
+				<string name="squad_speaker_code" value="" overrideParent="True" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_statemodel_ext" List.ItemID="1149279259" List.ParentItemID="1149279259">
+				<instance_reference name="schema" value="statemodel_schema\gaia_values" overrideParent="True" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741824" />
+		<instance_reference name="parent_pbg" value="sbps\races\gaia\animals\gaia_herdable_sheep" />
+	</variant>
+	<variant name="xp3">
+		<list name="extensions" removedIds="246597882">
+			<template_reference name="squadexts" value="sbpextensions\squad_ui_ext" List.ItemID="935165364" List.ParentItemID="935165364">
+				<list name="race_list">
+					<group name="race_data" List.ItemID="1201806514" List.ParentItemID="1201806514">
+						<group name="info">
+							<group name="stats_info">
+								<bool name="include_in_lifespan_stat" value="False" overrideParent="True" />
+							</group>
+							<locstring name="screen_name" value="1100" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<locstring name="help_text" value="1101" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<file name="icon_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+							<string name="selection_group" value="chagatai_horse" overrideParent="True" />
+							<string name="selection_datatemplate" value="HerdableDepositTemplate" overrideParent="True" />
+							<enum name="decorator_visibility" value="visible" overrideParent="True" />
+							<enum name="ui_combine_type" value="intersection" overrideParent="True" />
+							<locstring name="extra_text" value="5201" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+							<file name="portrait_name" value="chagatai\units\stock_based\horse" overrideParent="True" />
+							<bool name="is_unique" value="False" overrideParent="True" />
+							<bool name="is_unique_to_race" value="True" overrideParent="True" />
+						</group>
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_loadout_ext" List.ItemID="2110137992" List.ParentItemID="2110137992">
+				<list name="unit_list">
+					<group name="loadout_data" List.ItemID="388574672" List.ParentItemID="388574672">
+						<instance_reference name="type" value="ebps\races\chagatai\animals\ck_horse" overrideParent="True" mod="9fb54312599d47218eef70ad08c75e33" />
+					</group>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_requirement_ext" List.ItemID="409668920" List.ParentItemID="409668920">
+				<list name="requirement_table" overrideParent="True">
+					<template_reference name="required" value="requirements\required_population_cap" List.ItemID="-96377905">
+						<enum name="reason" value="usage" />
+						<locstring name="ui_name" value="0" />
+						<enum name="comparison" value="greater_than_or_equal_to" />
+						<group name="population_cap">
+							<float name="medical" value="0" />
+							<float name="personnel" value="0" />
+							<float name="vehicle" value="0" />
+						</group>
+					</template_reference>
+					<template_reference name="required" value="requirements\required_population" List.ItemID="-525166838">
+						<enum name="reason" value="usage" />
+						<group name="free_pop">
+							<float name="medic" value="0" overrideParent="True" />
+							<float name="personnel" value="0" overrideParent="True" />
+							<float name="vehicle" value="0" overrideParent="True" />
+						</group>
+					</template_reference>
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_ability_ext" List.ItemID="970914405" List.ParentItemID="970914405">
+				<list name="abilities" overrideParent="True">
+					<instance_reference name="ability" value="abilities\chagatai\ck_mount_chase" List.ItemID="1759090895" mod="9fb54312599d47218eef70ad08c75e33" />
+				</list>
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_speech_ext" List.ItemID="1384585556" List.ParentItemID="1384585556">
+				<string name="squad_speaker_code" value="" overrideParent="True" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_blueprint_ext" List.ItemID="-219391414" List.ParentItemID="-219391414">
+				<bool name="browsable_in_editor" value="True" overrideParent="True" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_statemodel_ext" List.ItemID="1574610978" List.ParentItemID="1574610978">
+				<instance_reference name="schema" value="statemodel_schema\gaia_values" overrideParent="True" />
+			</template_reference>
+			<template_reference name="squadexts" value="sbpextensions\squad_holdable_ext" List.ItemID="-927212096" List.ListAction="Append" overrideParent="True">
+				<list name="modifier_table">
+				</list>
+				<state_tree_node name="hold_target_requirement" value="" />
+			</template_reference>
+		</list>
+		<uniqueid name="pbgid" value="1073741824" />
+		<instance_reference name="parent_pbg" value="sbps\races\gaia\animals\gaia_herdable_sheep" />
+	</variant>
+</instance>

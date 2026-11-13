@@ -1,0 +1,743 @@
+-- Private handles use the mod namespace; editor IDs are local to an archive.
+ChagataiNative = {players={},entities={},byBP={},byName={},byID={},ended=false,serial=0,corpses={},courts={},births={},pendingDeaths={},pendingCarcasses={},pendingBuildingActions={},pendingCleanup={},retirements={}}
+local N=ChagataiNative
+
+function N.Keys(t)
+
+    local keys={}; for k in pairs(t) do keys[#keys+1]=k end; table.sort(keys); return keys
+end
+function N.Now()
+ return World_GetGameTime() end
+function N.SameBP(a,b)
+ return a~=nil and a~=0 and b~=nil and b~=0 and (a==b or BP_GetName(a)==BP_GetName(b)) end
+function N.SetHealth(entity,fraction)
+
+    assert(entity and fraction==fraction and fraction>=0 and fraction<=1,'Invalid health write')
+    local id=Entity_GetID(entity);N.healthWrites=N.healthWrites or {}
+    N.healthWrites[id]=true
+    local ok,reason=pcall(Entity_SetHealth,entity,fraction)
+    N.healthWrites[id]=nil
+    if not ok then error(reason) end
+end
+function N.Log(message)
+    -- Retain the last lifecycle/error status without diagnostic file output.
+    N.lastStatus=message
+end
+
+function N.LocalWarning(player,message)
+    if Game_GetLocalPlayer and UIWarning_Show then
+        pcall(function()
+            if Game_GetLocalPlayer()==player then UIWarning_Show(message) end
+        end)
+    end
+end
+function N.Entity(id)
+
+    if id and Entity_IsValid(id) then return Entity_FromID(id) end
+end
+function N.Alive(id)
+
+    local e=N.Entity(id); return e~=nil and Entity_IsAlive(e)
+end
+function N.Owner(entity)
+
+    -- Entity_GetPlayerOwner asserts for world-owned livestock and neutral units.
+    if entity and entity~=0 and not World_OwnsEntity(entity) then return Entity_GetPlayerOwner(entity) end
+end
+function N.Distance(a,b)
+ return math.sqrt((a.x-b.x)^2+(a.z-b.z)^2) end
+function N.Position(pos)
+ return World_Pos(pos.x,pos.y or 0,pos.z) end
+function N.Around(pos,dx,dz)
+ return World_Pos(pos.x+dx,pos.y or 0,pos.z+dz) end
+function N.Lookup(bp,category)
+
+    if bp==nil or bp==0 then return nil end
+    local r=N.byBP[bp]
+    if r and (not category or r.category==category) then return r end
+    local names=N.byName[category]
+    return names and names[BP_GetName(bp)]
+end
+function N.Record(entity)
+
+    local record=N.Lookup(Entity_GetBlueprint(entity),'ebps')
+    if record then return record end
+    local tracked=N.entities[Entity_GetID(entity)];return tracked and tracked.record
+end
+function N.Resolve()
+
+    for _,key in ipairs(N.Keys(ChagataiCatalog)) do
+        local r=ChagataiCatalog[key]
+        if r.lookupName then
+            if r.category=='ebps' then r.bp=BP_GetEntityBlueprint(r.lookupName)
+            elseif r.category=='sbps' then r.bp=BP_GetSquadBlueprint(r.lookupName)
+            elseif r.category=='abilities' then r.bp=BP_GetAbilityBlueprint(r.lookupName)
+            elseif r.category=='upgrade' then r.bp=BP_GetUpgradeBlueprint(r.lookupName) end
+        elseif r.category=='ebps' then r.bp=BP_GetEntityBlueprintByPbgID(r.id)
+        elseif r.category=='sbps' then r.bp=BP_GetSquadBlueprintByPbgID(tostring(r.id))
+        elseif r.category=='abilities' then r.bp=BP_GetAbilityBlueprintByPbgID(r.id)
+        elseif r.category=='upgrade' then r.bp=BP_GetUpgradeBlueprintByPbgID(r.id) end
+        assert(r.bp~=nil and r.bp~=0,'Missing Chagatai blueprint '..tostring(r.lookupName or key))
+        N.byBP[r.bp]=r; N.byID[r.id]=r
+        N.byName[r.category]=N.byName[r.category] or {}
+        N.byName[r.category][BP_GetName(r.bp)]=r
+    end
+end
+-- Same before-loading-completes contract as official Rogue_OnLoading and its
+-- entity/squad precache functions. Every client preloads the same private set.
+function ChagataiNative_Precache()
+
+    if N.precacheDone then return end
+    N.precacheDone=true;N.precacheErrors={};local count=0
+    N.Log('CHAGATAI_LOADING revision='..ChagataiConfig.revision)
+    for _,key in ipairs(N.Keys(ChagataiCatalog)) do
+        local r=ChagataiCatalog[key]
+        if r.lookupName and (r.category=='ebps' or r.category=='sbps') then
+            local ok,reason=pcall(function()
+
+                local bp
+                if r.category=='ebps' then
+                    assert(EBP_Exists(r.lookupName),'Missing entity '..r.lookupName)
+                    bp=BP_GetEntityBlueprint(r.lookupName)
+                else
+                    assert(SBP_Exists(r.lookupName),'Missing squad '..r.lookupName)
+                    bp=BP_GetSquadBlueprint(r.lookupName)
+                end
+                Scar_PrecachePrematchResource(bp)
+            end)
+            if ok then count=count+1
+            else N.precacheErrors[#N.precacheErrors+1]=tostring(reason);N.Log('CHAGATAI_PRECACHE_FAILED '..tostring(reason)) end
+        end
+    end
+    N.Log('CHAGATAI_PRECACHE_COMPLETE count='..count..' failures='..#N.precacheErrors)
+end
+Scar_AddInit(ChagataiNative_Precache)
+function N.Get(key)
+
+    local r=ChagataiCatalog[key]; assert(r and r.bp,'Unresolved Chagatai asset '..key); return r
+end
+function N.Unit(pair,form,tier,category)
+
+    if pair=='villager' then
+        if form=='foot' then return N.Get(category=='sbps' and 'sbps/races/chagatai/ck_unit_villager' or 'ebps/races/chagatai/units/ck_unit_villager') end
+        return N.Get(category=='sbps' and 'sbps/races/chagatai/ck_villager_mounted_1' or 'ebps/races/chagatai/units/ck_villager_mounted_1')
+    end
+    local folder=category=='sbps' and 'sbps/races/chagatai/' or 'ebps/races/chagatai/units/'
+    return N.Get(folder..'ck_'..pair..'_'..form..'_'..tier)
+end
+-- Blueprint names use integer suffixes even when the engine returns reals.
+function N.CorpseKey(category,food)
+    assert(food==150 or food==200 or food==300 or food==400 or food==600,'Unsupported Horse carcass food')
+    return category..'/races/chagatai/animals/ck_horse_corpse_'..string.format('%.0f',food)
+end
+function N.Ability(action)
+ return N.Get('abilities/chagatai/ck_'..action).bp end
+function N.Entities(player)
+
+    local result={}; local g=Player_GetAllEntities(player)
+    for i=1,EGroup_Count(g) do
+        local e=EGroup_GetEntityAt(g,i); if e~=nil then result[#result+1]=Entity_GetID(e) end
+    end
+    table.sort(result); return result
+end
+function N.SquadGroup(entity)
+
+    local g=SGroup_Create('ChagataiCommand');SGroup_Add(g,Entity_GetSquad(entity));return g
+end
+function N.Move(entity,position)
+
+    local s=Entity_GetSquad(entity)
+    Rule_RemoveSquadEvent(ChagataiNative_OnHorseOrder,s)
+    local g=N.SquadGroup(entity);Cmd_Move(g,N.Position(position),false);SGroup_Destroy(g)
+    Rule_AddSquadEvent(ChagataiNative_OnHorseOrder,s,GE_SquadCommandIssued,{id=Entity_GetID(entity)})
+end
+function N.StopMove(entity)
+
+    local s=Entity_GetSquad(entity)
+    Rule_RemoveSquadEvent(ChagataiNative_OnHorseOrder,s)
+    local g=N.SquadGroup(entity);Cmd_Stop(g);SGroup_Destroy(g)
+    Rule_AddSquadEvent(ChagataiNative_OnHorseOrder,s,GE_SquadCommandIssued,{id=Entity_GetID(entity)})
+end
+function N.Mod(entity,name,value,usage,application,target)
+
+    local m=Modifier_Create(application or MAT_Entity,name,usage or MUT_Multiplication,false,value,target or '')
+    return Modifier_ApplyToEntity(m,entity,0)
+end
+function N.RemoveMods(list)
+
+    if list then for _,m in ipairs(list) do Modifier_Remove(m) end end
+end
+function N.ReplaceMod(record,field,entity,name,value,usage,application,target)
+
+    if record[field..'Value']==value then return end
+    if record[field] then Modifier_Remove(record[field]) end
+    record[field]=nil;record[field..'Value']=value
+    if usage==MUT_Addition and value==0 or usage~=MUT_Addition and value==1 then return end
+    record[field]=N.Mod(entity,name,value,usage,application,target);record[field..'Value']=value
+end
+function N.Health(record,entity,maximum,hp)
+
+    if maximum<=0 then return end
+    local fraction=hp and hp/maximum or Entity_GetHealthPercentage(entity)
+    if record.healthMod then Modifier_Remove(record.healthMod);record.healthMod=nil end
+    local base=Entity_GetHealthMax(entity)
+    if math.abs(maximum-base)>0.0001 then record.healthMod=N.Mod(entity,'health_maximum_modifier',maximum-base,MUT_Addition) end
+    N.SetHealth(entity,math.max(0,math.min(1,fraction)))
+end
+function N.Spawn(key,player,position,receipt)
+
+    local r=N.Get(key);local squad=Squad_CreateAndSpawnToward(r.bp,player,0,N.Position(position),N.Around(position,0,1))
+    assert(squad~=nil and squad~=0,'Failed to spawn '..key)
+    if receipt then receipt.squad=squad end
+    local entity=Squad_GetFirstEntity(squad)
+    if receipt and entity and entity~=0 then receipt.id=Entity_GetID(entity);receipt.entity=entity end
+    local body=N.Get(r.entity)
+    assert(entity and entity~=0 and Entity_IsValid(Entity_GetID(entity)),'Spawn has no valid first entity: '..key)
+    -- Validate both halves of the spawn; the entity owns visuals/stats and the
+    -- squad owns the construction menu. Official chatcheats converts both.
+    if not N.SameBP(Entity_GetBlueprint(entity),body.bp) then Entity_ConvertBlueprint(entity,body.bp) end
+    if not N.SameBP(Squad_GetBlueprint(squad),r.bp) then Squad_ConvertBlueprint(squad,r.bp) end
+    assert(N.SameBP(Entity_GetBlueprint(entity),body.bp),'Wrong entity after spawning '..key)
+    assert(N.SameBP(Squad_GetBlueprint(squad),r.bp),'Wrong squad after spawning '..key)
+    return entity
+end
+
+function N.RetireActor(id)
+    local entity=N.Entity(id)
+    if not entity then N.retirements[id]=nil;return end
+    if N.retirements[id]=='submitted' then return end
+    local submitted=pcall(N.DestroySingleActor,entity)
+    N.retirements[id]=submitted and 'submitted' or 'retry'
+end
+
+function N.DiscardSpawn(receipt)
+    if receipt.id then
+        N.births[receipt.id]=nil
+        N.RetireActor(receipt.id)
+    elseif receipt.squad then
+        pcall(Squad_Destroy,receipt.squad)
+    end
+end
+function N.Passable(player,position,anchor)
+
+    if not position then return end
+    local pos=N.Position(position)
+    local probe=anchor
+    if not (probe and probe~=0 and Entity_IsValid(Entity_GetID(probe))
+        and Entity_IsAlive(probe) and not Entity_IsInHold(probe) and not Entity_IsBuilding(probe)
+        and not Entity_IsOfType(probe,'animal_corpse')) then
+        probe=nil
+        for _,index in ipairs(N.Keys(N.players)) do
+            local p=N.players[index]
+            if p.id==player then
+                for _,hid in ipairs(N.Keys(p.horses.horses)) do
+                    local he=N.Entity(p.horses.horses[hid].nativeID)
+                    if he and Entity_IsAlive(he) and not Entity_IsInHold(he) and not Entity_IsOfType(he,'animal_corpse') then probe=he;break end
+                end
+                if not probe then
+                    for _,rid in ipairs(N.Keys(p.horses.riders)) do
+                        local re=N.Entity(rid)
+                        if re and Entity_IsAlive(re) and not Entity_IsInHold(re) and not Entity_IsOfType(re,'animal_corpse') then probe=re;break end
+                    end
+                end
+                break
+            end
+        end
+    end
+    if probe then
+        local ok,safe=pcall(World_GetSpawnablePosition,pos,probe)
+        if ok then return safe end
+        return
+    end
+    return pos
+end
+function N.SnapPassable(entity,desired,offsetZ)
+
+    if not entity or entity==0 or not World_GetSpawnablePosition then return end
+    local squad=Entity_GetSquad(entity)
+    if not squad or squad==0 then return end
+    local target=N.Position(desired or Entity_GetPosition(entity))
+    local safe=World_GetSpawnablePosition(target,entity)
+    if safe and offsetZ then
+        safe=World_GetSpawnablePosition(N.Around(safe,0,offsetZ),entity) or safe
+    end
+    if safe and N.Distance(safe,Entity_GetPosition(entity))>0.05 then
+        Squad_SetPosition(squad,safe,N.Around(safe,0,1))
+    end
+end
+function N.DestroySingleActor(entity)
+
+    if not entity or entity==0 then return end
+    local id=Entity_GetID(entity)
+    if not Entity_IsValid(id) then return end
+    local s=Entity_GetSquad(entity)
+    if s and s~=0 and Squad_Count(s)==1 then
+        local primary=Squad_GetFirstEntity(s)
+        if primary and primary~=0 and Entity_GetID(primary)==id then
+            Squad_Destroy(s);return
+        end
+    end
+    Entity_Destroy(entity)
+end
+local horseSelectionLocks={}
+
+function N.LockHorseSelection(id,locked,restore)
+    if not id then return end
+    local tracked=N.entities[id]
+    local e=N.Entity(id)
+    locked=locked and e and tracked and Game_GetLocalPlayer()==tracked.player.id and N.Owner(e)==tracked.player.id
+    if not locked and not horseSelectionLocks[id] and not restore then return end
+    if not e or not Entity_IsAlive(e) then horseSelectionLocks[id]=nil;return end
+    local squad=Entity_GetSquad(e)
+    if not squad or squad==0 then return end
+    if restore and (not tracked or Game_GetLocalPlayer()~=tracked.player.id) then return end
+    if not restore and horseSelectionLocks[id]==squad and locked then return end
+    if locked and Misc_IsSquadSelected(squad) then Misc_SelectSquad(squad,false) end
+    -- Horses use squad_select. This is owner-side UI state only.
+    Misc_SetSquadSelectable(squad,not locked)
+    horseSelectionLocks[id]=locked and squad or nil
+end
+
+function N.ReleaseHorseAttachments(p,h,id,detachEvents)
+
+    local tracked=id and N.entities[id]
+    N.LockHorseSelection(id,false)
+    if tracked and tracked.blocks then N.RemoveMods(tracked.blocks);tracked.blocks=nil end
+    if h and h.healthMod then Modifier_Remove(h.healthMod);h.healthMod=nil end
+    local owner=p or tracked and tracked.player
+    if id and owner and owner.yamUnits and owner.yamUnits[id] then
+        Modifier_Remove(owner.yamUnits[id]);owner.yamUnits[id]=nil
+    end
+    if id and N.recipients and N.recipients[id] then
+        N.ClearEffectModifiers(N.recipients[id]);N.recipients[id]=nil
+    end
+    if detachEvents and id then
+        local e=N.Entity(id);local s=e and Entity_GetSquad(e)
+        if s and s~=0 then
+            Rule_RemoveSquadEvent(ChagataiNative_OnHorseOrder,s)
+            Rule_RemoveSquadEvent(ChagataiNative_OnHorseAbility,s)
+        end
+    end
+    if id then N.pendingDeaths[id]=nil end
+end
+function N.ReleaseRiderAttachments(p,r,id,detachEvents)
+
+    local tracked=id and N.entities[id]
+    if tracked and tracked.blocks then N.RemoveMods(tracked.blocks);tracked.blocks=nil end
+    if r then
+        if r.healthMod then Modifier_Remove(r.healthMod);r.healthMod=nil end
+        if r.chargeRecharge then Modifier_Remove(r.chargeRecharge);r.chargeRecharge=nil end
+    end
+    local owner=p or tracked and tracked.player
+    if id and owner and owner.yamUnits and owner.yamUnits[id] then
+        Modifier_Remove(owner.yamUnits[id]);owner.yamUnits[id]=nil
+    end
+    if id and N.recipients and N.recipients[id] then
+        N.ClearEffectModifiers(N.recipients[id]);N.recipients[id]=nil
+    end
+    if detachEvents and id then
+        local e=N.Entity(id);local s=e and Entity_GetSquad(e)
+        if e then Rule_RemoveEntityEvent(ChagataiNative_OnAbility,e) end
+        if s and s~=0 then Rule_RemoveSquadEvent(ChagataiNative_OnAbility,s) end
+    end
+end
+function N.Friendly(a,b)
+ return a==b or Player_ObserveRelationship(a,b)==R_ALLY end
+function N.Functioning(entity)
+
+    if not Entity_IsAlive(entity) or Entity_IsUnderConstruction(entity) or Entity_GetHealth(entity)<=0 then return false end
+    local record=N.Record(entity)
+    if record and record.age and record.role then return Entity_GetStateModelBool(entity,'landmark_active') end
+    return true
+end
+function N.Pay(p,amount)
+
+    if Player_GetResource(p,RT_Gold)<amount then return false end
+    Player_SetResource(p,RT_Gold,Player_GetResource(p,RT_Gold)-amount);return true
+end
+function N.Gold(p,amount,reason)
+    local total=Player_GetResource(p,RT_Gold)+amount
+    if reason then Player_SetResourceInternal(p,RT_Gold,total,reason)
+    else Player_SetResource(p,RT_Gold,total) end
+end
+function N.Profile(p,imported,iliBirth)
+
+    return ChagataiHorse.Profile((iliBirth or p.iliActive) and p.ili.mode or 'baseline',imported,p.almaliq)
+end
+function N.NormalizeHorseBlueprint(h,entity)
+
+    local squad=Entity_GetSquad(entity)
+    if not squad or squad==0 then return false end
+    local canonical=N.Get('sbps/races/chagatai/animals/ck_horse')
+    local body=N.Get(canonical.entity)
+    local sameEntity=N.SameBP(Entity_GetBlueprint(entity),body.bp)
+    local sameSquad=N.SameBP(Squad_GetBlueprint(squad),canonical.bp)
+    if sameEntity and sameSquad then
+        h.pendingCanonicalBP=nil
+        if N.entities[h.nativeID] then N.entities[h.nativeID].record=body end
+        return true
+    end
+    if Entity_IsInHold(entity) or not N.CommandsIdle(squad) or not N.CommandsSettled(squad) then
+        h.pendingCanonicalBP=true
+        return false
+    end
+    if not sameEntity then Entity_ConvertBlueprint(entity,body.bp) end
+    if not sameSquad then Squad_ConvertBlueprint(squad,canonical.bp) end
+    h.pendingCanonicalBP=nil
+    if N.entities[h.nativeID] then N.entities[h.nativeID].record=body end
+    return true
+end
+function N.NewHorse(p,entity,profile,hp,logicalID)
+
+    local squad=Entity_GetSquad(entity)
+    assert(squad and squad~=0 and N.Owner(entity)==p.id,'Horse requires an owned squad')
+    N.births[Entity_GetID(entity)]=nil
+    local id=logicalID
+    if not id then N.serial=N.serial+1;id=-N.serial end
+    local h=p.horses.horses[id]
+    if not h then h=ChagataiHorse.AddHorse(p.horses,id,profile,hp or ChagataiHorse.Maximum(profile,p.horses.horseTier),Entity_GetPosition(entity)) end
+    h.nativeID=Entity_GetID(entity);h.alive=true;h.position=Entity_GetPosition(entity)
+    -- Imports and Ili have separate production records, but every living Horse
+    -- joins one selection blueprint as soon as its native commands are settled.
+    local canonical=N.Get('sbps/races/chagatai/animals/ck_horse')
+    local currentRecord=N.Lookup(Entity_GetBlueprint(entity),'ebps') or N.Get(canonical.entity)
+    N.entities[h.nativeID]={player=p,horseID=id,record=currentRecord}
+    N.NormalizeHorseBlueprint(h,entity)
+    N.Health(h,entity,h.maximum,h.hp)
+    -- Keep a lethal hit observable until the damage callback classifies an
+    -- owner butcher hit versus ordinary enemy damage (official min-cap API).
+    Entity_SetInvulnerableMinCap(entity,0.00001,-1)
+    Entity_SetRemainingResourceDepositAmount(entity,h.profile.food)
+    if squad and squad~=0 and not Squad_HasAbility(squad,N.Ability('mint')) then
+        Squad_AddAbility(squad,N.Ability('mint'))
+    end
+    Rule_AddSquadEvent(ChagataiNative_OnHorseOrder,squad,GE_SquadCommandIssued,{id=h.nativeID})
+    Rule_AddSquadEvent(ChagataiNative_OnHorseAbility,squad,GE_AbilityExecuted,{id=h.nativeID})
+    return h
+end
+function N.RetireHorse(h,expectedHold)
+
+    local id=h.nativeID;local e=N.Entity(id)
+    if not e or not Entity_IsAlive(e) or Entity_IsOfType(e,'animal_corpse') then return false end
+    local s=Entity_GetSquad(e);local mint=N.Ability('mint')
+    -- Retire the complete private one-body livestock squad, as official
+    -- Steppe_DeleteSheep does. Never destroy a helper or a multi-body squad.
+    if not s or s==0 or Squad_Count(s)~=1 then return false end
+    local primary=Squad_GetFirstEntity(s)
+    if not primary or primary==0 or Entity_GetID(primary)~=id then return false end
+    if expectedHold then
+        -- A held squad may retain its production rally/destination flags.
+        -- Confirm native containment instead of requiring loose-unit idleness.
+        -- Active ability teardown still owns the actor until it finishes.
+        if not Entity_IsInHold(e) or not Squad_IsInHoldEntity(s)
+            or N.Owner(e)~=N.Owner(expectedHold) or not N.CommandsIdle(s) then return false end
+        local hold=Squad_GetHoldEntity(s)
+        if not hold or hold==0 or Entity_GetID(hold)~=Entity_GetID(expectedHold) then return false end
+    elseif Entity_IsInHold(e) or not N.HorseSettled(s) then return false end
+    if s and s~=0 then
+        if Squad_HasAbility(s,mint) and Squad_IsAbilityActive_CS(s,mint) then return false end
+
+        Rule_RemoveSquadEvent(ChagataiNative_OnHorseOrder,s)
+        Rule_RemoveSquadEvent(ChagataiNative_OnHorseAbility,s)
+        -- Leave Mint attached until Squad_Destroy owns native ability cleanup.
+        -- Isolate explicit idle-ability teardown from the other retirement steps.
+        -- Commands were already drained before retirement. Do not issue Stop
+        -- and destroy its recipient in the same update.
+    end
+    local tracked=N.entities[id];local p=tracked and tracked.player
+    if tracked then tracked.consuming=true end
+    N.ReleaseHorseAttachments(p,h,id,false)
+    N.pendingCarcasses[id]=nil
+    local submitted=pcall(Squad_Destroy,s)
+    if not submitted and N.Entity(id) then
+        if tracked then tracked.consuming=nil end
+        N.Health(h,e,h.maximum,h.hp)
+        Rule_AddSquadEvent(ChagataiNative_OnHorseOrder,s,GE_SquadCommandIssued,{id=id})
+        Rule_AddSquadEvent(ChagataiNative_OnHorseAbility,s,GE_AbilityExecuted,{id=id})
+        return false
+    end
+    -- Squad_Destroy has no success return value. The old entity can still
+    -- resolve after the call, so suppress adoption while native teardown finishes.
+    if submitted then N.retirements[id]='submitted' end
+    N.entities[id]=nil;N.births[id]=nil;h.nativeID=nil
+    N.lastAbilityDispatched[id]=nil
+
+    return true
+end
+
+function N.Tracked(entity)
+
+    if not entity or entity==0 or not Entity_IsValid(Entity_GetID(entity)) then return nil end
+    local id=Entity_GetID(entity);return N.entities[id]
+end
+function N.Notice(p,text)
+
+    N.Log('CHAGATAI '..tostring(p.index)..' '..text)
+end
+
+-- Standard Mongol army offsets, relative to its packed capital at (1, 6).
+-- Use them when a start supplies fewer native actors than a full opening.
+local function startingSlots(capital,observed,offsets)
+    if #observed>=#offsets then return observed end
+    local slots={}
+    for i,offset in ipairs(offsets) do
+        slots[i]=N.Around(capital,offset[1]-1,offset[2]-6)
+    end
+    return slots
+end
+
+-- Preflight before mutating starting assets. A packed squad cannot become a
+-- real building through Entity_ConvertBlueprint; create a native structure and
+-- transfer the official Conquest record before destroying the original start.
+function ChagataiNative_Initialize(player)
+
+    if N.players[player.index] then return false,'Chagatai player already initialized' end
+    if N.precacheErrors and #N.precacheErrors>0 then return false,N.precacheErrors[1] end
+    if not N.resolved then N.Resolve();N.resolved=true end
+    local ids,preserved={},{};local capital
+    local villagers,herd,khan={},{},{}
+    for _,id in ipairs(N.Entities(player.id)) do
+        local e=N.Entity(id)
+        if e then
+            -- Standard Regicide initializes its Monarch before the opening
+            -- choice resolves. Keep its entire squad and official tracking.
+            local squad=Entity_GetSquad(e)
+            local primary=squad and squad~=0 and Squad_GetFirstEntity(squad)
+            if Entity_IsOfType(e,'King') or primary and primary~=0 and Entity_IsOfType(primary,'King') then
+                if squad and squad~=0 then preserved[Squad_GetID(squad)]=true end
+            else
+                ids[#ids+1]=id
+                if Entity_IsAlive(e) then
+                    if not capital and Entity_IsOfType(e,'town_center_capital') then capital=e
+                    elseif Entity_IsOfType(e,'villager') then villagers[#villagers+1]=Entity_GetPosition(e)
+                    elseif Entity_IsOfType(e,'animal_herdable') then herd[#herd+1]=Entity_GetPosition(e)
+                    elseif #khan==0 and Entity_IsOfType(e,'khan') then khan[1]=Entity_GetPosition(e) end
+                end
+            end
+        end
+    end
+    if not capital then return false,'Starting capital not found' end
+    local pos=Entity_GetPosition(capital)
+    local workerOffsets={{-2.2,0},{-3.3,-2},{-1,-2},{-2,-4},{0,-4},{-1,-6}}
+    local herdOffsets={{0,1.5},{0.4,1.8},{0.8,2.1},{0.8,2.4},{1.2,2.4}}
+    local workerSlots=startingSlots(pos,villagers,workerOffsets)
+    local scoutSlot=startingSlots(pos,khan,{{6,-4}})[1]
+    local horseSlots=startingSlots(pos,herd,herdOffsets)
+    local oldCapitalID=Entity_GetID(capital)
+    local p={id=player.id,index=player.index,horses=ChagataiHorse.New(player.index),economy=ChagataiEconomy.New(N.Now()),
+        production=ChagataiProduction.New(),buildings={},research={},tiers={},workers={},last=N.Now(),ili=ChagataiEffects.NewIli(),
+        completed={},population={},almaliq=false,qarshi=false,iliActive=false}
+    local originals=SGroup_Create('ChagataiStartingUnits')
+    local squads=Player_GetSquads(p.id)
+    for index=1,SGroup_Count(squads) do
+        local squad=SGroup_GetSquadAt(squads,index)
+        if squad and squad~=0 and not preserved[Squad_GetID(squad)] then SGroup_Add(originals,squad) end
+    end
+    local staged,undo={},{}
+    local function stage(key,stagingPosition,desired,horse)
+        local receipt={startPosition=desired,horse=horse};staged[#staged+1]=receipt
+        local entity=N.Spawn(key,p.id,stagingPosition,receipt)
+        N.SnapPassable(entity,stagingPosition)
+        if horse then receipt.startRecord=N.NewHorse(p,entity,ChagataiHorse.Profile('baseline',false,false))
+        else
+            local rider=N.RegisterRider(p,entity,N.Record(entity))
+            assert(rider,'Starting rider registration failed')
+            receipt.startRecord=rider
+            if rider.pair=='villager' then p.workers[rider.id]=true end
+        end
+    end
+    local function change(get,set,key,value)
+        local previous=get(p.id,key)
+        undo[#undo+1]={set=set,key=key,value=previous}
+        set(p.id,key,value)
+    end
+    local ok,failure=pcall(function()
+        local horseCap=ChagataiConfig.horse.nativeCap
+        local oldVehicleMax=Player_GetMaxPopulationCap(p.id,CT_Vehicle)
+        local vehicleMax=Modifier_Create(MAT_Player,'max_vehicle_cap_player_modifier',MUT_Addition,false,horseCap-oldVehicleMax,'')
+        p.population[#p.population+1]=Modifier_ApplyToPlayer(vehicleMax,p.id,0)
+        undo[#undo+1]={set=Player_SetMaxPopulation,key=CT_Vehicle,value=oldVehicleMax}
+        Player_SetMaxPopulation(p.id,CT_Vehicle,horseCap)
+        local cap=N.Get('ebps/races/chagatai/buildings/ck_building_town_center_capital')
+        capital=Entity_Create(cap.bp,p.id,N.Position(pos),true)
+        assert(capital and capital~=0,'Private capital creation failed')
+        staged[#staged+1]={id=Entity_GetID(capital)}
+        -- Stage outside the capital footprint until the opening swap commits.
+        for i,offset in ipairs(workerOffsets) do
+            stage('sbps/races/chagatai/ck_unit_villager',N.Around(pos,offset[1],offset[2]-9),workerSlots[i])
+        end
+        stage(N.Unit('scout','foot',1,'sbps').key,N.Around(pos,-4,10),scoutSlot)
+        for i,offset in ipairs(herdOffsets) do
+            local stagingPosition=N.Around(pos,3+offset[1]*4,-17+offset[2]*3)
+            stage('sbps/races/chagatai/animals/ck_horse',stagingPosition,horseSlots[i],true)
+        end
+
+        local housingOffset=Modifier_Create(MAT_Player,'personnel_cap_player_modifier',MUT_Addition,false,-200,'')
+        p.population[#p.population+1]=Modifier_ApplyToPlayer(housingOffset,p.id,0)
+        for _,key in ipairs({'khan_spawning_enabled','district_spec_outpost_archery_attack_speed_mon',
+            'district_spec_khanless_raiding_mon','district_spec_faster_raiding_mon'}) do
+            change(Player_GetStateModelBool,Player_SetStateModelBool,key,false)
+        end
+        change(Player_GetStateModelBool,Player_SetStateModelBool,'first_khan_spawned',true)
+        for _,key in ipairs({'raid_bounty_food_mon','raid_bounty_gold_mon','raid_bounty_stone_mon'}) do
+            change(Player_GetStateModelFloat,Player_SetStateModelFloat,key,0)
+        end
+        change(Player_GetStateModelFloat,Player_SetStateModelFloat,'ortoo_speed_bonus_mon',1)
+        if not ChagataiModeState or ChagataiModeState.standardResources then
+            local start=ChagataiConfig.start
+            for _,r in ipairs({{RT_Food,start.food},{RT_Wood,start.wood},{RT_Gold,start.gold},{RT_Stone,start.stone}}) do
+                change(Player_GetResource,Player_SetResource,r[1],r[2])
+            end
+        end
+        p.spawnRegistered=true
+        Rule_AddPlayerEvent(ChagataiNative_OnSpawn,p.id,GE_EntitySpawn,{playerIndex=p.index})
+        if ChagataiConfig.queueCancellationProbe then
+            p.queueProbeRegistered=true
+            Rule_AddPlayerEvent(ChagataiNative_OnQueueCancellationProbe,p.id,GE_BuildItemCancelled,{scope='player',playerIndex=p.index})
+        end
+        Entity_Spawn(capital)
+        assert(Entity_IsBuilding(capital),'Private capital did not spawn as a building')
+        N.RegisterBuilding(p,capital,cap)
+        N.SetHealth(capital,1)
+        Entity_ForceConstruct(capital)
+    end)
+    if not ok then
+        N.ReleasePlayer(p)
+        for i=#undo,1,-1 do local entry=undo[i];pcall(entry.set,p.id,entry.key,entry.value) end
+        for i=#staged,1,-1 do N.DiscardSpawn(staged[i]) end
+        SGroup_Destroy(originals)
+        return false,tostring(failure)
+    end
+    N.players[p.index]=p
+    -- Conquest_OnInit has already tracked the packed capital. Keep exactly one
+    -- active capital, with the same record shape as official conquest.scar.
+    if player.landmarks then
+        local entry=player.landmarks[oldCapitalID]
+        if entry then
+            player.landmarks[oldCapitalID]=nil
+            entry.entity=capital;entry.last_health=Entity_GetHealth(capital)
+            entry.damage_timer=string.format('conquest.landmark_damage_timer_%d',Entity_GetID(capital))
+            entry.landmark_active=Entity_GetStateModelBool(capital,'landmark_active')
+            player.landmarks[Entity_GetID(capital)]=entry
+        end
+    end
+    pcall(SGroup_DestroyAllSquads,originals);SGroup_Destroy(originals)
+    -- A starting Ger and herdables can be entity-only, so squad cleanup alone
+    -- is insufficient. This is confined to replacing this player's start.
+    for _,id in ipairs(ids) do N.RetireActor(id) end
+    -- With the Mongol actors gone, use their slots where the unpacked capital
+    -- permits it and let the engine resolve blocked spots for each unit.
+    for _,receipt in ipairs(staged) do
+        local entity=receipt.startPosition and N.Entity(receipt.id)
+        if entity then
+            -- Shift the starting herd 1.5 tiles (6 m) toward the bottom after
+            -- resolving the original slots around the unpacked capital.
+            pcall(N.SnapPassable,entity,receipt.startPosition,receipt.horse and -6 or nil)
+            receipt.startRecord.position=Entity_GetPosition(entity)
+        end
+    end
+    if not N.running then
+        N.running=true;Rule_AddInterval(ChagataiNative_Tick,0.25)
+        Rule_AddGlobalEvent(ChagataiNative_OnKilled,GE_EntityKilled)
+        Rule_AddGlobalEvent(ChagataiNative_OnDamage,GE_DamageReceived)
+        Rule_AddGlobalEvent(ChagataiNative_OnConstruction,GE_ConstructionComplete)
+        Rule_AddGlobalEvent(ChagataiNative_OnProductionComplete,GE_BuildItemComplete)
+        if ChagataiConfig.queueCancellationProbe then
+            Rule_AddGlobalEvent(ChagataiNative_OnQueueCancellationProbe,GE_BuildItemCancelled,{scope='global'})
+            N.ProbeQueueCancellation(nil,{scope='startup',revision=ChagataiConfig.revision})
+        end
+        Rule_AddGlobalEvent(ChagataiNative_OnPlayerKilled,GE_PlayerKilled)
+        Rule_AddGlobalEvent(ChagataiNative_OnAbilityGlobal,GE_AbilityExecuted)
+    end
+    N.Notice(p,'initialized revision='..ChagataiConfig.revision);return true
+end
+
+function N.IsPlaying(p)
+    if not p or p.released or not Player_IsAlive(p.id) then return false end
+    local info=Core_GetPlayersTableEntry(p.id)
+    return info~=nil and not info.isEliminated
+end
+
+function N.ReleasePlayer(p)
+    if p.released then return end
+    p.released=true
+    p.pendingMounts=nil
+    if p.spawnRegistered then Rule_RemovePlayerEvent(ChagataiNative_OnSpawn,p.id) end
+    if p.queueProbeRegistered then Rule_RemovePlayerEvent(ChagataiNative_OnQueueCancellationProbe,p.id) end
+    N.RemoveMods(p.population);p.population={}
+    N.RemoveMods(p.livestockGatherMods);p.livestockGatherMods=nil
+    if p.importCost then Modifier_Remove(p.importCost);p.importCost=nil end
+    for _,id in ipairs(N.Keys(p.yamUnits or {})) do Modifier_Remove(p.yamUnits[id]) end
+    p.yamUnits={}
+    for _,id in ipairs(N.Keys(p.buildings)) do
+        local b=p.buildings[id]
+        local entity=N.Entity(id)
+        if entity then
+            Rule_RemoveEntityEvent(ChagataiNative_OnBuildingAbility,entity)
+            if b.queueProbeRegistered then Rule_RemoveEntityEvent(ChagataiNative_OnQueueCancellationProbe,entity) end
+        end
+        for _,field in ipairs({'training','horseRate','pastureInfluence'}) do
+            if b[field] then Modifier_Remove(b[field]);b[field]=nil end
+        end
+        if b.court then b.court.retired=true;b.court.activations={} end
+    end
+    for _,id in ipairs(N.Keys(p.horses.riders)) do
+        N.ReleaseRiderAttachments(p,p.horses.riders[id],id,true)
+    end
+    for _,id in ipairs(N.Keys(p.horses.horses)) do
+        local h=p.horses.horses[id]
+        N.ReleaseHorseAttachments(p,h,h.nativeID,true)
+    end
+    for _,id in ipairs(N.Keys(N.entities)) do
+        local tracked=N.entities[id]
+        if tracked.player==p then
+            N.entities[id]=nil;N.births[id]=nil;N.pendingCleanup[id]=nil
+            if N.corpses[id] and N.corpses[id].pending then N.corpses[id]=nil end
+            N.pendingCarcasses[id]=nil
+            if N.lastAbilityDispatched then N.lastAbilityDispatched[id]=nil end
+        end
+    end
+    N.players[p.index]=nil
+end
+
+function N.PrunePlayers()
+    for _,index in ipairs(N.Keys(N.players)) do
+        local p=N.players[index]
+        if not N.IsPlaying(p) then
+            -- Ownership may have changed before the defeated player's last tick.
+            for _,id in ipairs(N.Keys(p.horses.riders)) do
+                local entity=N.Entity(id)
+                local owner=N.Owner(entity)
+                local info=owner and Core_GetPlayersTableEntry(owner)
+                if info and owner~=p.id and not info.isEliminated and Player_IsAlive(owner) and Entity_IsAlive(entity) then
+                    N.AdoptRider(p,p.horses.riders[id],entity,N.Now())
+                end
+            end
+            N.ReleasePlayer(p)
+        end
+    end
+end
+
+function ChagataiNative_OnPlayerKilled(context)
+    if N.ended then return end
+    N.PrunePlayers()
+    if not next(N.players) then ChagataiNative_Stop() end
+end
+
+function ChagataiNative_Stop()
+    if N.ended then return end
+    N.ended=true
+    Rule_Remove(ChagataiNative_Tick)
+    Rule_RemoveGlobalEvent(ChagataiNative_OnKilled)
+    Rule_RemoveGlobalEvent(ChagataiNative_OnDamage)
+    Rule_RemoveGlobalEvent(ChagataiNative_OnConstruction)
+    Rule_RemoveGlobalEvent(ChagataiNative_OnProductionComplete)
+    Rule_RemoveGlobalEvent(ChagataiNative_OnQueueCancellationProbe)
+    Rule_RemoveGlobalEvent(ChagataiNative_OnPlayerKilled)
+    Rule_RemoveGlobalEvent(ChagataiNative_OnAbilityGlobal)
+    for _,index in ipairs(N.Keys(N.players)) do N.ReleasePlayer(N.players[index]) end
+    for _,id in ipairs(N.Keys(N.recipients)) do N.ClearEffectModifiers(N.recipients[id]) end
+    N.recipients={};N.births={};N.courts={}
+    N.pendingDeaths={};N.pendingCarcasses={};N.pendingBuildingActions={};N.pendingCleanup={}
+    if N.RemoveHorseHUD then pcall(N.RemoveHorseHUD) end
+end
